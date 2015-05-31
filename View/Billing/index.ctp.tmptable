@@ -1,0 +1,192 @@
+<?php
+//debug($billingcycle);
+?>
+<div class="Billings index">
+  <div class="date_filter">
+   
+		<?php echo $this->Form->create('Billing',array('controller'=>'Billing','action'=>'index'));
+			if(isset($end_filter) && $end_filter != ''){
+  			echo $this->Form->input('Billing.end_date', array('type'=>'text', 'label' => false,'placeholder' => 'End Date', 'class' => 'datepicker','value'=>$end_filter));
+			} else {
+		    echo $this->Form->input('Billing.end_date', array('type'=>'text', 'label' => false,'placeholder' => 'End Date', 'class' => 'datepicker','value'=>date('m/t/Y')));
+		  }
+			echo '<span> To: </span>';
+			if(isset($start_filter) && $start_filter != ''){
+  			echo $this->Form->input('Billing.start_date', array('type'=>'text', 'label' => false,'placeholder' => 'Start Date', 'class' => 'datepicker','value'=>$start_filter));
+			} else {
+  		  echo $this->Form->input('Billing.start_date', array('type'=>'text', 'label' => false,'placeholder' => 'Start Date', 'class' => 'datepicker','value'=>date('m/01/Y')));	
+			}
+			echo '<span> From: </span>';
+      echo $this->Html->image('cal_icon.png', array('alt' => '','class'=>'cal_icon'));     
+			echo $this->Form->end();
+		?>
+		</div><!-- .date_filter -->
+	<div class="page_title">
+		<h1><?php echo __('Payments Overview');?></h1>
+	</div>
+	<div class="clear"></div>
+	<?php $late_count ='';
+	if(isset($status) && $status == 'late') { $allClass = ""; $lateClass="active"; $paidClass=""; $unpaidClass=""; $late_count = $this->Paginator->counter(array(
+	'format' => __(' ({:count})')));
+}
+	else if(isset($status) && $status == 'paid') { $allClass = ""; $lateClass=""; $unpaidClass=""; $paidClass="active"; }
+	else if(isset($status) && $status == 'unpaid') { $allClass = ""; $lateClass=""; $unpaidClass="active"; $paidClass=""; }
+	else { $allClass = "active"; $lateClass=""; $paidClass=""; $unpaidClass="";}
+	?>
+	<div class="block_title messages_block_title">
+  <span style="margin-right:20px;"><?php if(isset($curProp['name']) && $curProp['name'] !='') echo $curProp['name']; else echo 'Payments History'; ?></span>
+  <?php echo $this->Html->link(h('All'), 
+                        array('controller' => 'Billing', 'action' => 'index', 'all', 'full_base' => true),
+                        array('class'=>$allClass)
+                    );?>
+  <?php echo $this->Html->link(h('Late'.$late_count), 
+                        array('controller' => 'Billing', 'action' => 'index', 'late', 'full_base' => true),
+                        array('class'=>$lateClass)
+                    );?>
+  <?php echo $this->Html->link(h('Paid'), 
+                        array('controller' => 'Billing', 'action' => 'index', 'paid', 'full_base' => true),
+                        array('class'=>$paidClass)
+                    );?>
+  <?php echo $this->Html->link(h('Unpaid'), 
+                        array('controller' => 'Billing', 'action' => 'index', 'unpaid', 'full_base' => true),
+                        array('class'=>$unpaidClass)
+                    );?>
+  </div>
+<div class='table messages'>
+	<table class="main payment_tab table-striped  subheader" cellpadding="0" cellspacing="0">
+	<tr>
+			<th><?php echo $this->Paginator->sort('Unit.number','Unit');?> <span class="caret"></span></th>
+		  <th><?php echo $this->Paginator->sort("$tblname.billing_end",'Payment Due');?> <span class="caret"></span></th>
+			<th><?php echo $this->Paginator->sort("$tblname.rent_due",'Total Due');?> <span class="caret"></span></th>
+			<th><?php echo $this->Paginator->sort("$tblname.status",'Payment Status');?> <span class="caret"></span></th>
+			<th width="19%"><?php echo $this->Paginator->sort('balance','Outstanding Balance');?> <span class="caret"></span></th>
+			<th><?php echo $this->Paginator->sort("$tblname.type",'Billing Frequency');?> <span class="caret"></span></th>
+			<th>&nbsp;</th>
+	</tr>
+	<?php if(isset($billingcycle) && count($billingcycle) > 0):
+	foreach ($billingcycle as $Billing): ?>
+	<?php 
+            $noclickclass="";
+            //if ($Billing[$tblname]['src'] == "projected") { $noclickclass = "no_click"; }
+            $total_paid = 0;
+  	    foreach($Billing['Payment'] as $payment):
+        $total_paid = $total_paid + floatval($payment['amount']);
+        endforeach; ?>
+	<tr class="unit_number_tr <?php echo $noclickclass; ?>">
+	  <td class="unit_number">
+        <div class="btn-group">
+          <a class="btn btn-unit dropdown-toggle unit-link" data-toggle="dropdown" href="#"><i class="icon-home icon-blue"></i>&nbsp;&nbsp; <?php echo $Billing['Unit']['number']; ?> &nbsp;&nbsp;<span class="caret caret_blue"></span></a>
+          <ul class="dropdown-menu unit_listings">
+            <li><a class="view_payment_details_click" href="#"><i class="icon-chevron-down"></i> View Details</a></li>
+            <li><a href="#late_fee_modal_<?php echo $Billing[$tblname]['id']; ?>"  role="button" data-toggle="modal"><i class="icon-time"></i> Assign a Late Fee</a></li>
+            <li><a href="#rent_reminder_modal_<?php echo $Billing[$tblname]['id']; ?>" role="button" data-toggle="modal"><i class="icon-bell"></i> Send Rent Reminder</a></li>
+            <li><a href="#manual_payment_modal_<?php echo $Billing[$tblname]['id']; ?>" role="button" data-toggle="modal"><i class="icon-warning-sign"></i> Manually Record Payment</a></li>
+          </ul>
+        </div>
+        <?php echo $this->element('late_fee',array('payment_id'=>$Billing[$tblname]['id'],'unit_id'=>$Billing['Unit']['id'])); ?>
+        <?php echo $this->element('payment_manual',array('payment_id'=>$Billing[$tblname]['id'],'unit_id'=>$Billing['Unit']['id'],'tenants'=>$Billing['Unit']['Tenant'])); ?>
+        <?php echo $this->element('rent_reminder',array('payment_id'=>$Billing[$tblname]['id'],'unit_number'=>$Billing['Unit']['number'],'tenants'=>$Billing['Unit']['Tenant'],'rent_due'=>$Billing[$tblname]['rent_due']-$total_paid,'billing_start'=>$Billing[$tblname]['billing_start'],'billing_end'=>$Billing[$tblname]['billing_end'],'rent_period'=>$Billing[$tblname]['rent_period'])); ?>
+    </td>
+		<td><?php echo $this->Time->format('M j, Y', $Billing[$tblname]['billing_end']) ?>&nbsp;</td>
+		<td><?php echo $this->Number->currency($Billing[$tblname]['rent_due'],'USD'); ?>&nbsp;</td>
+		<td class="<?php echo $Billing[$tblname]['status']; ?>"><?php if($Billing[$tblname]['status'] == "due") echo ucfirst ($Billing[$tblname]['status']) . ' Today'; else echo ucfirst ($Billing[$tblname]['status']); ?>&nbsp;</td>
+    <td class="outstanding_<?php echo $Billing[$tblname]['status']; ?>"><?php if($Billing[$tblname]['balance'] < 0) echo '$0.00'; else echo $this->Number->currency($Billing[$tblname]['balance']); ?>&nbsp;</td>
+		<td><?php if($Billing[$tblname]['type'] == 'Rent') echo $Billing['Unit']['Frequency']['type']; else echo h($Billing[$tblname]['type']); ?>&nbsp;</td>
+		<td class="td_downarrow"><?php echo $this->Html->image('downarrow.png', array('alt' => '')); ?></td>
+	</tr>
+	<tr class="payment_details"><td colspan="8">
+	  <table class="payments_quick_view">
+	    	<tr>
+	    	  <th>Payments</th>
+	    	  <th>From</th>
+	    	  <th>Amount</th>
+	    	  <th>Type</th>
+	    	  <th>Date</th>
+	    	  <th>Status</th>
+	    	</tr>
+  	    <?php $total_paid = 0;
+  	    foreach($Billing['Payment'] as $payment):
+  	    echo '<tr  class="no_click">';
+  	      echo '<td>&nbsp;</td>';
+  	      echo '<td>'. $payment['User']['first_name'] .' ' . $payment['User']['last_name'] . '</td>';
+  	      echo '<td class="good_payment">' . $this->Number->currency($payment['amount'],'USD',array('after'=>false)) . '</td>';
+  	      echo '<td>' . $payment['type'] . '</td>';
+  	      echo '<td>' . $this->Time->format('M j, Y', $payment['created']) . '</td>';
+  	      echo '<td>' . $payment['status'] . '</td>';
+  	    echo '</tr>';
+  	    $total_paid = $total_paid + floatval($payment['amount']);
+        endforeach; 
+        if($total_paid == 0):
+          echo '<tr class="no_click"><td colspan="5" style="text-align:center; color:#aaa; background:#f4f4f4;"><br>No Payments<br><br><br></td></tr>';
+        endif;
+        if($total_paid < $Billing[$tblname]['rent_due']):
+          echo '<tr  class="no_click"><td colspan="5" class="outstanding_balance">Unit '.$Billing['Unit']['number'].' has an outstanding balance of <span class="bad_payment">'. $this->Number->currency(floatval($Billing[$tblname]['rent_due'] - $total_paid),'USD').'</span></td></tr>';
+        else:
+          echo '<tr  class="no_click"><td colspan="5" class="outstanding_balance">Unit '.$Billing['Unit']['number'].' has an outstanding balance of <span class="good_payment">$0</span></td></tr>';
+        endif;
+        ?>
+	  </table>
+	  <br>
+          <?php
+              // Need to pass tmp table name to view payment
+          ?>
+	  <?php echo $this->Html->link(h('View Payment'), 
+	                        array('controller' => 'Billing', 'action' => 'view',$tmpModel,$Billing[$tmpModel]['id'], 'full_base' => true),
+	                        array('class'=>'btn btn-mini view_payment_btn')
+	                    );?>
+	</td></tr>
+<?php endforeach; 
+  else:
+		  echo '<tr><td colspan="8" class="no_rows">
+		  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Camada_1" x="0px" y="0px" width="80px" height="80px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
+        <path fill="#ddd" d="M100,23.375C100,19.854,97.146,17,93.625,17H6.375C2.854,17,0,19.854,0,23.375v52.25C0,79.146,2.854,82,6.375,82h87.25  c3.521,0,6.375-2.854,6.375-6.375V23.375z M6.438,21h87.187C94.769,21,96,22.231,96,23.375V29H4v-5.625C4,22.231,5.295,21,6.438,21z   M93.625,77H6.438C5.295,77,4,76.284,4,75.141V44h92v31.141C96,76.284,94.769,77,93.625,77z"></path>
+      </svg><br>
+		  Currently no payments to show.
+		  </td></tr>';
+		endif;
+?>
+	</table>
+  </div>
+	<p class="page_counter">
+	<?php
+	echo $this->Paginator->counter(array(
+	'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total')
+	));
+	?>	</p>
+
+	<div class="paging">
+	<?php
+		echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
+		echo $this->Paginator->numbers(array('separator' => ''));
+		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
+	?>
+	</div>
+</div>
+
+
+<script>
+  jQuery('table.main tr').not('.payment_details').not('.no_click').find('td').not('.unit_number').click(function(){
+    jQuery(this).parent().next().toggle();
+    jQuery(this).parent().toggleClass('details_open').find('td.td_downarrow').toggleClass('arrow_open');
+  });
+  jQuery('.view_payment_details_click').click(function(e){
+  	e.preventDefault();
+  	jQuery(this).closest('.unit_number_tr').next().slideToggle();
+  	jQuery(this).closest('.unit_number_tr').toggleClass('details_open').children('td.td_downarrow').toggleClass('arrow_open');
+  });
+  jQuery('#properties-list').click(function(e){
+  	//e.preventDefault();
+        $.blockUI({message: '<h2><?php echo $this->Html->image("busy.gif"); ?> &nbsp; Just a moment please.</h2>'});
+  });
+  jQuery(function(){
+  	jQuery('.datepicker').datepicker({
+        changeMonth: true,
+        changeYear: true,
+        onSelect: function(date) {
+            $.blockUI({message: '<h2><?php echo $this->Html->image("busy.gif"); ?> &nbsp; Just a moment please.</h2>'});
+            jQuery('#BillingIndexForm').submit();
+        }
+    });
+  });
+  
+</script>

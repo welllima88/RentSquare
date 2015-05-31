@@ -1,0 +1,546 @@
+@import 'main.less';
+
+
+/************************************************************************
+
+GENERAL
+
+************************************************************************/
+
+h2
+{
+	background-color: #c2c2c2;
+	.rounded();
+	font-weight: 100;
+	font-size: 30px;
+	line-height: 30px;
+	padding: 15px 20px 10px;
+	margin: 10px 0;
+}
+
+h3
+{
+	.rounded(8px, 8px, 8px, 8px);
+	background-color: #333;
+	color: #FFF;
+	font-weight: 200;
+	font-size: 22px;
+	line-height: 25px;
+	padding: 15px 20px 10px;
+	margin: 0 0 10px;
+}
+
+h4
+{
+	background-color: #C2C2C2;
+	color: #FFF;
+    .rounded(5px, 5px, 5px, 5px);
+    font-size: 16px;
+    font-weight: 200;
+    line-height: 2em;
+    margin: 10px 0;
+    padding-left: 3%;
+    width: 97%;
+
+}
+
+.widget
+{
+	margin: 10px 0;
+	padding-bottom: 20px;
+	.rounded;
+	.shadow();
+	h3
+	{
+		.rounded(8px, 8px, 0, 0);
+		font-size: 20px;
+		line-height: 25px;
+	}
+	input[type=text]
+	{
+		width: 253px;
+		margin-bottom: 10px;
+	}
+
+	.button
+	{
+		width: 117px;
+		padding: 6px 0 7px;
+		margin-right: 20px;
+	}
+	.widget-pad
+	{
+		padding: 17px 17px 0 17px;
+	}
+}
+
+.widget .half
+{
+	width: 40%;
+	padding: 0 5%;
+
+	&.left
+	{
+		border-right: 1px solid #c2c2c2;
+		margin-right: -1px;
+	}
+}
+
+table
+{
+	width: 100%;
+	text-align: left;
+	td, th
+	{
+		padding: 5px 10px;
+	}
+	th
+	{
+		font-weight: bold;
+	}
+}
+
+.two_thirds
+{
+	float: left;
+	width: 66%;
+	margin-right: 2%;
+}
+
+.one_third
+{
+	float: left;
+	width: 32%;
+	margin-right: 3%;
+}
+
+
+.widget .two_thirds
+{
+	float: left;
+	width: 62%;
+	margin: 0 3%;
+}
+
+.widget .one_third
+{
+	float: left;
+	width: 28%;
+	margin-right: 3%;
+}
+
+.widget.half
+{
+	width: 49%;
+	margin-right: 2%;
+}
+
+.end
+{
+	margin-right: 0 !important;
+}
+
+.table.widget
+{
+	h3
+	{
+		margin-bottom: 0;
+	}
+	th
+	{
+		background: #C2C2C2;
+	}
+
+	table
+	{
+		border-bottom: 1px solid #D9D9D9;
+	}
+
+	tr.odd
+	{
+		background: #EDEDED;
+
+	}
+
+	td, th
+	{
+		padding: 6px 15px;
+		text-align: left;
+	}
+}
+
+li.odd
+{
+	background: #EDEDED;
+}
+
+/************************************************************************
+
+HEADER
+
+************************************************************************/
+
+#session-bar
+{
+	padding: 8px 0 9px;
+	color: #fff;
+
+ 	form
+	{
+		float: left;
+	}
+}
+
+#properties-list
+{
+	position: relative;
+	height: 29px;
+	.green;
+	ul
+	{
+		top: 100%;
+		color: #FFF;
+		.black-grad;
+		position: absolute;
+		z-index: 999;
+		padding-bottom: 10px;
+		min-width: 200px;
+		.rounded(0,0,8px,8px);
+		font-weight: 200;
+		display: none;
+		li
+		{
+			padding: 6px 15px 0;
+			&:hover
+			{
+				.green;
+			}
+			a
+			{
+				display: block;
+			}
+		}
+	}
+}
+
+#current-property
+{
+	cursor: pointer;
+	.green-arrow
+	{
+		margin: 8px 0 0 5px;
+	}
+}
+
+#header
+{
+	margin-top: 10px;
+	.grad(#FFFFFF, #AAAAAA, #EEEEEE);
+	height: 110px;
+	margin-bottom: 20px;
+	.center
+	{
+		position: relative;
+	}
+}
+
+#main-nav
+{
+	right: 0;
+	bottom: -10px;
+	position: absolute;
+
+	a
+	{
+		border-radius: 8px 8px 0 0;
+		margin-left: 8px;
+		padding: 15px 0;
+		text-align: center;
+		display: block;
+		float: left;
+		width: 110px;
+		background-color: #E9E9E9;
+		&:hover, &.current-controller
+		{
+			background-color: #FFF;
+		}
+	}
+}
+
+/************************************************************************
+
+TENANTS
+
+************************************************************************/
+
+.radioList, .checkList
+{
+	height: 216px;
+	width: 100%;
+	margin-bottom: 10px;
+	border: 1px solid #D9D9D9;
+	overflow-y: scroll;
+	li
+	{
+		padding: 5px 15px;
+		font-weight: bold;
+		cursor: pointer;
+		input[type=checkbox]
+		{
+			visibility: hidden;
+			width: 0;
+		}
+		&.checked
+		{
+			background-color: #999;
+			label
+			{
+				color: #FFF;
+			}
+		}
+		label
+		{
+			cursor: pointer;
+		}
+	}
+}
+
+.widget.one_third.end
+{
+	h3
+	{
+		margin-bottom: 0;
+	}
+	ul
+	{
+		padding: 0;
+		width: 100%;
+		margin-bottom: 20px;
+		border: 0;
+		border-bottom: 1px solid #D9D9D9;
+		overflow-y: scroll;
+		li
+		{
+			padding: 6px 15px;
+		}
+	}
+}
+
+#current-unit
+{
+	min-height: 404px;
+	ul
+	{
+		height: 307px;
+	}
+
+	.submit
+	{
+		margin-left: 30px;
+	}
+}
+
+/************************************************************************
+
+MAINTENANCE
+
+************************************************************************/
+
+#maintenance-overview
+{
+	.status{}
+	.Closed{.green;}
+	.Open{.red;font-weight: bold;}
+	.Pending{.blue;}
+	.msg-link
+	{
+		font-weight: bold;
+	}
+}
+
+#maintenance-overview.end
+{
+	height: 404px;
+}
+
+#create-request
+{
+	margin: 17px;
+}
+
+#MaintenanceTicketDescription
+{
+	textarea
+	{
+		width: 924px;
+		padding: 10px;
+		resize: none;	
+	}
+	.submit
+	{
+		float: right;
+		input
+		{
+			float: right;
+			margin-top: 17px;
+			.button;
+			.green-grad;
+		}
+	}
+	
+}
+
+
+/************************************************************************
+
+MESSAGES
+
+************************************************************************/
+
+
+#messages-nav
+{
+	a:hover, a.current-page
+	{
+		color: #fff;
+	}
+}
+
+.messages
+{
+	tr:hover td
+	{
+		background-color: #D9D9D9;
+		cursor: pointer;
+	}
+
+	.status
+	{
+		.green;
+	}
+
+	.unread
+	{
+		font-weight: bold;
+		.status{.red;}
+	}
+}
+
+#msg-list
+{
+	.widget
+	{
+		background-color: #F0F0F0;
+		padding-bottom: 5px;
+		padding-top: 0;
+	}
+	h4
+	{
+		.rounded(8px, 8px, 0, 0);
+		padding-left: 20px;
+		width: auto;
+		cursor: pointer;
+		margin-top: 0;
+		color: #555;
+		.\30{color: #4D8AB5;}
+		.\31{color: #A52A2A;}
+		.\32{color: #2E8B57;}
+		.\33{color: #F08080;}
+		.\34{color: #FFF;}
+		.\35{color: #333;}
+		.\36{color: #C71585;}
+		.\37{color: #B8860B;}
+		.\38{color: #FF4500;}
+	}
+
+	.msg-content
+	{
+		margin: 17px;
+		padding: 10px;
+		// border: 1px solid #D9D9D9;
+		background-color: #FFF;
+	}
+
+	.widget.collapsed
+	{
+		padding: 0px;
+		.shadow(0, 0, 0);
+		margin: 0;
+		.rounded(0, 0, 0, 0);
+		h4
+		{
+			.rounded(0, 0, 0, 0);
+			border-bottom: 1px dotted #797979;
+			margin: 0;
+			line-height: 1.5em;
+
+		}
+		.msg-content
+		{
+			display: none;
+		}
+	}
+
+}
+
+.msg-list-reply
+{
+	h4
+	{
+		.rounded(8px, 8px, 0, 0);
+		padding-left: 20px;
+		width: auto;
+	}
+	textarea
+	{
+		margin: 17px;
+		width: 924px;
+		padding: 10px;
+		resize: none;
+	}
+
+	.submit input
+	{
+		.button;
+		.green-grad;
+		margin-left: 17px;
+	}
+}
+
+#compose
+{
+	label
+	{
+		float: left;
+		display: block;
+		width: 70px;
+		text-align: right;
+		padding-right: 10px;
+		line-height: 25px;
+	}
+	input[type=text]
+	{
+		width: 540px;
+		float: left;
+		margin-right: 17px;
+	}
+	textarea
+	{
+		resize: none;
+		width: 604px;
+		margin: 0 17px;
+	}
+
+	.submit
+	{
+		input
+		{
+			.button;
+			.green-grad;
+			margin-top: 10px;
+			margin-right: 17px;
+			float: right;
+		}
+	}
+}
+

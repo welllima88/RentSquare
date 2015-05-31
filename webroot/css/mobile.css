@@ -1,0 +1,226 @@
+body{
+  background: #333333;
+  margin: 0 auto;
+  padding: 0;
+}
+.mobile_wrapper{
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+}
+.clear{clear: both;}
+.strong{font-weight: bold;}
+#rs_logo{
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+  max-width: 70%;
+  margin-bottom: 10px
+}
+div.input{
+  margin-bottom: 9px;
+}
+input[type=text],input[type=password],input[type=number],input[type=tel],input[type=email]{
+  width: 86%;
+  font-size: 20px;
+  border: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  padding: 7% 7%;
+  min-height: 20px;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -o-box-sizing: content-box;
+  box-sizing: content-box;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  color: #b4b4b3;
+}
+input.email_login{
+  background-image: url(images/bkg-email.png);
+  background-repeat: no-repeat;
+  background-position: 5% center;
+  padding-left: 16%;
+  width: 77%;
+}
+input.pass_login{
+  background-image: url(images/bkg-password.png);
+  background-repeat: no-repeat;
+  background-position: 5% center;
+  padding-left: 16%;
+  width: 77%;
+}
+input.login_button{
+  border: none;
+  background: #89c422;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 7% 7%;
+  width: 100%;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  font-size: 20px;
+}
+.reg_wrapper div.flash_bad{
+  color: #c44848;
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+.login_outer{
+  display: none;
+  padding: 20px;
+}
+.mobile-header{
+  background: #161616;
+  padding: 5% 7%;
+  width: 86.5%;
+  position: relative;
+  overflow: hidden;
+}
+#mobile_logo{
+  width: 35%;
+  float: left;
+}
+.full_site{
+  float: right;
+  color: #8ac423;
+  font-size: 12px;
+  margin-top: 10px;
+}
+.full_site a{
+  color: #8ac423;
+  text-decoration: underline;
+}
+a.green_text{
+   color: #8ac423;
+   text-decoration: underline;
+}
+.pay-rent-mobile{
+  color: #777777;
+  padding: 4% 7%;
+}
+.billing_cycle_mobile{
+  margin: 4% 0 6%;
+  background: #777777;
+  color: #fff;
+  overflow: hidden;
+  display: block;
+  padding: 5%;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  border-radius: 1px;
+}
+a.billing_cycle_mobile:hover{
+  color: #fff;
+  text-decoration: none;
+}
+.balance_block{
+  color: #777777;
+  padding: 3% 0 4%;
+  font-size: 29px;
+  overflow: hidden;
+}
+.dollar_sign{
+  background: #ceced0;
+  text-align: center;
+  width: 20%;
+  float: left;
+  padding: 20px 0;
+  font-size: 27px;
+  height: 20px;
+}
+.balance_text{
+  float: left;
+  width: 73%;
+  background: #f5f6f8;
+  padding: 20px 1% 20px 5%;
+  font-weight: bold;
+  height: 20px;
+}
+.amount_input{
+  float: left;
+  width: 80%;
+  background: #f5f6f8;
+  padding: 0;
+  font-weight: bold;
+  height: 60px;
+}
+.amount_input input[type=number].pay_amount_mobile{
+  width: 93%;
+  height: 100%;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  border: none;
+  margin: 0;
+  padding:0 0 0 7%;
+}
+.payment_method_mobile{
+  float: left;
+  width: 94%;
+  background: #f5f6f8;
+  padding: 20px 1% 20px 5%;
+  font-weight: bold;
+}
+.late_mobile{
+  color: #c44848;
+}
+.flag_icon{
+  width: 18px;
+  height: 18px;
+  margin-top: -4px;
+  margin-right: 7px;
+}
+select.payment_select{
+  margin: 0;
+  padding: 0;
+  width: 90%;
+}
+.flat_green {
+  background: #82c448;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  color: #fff;
+  border: none;
+  padding: 15px 20px;
+  font-size: 14px;
+  text-align: center;
+  -webkit-transition: All 0.3s ease;
+  -moz-transition: All 0.3s ease;
+  -o-transition: All 0.3s ease;
+  -ms-transition: All 0.3s ease;
+  transition: All 0.3s ease;
+  width: 100%;
+}
+.go_to_full{
+  color: #8ac423;
+  text-decoration: underline;
+  margin-top: 10px;
+}
+.note_new_pay{
+  font-size: 11px;
+  line-height: 11px;
+}
+input[type="submit"].submit_payment_button{
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 20px;
+}
+.success_mobile{
+  text-align: center;
+  color: #ffffff;
+  font-size: 16px;
+}
+.success_image{
+  margin: 10px 0;
+}
+.success_mobile .large_text{
+  font-size: 30px;
+  margin: 10px 0;
+}

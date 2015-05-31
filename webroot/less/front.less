@@ -1,0 +1,393 @@
+@import 'main.less';
+
+/************************************************************************
+
+GENERAL
+
+************************************************************************/
+
+h1
+{
+	font-weight: bold;
+	font-size: 47px;
+	line-height: 1.5em;
+	font: "HelveticaNeue-Bold","HelveticaNeue",Helvetica,Arial,Sans-serif;
+}
+
+h4
+{
+	font-family: "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1.7em;
+}
+
+/************************************************************************
+
+HEADER
+
+************************************************************************/
+
+#logo
+{
+	float: left;
+	margin: 17px 0 0;
+
+}
+
+#header-container
+{
+	.grey-grad;
+	margin-bottom: 20px;
+}
+
+#header
+{
+	.center;
+	border-bottom: 1px solid #cdcdcd;
+}
+
+#UserPassword
+{
+	display: none;
+}
+
+#login-signup
+{
+	float: right;
+	width: 495px;
+	margin: 20px 0 0;
+
+}
+
+#UserLoginForm
+{
+	input
+	{
+		margin-right: 7px;
+		float: left;
+	}
+
+	#UserUsername, #UserPassword, #UserPlaceholder
+	{
+		border: 1px solid #D9D9D9;
+		padding: 6px 3px;
+		color: #707070;
+		width: 149px;
+
+		&:focus
+		{
+			border-color: #999;
+		}
+	}
+}
+
+#pwReset
+{
+	font-size: 75%;
+	margin-left: 170px;
+	color: #888;
+	&:hover
+	{
+		text-decoration: underline;
+	}
+}
+
+#main-nav
+{
+	float: right;
+	margin: -20px 0 15px;
+
+	.main-nav-item
+	{
+		padding: 5px 10px 5px 0;
+		margin-right: 10px;
+		border-right: 1px solid #CDCDCD;
+		float: left;
+		&:hover, &.current-page
+		{
+			color: #999;
+		}
+	}
+
+	p
+	{
+		padding-top: 5px;
+	}
+
+
+}
+
+/************************************************************************
+
+HOME
+
+************************************************************************/
+
+#control-container
+{
+	position: relative;
+	// width: 1120px;
+	// margin: 20px 0 25px -70px;
+	margin: 20px 0 ;
+
+	#prev, #next
+	{
+		cursor: pointer;
+		background: url(../img/sprite.png);
+		height: 80px;
+		width: 50px;
+		position: absolute;
+		top: 50%;
+		margin-top: -40px;
+	}
+
+	#prev
+	{
+		left: 100px;
+		background-position: -4px 0;
+	}
+
+	#next
+	{
+		background-position: 54px 0;
+		right: 100px;
+	}
+}
+
+#slider-container
+{
+	.center;
+	position: relative;
+	height: 325px;
+	overflow: hidden;
+
+}
+
+#slider
+{
+	position: absolute;
+
+	img
+	{
+		float: left;
+	}
+	.slide
+	{
+		position: relative;
+		height: 325px;
+		float: left;
+		.slide-text
+		{
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			.button
+			{
+				.button-size(180px, 10px);
+				margin: 9px 50px 0 30px;
+				.shadow(0, 0, 5px, #333)
+			}
+
+			p
+			{
+				background: rgba(0, 0, 0, 0.4);
+				color: #fff;
+				font-size: 22px;
+				line-height: 2.5em;
+			}
+		}
+	}
+
+}
+
+.home-box
+{
+	text-align: center;
+	margin: 10px 0 40px;
+	height: 290px;
+	width: 310px;
+	.rounded(10px, 10px, 10px, 10px);
+	.shadow(0px, 0px, 8px, #EEEEEE);
+	background-color: #DDD;
+	float: left;
+	margin-right: 25px;
+	background: url(../img/home-box.jpg);
+
+	&:hover
+	{
+		img//, p, h2
+		{
+			opacity: 1;
+			-moz-opacity: 1;
+			filter:alpha(opacity=1);
+		}
+		p
+		{
+			background: rgba(250, 250, 250, .45);
+			.shadow(0, 0, 40px, #fff)
+		}
+		
+	}
+
+	h2
+	{
+		font-size: 23px;
+		font-weight: 100;
+		
+		line-height: 60px;
+	}
+
+	img, p, h2
+	{
+		opacity: 0.9;
+		-moz-opacity: 0.9;
+		filter:alpha(opacity=9);
+	}
+
+	p
+	{
+		margin: 0 15px;
+		font-size: 15px;
+	}
+}
+
+h2
+{
+	font-size: 35px;
+	line-height: 1.7em;
+	font-family: "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-weight: 300;
+}
+
+p
+{
+	font-size: 15px;
+	line-height: 1.4em;
+}
+
+/************************************************************************
+
+WHAT IS
+
+************************************************************************/
+
+
+#what-is-head
+{
+	margin-bottom: 30px;
+	.button
+	{
+		margin-top: 12px;
+		margin-left: 20px;
+		width: 190px;
+		padding: 14px 0;
+		font-weight: bold;
+	}
+}
+
+#what-is
+{
+
+	.row
+	{
+		// padding: 10px 40px;
+		// box-shadow: 0 0 9px #CDCDCD;
+		// border-radius: 8px;
+		// margin: 0 auto;
+		// margin-bottom: 10px;
+		h2
+		{
+			margin-top: 40px;
+		}
+		.two-thirds
+		{
+			width: 64%;
+		}
+		p
+		{
+			width: 95%;
+		}
+	}
+}
+
+/************************************************************************
+
+BENEFITS
+
+************************************************************************/
+
+#benefit-head
+{
+	margin-bottom: 20px;
+	.button
+	{
+		position: relative;
+		width: 150px;
+		padding: 10px 0;
+		margin-left: 50%;
+		margin-top: 20px;
+		left: -95px;
+		display: block;
+	}
+}
+
+#benefits
+{
+	background: #f2f2f2;
+	.rounded(5px);
+	padding: 20px;
+	h3
+	{
+		font-family: garamond, serif;
+		color: #fff;
+		background-color: #cbcbcb;
+		.rounded(5px);
+		font-size: 25px;
+		line-height: 1em;
+		padding: 15px 20px;
+	}
+	.column
+	{
+		margin: 30px 0 10px;
+		&.left
+		{
+			.benefit-box
+			{
+				padding-right: 30px;	
+			}
+			
+		}
+		&.right
+		{
+			.benefit-box
+			{
+				padding-left: 30px;	
+			}
+		}
+		.benefit-box
+		{
+			&.big-bottom
+			{
+				margin-bottom: 20px;	
+			}
+			height: 200px;
+			p
+			{
+				font-size: 13px;
+			}
+			.text
+			{
+				float: right;
+				width: 260px;
+			}
+			img
+			{
+				margin-top: 10px;
+				float: left;
+				display: block;
+			}
+		}
+	}
+}
+

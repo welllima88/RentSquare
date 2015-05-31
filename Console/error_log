@@ -1,0 +1,1 @@
+[08-Apr-2013 10:57:02] PHP Fatal error:  Undefined class constant 'SKIP_DOTS' in /home2/onepage3/public_html/lib/Cake/Utility/Folder.php on line 426

@@ -1,0 +1,188 @@
+[21-Feb-2014 18:47:05] PHP Parse error:  syntax error, unexpected ']' in /home2/onepage3/public_html/app/View/Payments/index.ctp on line 19
+[21-Feb-2014 21:55:21] PHP Fatal error:  Call to a member function find() on a non-object in /home2/onepage3/public_html/app/Model/Billing.php on line 102
+[21-Feb-2014 21:55:27] PHP Fatal error:  Call to a member function find() on a non-object in /home2/onepage3/public_html/app/Model/Billing.php on line 102
+[21-Feb-2014 21:56:00] PHP Fatal error:  Call to a member function find() on a non-object in /home2/onepage3/public_html/app/Model/Billing.php on line 102
+[21-Feb-2014 21:56:12] PHP Fatal error:  Call to a member function user() on a non-object in /home2/onepage3/public_html/app/Model/Billing.php on line 104
+[27-Feb-2014 21:23:37] PHP Fatal error:  Call to undefined function  float() in /home2/onepage3/public_html/app/Controller/PaymentsController.php on line 139
+[28-Feb-2014 15:58:50] PHP Fatal error:  Call to a member function find() on a non-object in /home2/onepage3/public_html/app/Controller/PaymentsController.php on line 233
+[14-Mar-2014 00:12:30] PHP Parse error:  syntax error, unexpected T_DOUBLE_ARROW in /home2/onepage3/public_html/app/View/Pages/contact.ctp on line 23
+[14-Mar-2014 00:28:24] PHP Parse error:  syntax error, unexpected T_STRING, expecting ',' or ';' in /home2/onepage3/public_html/app/View/Pages/contact.ctp on line 23
+[19-Mar-2014 16:27:08] PHP Fatal error:  Call to undefined function  lookup() in /home2/onepage3/public_html/app/View/Pages/whatis.ctp on line 162
+[19-Mar-2014 16:57:32] PHP Warning:  Invalid argument supplied for foreach() in /home2/onepage3/public_html/lib/Cake/Utility/Debugger.php on line 586
+[19-Mar-2014 17:00:31] PHP Parse error:  syntax error, unexpected T_VARIABLE in /home2/onepage3/public_html/app/View/Pages/whatis.ctp on line 130
+[19-Mar-2014 17:00:39] PHP Warning:  Invalid argument supplied for foreach() in /home2/onepage3/public_html/lib/Cake/Utility/Debugger.php on line 586
+[19-Mar-2014 17:00:55] PHP Warning:  Invalid argument supplied for foreach() in /home2/onepage3/public_html/lib/Cake/Utility/Debugger.php on line 586
+[19-Mar-2014 17:02:55] PHP Warning:  Invalid argument supplied for foreach() in /home2/onepage3/public_html/lib/Cake/Utility/Debugger.php on line 586
+[19-Mar-2014 17:30:19] PHP Parse error:  syntax error, unexpected T_ECHO in /home2/onepage3/public_html/app/Controller/UsersController.php on line 91
+[19-Mar-2014 17:55:22] PHP Fatal error:  Call to undefined function  timezone_lookup() in /home2/onepage3/public_html/app/Controller/UsersController.php on line 161
+[19-Mar-2014 19:55:27] PHP Parse error:  syntax error, unexpected ',' in /home2/onepage3/public_html/app/View/Conversations/outbox.ctp on line 37
+[21-Mar-2014 19:48:22] PHP Parse error:  syntax error, unexpected T_IF in /home2/onepage3/public_html/app/View/Payments/history.ctp on line 42
+[03-Apr-2014 20:23:18] PHP Parse error:  syntax error, unexpected T_CONSTANT_ENCAPSED_STRING, expecting ')' in /home2/onepage3/public_html/app/View/PaymentMethods/add_bank.ctp on line 24
+[03-Apr-2014 20:32:27] PHP Parse error:  syntax error, unexpected T_DOUBLE_ARROW in /home2/onepage3/public_html/app/View/PaymentMethods/add_bank.ctp on line 26
+[07-Apr-2014 19:54:00] PHP Parse error:  syntax error, unexpected T_ELSE in /home2/onepage3/public_html/app/View/Conversations/outbox.ctp on line 55
+[07-Apr-2014 20:43:20] PHP Fatal error:  Can't use method return value in write context in /home2/onepage3/public_html/app/Controller/AppController.php on line 67
+[07-Apr-2014 20:43:20] PHP Fatal error:  Class declarations may not be nested in /home2/onepage3/public_html/lib/Cake/Error/ExceptionRenderer.php on line 56
+[07-Apr-2014 20:43:21] PHP Fatal error:  Can't use method return value in write context in /home2/onepage3/public_html/app/Controller/AppController.php on line 67
+[07-Apr-2014 20:43:21] PHP Fatal error:  Class declarations may not be nested in /home2/onepage3/public_html/lib/Cake/Error/ExceptionRenderer.php on line 56
+[07-Apr-2014 20:47:18] PHP Parse error:  syntax error, unexpected $end in /home2/onepage3/public_html/app/View/Conversations/outbox.ctp on line 91
+[20-May-2014 17:53:06] PHP Fatal error:  Call to a member function delete() on a non-object in /home2/onepage3/public_html/app/Controller/UsersController.php on line 45
+[20-May-2014 18:23:15] PHP Fatal error:  Can't use method return value in write context in /home2/onepage3/public_html/app/Controller/AppController.php on line 53
+[20-May-2014 18:23:15] PHP Fatal error:  Class declarations may not be nested in /home2/onepage3/public_html/lib/Cake/Error/ExceptionRenderer.php on line 56
+[20-May-2014 18:23:39] PHP Fatal error:  Can't use method return value in write context in /home2/onepage3/public_html/app/Controller/AppController.php on line 53
+[20-May-2014 18:23:39] PHP Fatal error:  Class declarations may not be nested in /home2/onepage3/public_html/lib/Cake/Error/ExceptionRenderer.php on line 56
+[20-May-2014 18:23:51] PHP Fatal error:  Can't use method return value in write context in /home2/onepage3/public_html/app/Controller/AppController.php on line 53
+[20-May-2014 18:23:51] PHP Fatal error:  Class declarations may not be nested in /home2/onepage3/public_html/lib/Cake/Error/ExceptionRenderer.php on line 56
+[20-May-2014 18:25:37] PHP Fatal error:  Call to undefined function  parseint() in /home2/onepage3/public_html/app/Controller/AppController.php on line 51
+[20-May-2014 18:49:09] PHP Fatal error:  Call to undefined function  inval() in /home2/onepage3/public_html/app/Controller/UsersController.php on line 427
+[04-Jun-2014 15:31:59] PHP Fatal error:  Call to undefined function  tolower() in /home2/onepage3/public_html/app/View/Units/index.ctp on line 47
+[04-Jun-2014 15:38:12] PHP Parse error:  syntax error, unexpected T_IS_EQUAL in /home2/onepage3/public_html/app/View/Units/index.ctp on line 48
+[04-Jun-2014 15:38:23] PHP Parse error:  syntax error, unexpected '{' in /home2/onepage3/public_html/app/View/Units/index.ctp on line 48
+[04-Jun-2014 18:29:19] PHP Parse error:  syntax error, unexpected T_IF in /home2/onepage3/public_html/app/View/Units/edit.ctp on line 113
+[04-Jun-2014 18:45:46] PHP Parse error:  syntax error, unexpected ')' in /home2/onepage3/public_html/app/Controller/BillingController.php on line 43
+[04-Jun-2014 18:47:27] PHP Parse error:  syntax error, unexpected T_CONSTANT_ENCAPSED_STRING, expecting ')' in /home2/onepage3/public_html/app/Controller/BillingController.php on line 41
+[20-Jun-2014 16:35:30] PHP Parse error:  syntax error, unexpected '}' in /home2/onepage3/public_html/app/Controller/MaintenanceTicketsController.php on line 36
+[22-Aug-2014 19:10:16] PHP Parse error:  syntax error, unexpected '<' in /home2/onepage3/public_html/app/View/Elements/manager_nav.ctp on line 9
+[22-Aug-2014 19:10:16] PHP Parse error:  syntax error, unexpected '<' in /home2/onepage3/public_html/app/View/Elements/manager_nav.ctp on line 9
+[27-Aug-2014 14:04:24] PHP Parse error:  syntax error, unexpected T_ELSE in /home2/onepage3/public_html/app/Controller/PaymentMethodsController.php on line 191
+[27-Aug-2014 19:31:42] PHP Parse error:  syntax error, unexpected T_STRING, expecting ',' or ';' in /home2/onepage3/public_html/app/Controller/PaymentMethodsController.php on line 70
+[28-Aug-2014 01:45:22] PHP Fatal error:  Call to undefined function  emtpy() in /home2/onepage3/public_html/app/View/MaintenanceTickets/view.ctp on line 113
+[28-Aug-2014 01:49:09] PHP Parse error:  syntax error, unexpected ';' in /home2/onepage3/public_html/app/View/MaintenanceTickets/view.ctp on line 114
+[03-Sep-2014 21:43:05] PHP Parse error:  syntax error, unexpected '(', expecting T_STRING or T_VARIABLE or '{' or '$' in /home2/onepage3/public_html/app/Controller/BillingController.php on line 32
+[04-Sep-2014 23:58:32] PHP Parse error:  syntax error, unexpected '<' in /home2/onepage3/public_html/app/View/Layouts/back.ctp on line 60
+[04-Sep-2014 23:58:32] PHP Parse error:  syntax error, unexpected '<' in /home2/onepage3/public_html/app/View/Layouts/back.ctp on line 60
+[06-Sep-2014 22:42:35] PHP Parse error:  syntax error, unexpected '}' in /home2/onepage3/public_html/app/Controller/AdminController.php on line 126
+[09-Sep-2014 01:40:54] PHP Fatal error:  Call to a member function find() on a non-object in /home2/onepage3/public_html/app/Controller/AdminController.php on line 137
+[09-Sep-2014 01:49:06] PHP Parse error:  syntax error, unexpected T_EXIT, expecting T_VARIABLE or '$' in /home2/onepage3/public_html/app/Controller/AdminController.php on line 140
+[09-Sep-2014 01:49:36] PHP Fatal error:  Call to a member function getDataSource() on a non-object in /home2/onepage3/public_html/app/Controller/AdminController.php on line 124
+[09-Sep-2014 02:37:53] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /home2/onepage3/public_html/app/Controller/AdminController.php on line 152
+[09-Sep-2014 02:59:02] PHP Parse error:  syntax error, unexpected ')' in /home2/onepage3/public_html/app/Controller/AdminController.php on line 156
+[17-Sep-2014 16:49:22] PHP Parse error:  syntax error, unexpected T_VARIABLE in /home2/onepage3/public_html/app/Controller/BillingController.php on line 57
+[17-Sep-2014 16:52:16] PHP Parse error:  syntax error, unexpected T_VARIABLE in /home2/onepage3/public_html/app/Controller/BillingController.php on line 57
+[17-Sep-2014 16:52:34] PHP Fatal error:  Call to a member function saveMany() on a non-object in /home2/onepage3/public_html/app/Controller/BillingController.php on line 55
+[17-Sep-2014 16:54:56] PHP Fatal error:  Call to a member function saveMany() on a non-object in /home2/onepage3/public_html/app/Controller/BillingController.php on line 56
+[17-Sep-2014 17:16:06] PHP Fatal error:  Call to a member function attach() on a non-object in /home2/onepage3/public_html/app/Controller/BillingController.php on line 19
+[17-Sep-2014 17:18:18] PHP Fatal error:  Call to a member function attach() on a non-object in /home2/onepage3/public_html/app/Controller/BillingController.php on line 19
+[17-Sep-2014 19:47:50] PHP Fatal error:  Call to a member function query() on a non-object in /home2/onepage3/public_html/app/Controller/BillingController.php on line 74
+[17-Sep-2014 19:47:55] PHP Fatal error:  Call to a member function query() on a non-object in /home2/onepage3/public_html/app/Controller/BillingController.php on line 74
+[17-Sep-2014 19:49:57] PHP Fatal error:  Call to a member function query() on a non-object in /home2/onepage3/public_html/app/Controller/BillingController.php on line 74
+[17-Sep-2014 19:53:21] PHP Fatal error:  Call to a member function query() on a non-object in /home2/onepage3/public_html/app/Controller/BillingController.php on line 74
+[17-Sep-2014 19:54:39] PHP Fatal error:  Call to a member function query() on a non-object in /home2/onepage3/public_html/app/Controller/BillingController.php on line 74
+[17-Sep-2014 20:10:54] PHP Parse error:  syntax error, unexpected ';' in /home2/onepage3/public_html/app/Controller/BillingController.php on line 83
+[17-Sep-2014 21:02:40] PHP Parse error:  syntax error, unexpected '=', expecting ')' in /home2/onepage3/public_html/app/Controller/BillingController.php on line 94
+[17-Sep-2014 21:33:58] PHP Parse error:  syntax error, unexpected T_CONSTANT_ENCAPSED_STRING, expecting ')' in /home2/onepage3/public_html/app/Controller/BillingController.php on line 96
+[17-Sep-2014 21:43:42] PHP Fatal error:  Call to undefined function  debut() in /home2/onepage3/public_html/app/Controller/BillingController.php on line 112
+[17-Sep-2014 21:56:40] PHP Fatal error:  Call to a member function bindModel() on a non-object in /home2/onepage3/public_html/app/Controller/BillingController.php on line 99
+[17-Sep-2014 22:00:38] PHP Parse error:  syntax error, unexpected ';', expecting ')' in /home2/onepage3/public_html/app/Controller/BillingController.php on line 102
+[17-Sep-2014 22:01:23] PHP Parse error:  syntax error, unexpected ';' in /home2/onepage3/public_html/app/Controller/BillingController.php on line 102
+[18-Sep-2014 14:25:21] PHP Fatal error:  Can't use method return value in write context in /home2/onepage3/public_html/app/Controller/BillingController.php on line 105
+[18-Sep-2014 14:25:21] PHP Fatal error:  Class declarations may not be nested in /home2/onepage3/public_html/lib/Cake/Error/ExceptionRenderer.php on line 56
+[18-Sep-2014 14:45:10] PHP Parse error:  syntax error, unexpected ';' in /home2/onepage3/public_html/app/Controller/BillingController.php on line 108
+[19-Sep-2014 15:59:55] PHP Parse error:  syntax error, unexpected ')' in /home2/onepage3/public_html/app/Controller/BillingController.php on line 124
+[19-Sep-2014 16:00:32] PHP Parse error:  syntax error, unexpected ':', expecting ',' or ';' in /home2/onepage3/public_html/app/Controller/BillingController.php on line 125
+[19-Sep-2014 16:17:46] PHP Parse error:  syntax error, unexpected T_PUBLIC in /home2/onepage3/public_html/app/Controller/BillingController.php on line 145
+[19-Sep-2014 16:49:14] PHP Parse error:  syntax error, unexpected ';' in /home2/onepage3/public_html/app/Controller/BillingController.php on line 126
+[19-Sep-2014 17:18:02] PHP Parse error:  syntax error, unexpected ';', expecting ')' in /home2/onepage3/public_html/app/Controller/BillingController.php on line 112
+[19-Sep-2014 17:20:41] PHP Parse error:  syntax error, unexpected T_VARIABLE, expecting ',' or ';' in /home2/onepage3/public_html/app/Controller/BillingController.php on line 128
+[19-Sep-2014 17:38:43] PHP Parse error:  syntax error, unexpected '{' in /home2/onepage3/public_html/app/Controller/BillingController.php on line 130
+[19-Sep-2014 19:20:24] PHP Parse error:  syntax error, unexpected T_DOUBLE_ARROW in /home2/onepage3/public_html/app/Controller/BillingController.php on line 87
+[20-Sep-2014 00:03:59] PHP Parse error:  syntax error, unexpected T_STRING, expecting ',' or ';' in /home2/onepage3/public_html/app/Controller/BillingController.php on line 60
+[22-Sep-2014 13:18:31] PHP Parse error:  syntax error, unexpected '{' in /home2/onepage3/public_html/app/Controller/BillingController.php on line 67
+[22-Sep-2014 13:23:07] PHP Fatal error:  Call to a member function bindModel() on a non-object in /home2/onepage3/public_html/app/Controller/BillingController.php on line 174
+[22-Sep-2014 15:18:25] PHP Parse error:  syntax error, unexpected T_ECHO in /home2/onepage3/public_html/app/Controller/BillingController.php on line 203
+[22-Sep-2014 18:15:47] PHP Parse error:  syntax error, unexpected T_VARIABLE in /home2/onepage3/public_html/app/Controller/BillingController.php on line 88
+[23-Sep-2014 13:44:40] PHP Parse error:  syntax error, unexpected T_STRING, expecting ')' in /home2/onepage3/public_html/app/Controller/UsersController.php on line 559
+[23-Sep-2014 15:48:33] PHP Fatal error:  Cannot access protected property Mysql::$_queriesLog in /home2/onepage3/public_html/app/Model/Billing.php on line 195
+[23-Sep-2014 15:51:26] PHP Fatal error:  Call to a member function getDataSource() on a non-object in /home2/onepage3/public_html/app/Model/Billing.php on line 96
+[23-Sep-2014 17:05:17] PHP Parse error:  syntax error, unexpected T_OBJECT_OPERATOR in /home2/onepage3/public_html/app/Model/Billing.php on line 172
+[23-Sep-2014 17:08:48] PHP Parse error:  syntax error, unexpected T_OBJECT_OPERATOR in /home2/onepage3/public_html/app/Model/Billing.php on line 173
+[23-Sep-2014 17:12:03] PHP Parse error:  syntax error, unexpected T_OBJECT_OPERATOR in /home2/onepage3/public_html/app/Model/Billing.php on line 171
+[24-Sep-2014 13:29:56] PHP Fatal error:  Call to a member function attach() on a non-object in /home2/onepage3/public_html/app/Controller/BillingController.php on line 288
+[24-Sep-2014 13:31:49] PHP Fatal error:  Call to a member function attach() on a non-object in /home2/onepage3/public_html/app/Controller/BillingController.php on line 290
+[24-Sep-2014 13:34:50] PHP Fatal error:  Call to a member function attach() on a non-object in /home2/onepage3/public_html/app/Controller/BillingController.php on line 290
+[24-Sep-2014 13:38:11] PHP Fatal error:  Call to a member function exists() on a non-object in /home2/onepage3/public_html/app/Controller/BillingController.php on line 289
+[24-Sep-2014 13:40:17] PHP Parse error:  syntax error, unexpected ')' in /home2/onepage3/public_html/app/Controller/BillingController.php on line 300
+[24-Sep-2014 13:40:33] PHP Parse error:  syntax error, unexpected ')' in /home2/onepage3/public_html/app/Controller/BillingController.php on line 300
+[24-Sep-2014 13:41:03] PHP Fatal error:  Call to a member function find() on a non-object in /home2/onepage3/public_html/app/Controller/BillingController.php on line 292
+[24-Sep-2014 15:55:10] PHP Fatal error:  Call to a member function bindModel() on a non-object in /home2/onepage3/public_html/app/Controller/BillingController.php on line 289
+[25-Sep-2014 22:35:41] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home2/onepage3/public_html/lib/Cake/Utility/Debugger.php on line 473
+[25-Sep-2014 22:58:13] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home2/onepage3/public_html/lib/Cake/Utility/Debugger.php on line 496
+[25-Sep-2014 23:14:12] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home2/onepage3/public_html/lib/Cake/Model/Datasource/DboSource.php on line 1559
+[26-Sep-2014 15:31:13] PHP Warning:  Unexpected character in input:  '\' (ASCII=92) state=1 in /home2/onepage3/public_html/app/View/Billing/index.ctp on line 179
+[26-Sep-2014 15:31:13] PHP Parse error:  syntax error, unexpected '}' in /home2/onepage3/public_html/app/View/Billing/index.ctp on line 179
+[01-Oct-2014 18:02:34] PHP Parse error:  syntax error, unexpected '{' in /home2/onepage3/public_html/app/Controller/BillingController.php on line 283
+[01-Oct-2014 18:05:56] PHP Parse error:  syntax error, unexpected ';' in /home2/onepage3/public_html/app/Controller/BillingController.php on line 279
+[08-Oct-2014 02:34:34] PHP Parse error:  syntax error, unexpected ':' in /home2/onepage3/public_html/app/Controller/UnitsController.php on line 115
+[10-Oct-2014 19:02:12] PHP Parse error:  syntax error, unexpected '[', expecting ']' in /home2/onepage3/public_html/app/View/Admin/editmerchantacct.ctp on line 16
+[14-Oct-2014 17:38:32] PHP Fatal error:  Call to a member function find() on a non-object in /home2/onepage3/public_html/app/Controller/UsersController.php on line 733
+[14-Oct-2014 18:14:39] PHP Parse error:  syntax error, unexpected T_DOUBLE_ARROW in /home2/onepage3/public_html/app/Controller/UsersController.php on line 754
+[14-Oct-2014 18:38:26] PHP Parse error:  syntax error, unexpected T_VARIABLE, expecting ')' in /home2/onepage3/public_html/app/Controller/AdminController.php on line 52
+[14-Oct-2014 18:38:58] PHP Fatal error:  Call to undefined function  deubg() in /home2/onepage3/public_html/app/View/Admin/properties.ctp on line 4
+[14-Oct-2014 18:46:27] PHP Parse error:  syntax error, unexpected '{' in /home2/onepage3/public_html/app/View/Admin/properties.ctp on line 2
+[14-Oct-2014 18:46:43] PHP Parse error:  syntax error, unexpected '}' in /home2/onepage3/public_html/app/View/Admin/properties.ctp on line 2
+[14-Oct-2014 18:47:29] PHP Parse error:  syntax error, unexpected T_VARIABLE, expecting ',' or ';' in /home2/onepage3/public_html/app/View/Admin/properties.ctp on line 2
+[15-Oct-2014 01:01:36] PHP Parse error:  syntax error, unexpected ';' in /home2/onepage3/public_html/app/View/Admin/properties.ctp on line 47
+[15-Oct-2014 02:59:51] PHP Parse error:  syntax error, unexpected T_VARIABLE, expecting T_FUNCTION in /home2/onepage3/public_html/app/Controller/AdminController.php on line 161
+[16-Oct-2014 14:54:00] PHP Parse error:  syntax error, unexpected '=', expecting ')' in /home2/onepage3/public_html/app/View/Users/myaccount.ctp on line 287
+[16-Oct-2014 14:54:37] PHP Parse error:  syntax error, unexpected '=', expecting ')' in /home2/onepage3/public_html/app/View/Users/myaccount.ctp on line 287
+[16-Oct-2014 15:05:10] PHP Parse error:  syntax error, unexpected ')', expecting ',' or ';' in /home2/onepage3/public_html/app/View/Users/myaccount.ctp on line 287
+[16-Oct-2014 15:20:44] PHP Parse error:  syntax error, unexpected T_ECHO, expecting ',' or ';' in /home2/onepage3/public_html/app/View/Users/myaccount.ctp on line 291
+[22-Oct-2014 17:44:20] PHP Parse error:  syntax error, unexpected T_ELSE in /home2/onepage3/public_html/app/Controller/UsersController.php on line 523
+[22-Oct-2014 18:43:28] PHP Parse error:  syntax error, unexpected ')' in /home2/onepage3/public_html/app/Controller/UsersController.php on line 527
+[22-Oct-2014 19:03:54] PHP Parse error:  syntax error, unexpected T_ELSE in /home2/onepage3/public_html/app/Model/MaintenanceTicket.php on line 58
+[27-Oct-2014 16:17:34] PHP Parse error:  syntax error, unexpected '<' in /home2/onepage3/public_html/app/View/MaintenanceTickets/index.ctp on line 83
+[31-Oct-2014 16:09:34] PHP Parse error:  syntax error, unexpected T_DOUBLE_ARROW in /home2/onepage3/public_html/app/View/MaintenanceTickets/index.ctp on line 73
+[31-Oct-2014 16:35:30] PHP Parse error:  syntax error, unexpected ')' in /home2/onepage3/public_html/app/Controller/BillingController.php on line 54
+[31-Oct-2014 16:55:45] PHP Parse error:  syntax error, unexpected '<' in /home2/onepage3/public_html/app/View/Users/myaccount.ctp on line 2
+[31-Oct-2014 16:55:52] PHP Parse error:  syntax error, unexpected '<' in /home2/onepage3/public_html/app/View/Users/myaccount.ctp on line 2
+[10-Nov-2014 19:08:20] PHP Fatal error:  Call to undefined method ConversationsController::getPropName() in /home2/onepage3/public_html/app/Controller/ConversationsController.php on line 44
+[10-Nov-2014 19:53:11] PHP Parse error:  syntax error, unexpected T_ENCAPSED_AND_WHITESPACE, expecting T_STRING or T_VARIABLE or T_NUM_STRING in /home2/onepage3/public_html/app/View/Conversations/inbox.ctp on line 70
+[10-Nov-2014 20:00:15] PHP Parse error:  syntax error, unexpected ',' in /home2/onepage3/public_html/app/View/Conversations/inbox.ctp on line 78
+[10-Nov-2014 20:10:35] PHP Fatal error:  Call to a member function contain() on a non-object in /home2/onepage3/public_html/app/Controller/ConversationsController.php on line 60
+[10-Nov-2014 20:12:40] PHP Fatal error:  Call to undefined method ConversationsController::getPropName() in /home2/onepage3/public_html/app/Controller/ConversationsController.php on line 44
+[12-Nov-2014 15:51:59] PHP Parse error:  syntax error, unexpected $end in /home2/onepage3/public_html/app/Model/ConversationsUser.php on line 45
+[12-Nov-2014 21:40:40] PHP Parse error:  syntax error, unexpected T_DOUBLE_ARROW in /home2/onepage3/public_html/app/View/Elements/payment_manual.ctp on line 18
+[16-Nov-2014 23:15:21] PHP Parse error:  syntax error, unexpected ')', expecting ']' in /home2/onepage3/public_html/app/View/Units/edit.ctp on line 166
+[16-Nov-2014 23:16:01] PHP Parse error:  syntax error, unexpected ')', expecting ']' in /home2/onepage3/public_html/app/View/Units/edit.ctp on line 168
+[21-Nov-2014 21:01:01] PHP Fatal error:  Call to a member function subject() on a non-object in /home2/onepage3/public_html/app/Controller/UsersController.php on line 907
+[08-Dec-2014 02:22:18] PHP Parse error:  syntax error, unexpected T_ECHO in /home2/onepage3/public_html/app/Model/User.php on line 416
+[08-Dec-2014 02:22:33] PHP Parse error:  syntax error, unexpected T_ECHO in /home2/onepage3/public_html/app/Model/User.php on line 416
+[08-Dec-2014 02:40:57] PHP Fatal error:  Curl failed with error #60: SSL certificate problem, verify that the CA cert is OK. Details:
+error:14090086:SSL routines:SSL3_GET_SERVER_CERTIFICATE:certificate verify failed in /home2/onepage3/public_html/app/Model/User.php on line 435
+[08-Dec-2014 02:44:38] PHP Fatal error:  Curl failed with error #60: SSL certificate problem, verify that the CA cert is OK. Details:
+error:14090086:SSL routines:SSL3_GET_SERVER_CERTIFICATE:certificate verify failed in /home2/onepage3/public_html/app/Model/User.php on line 438
+[12-Jan-2015 06:33:47] PHP Parse error:  syntax error, unexpected T_CLASS in /home2/onepage3/public_html/app/Controller/PaymentMethodsController.php on line 12
+[12-Jan-2015 06:33:50] PHP Parse error:  syntax error, unexpected T_CLASS in /home2/onepage3/public_html/app/Controller/PaymentMethodsController.php on line 12
+[12-Jan-2015 06:33:59] PHP Parse error:  syntax error, unexpected T_CLASS in /home2/onepage3/public_html/app/Controller/PaymentMethodsController.php on line 12
+[12-Jan-2015 06:35:29] PHP Fatal error:  require_once() [<a href='http://php.net/function.require'>function.require</a>]: Failed opening required '/home2/onepage3/public_html/app/Vendor/BaseCommerce/BaseCommerceClient' (include_path='/home2/onepage3/public_html/lib:.:/usr/lib64/php:/usr/share/pear') in /home2/onepage3/public_html/app/Controller/PaymentMethodsController.php on line 33
+[12-Jan-2015 06:35:31] PHP Fatal error:  require_once() [<a href='http://php.net/function.require'>function.require</a>]: Failed opening required '/home2/onepage3/public_html/app/Vendor/BaseCommerce/BaseCommerceClient' (include_path='/home2/onepage3/public_html/lib:.:/usr/lib64/php:/usr/share/pear') in /home2/onepage3/public_html/app/Controller/PaymentMethodsController.php on line 33
+[12-Jan-2015 06:37:48] PHP Parse error:  syntax error, unexpected T_STRING in /home2/onepage3/public_html/app/Controller/PaymentMethodsController.php on line 35
+[12-Jan-2015 06:38:28] PHP Parse error:  syntax error, unexpected T_STRING in /home2/onepage3/public_html/app/Controller/PaymentMethodsController.php on line 35
+[12-Jan-2015 06:39:54] PHP Parse error:  syntax error, unexpected T_STRING in /home2/onepage3/public_html/app/Controller/PaymentMethodsController.php on line 38
+[12-Jan-2015 06:40:29] PHP Parse error:  syntax error, unexpected T_STRING in /home2/onepage3/public_html/app/Controller/PaymentMethodsController.php on line 36
+[12-Jan-2015 06:41:18] PHP Parse error:  syntax error, unexpected T_STRING in /home2/onepage3/public_html/app/Controller/PaymentMethodsController.php on line 36
+[12-Jan-2015 06:42:21] PHP Fatal error:  Class 'Address' not found in /home2/onepage3/public_html/app/Controller/PaymentMethodsController.php on line 41
+[23-Jan-2015 22:05:37 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 3610242 bytes) in /home2/onepage3/public_html/lib/Cake/View/View.php on line 964
+[23-Jan-2015 22:07:22 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 3610242 bytes) in /home2/onepage3/public_html/lib/Cake/View/View.php on line 964
+[23-Jan-2015 22:08:36 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 3610242 bytes) in /home2/onepage3/public_html/lib/Cake/View/View.php on line 964
+[23-Jan-2015 22:09:49 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 3610242 bytes) in /home2/onepage3/public_html/lib/Cake/View/View.php on line 964
+[26-Jan-2015 02:47:12 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 3453413 bytes) in /home2/onepage3/public_html/lib/Cake/View/View.php on line 958
+[26-Jan-2015 02:53:28] PHP Fatal error:  Call to undefined function  hex2bin() in /home2/onepage3/public_html/app/Vendor/BaseCommerce/TripleDESService.php on line 19
+[26-Jan-2015 02:53:38] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 504884 bytes) in /home2/onepage3/public_html/lib/Cake/View/View.php on line 964
+[26-Jan-2015 02:54:17 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 3610242 bytes) in /home2/onepage3/public_html/lib/Cake/View/View.php on line 964
+[26-Jan-2015 05:21:47 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 3453413 bytes) in /home2/onepage3/public_html/lib/Cake/View/View.php on line 958
+[26-Jan-2015 05:22:24 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 3453413 bytes) in /home2/onepage3/public_html/lib/Cake/View/View.php on line 958
+[26-Jan-2015 05:23:27 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 3453413 bytes) in /home2/onepage3/public_html/lib/Cake/View/View.php on line 958
+[26-Jan-2015 05:27:14 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 3607685 bytes) in /home2/onepage3/public_html/lib/Cake/View/View.php on line 964
+[26-Jan-2015 05:28:21 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 3607685 bytes) in /home2/onepage3/public_html/lib/Cake/View/View.php on line 964
+[26-Jan-2015 05:28:51 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 3607685 bytes) in /home2/onepage3/public_html/lib/Cake/View/View.php on line 964
+[26-Jan-2015 05:29:21 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 3607685 bytes) in /home2/onepage3/public_html/lib/Cake/View/View.php on line 964
+[26-Jan-2015 05:32:26 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 3450916 bytes) in /home2/onepage3/public_html/lib/Cake/View/View.php on line 958
+[26-Jan-2015 05:32:43 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 3451089 bytes) in /home2/onepage3/public_html/lib/Cake/View/View.php on line 958
+[26-Jan-2015 05:35:48 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 3451089 bytes) in /home2/onepage3/public_html/lib/Cake/View/View.php on line 958
+[26-Jan-2015 05:36:55 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 3451089 bytes) in /home2/onepage3/public_html/lib/Cake/View/View.php on line 958
+[26-Jan-2015 05:38:48 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 3607834 bytes) in /home2/onepage3/public_html/lib/Cake/View/View.php on line 964
+[26-Jan-2015 05:40:53 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 3451089 bytes) in /home2/onepage3/public_html/lib/Cake/View/View.php on line 958
+[29-Jan-2015 14:39:42 UTC] PHP Fatal error:  Class 'BaseCommerceClient' not found in /home2/onepage3/public_html/app/Controller/PaymentMethodsController.php on line 18
+[29-Jan-2015 14:40:23 UTC] PHP Fatal error:  Class 'Address' not found in /home2/onepage3/public_html/app/Controller/PaymentMethodsController.php on line 23
+[29-Jan-2015 14:40:26 UTC] PHP Fatal error:  Class 'Address' not found in /home2/onepage3/public_html/app/Controller/PaymentMethodsController.php on line 23
+[08-Apr-2015 20:40:49 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 3607834 bytes) in /home2/onepage3/public_html/lib/Cake/Event/CakeEventManager.php on line 243

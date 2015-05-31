@@ -1,0 +1,184 @@
+<?php
+App::uses('AppController', 'Controller');
+/**
+ * Billing Controller
+ *
+ * @property Billing $Billing
+ */
+class BillingController extends AppController {
+
+
+/**
+ * index method
+ *
+ * @return void
+ */
+	public function index($status = null) 
+        {
+            $this->Billing->Behaviors->attach('Containable');
+	    $conditions = array('Billing.property_id'=>$this->propId);
+	    if($status != null && $status != 'all')
+            {
+  	        $conditions['Billing.status'] = $status;
+            }  
+	    if($this->request->is('post') && $this->request->data)
+            {
+                // Clear Billing Session Dates
+                $this->Session->delete('Billing');
+	        if($this->request->data['Billing']['start_date'] != '')
+                {
+  	            $conditions['Billing.billing_start >='] = date("Y-m-d 00:00:00",strtotime($this->request->data['Billing']['start_date']));
+                    $this->Session->write('Billing.start_date',$this->request->data['Billing']['start_date']);
+  	            $this->set('start_filter', $this->request->data['Billing']['start_date']);
+	        }
+  	        if($this->request->data['Billing']['end_date'] != '')
+                {
+  	            $conditions['Billing.billing_end <='] = date("Y-m-d 23:59:59",strtotime($this->request->data['Billing']['end_date']));
+                    $this->Session->write('Billing.end_date',$this->request->data['Billing']['end_date']);
+  	            $this->set('end_filter', $this->request->data['Billing']['end_date']);
+  	        }
+	    }
+            // Set dates from session
+            $stdate = $this->Session->read('Billing.start_date');
+            $endate = $this->Session->read('Billing.end_date');
+            if (!empty($stdate) && !empty($endate))
+            {                          
+  	        $this->set('start_filter', $stdate);
+  	        $this->set('end_filter', $endate);
+                $conditions['Billing.billing_start >='] = date("Y-m-d 00:00:00",strtotime($stdate));
+                $conditions['Billing.billing_end <=']   = date("Y-m-d 23:59:59",strtotime($endate));
+            }
+	    $this->paginate = array( 'conditions' => $conditions,
+                                     'contain' => array(
+                                       'Payment'=>array('conditions'=>array('is_fee'=>0),
+                                       'User'),
+                                       'Unit'=>array('order' => array('CAST(Unit.number as UNSIGNED) ASC'),'Tenant','Frequency')
+                                     ),
+                                     'limit' => 15,
+                                     'order' => array(
+                                         'Billing.billing_end' => 'desc'
+                                         )
+                                 );
+            $this->set('status', $status);
+            $this->set('billingcycle', $this->paginate());
+	}
+
+/**
+ * view method
+ *
+ * @param string $id
+ * @return void
+ */
+	public function view($id = null) {
+		$this->Billing->id = $id;
+		$this->Billing->Behaviors->attach('Containable');
+		if (!$this->Billing->exists()) {
+			throw new NotFoundException(__('Invalid billing cycle'));
+		}
+		$this->set('Billing', $this->Billing->find('first', array(
+		  'contain' => array(
+          'Payment'=>array('conditions'=>array('is_fee'=>0),
+          'User'),
+          'Unit'=>array('Tenant','FreeRent','UnitFee'),
+          'BillingFee'
+        ),
+         'conditions' => array('Billing.id'=>$id),
+		)
+		));
+	}
+
+/**
+ * add method
+ *
+ * @return void
+ */
+	public function add() {
+		if ($this->request->is('post')) {
+			$this->Billing->create();
+		
+			if ($this->Billing->save($this->request->data)) {
+				$this->Session->setFlash(__('The billing cycle has been saved'));
+				$this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash(__('The billing cycle could not be saved. Please, try again.'));
+			}
+
+		}
+		$units = $this->Billing->Unit->find('list',array('conditions'=>array('Unit.active'=>1)));
+		$this->set(compact('units'));
+	}
+
+/*
+ * latefee method
+ *   //Get rent_due based on billing id
+ *   //Add Late Fee to rent due
+ *   //Save rent due
+ *   //Add fee to Billing Fee Table
+ */
+ 
+ function latefee(){
+    $this->managerCheck();
+		$this->activePropertyCheck();
+    if ($this->request->is('post')) {
+      $data = $this->request->data;
+      if(is_numeric($data['Billing']['amount'])){
+          //Call Add Late Fee Function in Model
+          if($this->Billing->addLateFee($data['Billing']['billing_id'],$data['Billing']['amount'])){
+            $this->Session->setFlash(__('Late Fee Added Sucessfully!'),'flash_good');
+            $this->redirect(array('action' => 'index'));
+    			} else {
+    				$this->Session->setFlash(__('Late fee could not be saved. Please, try again.'),'flash_bad');
+    				$this->redirect(array('action' => 'index'));
+    			}
+      }	
+		}
+ }
+ 
+/**
+ * edit method
+ *
+ * @param string $id
+ * @return void
+ */
+	public function edit($id = null) {
+		$this->Billing->id = $id;
+		if (!$this->Billing->exists()) {
+			throw new NotFoundException(__('Invalid billing cycle'));
+		}
+		if ($this->request->is('post') || $this->request->is('put')) {
+			if ($this->Billing->save($this->request->data)) {
+				$this->Session->setFlash(__('The billing cycle has been saved'));
+				$this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash(__('The billing cycle could not be saved. Please, try again.'));
+			}
+		} else {
+			$this->request->data = $this->Billing->read(null, $id);
+		}
+		$units = $this->Billing->Unit->find('list',array('conditions'=>array('Unit.active'=>1)));
+		$this->set(compact('units'));
+	}
+
+/**
+ * delete method
+ *
+ * @param string $id
+ * @return void
+ */
+	public function delete($id = null) {
+		if (!$this->request->is('post')) {
+			throw new MethodNotAllowedException();
+		}
+		$this->Billing->id = $id;
+		if (!$this->Billing->exists()) {
+			throw new NotFoundException(__('Invalid billing cycle'));
+		}
+		if ($this->Billing->delete()) {
+			$this->Session->setFlash(__('Billing cycle deleted'));
+			$this->redirect(array('action' => 'index'));
+		}
+		$this->Session->setFlash(__('Billing cycle was not deleted'));
+		$this->redirect(array('action' => 'index'));
+	}
+	
+}
