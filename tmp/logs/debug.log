@@ -1761,3 +1761,480 @@ Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 162
 [main] - APP/webroot/index.php, line 96
 
+2015-06-27 19:34:21 Notice: Notice (8): Undefined variable: vault_id in [/home2/onepage3/public_html/app/Controller/PaymentMethodsController.php, line 123]
+Trace:
+PaymentMethodsController::add_cc() - APP/Controller/PaymentMethodsController.php, line 123
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-07-01 04:56:18 Notice: Strict (2048): Declaration of Message::afterSave() should be compatible with Model::afterSave($created, $options = Array) in [/home2/onepage3/public_html/app/Model/Message.php, line 49]
+Trace:
+App::load() - CORE/Cake/Core/App.php, line 567
+App::load() - CORE/Cake/Core/App.php, line 567
+spl_autoload_call - [internal], line ??
+class_exists - [internal], line ??
+ClassRegistry::init() - CORE/Cake/Utility/ClassRegistry.php, line 146
+Model::_constructLinkedModel() - CORE/Cake/Model/Model.php, line 1077
+Model::__isset() - CORE/Cake/Model/Model.php, line 886
+ContainableBehavior::containments() - CORE/Cake/Model/Behavior/ContainableBehavior.php, line 340
+ContainableBehavior::beforeFind() - CORE/Cake/Model/Behavior/ContainableBehavior.php, line 123
+ObjectCollection::trigger() - CORE/Cake/Utility/ObjectCollection.php, line 128
+call_user_func - [internal], line ??
+CakeEventManager::dispatch() - CORE/Cake/Event/CakeEventManager.php, line 243
+Model::buildQuery() - CORE/Cake/Model/Model.php, line 3071
+Model::find() - CORE/Cake/Model/Model.php, line 2985
+Conversation::get() - APP/Model/Conversation.php, line 71
+ConversationsController::view() - APP/Controller/ConversationsController.php, line 95
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-07-01 04:56:38 Notice: Strict (2048): Declaration of Message::afterSave() should be compatible with Model::afterSave($created, $options = Array) in [/home2/onepage3/public_html/app/Model/Message.php, line 49]
+Trace:
+App::load() - CORE/Cake/Core/App.php, line 567
+App::load() - CORE/Cake/Core/App.php, line 567
+spl_autoload_call - [internal], line ??
+class_exists - [internal], line ??
+ClassRegistry::init() - CORE/Cake/Utility/ClassRegistry.php, line 146
+Model::_constructLinkedModel() - CORE/Cake/Model/Model.php, line 1077
+Model::__isset() - CORE/Cake/Model/Model.php, line 886
+ContainableBehavior::containments() - CORE/Cake/Model/Behavior/ContainableBehavior.php, line 340
+ContainableBehavior::beforeFind() - CORE/Cake/Model/Behavior/ContainableBehavior.php, line 123
+ObjectCollection::trigger() - CORE/Cake/Utility/ObjectCollection.php, line 128
+call_user_func - [internal], line ??
+CakeEventManager::dispatch() - CORE/Cake/Event/CakeEventManager.php, line 243
+Model::buildQuery() - CORE/Cake/Model/Model.php, line 3071
+Model::find() - CORE/Cake/Model/Model.php, line 2985
+Conversation::get() - APP/Model/Conversation.php, line 71
+ConversationsController::view() - APP/Controller/ConversationsController.php, line 95
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-07-01 16:59:54 Notice: Strict (2048): Declaration of Message::afterSave() should be compatible with Model::afterSave($created, $options = Array) in [/home2/onepage3/public_html/app/Model/Message.php, line 49]
+Trace:
+App::load() - CORE/Cake/Core/App.php, line 567
+App::load() - CORE/Cake/Core/App.php, line 567
+spl_autoload_call - [internal], line ??
+class_exists - [internal], line ??
+ClassRegistry::init() - CORE/Cake/Utility/ClassRegistry.php, line 146
+FormHelper::_getModel() - CORE/Cake/View/Helper/FormHelper.php, line 171
+FormHelper::_introspectModel() - CORE/Cake/View/Helper/FormHelper.php, line 204
+FormHelper::create() - CORE/Cake/View/Helper/FormHelper.php, line 354
+include - APP/View/Conversations/send.ctp, line 251
+View::_evaluate() - CORE/Cake/View/View.php, line 961
+View::_render() - CORE/Cake/View/View.php, line 923
+View::render() - CORE/Cake/View/View.php, line 473
+Controller::render() - CORE/Cake/Controller/Controller.php, line 959
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 200
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-07-02 05:40:38 Notice: Strict (2048): Declaration of Message::afterSave() should be compatible with Model::afterSave($created, $options = Array) in [/home2/onepage3/public_html/app/Model/Message.php, line 49]
+Trace:
+App::load() - CORE/Cake/Core/App.php, line 567
+App::load() - CORE/Cake/Core/App.php, line 567
+spl_autoload_call - [internal], line ??
+class_exists - [internal], line ??
+ClassRegistry::init() - CORE/Cake/Utility/ClassRegistry.php, line 146
+Controller::loadModel() - CORE/Cake/Controller/Controller.php, line 741
+ConversationsController::outbox() - APP/Controller/ConversationsController.php, line 68
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-07-02 05:40:41 Notice: Strict (2048): Declaration of Message::afterSave() should be compatible with Model::afterSave($created, $options = Array) in [/home2/onepage3/public_html/app/Model/Message.php, line 49]
+Trace:
+App::load() - CORE/Cake/Core/App.php, line 567
+App::load() - CORE/Cake/Core/App.php, line 567
+spl_autoload_call - [internal], line ??
+class_exists - [internal], line ??
+ClassRegistry::init() - CORE/Cake/Utility/ClassRegistry.php, line 146
+Model::_constructLinkedModel() - CORE/Cake/Model/Model.php, line 1077
+Model::__isset() - CORE/Cake/Model/Model.php, line 886
+ContainableBehavior::containments() - CORE/Cake/Model/Behavior/ContainableBehavior.php, line 340
+ContainableBehavior::beforeFind() - CORE/Cake/Model/Behavior/ContainableBehavior.php, line 123
+ObjectCollection::trigger() - CORE/Cake/Utility/ObjectCollection.php, line 128
+call_user_func - [internal], line ??
+CakeEventManager::dispatch() - CORE/Cake/Event/CakeEventManager.php, line 243
+Model::buildQuery() - CORE/Cake/Model/Model.php, line 3071
+Model::find() - CORE/Cake/Model/Model.php, line 2985
+Conversation::get() - APP/Model/Conversation.php, line 71
+ConversationsController::view() - APP/Controller/ConversationsController.php, line 95
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-07-16 02:02:38 Notice: Notice (8): Undefined index: billing_address1 in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 84]
+Trace:
+Paymethodbasecommerce::vault_add_creditcard() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 84
+Paymethodutils::addCardToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 19
+PaymentMethodsController::add_cc() - APP/Controller/PaymentMethodsController.php, line 103
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-07-16 02:02:38 Notice: Notice (8): Undefined index: billing_city in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 86]
+Trace:
+Paymethodbasecommerce::vault_add_creditcard() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 86
+Paymethodutils::addCardToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 19
+PaymentMethodsController::add_cc() - APP/Controller/PaymentMethodsController.php, line 103
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-07-16 02:02:38 Notice: Notice (8): Undefined variable: billing_state in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 93]
+Trace:
+Paymethodbasecommerce::vault_add_creditcard() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 93
+Paymethodutils::addCardToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 19
+PaymentMethodsController::add_cc() - APP/Controller/PaymentMethodsController.php, line 103
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-07-16 02:02:38 Notice: Notice (8): Undefined variable: property in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 94]
+Trace:
+Paymethodbasecommerce::vault_add_creditcard() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 94
+Paymethodutils::addCardToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 19
+PaymentMethodsController::add_cc() - APP/Controller/PaymentMethodsController.php, line 103
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-07-16 02:10:12 Notice: Notice (8): Undefined index: billing_address1 in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 86]
+Trace:
+Paymethodbasecommerce::vault_add_creditcard() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 86
+Paymethodutils::addCardToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 19
+PaymentMethodsController::add_cc() - APP/Controller/PaymentMethodsController.php, line 103
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-07-16 02:10:12 Notice: Notice (8): Undefined index: billing_city in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 88]
+Trace:
+Paymethodbasecommerce::vault_add_creditcard() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 88
+Paymethodutils::addCardToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 19
+PaymentMethodsController::add_cc() - APP/Controller/PaymentMethodsController.php, line 103
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-07-16 02:10:12 Notice: Notice (8): Undefined variable: billing_state in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 95]
+Trace:
+Paymethodbasecommerce::vault_add_creditcard() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 95
+Paymethodutils::addCardToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 19
+PaymentMethodsController::add_cc() - APP/Controller/PaymentMethodsController.php, line 103
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-07-16 02:10:12 Notice: Notice (8): Undefined variable: property in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 96]
+Trace:
+Paymethodbasecommerce::vault_add_creditcard() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 96
+Paymethodutils::addCardToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 19
+PaymentMethodsController::add_cc() - APP/Controller/PaymentMethodsController.php, line 103
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-07-16 02:11:31 Notice: Notice (8): Undefined index: billing_address1 in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 84]
+Trace:
+Paymethodbasecommerce::vault_add_creditcard() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 84
+Paymethodutils::addCardToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 19
+PaymentMethodsController::add_cc() - APP/Controller/PaymentMethodsController.php, line 103
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-07-16 02:11:31 Notice: Notice (8): Undefined index: billing_city in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 86]
+Trace:
+Paymethodbasecommerce::vault_add_creditcard() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 86
+Paymethodutils::addCardToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 19
+PaymentMethodsController::add_cc() - APP/Controller/PaymentMethodsController.php, line 103
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-07-16 02:11:31 Notice: Notice (8): Undefined variable: billing_state in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 93]
+Trace:
+Paymethodbasecommerce::vault_add_creditcard() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 93
+Paymethodutils::addCardToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 19
+PaymentMethodsController::add_cc() - APP/Controller/PaymentMethodsController.php, line 103
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-07-16 02:11:31 Notice: Notice (8): Undefined variable: property in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 94]
+Trace:
+Paymethodbasecommerce::vault_add_creditcard() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 94
+Paymethodutils::addCardToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 19
+PaymentMethodsController::add_cc() - APP/Controller/PaymentMethodsController.php, line 103
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-07-16 02:12:50 Notice: Notice (8): Undefined index: billing_address1 in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 84]
+Trace:
+Paymethodbasecommerce::vault_add_creditcard() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 84
+Paymethodutils::addCardToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 19
+PaymentMethodsController::add_cc() - APP/Controller/PaymentMethodsController.php, line 103
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-07-16 02:12:50 Notice: Notice (8): Undefined index: billing_city in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 86]
+Trace:
+Paymethodbasecommerce::vault_add_creditcard() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 86
+Paymethodutils::addCardToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 19
+PaymentMethodsController::add_cc() - APP/Controller/PaymentMethodsController.php, line 103
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-07-16 02:12:50 Notice: Notice (8): Undefined variable: billing_state in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 93]
+Trace:
+Paymethodbasecommerce::vault_add_creditcard() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 93
+Paymethodutils::addCardToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 19
+PaymentMethodsController::add_cc() - APP/Controller/PaymentMethodsController.php, line 103
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-07-16 02:12:50 Notice: Notice (8): Undefined index: billing_zip in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 94]
+Trace:
+Paymethodbasecommerce::vault_add_creditcard() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 94
+Paymethodutils::addCardToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 19
+PaymentMethodsController::add_cc() - APP/Controller/PaymentMethodsController.php, line 103
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-07-16 02:25:06 Notice: Notice (8): Undefined variable: responsetext in [/home2/onepage3/public_html/app/Controller/PaymentMethodsController.php, line 138]
+Trace:
+PaymentMethodsController::add_cc() - APP/Controller/PaymentMethodsController.php, line 138
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-07-16 02:25:53 Notice: Notice (8): Undefined variable: responsetext in [/home2/onepage3/public_html/app/Controller/PaymentMethodsController.php, line 138]
+Trace:
+PaymentMethodsController::add_cc() - APP/Controller/PaymentMethodsController.php, line 138
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-07-16 03:06:03 Notice: Notice (8): Undefined variable: paymentmethod in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 24]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 24
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PaymentMethodsController::add_bank() - APP/Controller/PaymentMethodsController.php, line 194
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-07-16 03:06:03 Notice: Notice (8): Undefined index: billing_address1 in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 34]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 34
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PaymentMethodsController::add_bank() - APP/Controller/PaymentMethodsController.php, line 194
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-07-16 03:06:03 Notice: Notice (8): Undefined index: billing_city in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 36]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 36
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PaymentMethodsController::add_bank() - APP/Controller/PaymentMethodsController.php, line 194
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-07-16 03:06:03 Notice: Notice (8): Undefined variable: billing_state in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 43]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 43
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PaymentMethodsController::add_bank() - APP/Controller/PaymentMethodsController.php, line 194
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-07-16 03:06:03 Notice: Notice (8): Undefined variable: property in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 44]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 44
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PaymentMethodsController::add_bank() - APP/Controller/PaymentMethodsController.php, line 194
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-07-16 03:06:03 Notice: Notice (8): Undefined variable: responsetext in [/home2/onepage3/public_html/app/Controller/PaymentMethodsController.php, line 223]
+Trace:
+PaymentMethodsController::add_bank() - APP/Controller/PaymentMethodsController.php, line 223
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-07-16 03:06:49 Notice: Notice (8): Undefined variable: paymentmethod in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 24]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 24
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PaymentMethodsController::add_bank() - APP/Controller/PaymentMethodsController.php, line 194
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-07-16 03:06:49 Notice: Notice (8): Undefined variable: responsetext in [/home2/onepage3/public_html/app/Controller/PaymentMethodsController.php, line 223]
+Trace:
+PaymentMethodsController::add_bank() - APP/Controller/PaymentMethodsController.php, line 223
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-07-16 03:07:36 Notice: Notice (8): Undefined variable: paymentmethod in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 24]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 24
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PaymentMethodsController::add_bank() - APP/Controller/PaymentMethodsController.php, line 194
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-07-16 03:07:37 Notice: Notice (8): Undefined variable: vault_id in [/home2/onepage3/public_html/app/Controller/PaymentMethodsController.php, line 207]
+Trace:
+PaymentMethodsController::add_bank() - APP/Controller/PaymentMethodsController.php, line 207
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-07-16 03:21:48 Notice: Notice (8): Undefined variable: paymentmethod in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 24]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 24
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PaymentMethodsController::add_bank() - APP/Controller/PaymentMethodsController.php, line 194
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-07-16 03:21:48 Notice: Notice (8): Undefined index: billing_address1 in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 34]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 34
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PaymentMethodsController::add_bank() - APP/Controller/PaymentMethodsController.php, line 194
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-07-16 03:21:48 Notice: Notice (8): Undefined index: billing_city in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 36]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 36
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PaymentMethodsController::add_bank() - APP/Controller/PaymentMethodsController.php, line 194
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-07-16 03:21:48 Notice: Notice (8): Undefined variable: billing_state in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 43]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 43
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PaymentMethodsController::add_bank() - APP/Controller/PaymentMethodsController.php, line 194
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-07-16 03:21:48 Notice: Notice (8): Undefined variable: property in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 44]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 44
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PaymentMethodsController::add_bank() - APP/Controller/PaymentMethodsController.php, line 194
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-07-16 03:21:48 Notice: Notice (8): Undefined variable: vault_id in [/home2/onepage3/public_html/app/Controller/PaymentMethodsController.php, line 207]
+Trace:
+PaymentMethodsController::add_bank() - APP/Controller/PaymentMethodsController.php, line 207
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+

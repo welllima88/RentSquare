@@ -19,6 +19,7 @@ class MonthlyFeeShell extends AppShell {
           ),
           'contain'=>('Manager')
         ));
+
         //Loop through properties
         foreach($properties as $property):
 
@@ -38,78 +39,82 @@ class MonthlyFeeShell extends AppShell {
   		      
           parse_str($result);
           
-    			if(isset($response) && $response == 1) {
-              $this->out('Monthly Fee Successful Charged for Property #'.$property['Property']['id'].' - '.$property['Property']['name']);
-              //Send Payment Success Email
-              $email_data['manager_name'] = $property['Manager']['first_name'] . ' ' . $property['Manager']['last_name'];
-              $email_data['property_name']=$property['Property']['name'];
-              $email_data['amount'] = $amount;
-              $email_data['trans_id'] = $transactionid;
-              if($this->__sendPaymentSuccess($property['Manager']['email'],$email_data)){
-                $this->out("Payment Received Email Sent To ".$property['Manager']['email']);
-              }
-              $monthly_fee = array();
-  			      $monthly_fee['Payment']['ppresponse'] = $response;
-  			      $monthly_fee['Payment']['ppresponsetext'] = $responsetext;
-              $monthly_fee['Payment']['ppauthcode'] = $authcode;
-              $monthly_fee['Payment']['pptransactionid']	= $transactionid;
-              $monthly_fee['Payment']['ppresponse_code'] = $response_code;
-        			$monthly_fee['Payment']['status'] = 'Complete';
-        			$monthly_fee['Payment']['notes'] = 'Monthly Fee';
-        			$monthly_fee['Payment']['user_id'] = $property['Manager']['id'];
-        			$monthly_fee['Payment']['billing_id'] = 0;
-        			$monthly_fee['Payment']['unit_id'] = 0;
-        			$monthly_fee['Payment']['amount'] = $amount;
-        			$monthly_fee['Payment']['is_fee'] = 0;
-        			$monthly_fee['Payment']['amt_processed'] = floatval($amount);
-        			$monthly_fee['Payment']['total_bill'] = floatval($amount);
+	  if(isset($response) && $response == 1)
+          {
+             $this->out('Monthly Fee Successful Charged for Property #'.$property['Property']['id'].' - '.$property['Property']['name']);
+             //Send Payment Success Email
+             $email_data['manager_name'] = $property['Manager']['first_name'] . ' ' . $property['Manager']['last_name'];
+             $email_data['property_name']=$property['Property']['name'];
+             $email_data['amount'] = $amount;
+             $email_data['trans_id'] = $transactionid;
+             if($this->__sendPaymentSuccess($property['Manager']['email'],$email_data))
+             {
+               $this->out("Payment Received Email Sent To ".$property['Manager']['email']);
+             }
+             $monthly_fee = array();
+  	     $monthly_fee['Payment']['ppresponse'] = $response;
+  	     $monthly_fee['Payment']['ppresponsetext'] = $responsetext;
+             $monthly_fee['Payment']['ppauthcode'] = $authcode;
+             $monthly_fee['Payment']['pptransactionid']	= $transactionid;
+             $monthly_fee['Payment']['ppresponse_code'] = $response_code;
+             $monthly_fee['Payment']['status'] = 'Complete';
+      	     $monthly_fee['Payment']['notes'] = 'Monthly Fee';
+       	     $monthly_fee['Payment']['user_id'] = $property['Manager']['id'];
+       	     $monthly_fee['Payment']['billing_id'] = 0;
+       	     $monthly_fee['Payment']['unit_id'] = 0;
+       	     $monthly_fee['Payment']['amount'] = $amount;
+       	     $monthly_fee['Payment']['is_fee'] = 0;
+       	     $monthly_fee['Payment']['amt_processed'] = floatval($amount);
+       	     $monthly_fee['Payment']['total_bill'] = floatval($amount);
         			
-              //Add to Payments Table
-              $this->Payment->create();
-              if ($this->Payment->save($monthly_fee)){
+             //Add to Payments Table
+             $this->Payment->create();
+             if ($this->Payment->save($monthly_fee))
+             {
                 $this->out("Monthly Fee Saved To Database");
-              }
-                                        
-          }else{
-              $failed=$property;
-              $failed['FailedPayment']['billing_id'] = 0;
-              $failed['FailedPayment']['unit_id'] = 0;
-              $failed['FailedPayment']['user_id'] = $property['Property']['manager_id'];
-              $failed['FailedPayment']['amount'] = $amount;
-              $failed['FailedPayment']['ppresponse'] = $response;
-              $failed['FailedPayment']['ppresponsetext'] = $responsetext;
-              $failed['FailedPayment']['ppauthcode'] = $authcode;
-              $failed['FailedPayment']['pptransactionid']	= $transactionid;
-              $failed['FailedPayment']['ppresponse_code'] = $response_code;
-              $failed['FailedPayment']['notes'] = "Failed Monthly Fee Charge. Property id ".$property['Property']['id'];
-              $this->FailedPayment->save($failed);
-              $this->out('Failed Monthly Fee Charge. Property id '.$property['Property']['id'] . ' => '.$responsetext);                
+             }
+          }
+          else
+          {
+             $failed=$property;
+             $failed['FailedPayment']['billing_id'] = 0;
+             $failed['FailedPayment']['unit_id'] = 0;
+             $failed['FailedPayment']['user_id'] = $property['Property']['manager_id'];
+             $failed['FailedPayment']['amount'] = $amount;
+             $failed['FailedPayment']['ppresponse'] = $response;
+             $failed['FailedPayment']['ppresponsetext'] = $responsetext;
+             $failed['FailedPayment']['ppauthcode'] = $authcode;
+             $failed['FailedPayment']['pptransactionid']	= $transactionid;
+             $failed['FailedPayment']['ppresponse_code'] = $response_code;
+             $failed['FailedPayment']['notes'] = "Failed Monthly Fee Charge. Property id ".$property['Property']['id'];
+             $this->FailedPayment->save($failed);
+             $this->out('Failed Monthly Fee Charge. Property id '.$property['Property']['id'] . ' => '.$responsetext);                
           }
                      
         endforeach;
         
       }
-      private function __sendPaymentSuccess($email_address,$email_data)
-    	{
-    		
-    			$from = Configure::read('RentSquare.supportemail');
-    
-    			$email = new CakeEmail();
-    			$email->config('default');
-    			$email->domain('rentsquaredev.com');
-    			$email->sender('noreply@rentsquaredev.com','RentSquare Support');
-    			$email->template('monthlyfeesuccess', 'generic')
-    				->emailFormat('html')
-    				->from(array($from => 'RentSquare Support'))
-    				->to($email_address)
-    				->subject('RentSquare Payment Receipt')
-    				->viewVars(array(
-      					'email_data'   => $email_data
-      				))
 
-    				->send();
+      private function __sendPaymentSuccess($email_address,$email_data)
+      {
+	$from = Configure::read('RentSquare.supportemail');
     
-    			return true;
+    	$email = new CakeEmail();
+    	$email->config('default');
+    	$email->domain('rentsquaredev.com');
+    	$email->sender('noreply@rentsquaredev.com','RentSquare Support');
+    	$email->template('monthlyfeesuccess', 'generic')
+    		->emailFormat('html')
+    		->from(array($from => 'RentSquare Support'))
+    		->to($email_address)
+    		->subject('RentSquare Payment Receipt')
+    		->viewVars(array(
+      			'email_data'   => $email_data
+      		))
+
+    		->send();
+    
+    	return true;
     	}	
     	
     	private function get_monthly_fee($num_units){

@@ -1,8 +1,15 @@
 <?php
+//error_reporting(0);
 App::uses('Sanitize', 'Utility');
 App::uses('Security', 'Utility');
 Configure::write('RentSquare.supportemail', 'support@rentsquare.co');
 Configure::write('Security.salt2','R1ysi!84$0938sbe');
+App::import('Vendor','Paymethodutils',array('file'=>'Interfaces/PayMethods/PayMethodUtils.php'));
+/* 
+ * If processor ever changes, need to write a new class to the interface, and load it here
+ *  The only thing to change is in the instantion -- pass the new class as an arg to Paymethodutils
+ */
+App::import('Vendor','Paymethodbasecommerce',array('file'=>'Interfaces/PayMethods/PayMethodBasecommerce.php'));
 
 class UsersController extends AppController
 {
@@ -63,6 +70,12 @@ class UsersController extends AppController
 	
 	function view($id = null)
 	{
+
+      $this->payutil = new Paymethodutils( new Paymethodbasecommerce);
+      $this->payutil->submitMerchantApp( $junk );
+exit;
+
+
   	if($id != null){
   	   $user_details = $this->User->find('first',array(
   	      'conditions'=>array('User.id'=> $id),
@@ -90,163 +103,172 @@ class UsersController extends AppController
 	}
 	
 	function propertymanager(){
-  	$this->layout = 'register';
-  	$this->loadModel('State');
-  	$states = $this->State->find('list', array('fields' => array('State.id', 'State.full_name')));
+  	   $this->layout = 'register';
+  	   $this->loadModel('State');
+  	   $states = $this->State->find('list', array('fields' => array('State.id', 'State.full_name')));
 	  
-		if(!empty($this->request->data))
-    {
-      
-      $this->User->set( $this->request->data );
-      if ($this->User->validates()) {
-          $this->User->create();
-    			$data = $this->request->data;
-    			// If Copy Property Ownership is checked, copy values 
-    			foreach($data['Property'] as $key=>$prop){
-    			  //Set fee_due_day
-            $data['Property'][$key]['fee_due_day'] = date('j');
-            $data['Property'][$key]['bank_acct'] = substr($data['Property'][$key]['bank_acccount_num'], -4, 4);
-            
-            if(!isset($data['Property'][$key]['state_inc']) || $data['Property'][$key]['state_inc'] == '' || is_null($data['Property'][$key]['state_inc'])) $data['Property'][$key]['state_inc'] = 1;
-            if(!isset($data['Property'][$key]['business_started'])) $data['Property'][$key]['business_started'] = 0;
-            if(!isset($data['Property'][$key]['ownership_started'])) $data['Property'][$key]['ownership_started'] = 0;
-            if(isset($data['Property'][$key]['name'])) $data['Property'][$key]['legal_dba'] = $data['Property'][$key]['name'];
-            
+	   if(!empty($this->request->data))
+    	   {
+              /*
+               * Instantiate payment processor
+               */
+              $this->payutil = new Paymethodutils( new Paymethodbasecommerce);
 
+              $this->User->set( $this->request->data );
+              if ($this->User->validates()) {
+                  $this->User->create();
+	  	  $data = $this->request->data;
+	  	  // If Copy Property Ownership is checked, copy values 
+    		  foreach($data['Property'] as $key=>$prop)
+                  {
+    		     //Set fee_due_day
+                     $data['Property'][$key]['fee_due_day'] = date('j');
+                     $data['Property'][$key]['bank_acct'] = substr($data['Property'][$key]['bank_acccount_num'], -4, 4);
             
+                     if(!isset($data['Property'][$key]['state_inc']) || $data['Property'][$key]['state_inc'] == '' || is_null($data['Property'][$key]['state_inc'])) $data['Property'][$key]['state_inc'] = 1;
+                     if(!isset($data['Property'][$key]['business_started'])) $data['Property'][$key]['business_started'] = 0;
+                     if(!isset($data['Property'][$key]['ownership_started'])) $data['Property'][$key]['ownership_started'] = 0;
+                     if(isset($data['Property'][$key]['name'])) $data['Property'][$key]['legal_dba'] = $data['Property'][$key]['name'];
             
-      			if(isset($prop['previous_ownership'])){
-        			if($prop['previous_ownership'] == 'use_previous_ownership'){
-        			  $copy_key = $data['Property'][$key]['prev_ownership'];
-        			  $data['Property'][$key]['ownership_type'] = $data['Property'][$copy_key]['ownership_type'];
-          			$data['Property'][$key]['legal_name'] = $data['Property'][$copy_key]['legal_name'];
-          			$data['Property'][$key]['legal_dba'] = $data['Property'][$copy_key]['legal_dba'];
-          			$data['Property'][$key]['legal_street'] = $data['Property'][$copy_key]['legal_street'];
-          			$data['Property'][$key]['legal_city'] = $data['Property'][$copy_key]['legal_city'];
-          			$data['Property'][$key]['legal_state_id'] = $data['Property'][$copy_key]['legal_state_id'];
-          			$data['Property'][$key]['legal_zip'] = $data['Property'][$copy_key]['legal_zip'];
-          			$data['Property'][$key]['legal_phone'] = $data['Property'][$copy_key]['legal_phone'];
-          			$data['Property'][$key]['legal_fax'] = $data['Property'][$copy_key]['legal_fax'];
-          			$data['Property'][$key]['legal_website'] = $data['Property'][$copy_key]['legal_website'];
-          			$data['Property'][$key]['legal_ein'] = $data['Property'][$copy_key]['legal_ein'];
-          			$data['Property'][$key]['state_inc'] = $data['Property'][$copy_key]['state_inc'];
-          			$data['Property'][$key]['business_started'] = $data['Property'][$copy_key]['business_started'];
-          			$data['Property'][$key]['ownership_started'] = $data['Property'][$copy_key]['ownership_started'];
-        			}
-      			}
-      			// If Copy Bank Account is checked, copy values 
-      			if(isset($prop['previous_bank'])){
-        			if($prop['previous_bank'] == 'use_prev_bank'){
-          			$copy_key = $data['Property'][$key]['prev_bank'];
-          			$data['Property'][$key]['bank_name'] = $data['Property'][$copy_key]['bank_name'];
-          			$data['Property'][$key]['routing_number'] = $data['Property'][$copy_key]['routing_number'];
-          			//$data['Property'][$key]['confirm_routing_number'] = $data['Property'][$copy_key]['confirm_routing_number'];
-          			$data['Property'][$key]['bank_acccount_num'] = $data['Property'][$copy_key]['bank_acccount_num'];
-          			//$data['Property'][$key]['verify_bank_acccount_num'] = $data['Property'][$copy_key]['verify_bank_acccount_num'];
-          			$data['Property'][$key]['bank_acccount_type'] = $data['Property'][$copy_key]['bank_acccount_type'];
-          			$data['Property'][$key]['vault_id'] = $data['Property'][$copy_key]['vault_id'];
-        			}
-      			} else {
-        			//Save Bank To Vault
-        			//Add Property Manager's bank account to the Vault
-        			$paymentmethod = array();
-        			$paymentmethod['pp_user'] = RENTSQUARE_MERCH_USER;
-              $paymentmethod['pp_password'] = RENTSQUARE_MERCH_PASS;
-              $paymentmethod['first_name'] = $data['User']['first_name'];
-              $paymentmethod['last_name'] = $data['User']['last_name'];
-              $paymentmethod['account_number'] = $data['Property'][$key]['bank_acccount_num'];
-              $paymentmethod['routing_number'] = $data['Property'][$key]['routing_number'];
-              $paymentmethod['bank_acct_type'] = $data['Property'][$key]['bank_acccount_type'];
-              $paymentmethod['phone'] = $data['User']['phone'];
-              $paymentmethod['email'] = $data['User']['email'];
-              $paymentmethod['user_id'] = '874'; //Random - only used to gen vault id
-              $this->loadModel('PaymentMethod');
-        			$bank_saved = $this->PaymentMethod->add_bank_to_vault($paymentmethod);
-        			if($bank_saved['response'] == 1){
-          			$data['Property'][$key]['vault_id'] = $bank_saved['vault_id'];
-        			} else {
-        			  //On fail, set vault_id = 1
-          			$data['Property'][$key]['vault_id'] = 1;
-        			}
-      			}
-            //Get Timezone Id For each property
-          
-            $city = $data['Property'][$key]['address'] . ', ' . $data['Property'][$key]['city'] . ', ' . $states[$data['Property'][$key]['state_id']];
+      		     if(isset($prop['previous_ownership']))
+                     {
+         	        if($prop['previous_ownership'] == 'use_previous_ownership')
+                        {
+        		   $copy_key = $data['Property'][$key]['prev_ownership'];
+        		   $data['Property'][$key]['ownership_type'] = $data['Property'][$copy_key]['ownership_type'];
+          	   	   $data['Property'][$key]['legal_name'] = $data['Property'][$copy_key]['legal_name'];
+          		   $data['Property'][$key]['legal_dba'] = $data['Property'][$copy_key]['legal_dba'];
+          		   $data['Property'][$key]['legal_street'] = $data['Property'][$copy_key]['legal_street'];
+          		   $data['Property'][$key]['legal_city'] = $data['Property'][$copy_key]['legal_city'];
+          		   $data['Property'][$key]['legal_state_id'] = $data['Property'][$copy_key]['legal_state_id'];
+          		   $data['Property'][$key]['legal_zip'] = $data['Property'][$copy_key]['legal_zip'];
+          		   $data['Property'][$key]['legal_phone'] = $data['Property'][$copy_key]['legal_phone'];
+          		   $data['Property'][$key]['legal_fax'] = $data['Property'][$copy_key]['legal_fax'];
+          		   $data['Property'][$key]['legal_website'] = $data['Property'][$copy_key]['legal_website'];
+          		   $data['Property'][$key]['legal_ein'] = $data['Property'][$copy_key]['legal_ein'];
+          		   $data['Property'][$key]['state_inc'] = $data['Property'][$copy_key]['state_inc'];
+          		   $data['Property'][$key]['business_started'] = $data['Property'][$copy_key]['business_started'];
+          		   $data['Property'][$key]['ownership_started'] = $data['Property'][$copy_key]['ownership_started'];
+        	        }
+      		     }
+      		     // If Copy Bank Account is checked, copy values 
+      	   	     if(isset($prop['previous_bank']))
+                     {
+        		if($prop['previous_bank'] == 'use_prev_bank')
+                        {
+          	  	   $copy_key = $data['Property'][$key]['prev_bank'];
+          		   $data['Property'][$key]['bank_name'] = $data['Property'][$copy_key]['bank_name'];
+          		   $data['Property'][$key]['routing_number'] = $data['Property'][$copy_key]['routing_number'];
+             		   //$data['Property'][$key]['confirm_routing_number'] = $data['Property'][$copy_key]['confirm_routing_number'];
+          		   $data['Property'][$key]['bank_acccount_num'] = $data['Property'][$copy_key]['bank_acccount_num'];
+          		   //$data['Property'][$key]['verify_bank_acccount_num'] = $data['Property'][$copy_key]['verify_bank_acccount_num'];
+          		   $data['Property'][$key]['bank_acccount_type'] = $data['Property'][$copy_key]['bank_acccount_type'];
+          		   $data['Property'][$key]['vault_id'] = $data['Property'][$copy_key]['vault_id'];
+        		}
+      		     } 
+                     else 
+                     {
+                        /*  
+                         * PaymentProcessor API
+                         *
+        	         * Save Bank To Vault
+        		 * Add Property Manager's bank account to the Vault
+                         */
+        		$paymentmethod = array();
+              		$paymentmethod['first_name'] = $data['User']['first_name'];
+              		$paymentmethod['last_name'] = $data['User']['last_name'];
+              		$paymentmethod['account_number'] = $data['Property'][$key]['bank_acccount_num'];
+              		$paymentmethod['routing_number'] = $data['Property'][$key]['routing_number'];
+              		$paymentmethod['bank_acct_type'] = $data['Property'][$key]['bank_acccount_type'];
+              		$paymentmethod['phone'] = $data['User']['phone'];
+              		$paymentmethod['email'] = $data['User']['email'];
+              		$paymentmethod['user_id'] = '874'; //Random - only used to gen vault id
+                        list($banksave_status, $banksave_result) = $this->payutil->addBankToVault( $paymentmethod );
+        		if($banksave_status == 1)
+                        {
+          	 	  $data['Property'][$key]['vault_id'] = $banksave_result;
+                          //$this->log( 'Success: Vault add prop mgr - token = ' . $banksave_result, 'PmtProcesing' );
+        		} 
+                        else 
+                        {
+        		   //On fail, set vault_id = 1
+          		   $data['Property'][$key]['vault_id'] = 1;
+                           //$this->log( 'Fail: Vault add prop mgr - ' . var_dump($banksave_result), 'PmtProcesing' );
+     			}
+      		     }
+                     //Get Timezone Id For each property
+                     $city = $data['Property'][$key]['address'] . ', ' . $data['Property'][$key]['city'] . ', ' . $states[$data['Property'][$key]['state_id']];
+                     $timezone = $this->timezone_lookup($this->geocode_lookup($city));
+                     //$utc_offset = $timezone['rawOffset'];
+                     //$daylight_offset = $timezone['dstOffset'];
+                     $data['Property'][$key]['timezone'] = $timezone['timeZoneId'];
             
-            $timezone = $this->timezone_lookup($this->geocode_lookup($city));
-            //$utc_offset = $timezone['rawOffset'];
-            //$daylight_offset = $timezone['dstOffset'];
-            $data['Property'][$key]['timezone'] = $timezone['timeZoneId'];
-            
-    			}
+    	 	  } // foreach property
     			
-    			//exit;
-
-    			$data['User']['username'] = $data['User']['email'];
-    			$data['User']['is_activated'] = true;
-    			$data['User']['type'] = USER_TYPE_MANAGER;
-    			$data['User']['activation_key'] = $this->User->genActivationHash();
-    			$data['User']['password'] = AuthComponent::password($data['User']['password_orig']);
+  		  $data['User']['username'] = $data['User']['email'];
+    		  $data['User']['is_activated'] = true;
+    		  $data['User']['type'] = USER_TYPE_MANAGER;
+    		  $data['User']['activation_key'] = $this->User->genActivationHash();
+    		  $data['User']['password'] = AuthComponent::password($data['User']['password_orig']);
     			
     			
-    			//Save Property Manager in Database
-    			if($this->User->saveAssociated($data))
-    			{            
-    					
-              $newUserId = $this->User->id;
-              //Call Function to Submit Application to Phoenix Payments
-              $results = $this->User->submitPPApplication($data);
+    		  //Save Property Manager in Database
+    		  if($this->User->saveAssociated($data))
+    		  {            
+                     $newUserId = $this->User->id;
+                     //Call Function to Submit Application to Phoenix Payments
+                     $results = $this->User->submitPPApplication($data);
+                 
+                     /*
+                      * * Response 600 Error Message
+                      * Response 500 Internal Server Error
+                      * Response 200 Application Accepted
+                      */
+                     $all_passed = true;
               
-              //Response 600 Error Message
-              //Response 500 Internal Server Error
-              //Response 200 Application Accepted
-              $all_passed = true;
+                     foreach($results as $result):
+                        if($result["response"] != 200){
+                          $all_passed = false;
+                        }
+                     endforeach; //foreach $results
               
-              foreach($results as $result):
-                if($result["response"] != 200){
-                  $all_passed = false;
-                }
-              endforeach; //foreach $results
-              
-              if($all_passed){
-                $this->Auth->login($data['User']);
-                $this->redirect(array('controller' => 'Users', 'action' => 'pendingactivation',$this->User->id));
-              } else {
-                $this->set('error_messages',$results);
-                //echo '<pre>';
-                //var_dump($results);
-                //echo '</pre>';   
-                debug($results);
-                $this->Session->setFlash('Error registering.','flash_bad');
-                $this->User->delete($newUserId);
-              }
-            
-    				//$this->redirect(array('controller' => 'Users', 'action' => 'propertymanagersuccess'));
-    					
-    			}
-    			else
-    			{
-      			 $this->Session->setFlash('Error Signing Up. Please contact system admin.','flash_bad');
-    				 $this->redirect(array('controller' => 'Users', 'action' => 'propertymanager'));    
-    			}
+                     if($all_passed)
+                     {
+                        $this->Auth->login($data['User']);
+                        $this->redirect(array('controller' => 'Users', 'action' => 'pendingactivation',$this->User->id));
+                     }
+                     else
+                     {
+                        $this->set('error_messages',$results);
+                        debug($results);
+                        $this->Session->setFlash('Error registering.','flash_bad');
+                        $this->User->delete($newUserId);
+                     }
+    		     //$this->redirect(array('controller' => 'Users', 'action' => 'propertymanagersuccess'));
+                  }
+    		  else
+    		  {
+      		     $this->Session->setFlash('Error Signing Up. Please contact system admin.','flash_bad');
+    		     $this->redirect(array('controller' => 'Users', 'action' => 'propertymanager'));    
+    		  }
     		} else {
       		//$errors = $this->User->invalidFields();
       		$this->Session->setFlash('Please enter all required fields','flash_bad');      		
-        }
-    }
+             }
+          }
     
-    $this->set('states',$states);
-    $this->set('one_month_date',$this->add_month(date("F j, Y"),1));
+          $this->set('states',$states);
+          $this->set('one_month_date',$this->add_month(date("F j, Y"),1));
     
-    $MONTHLY_25_OR_LESS = MONTHLY_25_OR_LESS;
-    $MONTHLY_26_TO_50 = MONTHLY_26_TO_50;
-    $MONTHLY_51_TO_100 = MONTHLY_51_TO_100;
-    $MONTHLY_101_TO_200 = MONTHLY_101_TO_200;
-    $MONTHLY_201_TO_300 = MONTHLY_201_TO_300;
-    $MONTHLY_301_TO_400 = MONTHLY_301_TO_400;
-    $MONTHLY_OVER_400 = MONTHLY_OVER_400;
-    $this->set(compact('MONTHLY_25_OR_LESS','MONTHLY_26_TO_50','MONTHLY_51_TO_100','MONTHLY_101_TO_200','MONTHLY_201_TO_300','MONTHLY_301_TO_400','MONTHLY_OVER_400'));    
-	}
+          $MONTHLY_25_OR_LESS = MONTHLY_25_OR_LESS;
+          $MONTHLY_26_TO_50 = MONTHLY_26_TO_50;
+          $MONTHLY_51_TO_100 = MONTHLY_51_TO_100;
+          $MONTHLY_101_TO_200 = MONTHLY_101_TO_200;
+          $MONTHLY_201_TO_300 = MONTHLY_201_TO_300;
+          $MONTHLY_301_TO_400 = MONTHLY_301_TO_400;
+          $MONTHLY_OVER_400 = MONTHLY_OVER_400;
+          $this->set(compact('MONTHLY_25_OR_LESS','MONTHLY_26_TO_50','MONTHLY_51_TO_100','MONTHLY_101_TO_200','MONTHLY_201_TO_300','MONTHLY_301_TO_400','MONTHLY_OVER_400'));    
+       }
 	
     function addByInvite()
     {
