@@ -1,5 +1,7 @@
 <div class="property_submenu">
     <ul>
+<?php
+ /*
        <li>
             <div class="floatRight" style="position:relative;">
                <?php echo $this->Html->link(h('Activate a Property'),array('controller' => 'Admin', 'action' => 'activateproperty','full_base' => true),array('class'=>'btn btn-padding btn-small floatRight'));?>
@@ -8,6 +10,8 @@
                </div><!-- .inactive_count -->
             </div><!-- .floatRight -->
        </li>
+*/
+?>
        <li>
     	 <?php echo $this->Html->link(h('Deactivate A Property'), 
            array('controller' => 'Users', 'action' => 'pmlist', 'full_base' => true),
