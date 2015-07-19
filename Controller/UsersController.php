@@ -215,9 +215,9 @@ exit;
     		  //Save Property Manager in Database
     		  if($this->User->saveAssociated($data))
     		  {            
-                     $newUserId = $this->User->id;
+                     $newUserId = $this->User->getLastInsertID();
                      //Call Function to Submit Application to Phoenix Payments
-                     $results = $this->User->submitPPApplication($data);
+                     //$results = $this->User->submitPPApplication($data);
                  
                      /*
                       * * Response 600 Error Message
@@ -226,16 +226,18 @@ exit;
                       */
                      $all_passed = true;
               
+/*
                      foreach($results as $result):
                         if($result["response"] != 200){
                           $all_passed = false;
                         }
                      endforeach; //foreach $results
+*/
               
                      if($all_passed)
                      {
                         $this->Auth->login($data['User']);
-                        $this->redirect(array('controller' => 'Users', 'action' => 'pendingactivation',$this->User->id));
+                        $this->redirect(array('controller' => 'Users', 'action' => 'pendingactivation',$newUserId));
                      }
                      else
                      {
@@ -805,10 +807,18 @@ exit;
 	}
 
   function pendingactivation($id=null){
+    /*
+     * No longer valid, so repurposing here
+     * Looking up properties and redirecting to billing.index as I've logged person in already
+     */
     if($id==null){
       $id = $this->Auth->user('id');
     }
     $this->set('properties',$this->User->Property->find('all', array('conditions' => array('Property.manager_id' => $id))));
+    //$this->redirect(array('controller' => 'Billing', 'action' => 'index'));
+    $this->Auth->logout();
+    $this->Session->setFlash('Thanks For  Registering.  Log in now to get started!','flash_good');
+    $this->redirect($this->Auth->redirect());
   }
 
 

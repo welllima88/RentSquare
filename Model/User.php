@@ -88,6 +88,16 @@ class User extends AppModel
               'message' => 'Zip code must be 5 digits long'
           )
       ),
+      'company_name' => array(
+          'noEmpty' => array(
+              'rule' => 'notEmpty',
+              'message' => 'Please enter your Company Name'
+          ),
+	  'length' => array(
+              'rule'    => array('minLength', 3),
+              'message' => 'Must be at least 3 characters long'
+	  )
+      ),
       'phone' => array(
           'noEmpty' => array(
               'rule' => 'notEmpty',

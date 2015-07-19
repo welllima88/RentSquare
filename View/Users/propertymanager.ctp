@@ -118,8 +118,11 @@
         	echo $this->Form->input('User.last_name', array('label' => 'Last Name<br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'div'=>array('class'=>'span6'),'class'=>'validate[required]'));
         	echo '</div><!-- .row -->';
         	echo '<div class="row-fluid">';
-        	echo $this->Form->input('User.street', array('label' => 'Home Address<br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'div'=>array('class'=>'span12'),'class'=>'validate[required]'));
+        	echo $this->Form->input('User.company_name', array('label' => 'Company Name<br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'div'=>array('class'=>'span8'),'class'=>'validate[required,minSize[3]]'));
+        	echo $this->Form->input('User.phone', array('label' => 'Phone<br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'div'=>array('class'=>'span4'),'class'=>'validate[required,minSize[10]]'));
         	echo '</div><!-- .row -->';
+
+/*
         	echo '<div class="row-fluid">';
         	echo $this->Form->input('User.city', array('label' => 'City<br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'div'=>array('class'=>'span4'),'class'=>'validate[required]'));
         	echo $this->Form->input('User.state_id', array('label' => 'State<br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'div'=>array('class'=>'span4'),'class'=>'validate[required]','type'=>'select','options'=>$states,'empty'=>'Select State'));
@@ -130,6 +133,7 @@
         	echo $this->Form->input('User.ssn', array('label' => 'SSN <a class="pm_tooltip" href="#" data-toggle="tooltip" title="RentSquare requires your social security number to verify your identity in order to accept electronic payments. It will remain private and secure."><i class="icon-question-sign">  </i></a><br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'div'=>array('class'=>'span4'),'class'=>'validate[required,minSize[9]]'));
         	echo $this->Form->input('User.dob', array('label' => 'DOB (MM/DD/YYYY)<br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'div'=>array('class'=>'span4'),'class'=>'validate[required,custom[usadate]]'));
         	echo '</div><!-- .row -->';
+*/
         	
         	echo '<br><h2 class="reg_subtitle">Enter Your Login Information</h2>';
         	echo '<div class="row-fluid">';
@@ -185,6 +189,7 @@
                 	   echo $this->Form->input('Property.0.average_rent', array('label' => 'Average Rent Amount <a class="pm_tooltip" href="#" data-toggle="tooltip" title="Your best guess is OK"><i class="icon-question-sign">  </i></a><br>', 'format'=>array('before', 'label', 'error', 'between', 'input', 'after'), 'div' => array('class'=>'span4'),'class'=>'rs_number validate[required,custom[integer]]'));
                   echo '</div><!-- .row -->';	
                   ?>
+<?php /*
                   <h2 class="reg_subtitle">What type of ownership manages this property?</h2>
                   <div class="prev_ownership" style="display:none;">
                     <?php //echo $this->Form->input('Property.0.previous_ownership', array('type'=>'checkbox','label' => '','div'=>false,'format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'class' => 'property_name_input','value'=>'1')); ?>
@@ -235,9 +240,10 @@
                     echo '</div><!-- .row -->';
                                       
                   echo '</div><!-- .new_ownership -->';
-                    
+*/ 
                   //Bank Info
                   ?>
+
                   <h2 class="reg_subtitle">Enter your bank account information</h2>
                   <div class="prev_bank" style="display:none;">
                     <input type="checkbox" name="data[Property][0][previous_bank]" id="Property0PreviousBank" value="1"> 
