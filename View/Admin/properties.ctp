@@ -1,6 +1,6 @@
 <div class="page_title">
    <h1>
-      Properties for <?php echo $manager['User']['first_name']; ?> <?php echo  $manager['User']['last_name']; ?>
+      Properties for <?php echo $manager['User']['company_name']; ?> &nbsp;&nbsp;<em>Manager:</em> <?php echo $manager['User']['first_name']; ?> <?php echo  $manager['User']['last_name']; ?>
    </h1>
    <br>
 </div>

@@ -1,4 +1,4 @@
-<?php echo $this->Html->link(h('Edit Merchant Account'),array('controller' => 'Admin', 'action' => 'editmerchantacct',$property_id ,'full_base' => true),array('class'=>'btn btn-padding btn-small floatRight'));?>
+<?php //echo $this->Html->link(h('Edit Merchant Account'),array('controller' => 'Admin', 'action' => 'editmerchantacct',$property_id ,'full_base' => true),array('class'=>'btn btn-padding btn-small floatRight'));?>
 <div class="page_title">
 		<h1>Payments for <?php echo $prop_name; ?></h1><br>
 	</div>

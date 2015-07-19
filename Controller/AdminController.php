@@ -25,8 +25,8 @@ class AdminController extends AppController
             'conditions'=>array('Property.active'=>1)
         );
         $this->Paginator->settings = $this->paginate;
-    		$this->set('properties', $this->Paginator->paginate('Property'));
-    		$this->set('inactive_properties', $this->Property->find('count',array('conditions'=>array('Property.active'=>0))));
+    	$this->set('properties', $this->Paginator->paginate('Property'));
+    	$this->set('inactive_properties', $this->Property->find('count',array('conditions'=>array('Property.active'=>0))));
 
         $this->set('subheader','subnav_property');
         $this->set('activate_property',true);

@@ -19,6 +19,7 @@
 	<table id="admin_properties" class="main payment_tab table-striped  subheader" cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('name','Property Name');?></th>
+			<th><?php echo $this->Paginator->sort('company_name','Company Name');?></th>
 			<th><?php echo $this->Paginator->sort('manager_id','Manager Name');?></th>
 			<th><?php echo $this->Paginator->sort('address','Address');?></th>
 			<th><?php echo $this->Paginator->sort('unit_count','# Units in System');?></th>
@@ -31,20 +32,20 @@
 	</tr>
 	<?php if(isset($properties) && count($properties) > 0):
 	foreach ($properties as $property): ?>
-
 	<tr data-link="/Admin/payments/<?php echo $property['Property']['id']; ?>/<?php echo $property['Property']['name']; ?>">
-	  <td><?php echo $property['Property']['name']; ?>&nbsp;</td>
-	  <td><?php echo $property['Manager']['first_name'] . ' ' . $property['Manager']['last_name']; ?>&nbsp;</td>
-	  <td><?php echo $property['Property']['address'] . '<br>' . $property['Property']['city'] .', '. $property['State']['full_name'] ; ?>&nbsp;</td>
-	  <td><?php echo $property['Property']['unit_count']; ?>&nbsp;</td>
-	  <td><?php echo $property['Property']['num_units']; ?>&nbsp;</td>
-	  <td><?php echo count($property['Tenant']); ?></td>
-	  <td><?php 
+	  <td class="showpays"><?php echo $property['Property']['name']; ?>&nbsp;</td>
+	  <td><?php echo $this->Html->link($property['Manager']['company_name'], array('controller' => 'Admin', 'action' => 'properties', $property['Property']['manager_id'])); ?></td>
+	  <td class="showpays"><?php echo $property['Manager']['first_name'] . ' ' . $property['Manager']['last_name']; ?>&nbsp;</td>
+	  <td class="showpays"><?php echo $property['Property']['address'] . '<br>' . $property['Property']['city'] .', '. $property['State']['full_name'] ; ?>&nbsp;</td>
+	  <td class="showpays"><?php echo $property['Property']['unit_count']; ?>&nbsp;</td>
+	  <td class="showpays"><?php echo $property['Property']['num_units']; ?>&nbsp;</td>
+	  <td class="showpays"><?php echo count($property['Tenant']); ?></td>
+	  <td class="showpays"><?php 
 	        echo $property['Property']['fee_due_day']; 
 	        echo date('S',strtotime('1/'.$property['Property']['fee_due_day'] .'/2014'));?>&nbsp;</td>
-	  <td><?php echo $property['Property']['active']; ?>&nbsp;</td>
-    <td><?php echo $property['Property']['id']; ?>&nbsp;</td>
-    <td><?php echo date('m/d/Y',strtotime($property['Property']['created'])); ?>&nbsp;</td>
+	  <td class="showpays"><?php echo $property['Property']['active']; ?>&nbsp;</td>
+    <td class="showpays"><?php echo $property['Property']['id']; ?>&nbsp;</td>
+    <td class="showpays"><?php echo date('m/d/Y',strtotime($property['Property']['created'])); ?>&nbsp;</td>
 
 	</tr>
 	<?php endforeach; 
@@ -71,7 +72,7 @@
 </div>
 <script>
 jQuery(function(){
-		jQuery('#admin_properties td').click(function() {
+	jQuery('#admin_properties td.showpays').click(function() {
         var href = $(this).parent().attr("data-link");
         if(href) {
             window.location = href;
