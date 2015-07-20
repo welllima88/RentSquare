@@ -2238,3 +2238,124 @@ Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
 Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
 [main] - APP/webroot/index.php, line 96
 
+2015-07-20 03:14:53 Notice: Notice (8): Undefined variable: user_details in [/home2/onepage3/public_html/app/View/Users/view.ctp, line 4]
+Trace:
+include - APP/View/Users/view.ctp, line 4
+View::_evaluate() - CORE/Cake/View/View.php, line 961
+View::_render() - CORE/Cake/View/View.php, line 923
+View::render() - CORE/Cake/View/View.php, line 473
+Controller::render() - CORE/Cake/Controller/Controller.php, line 959
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 200
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-07-20 03:14:53 Notice: Notice (8): Undefined variable: user_details in [/home2/onepage3/public_html/app/View/Users/view.ctp, line 7]
+Trace:
+include - APP/View/Users/view.ctp, line 7
+View::_evaluate() - CORE/Cake/View/View.php, line 961
+View::_render() - CORE/Cake/View/View.php, line 923
+View::render() - CORE/Cake/View/View.php, line 473
+Controller::render() - CORE/Cake/Controller/Controller.php, line 959
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 200
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-07-20 03:14:53 Notice: Notice (8): Undefined variable: user_details in [/home2/onepage3/public_html/app/View/Users/view.ctp, line 7]
+Trace:
+include - APP/View/Users/view.ctp, line 7
+View::_evaluate() - CORE/Cake/View/View.php, line 961
+View::_render() - CORE/Cake/View/View.php, line 923
+View::render() - CORE/Cake/View/View.php, line 473
+Controller::render() - CORE/Cake/Controller/Controller.php, line 959
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 200
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-07-20 03:14:53 Notice: Notice (8): Undefined variable: user_details in [/home2/onepage3/public_html/app/View/Users/view.ctp, line 8]
+Trace:
+include - APP/View/Users/view.ctp, line 8
+View::_evaluate() - CORE/Cake/View/View.php, line 961
+View::_render() - CORE/Cake/View/View.php, line 923
+View::render() - CORE/Cake/View/View.php, line 473
+Controller::render() - CORE/Cake/Controller/Controller.php, line 959
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 200
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-07-20 03:14:53 Notice: Notice (8): Undefined variable: user_details in [/home2/onepage3/public_html/app/View/Users/view.ctp, line 8]
+Trace:
+include - APP/View/Users/view.ctp, line 8
+View::_evaluate() - CORE/Cake/View/View.php, line 961
+View::_render() - CORE/Cake/View/View.php, line 923
+View::render() - CORE/Cake/View/View.php, line 473
+Controller::render() - CORE/Cake/Controller/Controller.php, line 959
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 200
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-07-20 03:14:53 Notice: Notice (8): Undefined variable: units in [/home2/onepage3/public_html/app/View/Users/view.ctp, line 22]
+Trace:
+include - APP/View/Users/view.ctp, line 22
+View::_evaluate() - CORE/Cake/View/View.php, line 961
+View::_render() - CORE/Cake/View/View.php, line 923
+View::render() - CORE/Cake/View/View.php, line 473
+Controller::render() - CORE/Cake/Controller/Controller.php, line 959
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 200
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-07-20 03:14:53 Notice: Notice (8): Undefined variable: user_details in [/home2/onepage3/public_html/app/View/Users/view.ctp, line 23]
+Trace:
+include - APP/View/Users/view.ctp, line 23
+View::_evaluate() - CORE/Cake/View/View.php, line 961
+View::_render() - CORE/Cake/View/View.php, line 923
+View::render() - CORE/Cake/View/View.php, line 473
+Controller::render() - CORE/Cake/Controller/Controller.php, line 959
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 200
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-07-20 03:14:53 Notice: Notice (8): Undefined variable: user_details in [/home2/onepage3/public_html/app/View/Users/view.ctp, line 24]
+Trace:
+include - APP/View/Users/view.ctp, line 24
+View::_evaluate() - CORE/Cake/View/View.php, line 961
+View::_render() - CORE/Cake/View/View.php, line 923
+View::render() - CORE/Cake/View/View.php, line 473
+Controller::render() - CORE/Cake/Controller/Controller.php, line 959
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 200
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-07-20 03:14:53 Notice: Notice (8): Undefined variable: user_details in [/home2/onepage3/public_html/app/View/Users/view.ctp, line 42]
+Trace:
+include - APP/View/Users/view.ctp, line 42
+View::_evaluate() - CORE/Cake/View/View.php, line 961
+View::_render() - CORE/Cake/View/View.php, line 923
+View::render() - CORE/Cake/View/View.php, line 473
+Controller::render() - CORE/Cake/Controller/Controller.php, line 959
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 200
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-07-20 03:14:53 Notice: Notice (8): Undefined variable: user_details in [/home2/onepage3/public_html/app/View/Users/view.ctp, line 46]
+Trace:
+include - APP/View/Users/view.ctp, line 46
+View::_evaluate() - CORE/Cake/View/View.php, line 961
+View::_render() - CORE/Cake/View/View.php, line 923
+View::render() - CORE/Cake/View/View.php, line 473
+Controller::render() - CORE/Cake/Controller/Controller.php, line 959
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 200
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-07-20 03:14:53 Notice: Notice (8): Undefined variable: user_details in [/home2/onepage3/public_html/app/View/Users/view.ctp, line 54]
+Trace:
+include - APP/View/Users/view.ctp, line 54
+View::_evaluate() - CORE/Cake/View/View.php, line 961
+View::_render() - CORE/Cake/View/View.php, line 923
+View::render() - CORE/Cake/View/View.php, line 473
+Controller::render() - CORE/Cake/Controller/Controller.php, line 959
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 200
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+

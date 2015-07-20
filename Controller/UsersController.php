@@ -70,12 +70,6 @@ class UsersController extends AppController
 	
 	function view($id = null)
 	{
-
-      $this->payutil = new Paymethodutils( new Paymethodbasecommerce);
-      $this->payutil->submitMerchantApp( $junk );
-exit;
-
-
   	if($id != null){
   	   $user_details = $this->User->find('first',array(
   	      'conditions'=>array('User.id'=> $id),
