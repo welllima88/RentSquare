@@ -1,44 +1,49 @@
 <?php
 
-class Property extends AppModel{
-	var $name = 'Property';
-	var $actsAs = array('Containable');
+class Property extends AppModel {
 
-	var $belongsTo = array(
-		'Manager' => array(
-			'className' => 'User',
-			'foreignKey' => 'manager_id'
-			),
-			'State'
-		);
-	
-	var $hasMany = array(
-		'Unit', 
-		'Tenant' => array(
-			'className' => 'User'
-			),
-		'QueuedTenant' => array(
-			'className' => 'User',
-			'conditions' => array('unit_id' => null)
-			)
-		);
+    var $name = 'Property';
+    var $actsAs = array('Containable');
 
-	var $virtualFields = array(
-		'displayName' => 'COALESCE(name, address)'
-		);
+    var $belongsTo = array(
+        'Manager' => array(
+            'className'  => 'User',
+            'foreignKey' => 'manager_id'
+        ),
+        'State'
+    );
 
-	function get($id, $uid = null){
-		$options['conditions']['Property.id'] = $id;
-		if($uid)
-			$options['conditions']['Property.manager_id'] = $uid;
+    var $hasMany = array(
+        'Unit',
+        'Tenant'       => array(
+            'className' => 'User'
+        ),
+        'QueuedTenant' => array(
+            'className'  => 'User',
+            'conditions' => array('unit_id' => null)
+        )
+    );
 
-		return $this->find('first', $options);
-	}
+    var $virtualFields = array(
+        'displayName' => 'COALESCE(name, address)'
+    );
 
-	function getManaged($uid){
-		return $this->find('all', array('conditions' => array('Property.manager_id' => $uid,'active'=>1)));
-	}
+    function get($id, $uid = null)
+    {
+        $options['conditions']['Property.id'] = $id;
+        if ( $uid )
+            $options['conditions']['Property.manager_id'] = $uid;
 
-};
+        return $this->find('first', $options);
+    }
+
+    function getManaged($uid)
+    {
+        return $this->find('all', array('conditions' => array('Property.manager_id' => $uid, 'active' => 1)));
+    }
+
+}
+
+;
 
 ?>

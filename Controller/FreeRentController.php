@@ -1,9 +1,11 @@
-<?php 
+<?php
 
-class FreeRent extends AppController{
-  function beforeFilter(){
-		parent::beforeFilter();
+class FreeRent extends AppController {
 
-		$this->Auth->deny('*');
-	}
+    function beforeFilter()
+    {
+        parent::beforeFilter();
+
+        $this->Auth->deny('*');
+    }
 }

@@ -1,9 +1,11 @@
-<?php 
+<?php
 
-class FrequenciesController extends AppController{
-  function beforeFilter(){
-		parent::beforeFilter();
+class FrequenciesController extends AppController {
 
-		$this->Auth->deny('*');
-	}
+    function beforeFilter()
+    {
+        parent::beforeFilter();
+
+        $this->Auth->deny('*');
+    }
 }
