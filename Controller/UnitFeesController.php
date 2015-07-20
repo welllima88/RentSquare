@@ -1,9 +1,11 @@
-<?php 
+<?php
 
-class UnitFeesController extends AppController{
-  function beforeFilter(){
-		parent::beforeFilter();
+class UnitFeesController extends AppController {
 
-		$this->Auth->deny('*');
-	}
+    function beforeFilter()
+    {
+        parent::beforeFilter();
+
+        $this->Auth->deny('*');
+    }
 }

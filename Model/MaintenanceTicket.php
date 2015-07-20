@@ -1,68 +1,77 @@
 <?php
-	class MaintenanceTicket extends AppModel{
-		var $name = 'MaintenanceTicket';
 
-		var $actsAs = array('Containable');
-		var $belongsTo = array(
-			'Tenant' => array(
-				'className' => 'User',
-				'foreignKey' => 'tenant_id'
-				),
-			'Property'
-			);
+class MaintenanceTicket extends AppModel {
 
-		function findAllForProperty($propId, $options = array()){
-			is_array($options) or die("Passed non-array to MaintenanceTicket::findAllForProperty()");
+    var $name = 'MaintenanceTicket';
 
-			if(!isset($options['conditions']))
-				$options['conditions'] = array();
+    var $actsAs = array('Containable');
+    var $belongsTo = array(
+        'Tenant' => array(
+            'className'  => 'User',
+            'foreignKey' => 'tenant_id'
+        ),
+        'Property'
+    );
 
-			$options['conditions']['MaintenanceTicket.property_id'] = $propId;
+    function findAllForProperty($propId, $options = array())
+    {
+        is_array($options) or die("Passed non-array to MaintenanceTicket::findAllForProperty()");
 
-			if(!isset($options['order']))
-				$options['order'] = array('MaintenanceTicket.created DESC');
+        if ( !isset($options['conditions']) )
+            $options['conditions'] = array();
 
-			return $this->find('all', $options);
-		}
+        $options['conditions']['MaintenanceTicket.property_id'] = $propId;
 
-		function findAllForUser($uid, $options = array()){
-			is_array($options) or die("Passed non-array to MaintenanceTicket::findAllForUser()");
+        if ( !isset($options['order']) )
+            $options['order'] = array('MaintenanceTicket.created DESC');
 
-			if(!isset($options['conditions']))
-				$options['conditions'] = array();
+        return $this->find('all', $options);
+    }
 
-			$options['conditions']['MaintenanceTicket.tenant_id'] = $uid;
+    function findAllForUser($uid, $options = array())
+    {
+        is_array($options) or die("Passed non-array to MaintenanceTicket::findAllForUser()");
 
-			if(!isset($options['order']))
-				$options['order'] = array('MaintenanceTicket.created DESC');
+        if ( !isset($options['conditions']) )
+            $options['conditions'] = array();
 
-			return $this->find('all', $options);
-		}
+        $options['conditions']['MaintenanceTicket.tenant_id'] = $uid;
 
-		function get($id, $user, $curProp){
-			$conditions = array('MaintenanceTicket.id' => $id);
+        if ( !isset($options['order']) )
+            $options['order'] = array('MaintenanceTicket.created DESC');
 
-			if($user['type'] == USER_TYPE_TENANT)
-				$conditions['MaintenanceTicket.tenant_id'] = $user['id'];
-			else
-				$conditions['MaintenanceTicket.property_id'] = $curProp;
+        return $this->find('all', $options);
+    }
 
-			return $this->find('first', array('conditions' => $conditions));
-		}
-		function getUnreadMaintCount( $user, $curProp_id, $status){
-  		$conditions = array();
-			if($user['type'] == USER_TYPE_TENANT)
-                        {
-				$conditions['MaintenanceTicket.tenant_id'] = $user['id'];
-				$conditions['MaintenanceTicket.property_id'] = $curProp_id;
-                        }
-			else
-                        {
-				$conditions['MaintenanceTicket.property_id'] = $curProp_id;
-                        }
-                        $conditions['status'] = $status;
-			return $this->find('count', array('conditions' => $conditions,'contain' => false));
-		}
-	};
+    function get($id, $user, $curProp)
+    {
+        $conditions = array('MaintenanceTicket.id' => $id);
+
+        if ( $user['type'] == USER_TYPE_TENANT )
+            $conditions['MaintenanceTicket.tenant_id'] = $user['id'];
+        else
+            $conditions['MaintenanceTicket.property_id'] = $curProp;
+
+        return $this->find('first', array('conditions' => $conditions));
+    }
+
+    function getUnreadMaintCount($user, $curProp_id, $status)
+    {
+        $conditions = array();
+        if ( $user['type'] == USER_TYPE_TENANT )
+        {
+            $conditions['MaintenanceTicket.tenant_id'] = $user['id'];
+            $conditions['MaintenanceTicket.property_id'] = $curProp_id;
+        } else
+        {
+            $conditions['MaintenanceTicket.property_id'] = $curProp_id;
+        }
+        $conditions['status'] = $status;
+
+        return $this->find('count', array('conditions' => $conditions, 'contain' => false));
+    }
+}
+
+;
 
 ?>

@@ -1,6 +1,8 @@
 <?php
-	class MessagesController extends AppController
-	{
 
-	};
+class MessagesController extends AppController {
+
+}
+
+;
 ?>

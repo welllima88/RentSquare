@@ -1,43 +1,52 @@
 <?php
 
-class ConversationsUser extends AppModel{
-	public $paginate = array(
-		'limit' => 3, 
-		'order' => array('ConversationsUser.last_msg_time' => 'DESC'),
-		'contain' => array('asdflkjasdf')
-		); 
+class ConversationsUser extends AppModel {
 
-	var $actsAs = array('Containable');
+    public $paginate = array(
+        'limit'   => 3,
+        'order'   => array('ConversationsUser.last_msg_time' => 'DESC'),
+        'contain' => array('asdflkjasdf')
+    );
 
-	var $belongsTo = array('User', 'Conversation');
+    var $actsAs = array('Containable');
 
-	function userHasAccess($uid, $cid){
-		return $this->find('first', array('conditions' => array('user_id' => $uid, 'conversation_id' => $cid)));
-	}
+    var $belongsTo = array('User', 'Conversation');
 
-	function addUsersTo($cid, $users){
-		$data = array();
-		foreach($users as $user){
-			array_push($data, array('conversation_id' => $cid, 'user_id' => $user, 'status' => MSG_STATUS_READ));
-		}
+    function userHasAccess($uid, $cid)
+    {
+        return $this->find('first', array('conditions' => array('user_id' => $uid, 'conversation_id' => $cid)));
+    }
 
-		return $this->saveAll($data);
-	}
+    function addUsersTo($cid, $users)
+    {
+        $data = array();
+        foreach ( $users as $user )
+        {
+            array_push($data, array('conversation_id' => $cid, 'user_id' => $user, 'status' => MSG_STATUS_READ));
+        }
 
-	function status($cid, $uid, $status = null){
-		$convUser = $this->find('first', array('conditions' => array('conversation_id' => $cid, 'user_id' => $uid)));
-		if($status != null){
-			$convUser['ConversationsUser']['status'] = $status;
-			$this->save($convUser);
-		}
+        return $this->saveAll($data);
+    }
 
-		return $convUser['ConversationsUser']['status'];
-	}
+    function status($cid, $uid, $status = null)
+    {
+        $convUser = $this->find('first', array('conditions' => array('conversation_id' => $cid, 'user_id' => $uid)));
+        if ( $status != null )
+        {
+            $convUser['ConversationsUser']['status'] = $status;
+            $this->save($convUser);
+        }
 
-	function getUnreadCount($uid){
-		return $this->find('count', array('conditions' => array('ConversationsUser.status' => MSG_STATUS_UNREAD, 'ConversationsUser.user_id' => $uid)));
-	}
+        return $convUser['ConversationsUser']['status'];
+    }
 
-};
+    function getUnreadCount($uid)
+    {
+        return $this->find('count', array('conditions' => array('ConversationsUser.status' => MSG_STATUS_UNREAD, 'ConversationsUser.user_id' => $uid)));
+    }
+
+}
+
+;
 
 ?>
