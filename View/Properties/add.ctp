@@ -44,6 +44,7 @@
                 	   echo $this->Form->input('Property.average_rent', array('label' => 'Average Rent Amount <a class="pm_tooltip" href="#" data-toggle="tooltip" title="Your best guess is OK"><i class="icon-question-sign">  </i></a><br>', 'format'=>array('before', 'label', 'error', 'between', 'input', 'after'), 'div' => array('class'=>'span4'),'class'=>'validate[required]'));
                   echo '</div><!-- .row -->';	
                   ?>
+<?php /*
                   <h2 class="reg_subtitle">What type of ownership manages this property?</h2>
                   <div class="prev_ownership" style="display:none;">
                     <?php //echo $this->Form->input('Property.previous_ownership', array('type'=>'checkbox','label' => '','div'=>false,'format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'class' => 'property_name_input','value'=>'1')); ?>
@@ -94,6 +95,7 @@
                     echo '</div><!-- .row -->';
                                       
                   echo '</div><!-- .new_ownership -->';
+*/
                     
                   //Bank Info
                   ?>
@@ -109,9 +111,9 @@
                         //Bank Name
                          echo $this->Form->input('Property.bank_name', array('label' => 'Bank Name<br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'class'=>'the_bank_name validate[required]'));
                          //Account Number
-                        echo $this->Form->input('Property.bank_acccount_num', array('label' => 'Account Number<br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'class'=>'validate[required]'));
+                        echo $this->Form->input('Property.bank_account_num', array('label' => 'Account Number<br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'class'=>'validate[required]'));
                         //Verify Account Number
-                        //echo $this->Form->input('Property.verify_bank_acccount_num', array('label' => 'Verify Account Number<br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'class'=>'validate[required],equals[PropertyBankAcccountNum] bank_acc_equal'));
+                        //echo $this->Form->input('Property.verify_bank_account_num', array('label' => 'Verify Account Number<br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'class'=>'validate[required],equals[PropertyBankAcccountNum] bank_acc_equal'));
                         //Routing Number
                         echo $this->Form->input('Property.routing_number', array('label' => 'Routing Number<br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'class'=>'validate[required,integer,custom[aba]],minSize[9],maxSize[9]'));
                         //Verify Routing Number
@@ -121,7 +123,7 @@
                     <div class="span6">
                        <?php 
                          //Type of Account
-                         echo $this->Form->input('Property.bank_acccount_type', array('type'=>'select','label' => 'Type of Account<br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'options' => array('Checking'=>'Checking','Savings'=>'Savings'),'empty'=>'Select Type','class'=>'validate[required]'));
+                         echo $this->Form->input('Property.bank_account_type', array('type'=>'select','label' => 'Type of Account<br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'options' => array('Checking'=>'Checking','Savings'=>'Savings'),'empty'=>'Select Type','class'=>'validate[required]'));
                          //Check Image
                          //check_example.png
                         echo $this->Html->image('check_example.png');

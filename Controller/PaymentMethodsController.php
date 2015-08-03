@@ -113,7 +113,7 @@ class PaymentMethodsController extends AppController {
             list($cardsave_status, $cardsave_result) = $this->payutil->addCardToVault($paymentmethod);
             if ( $cardsave_status == 1 )
             {
-                //$this->log( 'Success: Vault add prop mgr - token = ' . $cardsave_result, 'PmtProcesing' );
+                $this->log('Success: Vault add card for tenant - token = ' . $cardsave_result, 'debug' );
                 $data['PaymentMethod']['vault_id'] = $cardsave_result;
                 $data['PaymentMethod']['card_num'] = substr($data['PaymentMethod']['card_number'], - 4, 4);
                 $data['PaymentMethod']['type'] = "CC";
@@ -193,23 +193,32 @@ class PaymentMethodsController extends AppController {
             $paymentmethod['bank_acct_type'] = $data['PaymentMethod']['bank_acct_type'];
             $paymentmethod['phone'] = $user['User']['phone'];
             $paymentmethod['email'] = $user['User']['email'];
-            list($banksave_status, $banksave_result) = $this->payutil->addBankToVault($paymentmethod);
-            if ( $banksave_status == 1 )
+            list($banksave_status, $banksave_token) = $this->payutil->addBankToVault($paymentmethod);
+            $this->log("Success: Vault add bank for tenant status = $banksave_status - token = $banksave_token", 'debug' );
+            if ( $banksave_status )
             {
-                //$this->log( 'Success: Vault add prop mgr - token = ' . $banksave_result, 'PmtProcesing' );
-                $data['PaymentMethod']['vault_id'] = $banksave_result;
+                $data['PaymentMethod']['vault_id'] = $banksave_token;
                 $data['PaymentMethod']['account_num'] = substr($data['PaymentMethod']['account_number'], - 4, 4);
+                unset($data['PaymentMethod']['account_number']);
                 $data['PaymentMethod']['type'] = "ACH";
 
                 if ( $this->PaymentMethod->save($data) )
                 {
+                    /*
+                    debug('success');
+                    debug($_SESSION);
+                    debug('referer');
+                    debug($this->referer());
+                    exit;
+                    */
+                    
                     $this->Session->setFlash(__('The payment method has been saved'), 'flash_good');
                     if ( isset($_SESSION['page_referer']) )
                     {
                         $this->redirect($_SESSION['page_referer'] . '?id=' . $vault_id);
                     } else
                     {
-                        $this->redirect($this->referer() . '?id=' . $vault_id);
+                        $this->redirect(array('controller' => 'Users', 'action' => 'myaccount', 'payment_methods'));
                     }
                 } else    // response = 1
                 {

@@ -321,7 +321,7 @@ class User extends AppModel {
                 'Account_DDA_Account_Name__c'                     => urlencode('Same As Legal Name'),
                 'Account_DDA_Bank_Name__c'                        => urlencode($property['bank_name']),
                 'Account_DDA_Routing_Number__c'                   => urlencode($property['routing_number']),
-                'Account_DDA_Account_Number__c'                   => urlencode($property['bank_acccount_num']),
+                'Account_DDA_Account_Number__c'                   => urlencode($property['bank_account_num']),
 
 
                 //Payment Acceptance Methods Field Names

@@ -133,9 +133,9 @@ class UsersController extends AppController {
     function view($id = null)
     {
 
-        $this->payutil = new Paymethodutils(new Paymethodbasecommerce);
-        $this->payutil->submitMerchantApp($junk);
-        exit;
+        //$this->payutil = new Paymethodutils(new Paymethodbasecommerce);
+        //$this->payutil->submitMerchantApp($junk);
+        //exit;
 
 
         if ( $id != null )
@@ -188,7 +188,8 @@ class UsersController extends AppController {
                 {
                     //Set fee_due_day
                     $data['Property'][ $key ]['fee_due_day'] = date('j');
-                    $data['Property'][ $key ]['bank_acct'] = substr($data['Property'][ $key ]['bank_acccount_num'], - 4, 4);
+                    $data['Property'][ $key ]['active'] = '1';
+                    $data['Property'][ $key ]['bank_acct'] = substr($data['Property'][ $key ]['bank_account_num'], - 4, 4);
 
                     if ( !isset($data['Property'][ $key ]['state_inc']) || $data['Property'][ $key ]['state_inc'] == '' || is_null($data['Property'][ $key ]['state_inc']) ) $data['Property'][ $key ]['state_inc'] = 1;
                     if ( !isset($data['Property'][ $key ]['business_started']) ) $data['Property'][ $key ]['business_started'] = 0;
@@ -225,9 +226,9 @@ class UsersController extends AppController {
                             $data['Property'][ $key ]['bank_name'] = $data['Property'][ $copy_key ]['bank_name'];
                             $data['Property'][ $key ]['routing_number'] = $data['Property'][ $copy_key ]['routing_number'];
                             //$data['Property'][$key]['confirm_routing_number'] = $data['Property'][$copy_key]['confirm_routing_number'];
-                            $data['Property'][ $key ]['bank_acccount_num'] = $data['Property'][ $copy_key ]['bank_acccount_num'];
-                            //$data['Property'][$key]['verify_bank_acccount_num'] = $data['Property'][$copy_key]['verify_bank_acccount_num'];
-                            $data['Property'][ $key ]['bank_acccount_type'] = $data['Property'][ $copy_key ]['bank_acccount_type'];
+                            $data['Property'][ $key ]['bank_account_num'] = $data['Property'][ $copy_key ]['bank_account_num'];
+                            //$data['Property'][$key]['verify_bank_account_num'] = $data['Property'][$copy_key]['verify_bank_account_num'];
+                            $data['Property'][ $key ]['bank_account_type'] = $data['Property'][ $copy_key ]['bank_account_type'];
                             $data['Property'][ $key ]['vault_id'] = $data['Property'][ $copy_key ]['vault_id'];
                         }
                     } else
@@ -241,9 +242,9 @@ class UsersController extends AppController {
                         $paymentmethod = array();
                         $paymentmethod['first_name'] = $data['User']['first_name'];
                         $paymentmethod['last_name'] = $data['User']['last_name'];
-                        $paymentmethod['account_number'] = $data['Property'][ $key ]['bank_acccount_num'];
+                        $paymentmethod['account_number'] = $data['Property'][ $key ]['bank_account_num'];
                         $paymentmethod['routing_number'] = $data['Property'][ $key ]['routing_number'];
-                        $paymentmethod['bank_acct_type'] = $data['Property'][ $key ]['bank_acccount_type'];
+                        $paymentmethod['bank_acct_type'] = $data['Property'][ $key ]['bank_account_type'];
                         $paymentmethod['phone'] = $data['User']['phone'];
                         $paymentmethod['email'] = $data['User']['email'];
                         $paymentmethod['user_id'] = '874'; //Random - only used to gen vault id
@@ -251,7 +252,25 @@ class UsersController extends AppController {
                         if ( $banksave_status == 1 )
                         {
                             $data['Property'][ $key ]['vault_id'] = $banksave_result;
-                            //$this->log( 'Success: Vault add prop mgr - token = ' . $banksave_result, 'PmtProcesing' );
+                            $this->log('Success: Vault add prop mgr - token = ' . $banksave_result, 'debug' );
+
+                            $pmdata = array();
+                            $pmdata['PaymentMethod']['vault_id'] = $banksave_result;
+                            $pmdata['PaymentMethod']['first_name'] = $paymentmethod['first_name'];
+                            $pmdata['PaymentMethod']['last_name'] = $paymentmethod['last_name'];
+                            $pmdata['PaymentMethod']['routing_number'] = $paymentmethod['routing_number'];
+                            $pmdata['PaymentMethod']['account_num'] = substr($paymentmethod['account_number'], - 4, 4);
+                            $pmdata['PaymentMethod']['bank_name'] = $data['Property'][$key]['bank_name'];
+                            $pmdata['PaymentMethod']['description'] = $data['User']['company_name'];
+                            $pmdata['PaymentMethod']['default_method'] = '1';
+                            $pmdata['PaymentMethod']['type'] = "ACH";
+
+                            $this->loadModel('PaymentMethod'); 
+                            $this->PaymentMethod->create();
+                            if ( $this->PaymentMethod->save($pmdata) )
+                            {
+                            }
+
                         } else
                         {
                             //On fail, set vault_id = 1
@@ -276,38 +295,22 @@ class UsersController extends AppController {
 
 
                 //Save Property Manager in Database
+                $this->log('User Controller pre save assoc: ', 'debug' );
                 if ( $this->User->saveAssociated($data) )
                 {
                     $newUserId = $this->User->getLastInsertID();
-                    //Call Function to Submit Application to Phoenix Payments
-                    //$results = $this->User->submitPPApplication($data);
+                    $this->log('User Controller save succes: ' . $newUserId, 'debug' );
 
-                    /*
-                     * * Response 600 Error Message
-                     * Response 500 Internal Server Error
-                     * Response 200 Application Accepted
-                     */
-                    $all_passed = true;
+                    // July 25, 2015 - Newest requirement is to submit merch app again
+                    //list($merchantapp_status,$merchantapp_result,$merchantapp_approval_id) = $this->payutil->submitMerchApp( $data );
+                    //$this->log('Merchant App Results: status ' . json_encode($merchantapp_status), 'debug' );
+                    //$this->log('Merchant App Results: result ' . json_encode($merchantapp_result), 'debug' );
+                    //$this->log('Merchant App Results: approval_id ' . json_encode($merchantapp_approval_id), 'debug' );
+                    $bcrsl = $this->payutil->submitMerchApp( $data );
+                    $this->log('Merchant App Results: ' . json_encode($bcrsl), 'debug' );
 
-                    /*
-                                         foreach($results as $result):
-                                            if($result["response"] != 200){
-                                              $all_passed = false;
-                                            }
-                                         endforeach; //foreach $results
-                    */
-
-                    if ( $all_passed )
-                    {
-                        $this->Auth->login($data['User']);
-                        $this->redirect(array('controller' => 'Users', 'action' => 'pendingactivation', $newUserId));
-                    } else
-                    {
-                        $this->set('error_messages', $results);
-                        debug($results);
-                        $this->Session->setFlash('Error registering.', 'flash_bad');
-                        $this->User->delete($newUserId);
-                    }
+                    $this->Auth->login($data['User']);		// not necessary - sending to login screen 
+                    $this->redirect(array('controller' => 'Users', 'action' => 'pendingactivation', $newUserId));
                     //$this->redirect(array('controller' => 'Users', 'action' => 'propertymanagersuccess'));
                 } else
                 {

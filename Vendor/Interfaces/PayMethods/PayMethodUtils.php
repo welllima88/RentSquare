@@ -28,9 +28,11 @@ class Paymethodutils {
         return array( $status, $result );
     }
 
-    public function submitMerchantApp( $merchantdata )
+    public function submitMerchApp( $merchantdata )
     {
-        list( $status, $result, $approval_id ) = $this->payer->merchant_application( $merchantdata );      
+        $appResult  = $this->payer->merchant_application( $merchantdata );      
+
+        return json_encode($appResult);
     }
  
 }

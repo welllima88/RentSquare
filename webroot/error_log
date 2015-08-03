@@ -279,3 +279,63 @@ error:14090086:SSL routines:SSL3_GET_SERVER_CERTIFICATE:certificate verify faile
 [27-Jun-2015 19:28:07 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 3451089 bytes) in /home2/onepage3/public_html/lib/Cake/View/View.php on line 958
 [27-Jun-2015 19:30:25 UTC] PHP Parse error:  syntax error, unexpected '$this' (T_VARIABLE) in /home2/onepage3/public_html/app/Controller/PaymentMethodsController.php on line 153
 [27-Jun-2015 19:31:06 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 3451089 bytes) in /home2/onepage3/public_html/lib/Cake/View/View.php on line 958
+[21-Jul-2015 00:19:28 UTC] PHP Fatal error:  Call to a member function getToken() on a non-object in /home2/onepage3/public_html/app/Controller/PaymentMethodsController.php on line 198
+[21-Jul-2015 00:20:22 UTC] PHP Fatal error:  Call to a member function getToken() on a non-object in /home2/onepage3/public_html/app/Controller/PaymentMethodsController.php on line 198
+[21-Jul-2015 00:20:27 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 3470656 bytes) in /home2/onepage3/public_html/lib/Cake/View/View.php on line 958
+[21-Jul-2015 00:31:36 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 3451089 bytes) in /home2/onepage3/public_html/lib/Cake/View/View.php on line 958
+[21-Jul-2015 00:37:59 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 3451089 bytes) in /home2/onepage3/public_html/lib/Cake/View/View.php on line 958
+[21-Jul-2015 00:41:47 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 3451089 bytes) in /home2/onepage3/public_html/lib/Cake/View/View.php on line 958
+[21-Jul-2015 00:45:42 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 3451089 bytes) in /home2/onepage3/public_html/lib/Cake/View/View.php on line 958
+[21-Jul-2015 00:49:20 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 3451089 bytes) in /home2/onepage3/public_html/lib/Cake/View/View.php on line 958
+[21-Jul-2015 01:01:16 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 3451089 bytes) in /home2/onepage3/public_html/lib/Cake/View/View.php on line 958
+[21-Jul-2015 01:02:46 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 3451089 bytes) in /home2/onepage3/public_html/lib/Cake/View/View.php on line 958
+[21-Jul-2015 01:06:30 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 3451089 bytes) in /home2/onepage3/public_html/lib/Cake/View/View.php on line 958
+[21-Jul-2015 01:07:10 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 3451089 bytes) in /home2/onepage3/public_html/lib/Cake/View/View.php on line 958
+[21-Jul-2015 01:09:03 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 3451089 bytes) in /home2/onepage3/public_html/lib/Cake/View/View.php on line 958
+[21-Jul-2015 01:09:27 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 3451089 bytes) in /home2/onepage3/public_html/lib/Cake/View/View.php on line 958
+[21-Jul-2015 01:09:59 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 3451089 bytes) in /home2/onepage3/public_html/lib/Cake/View/View.php on line 958
+[21-Jul-2015 03:03:48 UTC] PHP Fatal error:  Class 'Paymethodutils' not found in /home2/onepage3/public_html/app/Controller/PropertiesController.php on line 66
+[21-Jul-2015 03:04:44 UTC] PHP Fatal error:  Class 'Paymethodutils' not found in /home2/onepage3/public_html/app/Controller/PropertiesController.php on line 66
+[21-Jul-2015 03:05:50 UTC] PHP Fatal error:  Class 'Paymethodbasecommerce' not found in /home2/onepage3/public_html/app/Controller/PropertiesController.php on line 67
+[21-Jul-2015 03:06:05 UTC] PHP Fatal error:  Class 'Paymethodbasecommerce' not found in /home2/onepage3/public_html/app/Controller/PropertiesController.php on line 67
+[26-Jul-2015 03:21:41 UTC] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php on line 253
+[26-Jul-2015 03:21:47 UTC] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php on line 253
+[26-Jul-2015 03:21:59 UTC] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php on line 253
+[26-Jul-2015 03:22:06 UTC] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php on line 253
+[26-Jul-2015 03:22:31 UTC] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php on line 253
+[26-Jul-2015 03:24:11 UTC] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php on line 253
+[26-Jul-2015 03:42:22 UTC] PHP Parse error:  syntax error, unexpected '<' in /home2/onepage3/public_html/app/View/Users/propertymanager.ctp on line 194
+[26-Jul-2015 03:57:03 UTC] PHP Fatal error:  Call to undefined method Paymethodutils::merchant_application() in /home2/onepage3/public_html/app/Controller/UsersController.php on line 303
+[26-Jul-2015 03:57:13 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 3628067 bytes) in /home2/onepage3/public_html/lib/Cake/Event/CakeEventManager.php on line 243
+[26-Jul-2015 03:59:10 UTC] PHP Fatal error:  Call to undefined method Paymethodutils::merchant_application() in /home2/onepage3/public_html/app/Controller/UsersController.php on line 303
+[26-Jul-2015 04:02:34 UTC] PHP Fatal error:  Call to undefined method Paymethodutils::merchant_application() in /home2/onepage3/public_html/app/Controller/UsersController.php on line 303
+[26-Jul-2015 04:16:08 UTC] PHP Fatal error:  Call to undefined method Account::setSettlmentAccountBankName() in /home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php on line 201
+[26-Jul-2015 04:34:51 UTC] PHP Fatal error:  Call to undefined method Account::setSettlmentAccountBankName() in /home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php on line 201
+[26-Jul-2015 04:35:28 UTC] PHP Fatal error:  Call to undefined method Account::setSettlmentAccountBankName() in /home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php on line 201
+[26-Jul-2015 04:35:32 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 3628211 bytes) in /home2/onepage3/public_html/lib/Cake/View/View.php on line 964
+[26-Jul-2015 04:54:29 UTC] PHP Fatal error:  Call to undefined method Paymethodbasecommerce::log() in /home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php on line 139
+[26-Jul-2015 04:56:24 UTC] PHP Fatal error:  Call to undefined method Paymethodbasecommerce::log() in /home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php on line 139
+[26-Jul-2015 04:59:23 UTC] PHP Fatal error:  Call to undefined method Paymethodbasecommerce::log() in /home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php on line 125
+[26-Jul-2015 05:10:34 UTC] PHP Fatal error:  Call to undefined method Paymethodutils::log() in /home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodUtils.php on line 33
+[26-Jul-2015 05:16:50 UTC] PHP Fatal error:  Call to undefined method Paymethodutils::log() in /home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodUtils.php on line 33
+[26-Jul-2015 05:20:07 UTC] PHP Fatal error:  Call to undefined method Account::setSettlmentAccountBankName() in /home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php on line 202
+[26-Jul-2015 05:35:16 UTC] PHP Fatal error:  Call to undefined method Account::setSettlmentAccountBankName() in /home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php on line 205
+[26-Jul-2015 05:40:35 UTC] PHP Fatal error:  Call to undefined method Account::setSettlmentAccountBankName() in /home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php on line 205
+[26-Jul-2015 05:45:07 UTC] PHP Fatal error:  Call to undefined method Account::setSettlmentAccountBankName() in /home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php on line 205
+[26-Jul-2015 05:49:38 UTC] PHP Fatal error:  Call to undefined method Account::setSettlmentAccountBankName() in /home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php on line 205
+[26-Jul-2015 05:50:43 UTC] PHP Fatal error:  Call to undefined method Account::setSettlmentAccountBankName() in /home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php on line 205
+[26-Jul-2015 05:53:26 UTC] PHP Fatal error:  Call to undefined method Account::setSettlmentAccountBankName() in /home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php on line 205
+[26-Jul-2015 05:54:12 UTC] PHP Fatal error:  Call to undefined method Account::setSettlmentAccountBankName() in /home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php on line 205
+[26-Jul-2015 05:54:50 UTC] PHP Fatal error:  Call to undefined method Account::setSettlmentAccountBankName() in /home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php on line 205
+[26-Jul-2015 05:55:42 UTC] PHP Fatal error:  Call to undefined method Account::setSettlmentAccountBankPhone() in /home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php on line 206
+[26-Jul-2015 05:56:56 UTC] PHP Fatal error:  Call to undefined method Account::setSettlmentAccountName() in /home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php on line 207
+[26-Jul-2015 05:58:02 UTC] PHP Fatal error:  Call to a member function setLine1() on a non-object in /home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php on line 215
+[26-Jul-2015 05:59:32 UTC] PHP Fatal error:  Call to a member function setLine1() on a non-object in /home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php on line 215
+[26-Jul-2015 06:03:18 UTC] PHP Fatal error:  Access to undeclared static property: Location::$XS_Property_Management in /home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php on line 226
+[26-Jul-2015 06:05:27 UTC] PHP Fatal error:  Access to undeclared static property: Location::$XS_Property_Management in /home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php on line 226
+[26-Jul-2015 06:07:37 UTC] PHP Fatal error:  Access to undeclared static property: Location::$XS_Property_Management in /home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php on line 226
+[26-Jul-2015 06:09:22 UTC] PHP Fatal error:  Call to undefined method BankCardDetails::setCurrentlyAcceptAmex() in /home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php on line 271
+[26-Jul-2015 06:10:07 UTC] PHP Fatal error:  Call to undefined method BankCardDetails::setCurrentlyAcceptAmex() in /home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php on line 271
+[26-Jul-2015 06:14:56 UTC] PHP Fatal error:  Call to undefined method BankCardDetails::setCurrentlyAcceptAmex() in /home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php on line 271
+[26-Jul-2015 06:17:39 UTC] PHP Fatal error:  Call to undefined method BankCardDetails::setCurrentlyAcceptAmex() in /home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php on line 271
+[03-Aug-2015 14:24:50 UTC] PHP Fatal error:  Call to undefined method BankCardDetails::setCurrentlyAcceptAmex() in /home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php on line 271

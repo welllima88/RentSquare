@@ -48,7 +48,8 @@
     <ul class="getStatedList">
       <li>Building contact's social security number</li>
       <li>Property name and address</li>
-      <li>Ownership entity's legal name and tax ID number (EIN #)</li>
+      <!--<li>Ownership entity's legal name and tax ID number (EIN #)</li>-->
+      <li>Ownership entity's legal name</li>
       <li>A bank account and routing number for handling transactions</li>
     </ul>
     <br>
@@ -118,11 +119,12 @@
         	echo $this->Form->input('User.last_name', array('label' => 'Last Name<br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'div'=>array('class'=>'span6'),'class'=>'validate[required]'));
         	echo '</div><!-- .row -->';
         	echo '<div class="row-fluid">';
-        	echo $this->Form->input('User.company_name', array('label' => 'Company Name<br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'div'=>array('class'=>'span8'),'class'=>'validate[required,minSize[3]]'));
+        	echo $this->Form->input('User.company_name', array('label' => 'Company Name<br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'div'=>array('class'=>'span12'),'class'=>'validate[required,minSize[3]]'));
+/*
         	echo $this->Form->input('User.phone', array('label' => 'Phone<br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'div'=>array('class'=>'span4'),'class'=>'validate[required,minSize[10]]'));
+*/
         	echo '</div><!-- .row -->';
 
-/*
         	echo '<div class="row-fluid">';
         	echo $this->Form->input('User.city', array('label' => 'City<br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'div'=>array('class'=>'span4'),'class'=>'validate[required]'));
         	echo $this->Form->input('User.state_id', array('label' => 'State<br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'div'=>array('class'=>'span4'),'class'=>'validate[required]','type'=>'select','options'=>$states,'empty'=>'Select State'));
@@ -132,8 +134,9 @@
         	echo $this->Form->input('User.phone', array('label' => 'Phone<br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'div'=>array('class'=>'span4'),'class'=>'validate[required,minSize[10]]'));
         	echo $this->Form->input('User.ssn', array('label' => 'SSN <a class="pm_tooltip" href="#" data-toggle="tooltip" title="RentSquare requires your social security number to verify your identity in order to accept electronic payments. It will remain private and secure."><i class="icon-question-sign">  </i></a><br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'div'=>array('class'=>'span4'),'class'=>'validate[required,minSize[9]]'));
         	echo $this->Form->input('User.dob', array('label' => 'DOB (MM/DD/YYYY)<br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'div'=>array('class'=>'span4'),'class'=>'validate[required,custom[usadate]]'));
-        	echo '</div><!-- .row -->';
+/*
 */
+        	echo '</div><!-- .row -->';
         	
         	echo '<br><h2 class="reg_subtitle">Enter Your Login Information</h2>';
         	echo '<div class="row-fluid">';
@@ -189,7 +192,8 @@
                 	   echo $this->Form->input('Property.0.average_rent', array('label' => 'Average Rent Amount <a class="pm_tooltip" href="#" data-toggle="tooltip" title="Your best guess is OK"><i class="icon-question-sign">  </i></a><br>', 'format'=>array('before', 'label', 'error', 'between', 'input', 'after'), 'div' => array('class'=>'span4'),'class'=>'rs_number validate[required,custom[integer]]'));
                   echo '</div><!-- .row -->';	
                   ?>
-<?php /*
+
+
                   <h2 class="reg_subtitle">What type of ownership manages this property?</h2>
                   <div class="prev_ownership" style="display:none;">
                     <?php //echo $this->Form->input('Property.0.previous_ownership', array('type'=>'checkbox','label' => '','div'=>false,'format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'class' => 'property_name_input','value'=>'1')); ?>
@@ -205,6 +209,7 @@
                     echo '<div class="row-fluid legal_name_div">';
                     //Company Legal Name
                     echo $this->Form->input('Property.0.legal_name', array('label' => 'Company Legal Name <a class="pm_tooltip" href="#" data-toggle="tooltip" title="If the property is owned by a sole proprietor and does not have an official company name, you may enter your full legal name in this field."><i class="icon-question-sign"></i></a><br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'div' => array('class'=>'span6'),'class'=>'comp_legal_name validate[required]'));
+                    	 echo $this->Form->input('Property.0.state_inc', array('label' => 'State Incorporated<br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'div'=>array('class'=>'span6'),'type'=>'select','options'=>$states,'empty'=>'Select State','class'=>'validate[required]'));
                       //DBA
                     	//echo $this->Form->input('Property.0.legal_dba', array('label' => 'Doing Business As (DBA)<br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'div' => array('class'=>'span6'),'class'=>'validate[required]'));
                     echo '</div><!-- .row -->';	
@@ -228,9 +233,13 @@
                     echo '</div><!-- .row -->';
                     echo '<div class="row-fluid">';
                       //Org EIN
+/*
                       echo $this->Form->input('Property.0.legal_ein', array('label' => 'Organization EIN#<br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'div' => array('class'=>'span6'),'class'=>'validate[required,custom[ein]]'));
+*/
                        //State Inc
+/*
                     	 echo $this->Form->input('Property.0.state_inc', array('label' => 'State Incorporated<br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'div'=>array('class'=>'span6'),'type'=>'select','options'=>$states,'empty'=>'Select State','class'=>'validate[required]'));
+*/
                     echo '</div><!-- .row -->';
                     echo '<div class="row-fluid">';
                     	 //Year Business Entity Started
@@ -240,7 +249,7 @@
                     echo '</div><!-- .row -->';
                                       
                   echo '</div><!-- .new_ownership -->';
-*/ 
+
                   //Bank Info
                   ?>
 
@@ -256,9 +265,9 @@
                         //Bank Name
                          echo $this->Form->input('Property.0.bank_name', array('label' => 'Bank Name<br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'class'=>'the_bank_name validate[required]'));
                          //Account Number
-                        echo $this->Form->input('Property.0.bank_acccount_num', array('label' => 'Account Number<br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'class'=>'validate[required]'));
+                        echo $this->Form->input('Property.0.bank_account_num', array('label' => 'Account Number<br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'class'=>'validate[required]'));
                         //Verify Account Number
-                        //echo $this->Form->input('Property.0.verify_bank_acccount_num', array('label' => 'Verify Account Number<br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'class'=>'validate[required],equals[Property0BankAcccountNum] bank_acc_equal'));
+                        //echo $this->Form->input('Property.0.verify_bank_account_num', array('label' => 'Verify Account Number<br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'class'=>'validate[required],equals[Property0BankAcccountNum] bank_acc_equal'));
                         //Routing Number
                         echo $this->Form->input('Property.0.routing_number', array('label' => 'Routing Number<br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'class'=>'validate[required,custom[aba]],minSize[9]'));
                         //Verify Routing Number
@@ -268,7 +277,7 @@
                     <div class="span6">
                        <?php 
                          //Type of Account
-                         echo $this->Form->input('Property.0.bank_acccount_type', array('type'=>'select','label' => 'Type of Account<br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'options' => array('Checking'=>'Checking','Savings'=>'Savings'),'empty'=>'Select Type','class'=>'validate[required]'));
+                         echo $this->Form->input('Property.0.bank_account_type', array('type'=>'select','label' => 'Type of Account<br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'options' => array('Checking'=>'Checking','Savings'=>'Savings'),'empty'=>'Select Type','class'=>'validate[required]'));
                          //Check Image
                          //check_example.png
                         echo $this->Html->image('check_example.png');

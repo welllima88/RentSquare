@@ -1,4 +1,6 @@
 <?php
+App::import('Vendor', 'Paymethodutils', array('file' => 'Interfaces/PayMethods/PayMethodUtils.php'));
+App::import('Vendor', 'Paymethodbasecommerce', array('file' => 'Interfaces/PayMethods/PayMethodBasecommerce.php'));
 
 class PropertiesController extends AppController {
 
@@ -39,78 +41,77 @@ class PropertiesController extends AppController {
 
 
                 //Set last 4 digits of account to save
-                $data['Property']['bank_acct'] = substr($data['Property']['bank_acccount_num'], - 4, 4);
+                $data['Property']['bank_acct'] = substr($data['Property']['bank_account_num'], - 4, 4);
 
                 //Set Manager Id
                 $data['Property']['manager_id'] = $this->Auth->user('id');
 
                 /*
                  * 2014-09-15 Wolff - commented out - fee_due_day will be set when property is activated
+                 * 2015-07-20 - New BaseCommerce api removes the property activation process, so adding the fee_due_day back
+                                and the new api to add the payment method to the vault
                  */
                 //Set fee_due_day
-                //$data['Property']['fee_due_day'] = date('j');
+                $data['Property']['fee_due_day'] = date('j');
+                $data['Property']['active'] = '1';
 
                 //Get User Data
                 $this->loadModel('User');
                 $user = $this->User->findById($this->Auth->user('id'));
                 $data['User'] = $user['User'];
 
-                //Add Property Manager's bank account to the Vault
+                /*  
+                 * PaymentProcessor API
+                 *
+	         * Save Bank To Vault
+       		 * Add Property Manager's bank account to the Vault
+                 */
+                $this->payutil = new Paymethodutils(new Paymethodbasecommerce);
                 $paymentmethod = array();
-                $paymentmethod['pp_user'] = RENTSQUARE_MERCH_USER;
-                $paymentmethod['pp_password'] = RENTSQUARE_MERCH_PASS;
                 $paymentmethod['first_name'] = $data['User']['first_name'];
                 $paymentmethod['last_name'] = $data['User']['last_name'];
-                $paymentmethod['account_number'] = $data['Property']['bank_acccount_num'];
+                $paymentmethod['account_number'] = $data['Property']['bank_account_num'];
                 $paymentmethod['routing_number'] = $data['Property']['routing_number'];
-                $paymentmethod['bank_acct_type'] = $data['Property']['bank_acccount_type'];
+                $paymentmethod['bank_acct_type'] = $data['Property']['bank_account_type'];
                 $paymentmethod['phone'] = $data['User']['phone'];
                 $paymentmethod['email'] = $data['User']['email'];
-                $paymentmethod['user_id'] = $this->Auth->user('id');
-                $this->loadModel('PaymentMethod');
-                $bank_saved = $this->PaymentMethod->add_bank_to_vault($paymentmethod);
-                if ( $bank_saved['response'] != 1 )
+                list($banksave_status, $banksave_result) = $this->payutil->addBankToVault($paymentmethod);
+                if ( $banksave_status == 1 )
                 {
-                    $this->Session->setFlash('Failed to save Bank Account to Secure Vault - ' . $bank_saved['message'] . '. Please contact admin.', 'flash_bad');
-                } else
-                {
-                    $data['Property']['vault_id'] = $bank_saved['vault_id'];
+                    $data['Property']['vault_id'] = $banksave_result;
+                    $this->log('Success: Vault add prop mgr - token = ' . $banksave_result, 'debug' );
 
+                    $pmdata = array();
+                    $pmdata['PaymentMethod']['vault_id'] = $banksave_result;
+                    $pmdata['PaymentMethod']['first_name'] = $paymentmethod['first_name'];
+                    $pmdata['PaymentMethod']['last_name'] = $paymentmethod['last_name'];
+                    $pmdata['PaymentMethod']['routing_number'] = $paymentmethod['routing_number'];
+                    $pmdata['PaymentMethod']['account_num'] = substr($paymentmethod['account_number'], - 4, 4);
+                    $pmdata['PaymentMethod']['bank_name'] = $data['Property']['bank_name'];
+                    $pmdata['PaymentMethod']['type'] = "ACH";
+                    $pmdata['PaymentMethod']['user_id'] = $this->Auth->user('id');
+
+                    $this->loadModel('PaymentMethod'); 
+                    $this->PaymentMethod->create();
+                    if ( $this->PaymentMethod->save($pmdata) )
+                    {
+                    }
+                    else
+                    {
+                    $this->Session->setFlash('Failed to save Bank Account to Secure Vault.  Please contact admin.', 'flash_bad');
+                    }
+
+                    $data['Property']['vault_id'] = $banksave_result;
 
                     //Save Property Manager in Database
                     if ( $this->Property->save($data) )
                     {
-                        //Set variable for application function. Set up for multiple properties array
-                        $application['Property'][0] = $data['Property'];
-                        $application['User'] = $data['User'];
-
-                        //Call Function to Submit Application to Phoenix Payments
-                        $results = $this->User->submitPPApplication($application);
-
-                        //Response 600 Error Message
-                        //Response 500 Internal Server Error
-                        //Response 200 Application Accepted
-                        $all_passed = true;
-
-                        foreach ( $results as $result ):
-                            if ( $result["response"] != 200 )
-                            {
-                                $all_passed = false;
-                            }
-                        endforeach; //foreach $results
-
-                        if ( $all_passed )
-                        {
-                            $this->Session->setFlash('Property Successfully added. Please allow 24-48 hours for processing. ', 'flash_good');
-                        } else
-                        {
-                            $this->Session->setFlash('Error adding property. Please contact RentSquare Support. Error:' . var_dump($results), 'flash_bad');
-                        }
+                        $this->Session->setFlash('Property Saved.', 'flash_success');
+                        $this->redirect(array('controller' => 'Billing', 'action' => 'index'));
 
                     } else
                     {
                         $this->Session->setFlash('Error saving new property. Please contact RentSquare Support.', 'flash_bad');
-                        $this->redirect(array('controller' => 'Property', 'action' => 'add'));
                     }
 
                 }
