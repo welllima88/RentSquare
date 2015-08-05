@@ -191,14 +191,14 @@ exit;
           //$o_account->setCustomerServicePhoneNumber( $data['User']['phone'] );
           //$o_account->setEIN( $property['legal_ein'] );
           $o_account->setAccountPhoneNumber( "303-809-6116" );
-          //$o_account->setReferralPartnerID( "a0Fi0000005jNJ3" );			//*** Hardcoded at BC
-          //$o_account->setCongaTemplateId( "a0d310000006iKoi" );			//*** Hardcoded at BC
+          $o_account->setReferralPartnerID( "a0Fi0000005jNJ3" );			//*** Hardcoded at BC
+          $o_account->setCongaTemplateId( "a0d310000006iKoi" );				//*** Hardcoded at BC
           $o_account->setCustomerServicePhoneNumber( "303-809-6116" );
           $o_account->setDBA( $property['legal_dba'] );
           $o_account->setEntityType( Account::$XS_ENTITY_TYPE_CORP );
           $o_account->setAssociationNumber( "268000" );
           $o_account->setEIN( "452501975" );
-          //$o_account->setIpAddressOfAppSubmission( "192.168.0.1" );     		//*** Hardcoded at BC
+          $o_account->setIpAddressOfAppSubmission( "192.168.0.1" );     		//*** Hardcoded at BC
           $o_account->setWebsite( 'http://rentsquare.com' );
 
           // Settlement Account Bank Info
@@ -253,7 +253,7 @@ exit;
           $o_contact->setEmail( $data['User']['email'] );
           $o_contact->setTitle( "Property Manager" );
 
-//  This 'new' call is not valid - causing fatal error - not even sure its required
+          //  This 'new' call is not valid - causing fatal error - passing in DOB from applicaiton instead
           //$o_cal = new Calendar();
           //$o_cal->getInstance();
           //$o_cal->add( Calendar.YEAR, -60 );
@@ -270,6 +270,7 @@ exit;
 
           $o_bc_details = new BankCardDetails();
           $o_bc_details->setAcceptAmex( false );
+          $o_bc_details->addDebitBrandsRequested( "Visa,MasterCard,Discover Network,Credit,Debit" );
 
           $o_bc_details->setFeeOther( "ie Annual Fee collected in month 3" );	//** Not Sure If this is RIGHT
           $o_bc_details->setAverageMonthlyVolume( urlencode(floatval($property['num_units'])*floatval($property['average_rent'])) );
@@ -294,7 +295,24 @@ exit;
           $o_merch_app->addLocation( $o_location );
 
           $o_bc = $o_bcpc->submitApplication( $o_merch_app );
+
+//          try {
+              foreach( $o_bc as $merchAppObj) 
+              {
+                 $status   = $merchAppObj->getResponseCode();
+                 $messages = $merchAppObj->getResponseMessages();
+              }
+/*
+          } catch( e ) {
+                 $status   = 0;
+                 $messages = e->getMessage(); 
+          }
+*/
+
 echo "<pre>";
+echo "<br>Status = $status";
+echo "<br>Msgs = ";
+print_r($messages);
 print_r($o_bc);
 echo "</pre>";
 exit;

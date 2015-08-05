@@ -5691,3 +5691,226 @@ Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
 2015-08-03 15:24:42 Debug: Success: Vault add prop mgr - token = 277aa9f7f0ae9963277e9f55789e2309f4572ff62d37722791e151cd5145c572
 2015-08-03 15:24:43 Debug: User Controller pre save assoc: 
 2015-08-03 15:24:43 Debug: User Controller save succes: 241
+2015-08-03 16:50:51 Debug: Success: Vault add prop mgr - token = e295f592bd5131192da1f0860c301aa871e47a8943255fe456d52222cc44c3c8
+2015-08-03 16:50:52 Debug: User Controller pre save assoc: 
+2015-08-03 16:50:52 Debug: User Controller save succes: 242
+2015-08-04 06:06:30 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+UsersController::propertymanager() - APP/Controller/UsersController.php, line 182
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-08-04 06:06:30 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+UsersController::propertymanager() - APP/Controller/UsersController.php, line 182
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-08-04 06:06:30 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+UsersController::propertymanager() - APP/Controller/UsersController.php, line 182
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-08-04 06:06:30 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+UsersController::propertymanager() - APP/Controller/UsersController.php, line 182
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-08-04 06:06:30 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+UsersController::propertymanager() - APP/Controller/UsersController.php, line 182
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-08-04 06:06:30 Notice: Notice (8): Undefined index: billing_address1 in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 37]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 37
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+UsersController::propertymanager() - APP/Controller/UsersController.php, line 251
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-08-04 06:06:30 Notice: Notice (8): Undefined index: billing_city in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 39]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 39
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+UsersController::propertymanager() - APP/Controller/UsersController.php, line 251
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-08-04 06:06:30 Notice: Notice (8): Undefined variable: billing_state in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 46]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 46
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+UsersController::propertymanager() - APP/Controller/UsersController.php, line 251
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-08-04 06:06:30 Notice: Notice (8): Undefined variable: property in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 47]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 47
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+UsersController::propertymanager() - APP/Controller/UsersController.php, line 251
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-08-04 06:06:32 Debug: User Controller pre save assoc: 
+2015-08-04 06:06:32 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+ModelValidator::validateAssociated() - CORE/Cake/Model/ModelValidator.php, line 134
+Model::validateAssociated() - CORE/Cake/Model/Model.php, line 2645
+Model::saveAssociated() - CORE/Cake/Model/Model.php, line 2449
+UsersController::propertymanager() - APP/Controller/UsersController.php, line 299
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-08-04 06:06:32 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+ModelValidator::validateAssociated() - CORE/Cake/Model/ModelValidator.php, line 134
+Model::validateAssociated() - CORE/Cake/Model/Model.php, line 2645
+Model::saveAssociated() - CORE/Cake/Model/Model.php, line 2449
+UsersController::propertymanager() - APP/Controller/UsersController.php, line 299
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-08-04 06:06:32 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+ModelValidator::validateAssociated() - CORE/Cake/Model/ModelValidator.php, line 134
+Model::validateAssociated() - CORE/Cake/Model/Model.php, line 2645
+Model::saveAssociated() - CORE/Cake/Model/Model.php, line 2449
+UsersController::propertymanager() - APP/Controller/UsersController.php, line 299
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-08-04 06:06:32 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+ModelValidator::validateAssociated() - CORE/Cake/Model/ModelValidator.php, line 134
+Model::validateAssociated() - CORE/Cake/Model/Model.php, line 2645
+Model::saveAssociated() - CORE/Cake/Model/Model.php, line 2449
+UsersController::propertymanager() - APP/Controller/UsersController.php, line 299
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-08-04 06:06:32 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+ModelValidator::validateAssociated() - CORE/Cake/Model/ModelValidator.php, line 134
+Model::validateAssociated() - CORE/Cake/Model/Model.php, line 2645
+Model::saveAssociated() - CORE/Cake/Model/Model.php, line 2449
+UsersController::propertymanager() - APP/Controller/UsersController.php, line 299
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-08-04 06:06:32 Debug: User Controller save succes: 243
+2015-08-05 01:26:56 Debug: Success: Vault add prop mgr - token = bca28418b8293c58befd0dad615fd3a27c13b28ad28de991f044b8abbd730a89
+2015-08-05 01:26:57 Debug: User Controller pre save assoc: 
+2015-08-05 01:26:57 Debug: User Controller save succes: 244
+2015-08-05 01:29:59 Debug: Success: Vault add prop mgr - token = e0d8ba5e810ba5ba0cc00b6808584dc0ab4727180f2e372dff26f302d8b42728
+2015-08-05 01:30:00 Debug: User Controller pre save assoc: 
+2015-08-05 01:30:00 Debug: User Controller save succes: 245
+2015-08-05 01:41:53 Debug: Success: Vault add prop mgr - token = e9062813850390267085498c45b0b6601e1692ada1765818b948cadeb133f13e
+2015-08-05 01:41:54 Debug: User Controller pre save assoc: 
+2015-08-05 01:41:54 Debug: User Controller save succes: 246

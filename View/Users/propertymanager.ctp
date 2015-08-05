@@ -124,6 +124,9 @@
         	echo $this->Form->input('User.phone', array('label' => 'Phone<br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'div'=>array('class'=>'span4'),'class'=>'validate[required,minSize[10]]'));
 */
         	echo '</div><!-- .row -->';
+                echo '<div class="row-fluid">';
+                echo $this->Form->input('User.street', array('label' => 'Home Address<br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'div'=>array('class'=>'span12'),'class'=>'validate[required]'));
+        	echo '</div><!-- .row -->';
 
         	echo '<div class="row-fluid">';
         	echo $this->Form->input('User.city', array('label' => 'City<br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'div'=>array('class'=>'span4'),'class'=>'validate[required]'));
