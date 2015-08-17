@@ -88,9 +88,9 @@ CakeLog::config('error', array(
 Inflector::rules('plural', array('irregular' => array('billing' => 'billing')));
 Inflector::rules('plural', array('irregular' => array('admin' => 'admin')));
 
-if (!defined('FULL_BASE_URL')) {
+//if (!defined('FULL_BASE_URL')) {
   define('FULL_BASE_URL', 'http://rentsquaredev.com');
-}
+//}
 
 
 define('USER_TYPE_MANAGER', 0);

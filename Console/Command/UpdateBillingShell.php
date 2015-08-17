@@ -774,7 +774,7 @@ class UpdateBillingShell extends AppShell {
           endif;//End check if Invoice Day
           
           //check Reminder Email [before_due_reminder][before_due_days]
-          if($billing_cycle['Unit']['Property']['before_due_reminder']):
+          if( isset($billing_cycle['Unit']['Property']['before_due_reminder']) && $billing_cycle['Unit']['Property']['before_due_reminder'] >= 0 ):
             $reminder_day = $billing_cycle['Unit']['Property']['before_due_days'];
             // if today + reminder days is equal to due date
             if( date('Ymd',strtotime('+'.$reminder_day.' days')) == date('Ymd',strtotime($billing_cycle['Billing']['billing_end']))):

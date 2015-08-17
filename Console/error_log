@@ -1,1 +1,13 @@
 [08-Apr-2013 10:57:02] PHP Fatal error:  Undefined class constant 'SKIP_DOTS' in /home2/onepage3/public_html/lib/Cake/Utility/Folder.php on line 426
+[13-Aug-2015 12:38:40 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[13-Aug-2015 12:51:27 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[13-Aug-2015 12:52:15 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[13-Aug-2015 12:53:31 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[13-Aug-2015 12:54:26 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[13-Aug-2015 12:55:02 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[13-Aug-2015 12:58:18 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[13-Aug-2015 12:58:35 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[13-Aug-2015 13:02:30 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[13-Aug-2015 13:05:59 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[13-Aug-2015 13:29:57 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[13-Aug-2015 13:35:58 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36

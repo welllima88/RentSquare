@@ -37,7 +37,7 @@ class PropertiesController extends AppController {
                 if ( !isset($data['Property']['state_inc']) || $data['Property']['state_inc'] == '' || is_null($data['Property']['state_inc']) ) $data['Property']['state_inc'] = 1;
                 if ( !isset($data['Property']['business_started']) ) $data['Property']['business_started'] = 0;
                 if ( !isset($data['Property']['ownership_started']) ) $data['Property']['ownership_started'] = 0;
-                if ( isset($data['Property']['name']) ) $data['Property']['legal_dba'] = $data['Property']['name'];
+                //if ( isset($data['Property']['name']) ) $data['Property']['legal_dba'] = $data['Property']['name'];
 
 
                 //Set last 4 digits of account to save
@@ -55,6 +55,7 @@ class PropertiesController extends AppController {
                 $data['Property']['fee_due_day'] = date('j');
                 $data['Property']['active'] = '1';
 
+
                 //Get User Data
                 $this->loadModel('User');
                 $user = $this->User->findById($this->Auth->user('id'));
@@ -62,11 +63,21 @@ class PropertiesController extends AppController {
 
                 /*  
                  * PaymentProcessor API
-                 *
+                 */
+                $this->payutil = new Paymethodutils(new Paymethodbasecommerce);
+
+                /*  
+	         * Submit merch app info for new property
+                 */
+                 //$bcrsl = $this->payutil->submitMerchApp( $data );
+                 //$this->log('Merchant App Results: ' . json_encode($bcrsl), 'debug' );
+                 // **TODO need to process result, and change logic below -- pull save out of bankstatus conditional, and make conditions
+                 //     upon both status' being successful?
+
+                /*  
 	         * Save Bank To Vault
        		 * Add Property Manager's bank account to the Vault
                  */
-                $this->payutil = new Paymethodutils(new Paymethodbasecommerce);
                 $paymentmethod = array();
                 $paymentmethod['first_name'] = $data['User']['first_name'];
                 $paymentmethod['last_name'] = $data['User']['last_name'];

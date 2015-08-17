@@ -82,6 +82,40 @@ class Conversation extends AppModel {
 
         return null;
     }
+
+   function loadPropertyName( $data ) 
+   {
+      foreach ($data as $key => $thisrec )
+      {
+         // If Property name not set, the sender was PM, and Property Name is an array of his properties.  We want to identify
+         //  the particular property in question based on a resident in the email thread
+         if ( isset($thisrec['Conversation']['Sender']['Property']['name']) && !empty($thisrec['Conversation']['Sender']['Property']['name']) && is_string($thisrec['Conversation']['Sender']['Property']['name']))
+         {
+            // Already set, no odifications needed
+         }
+         else
+         {
+             debug($thisrec);
+             $convUserModel = ClassRegistry::init('ConversationsUser');
+             $convusers = $convUserModel->find('first',array('conditions' => array( 
+                                                                       'conversation_id' => $thisrec['ConversationsUser']['conversation_id'], 
+                                                                       'user_id !=' => $thisrec['ConversationsUser']['user_id']
+                                                                                          
+                                                    )));
+             if( isset($convusers) && !empty($convusers['User']['property_id']))
+             {
+                $propsModel = ClassRegistry::init('Property');
+                $props = $propsModel->findById( $convusers['User']['property_id']);
+                if (isset($props['Property']['name']) && !empty($props['Property']['name']))
+                {
+                   $data[$key]['Conversation']['Sender']['Property']['name'] = $props['Property']['name'];
+                }
+             }
+         }
+      }
+
+      return $data;
+   }
 }
 
 ?>

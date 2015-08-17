@@ -339,5 +339,16 @@ exit;
        } // end foreach
 
     }
+
+    /*
+     * @param $data  - array of applicaion data including user_id and payment type (ach  or cc)
+     */
+    public function process_rent_payment( $data )
+    {
+    }
+
+    public function process_subscription_payment( $data )
+    {
+    }
     
 }

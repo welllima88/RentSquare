@@ -35,7 +35,7 @@
 
 if ($_SERVER['REMOTE_ADDR'] == '97.80.34.2')
 {
-	Configure::write('debug', 2);
+	Configure::write('debug', 0);
 	Configure::write('Cake.logQuery',1);
 }
 else

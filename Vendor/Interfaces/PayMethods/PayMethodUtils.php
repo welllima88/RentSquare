@@ -34,5 +34,19 @@ class Paymethodutils {
 
         return json_encode($appResult);
     }
+
+    public function rentPayment( $data )
+    {
+        $appResult  = $this->payer->process_rent_payment( $data );      
+
+        return json_encode($appResult);
+    }
+
+    public function subscriberPayment( $merchantdata )
+    {
+        $appResult  = $this->payer->process_subscription_payment( $data );      
+
+        return json_encode($appResult);
+    }
  
 }

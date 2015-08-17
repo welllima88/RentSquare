@@ -44,7 +44,7 @@
                 	   echo $this->Form->input('Property.average_rent', array('label' => 'Average Rent Amount <a class="pm_tooltip" href="#" data-toggle="tooltip" title="Your best guess is OK"><i class="icon-question-sign">  </i></a><br>', 'format'=>array('before', 'label', 'error', 'between', 'input', 'after'), 'div' => array('class'=>'span4'),'class'=>'validate[required]'));
                   echo '</div><!-- .row -->';	
                   ?>
-<?php /*
+
                   <h2 class="reg_subtitle">What type of ownership manages this property?</h2>
                   <div class="prev_ownership" style="display:none;">
                     <?php //echo $this->Form->input('Property.previous_ownership', array('type'=>'checkbox','label' => '','div'=>false,'format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'class' => 'property_name_input','value'=>'1')); ?>
@@ -60,8 +60,10 @@
                     echo '<div class="row-fluid legal_name_div">';
                     //Company Legal Name
                     echo $this->Form->input('Property.legal_name', array('label' => 'Company Legal Name<br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'div' => array('class'=>'span6'),'class'=>'comp_legal_name validate[required]'));
-                      //DBA
-                    	echo $this->Form->input('Property.legal_dba', array('label' => 'Doing Business As (DBA)<br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'div' => array('class'=>'span6'),'class'=>'validate[required]'));
+                    //State Inc
+                    echo $this->Form->input('Property.state_inc', array('label' => 'State Incorporated<br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'div'=>array('class'=>'span6'),'type'=>'select','options'=>$states,'empty'=>'Select State','class'=>'validate[required]'));
+                    //DBA
+                    //echo $this->Form->input('Property.legal_dba', array('label' => 'Doing Business As (DBA)<br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'div' => array('class'=>'span6'),'class'=>'validate[required]'));
                     echo '</div><!-- .row -->';	
                     //Legal Street
                     echo $this->Form->input('Property.legal_street', array('label' => 'Legal Street<br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'class'=>'validate[required]'));
@@ -82,10 +84,8 @@
                     	 echo $this->Form->input('Property.legal_website', array('label' => 'Legal Website <a class="pm_tooltip" href="#" data-toggle="tooltip" title="This field is optional"><i class="icon-question-sign"></i></a><br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'div'=>array('class'=>'span4')));  
                     echo '</div><!-- .row -->';
                     echo '<div class="row-fluid">';
-                      //Org EIN
-                      echo $this->Form->input('Property.legal_ein', array('label' => 'Organization EIN#<br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'div' => array('class'=>'span6'),'class'=>'validate[required,custom[ein]]'));
-                       //State Inc
-                    	 echo $this->Form->input('Property.state_inc', array('label' => 'State Incorporated<br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'div'=>array('class'=>'span6'),'type'=>'select','options'=>$states,'empty'=>'Select State','class'=>'validate[required]'));
+                    //Org EIN
+                    //echo $this->Form->input('Property.legal_ein', array('label' => 'Organization EIN#<br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'div' => array('class'=>'span6'),'class'=>'validate[required,custom[ein]]'));
                     echo '</div><!-- .row -->';
                     echo '<div class="row-fluid">';
                     	 //Year Business Entity Started
@@ -95,7 +95,7 @@
                     echo '</div><!-- .row -->';
                                       
                   echo '</div><!-- .new_ownership -->';
-*/
+
                     
                   //Bank Info
                   ?>

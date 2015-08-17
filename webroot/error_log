@@ -339,3 +339,5 @@ error:14090086:SSL routines:SSL3_GET_SERVER_CERTIFICATE:certificate verify faile
 [26-Jul-2015 06:14:56 UTC] PHP Fatal error:  Call to undefined method BankCardDetails::setCurrentlyAcceptAmex() in /home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php on line 271
 [26-Jul-2015 06:17:39 UTC] PHP Fatal error:  Call to undefined method BankCardDetails::setCurrentlyAcceptAmex() in /home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php on line 271
 [03-Aug-2015 14:24:50 UTC] PHP Fatal error:  Call to undefined method BankCardDetails::setCurrentlyAcceptAmex() in /home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php on line 271
+[06-Aug-2015 16:09:02 UTC] PHP Parse error:  syntax error, unexpected 'print_r' (T_STRING), expecting ',' or ';' in /home2/onepage3/public_html/app/Controller/PropertiesController.php on line 60
+[11-Aug-2015 20:04:52 UTC] PHP Fatal error:  Call to a member function find() on a non-object in /home2/onepage3/public_html/app/Model/Conversation.php on line 101

@@ -16,97 +16,90 @@
 
 	<table class="subheader table-striped format messages_inbox">
 	<tr class="no_click">
-			<th width="22%"><?php echo $this->Paginator->sort('Conversation.sender_id','From');?> <span class="caret"></span></th>
-      <?php if($user_type == !USER_TYPE_TENANT): ?>
-			<th width="15%"><?php echo $this->Paginator->sort('Property.name','Property');?> <span class="caret"></span></th>
-			<?php endif; ?>
-		  <th width="37%"><?php echo $this->Paginator->sort('Conversation.title','Subject');?> <span class="caret"></span></th>
-			<th width="11%"><?php echo $this->Paginator->sort('ConversationsUser.last_msg_time','Date');?> <span class="caret"></span></th>
-			<th width="11%"><?php echo $this->Paginator->sort('ConversationsUser.status','Status');?> <span class="caret"></span></th>
+          <th width="22%"><?php echo $this->Paginator->sort('Conversation.sender_id','From');?> <span class="caret"></span></th>
+          <?php if($user_type == !USER_TYPE_TENANT): ?>
+            <th width="15%"><?php echo $this->Paginator->sort('Property.name','Property');?> <span class="caret"></span></th>
+          <?php endif; ?>
+          <th width="37%"><?php echo $this->Paginator->sort('Conversation.title','Subject');?> <span class="caret"></span></th>
+          <th width="11%"><?php echo $this->Paginator->sort('ConversationsUser.last_msg_time','Date');?> <span class="caret"></span></th>
+          <th width="11%"><?php echo $this->Paginator->sort('ConversationsUser.status','Status');?> <span class="caret"></span></th>
 	</tr>
 	<?php
-	$properties_list = array();
-    if(isset($msgs) && count($msgs) > 0):
-		foreach($msgs as $msg){
-			switch($msg['ConversationsUser']['status'])
-			{
-				case MSG_STATUS_UNREAD:
-					$status = 'Unread';
-					break;
-				case MSG_STATUS_READ:
-					$status = 'Read';
-					break;
-				default:
-					$status = 'Unread';
-					break;
-			}
-			$unit = isset($msg['Conversation']['Sender']['Unit']['number']) ? $msg['Conversation']['Sender']['Unit']['number'] : 'Unassigned';
-			if($msg['Conversation']['Sender']['type'] == USER_TYPE_MANAGER){
-				$unit = '(Manager)';
-		  } else{
-		    $unit = '(Unit: '.$unit .')';
-		    if( isset($msg['Conversation']['Sender']['Unit']['number']) and $msg['Conversation']['Sender']['Unit']['number']==0){$unit='(Unassigned)';}
-		  }
+        if(isset($msgs) && count($msgs) > 0):
+          foreach($msgs as $msg){
+	    $properties_list = array();
+            if ($debug) { echo "<br>msg = <br>"; echo "<pre>"; print_r($msg); echo "</pre>"; }
+            switch($msg['ConversationsUser']['status'])
+            {
+            case MSG_STATUS_UNREAD:
+              $status = 'Unread';
+              break;
+            case MSG_STATUS_READ:
+              $status = 'Read';
+              break;
+            default:
+              $status = 'Unread';
+              break;
+            }
+            $unit = isset($msg['Conversation']['Sender']['Unit']['number']) ? $msg['Conversation']['Sender']['Unit']['number'] : 'Unassigned';
+            if($msg['Conversation']['Sender']['type'] == USER_TYPE_MANAGER){
+              $unit = '(Manager)';
+            } else{
+              $unit = '(Unit: '.$unit .')';
+              if( isset($msg['Conversation']['Sender']['Unit']['number']) and $msg['Conversation']['Sender']['Unit']['number']==0)
+              {
+                $unit='(Unassigned)';
+              }
+            }
 
-debug($msg);
+            if(isset($msg['Conversation']['Sender']['Property']['name']))
+            {
+               if(!in_array($msg['Conversation']['Sender']['Property']['name'], $properties_list))
+               {
+                  array_push($properties_list, $msg['Conversation']['Sender']['Property']['name']);
+               }
+            }
 
-      // Prop name code seems obsolete - i.e. not used
-      if(isset($msg['Conversation']['Sender']['Property']['name'])) 
-      {
-         $prop_name = $msg['Conversation']['Sender']['Property']['name'];
-      }
-      else 
-      {
-         $prop_name =  ' ';
-      }
 
-      if(isset($msg['Conversation']['Sender']['Property']['name']))
-      {
-         if(!in_array($msg['Conversation']['Sender']['Property']['name'], $properties_list))
-         {
-            array_push($properties_list, $msg['Conversation']['Sender']['Property']['name']);
-         }
-      }
-
-      $property_print = '';
-      foreach($properties_list as $property_list)
-      {
-         $property_print .= $property_list . ', ';
-      }
-      $property_print = rtrim(trim($property_print), ',');
+            $property_print = '';
+            foreach($properties_list as $property_list)
+            {
+              $property_print .= $property_list . ', ';
+            }
+            $property_print = rtrim(trim($property_print), ',');
     
-      /*
-       *  Was attempting to assign a class and setup a jquery function, on docready, call
-       *   conversations getPropName from conversation id... pretty convoluted but only way
-       *   to find it per conversation.... UNTIL, I realized all conversations must be for the
-       *   current property when a PM is logged in as PM can only look at data for 1 prop at a time
-       */ 
-      if (!empty($property_print))
-      {
-         //$property_print = "<span class=\"getPropName\" id=\"" . $msg['Conversation']['id'] . "\"></span>";
-         //$property_print = $curProp['name'];
-      }
+            /*
+             *  Was attempting to assign a class and setup a jquery function, on docready, call
+             *   conversations getPropName from conversation id... pretty convoluted but only way
+             *   to find it per conversation.... UNTIL, I realized all conversations must be for the
+             *   current property when a PM is logged in as PM can only look at data for 1 prop at a time
+             */ 
+            if (!empty($property_print))
+            {
+               //$property_print = "<span class=\"getPropName\" id=\"" . $msg['Conversation']['id'] . "\"></span>";
+               //$property_print = $curProp['name'];
+            }
 
 			
-      $title = $msg['Conversation']['title'];
-      if(strlen($title) > 120)
-	$title = substr($title, 0, 117) . '...';
+            $title = $msg['Conversation']['title'];
+            if(strlen($title) > 120)
+	      $title = substr($title, 0, 117) . '...';
 				
-      if($user_type == !USER_TYPE_TENANT):
-         echo $this->Html->tableCells(array(
-            $msg['Conversation']['Sender']['first_name'] . ' ' . $msg['Conversation']['Sender']['last_name'] . ' '.$unit,
-            $property_print,
-            $this->Html->link($title, array('controller' => 'Conversations', 'action' => 'view', $msg['Conversation']['id']), array('class' => 'msg-link')),
-            $this->Time2->messageTime($this->Time->convert(strtotime($msg['ConversationsUser']['last_msg_time']), $user_timezone)),
-            array($status, array('class' => 'status'))), array('class' => 'odd ' . strtolower($status)), array('class' => 'even ' . strtolower($status)));
-      else:
-         echo $this->Html->tableCells(array(
-            $msg['Conversation']['Sender']['first_name'] . ' ' . $msg['Conversation']['Sender']['last_name'] . ' '.$unit,
-            $this->Html->link($title, array('controller' => 'Conversations', 'action' => 'view', $msg['Conversation']['id']), array('class' => 'msg-link')),
-            $this->Time2->messageTime($this->Time->convert(strtotime($msg['ConversationsUser']['last_msg_time']), $user_timezone)), array($status, array('class' => 'status'))), array('class' => 'odd ' . strtolower($status)), array('class' => 'even ' . strtolower($status)));
-      endif;
+            if($user_type == !USER_TYPE_TENANT):
+               echo $this->Html->tableCells(array(
+                  $msg['Conversation']['Sender']['first_name'] . ' ' . $msg['Conversation']['Sender']['last_name'] . ' '.$unit,
+                  $property_print,
+                  $this->Html->link($title, array('controller' => 'Conversations', 'action' => 'view', $msg['Conversation']['id']), array('class' => 'msg-link')),
+                  $this->Time2->messageTime($this->Time->convert(strtotime($msg['ConversationsUser']['last_msg_time']), $user_timezone)),
+                  array($status, array('class' => 'status'))), array('class' => 'odd ' . strtolower($status)), array('class' => 'even ' . strtolower($status)));
+            else:
+               echo $this->Html->tableCells(array(
+                  $msg['Conversation']['Sender']['first_name'] . ' ' . $msg['Conversation']['Sender']['last_name'] . ' '.$unit,
+                  $this->Html->link($title, array('controller' => 'Conversations', 'action' => 'view', $msg['Conversation']['id']), array('class' => 'msg-link')),
+                  $this->Time2->messageTime($this->Time->convert(strtotime($msg['ConversationsUser']['last_msg_time']), $user_timezone)), array($status, array('class' => 'status'))), array('class' => 'odd ' . strtolower($status)), array('class' => 'even ' . strtolower($status)));
+            endif;
 			
-      }
+          }
     else:
 		  echo '<tr class="no_click"><td colspan="5" class="no_rows">
 		  <svg class="mail" version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="80px" height="75.422px" viewBox="0 0 100 75.422" enable-background="new 0 0 100 75.422" xml:space="preserve">

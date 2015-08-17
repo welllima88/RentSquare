@@ -42,7 +42,11 @@ class ConversationsController extends AppController {
         );
 
         $data = $this->paginate('ConversationsUser', array('ConversationsUser.user_id' => $this->Auth->user('id'), 'ConversationsUser.last_msg_time !=' => null));
-        $this->set('msgs', $data);
+
+        // Need to find & set property name for PM messages based on resident user in the thread
+        $modifiedData = $this->Conversation->loadPropertyName($data);
+
+        $this->set('msgs', $modifiedData);
 
     }
 

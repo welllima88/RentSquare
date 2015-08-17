@@ -328,6 +328,8 @@ class PaymentsController extends AppController {
                     }
                 }
 
+// GSW - End -- comment out above code inside success of trnas fee payment 
+
             } else
             {
                 $this->loadModel('FailedPayment');
@@ -464,6 +466,5 @@ class PaymentsController extends AppController {
 
 }
 
-;
 
 ?>

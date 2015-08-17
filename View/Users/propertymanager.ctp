@@ -109,7 +109,7 @@
             endforeach; //foreach error_messages
           endif; ?>
           <h1 class="reg_title">
-            Property Manger Sign Up - Personal Information
+            Property Manager Sign Up - Personal Information
           </h1>
           <h2 class="reg_subtitle">Enter Your Personal Information</h2>
           <?php
@@ -343,7 +343,7 @@
         </div><!-- .summary_total -->
         <div class="clear"></div>
         <div class="summary_desc">
-          *Monthly Fee of <strong><span id="sum_monthly_fee"></span></strong> begins when your account is approved. The monthly fee for each property will be debited from the bank accounts provided for each property.<br>
+          *Monthly Fee of <strong><span id="sum_monthly_fee"></span></strong> begins upon signup. The monthly fee for each property will be debited from the bank accounts provided for each property.<br>
           *The one-time setup fee cost is equal to one month of service.
         </div><!-- .summary_desc -->
         <div class="clear"><br></div><!-- .clear -->

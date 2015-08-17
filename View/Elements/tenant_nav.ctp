@@ -1,7 +1,8 @@
 <?php
   if($unreadMsgs != 0){ $msgCount = ' <span class="unread_count message_count">'. $unreadMsgs . '</span>'; } else { $msgCount = ''; }
-  if($openMaint != 0){ $mainCount = ' <span class="unread_count maintenance_count">'. $openMaint . '</span>'; } else { $mainCount = ''; }
-	?>
+  $mainCount = $openMaint + $pendingMaint;
+  if($mainCount > 0){ $mainCount = ' <span class="unread_count maintenance_count">'. $mainCount . '</span>'; } else { $mainCount = ''; }
+?>
 	<div class="menu_item">
       <?php echo $this->ExHtml->link('
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"  x="0px" y="0px" width="100px" height="100px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">

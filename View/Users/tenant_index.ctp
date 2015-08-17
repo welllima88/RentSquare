@@ -34,7 +34,10 @@
 </div><!-- .unread_messages -->
 <div class="maintenance_req dashboard_square">
 	<div class="large_num">
-		<?php echo $this->Html->link($openMaint,array('controller' => 'MaintenanceTickets', 'action' => 'index','full_base' => true),array('class'=>''));?>
+		<?php 
+                   $pendMaintTtl = $openMaint + $pendingMaint;
+                   echo $this->Html->link($pendMaintTtl,array('controller' => 'MaintenanceTickets', 'action' => 'index','full_base' => true),array('class'=>''));
+                ?>
 	</div><!-- .large_num -->
 	<div class="small_label">
 		<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">

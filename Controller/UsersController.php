@@ -1183,6 +1183,11 @@ class UsersController extends AppController {
 
     }
 
+    function bounce( $anchor )
+    {
+        $this->redirect( "http://www.rentsquaredev.com/Users/myaccount#" . $anchor );
+    }
+
 }
 
 ;
