@@ -8,6 +8,8 @@ App::uses('Account', 'Vendor');
 App::uses('MerchantApplication', 'Vendor');
 App::uses('BankAccount', 'Vendor');
 App::uses('BankCard', 'Vendor');
+App::uses('BankCardTransaction', 'Vendor');
+App::uses('BankAccountTransaction', 'Vendor');
 App::uses('Address', 'Vendor');
 App::uses('Location', 'Vendor');
 App::uses('PrincipalContact', 'Vendor');
@@ -48,7 +50,14 @@ class Paymethodbasecommerce implements Paymethodinterface {
        $o_billing_address->setCountry( "USA" );
        $o_bank_account->setBillingAddress( $o_billing_address );
 
-       $o_bcpc = new BaseCommerceClient( RENTSQUARE_MERCH_USER, RENTSQUARE_MERCH_PASS, RENTSQUARE_MERCH_KEY );
+       if ( $paydata['usertype'] == 2 ) 
+       {
+           $o_bcpc = new BaseCommerceClient( RENTSQUARE_PARTNER_USER, RENTSQUARE_PARTNER_PASS, RENTSQUARE_PARTNER_KEY );
+       }
+       else
+       {
+           $o_bcpc = new BaseCommerceClient( RENTSQUARE_MERCH_USER, RENTSQUARE_MERCH_PASS, RENTSQUARE_MERCH_KEY );
+       }
        $o_bcpc->setSandbox( BC_SANDBOXVALUE );
        $o_bank_account = $o_bcpc->addBankAccount( $o_bank_account );
 
@@ -345,10 +354,92 @@ exit;
      */
     public function process_rent_payment( $data )
     {
+       if ( $data['pay_method'] == 'CC' )
+       {
+          $pay_rsl = $this->processCreditCardTransaction( $data );
+       }
+       else
+       {
+          $pay_rsl = $this->processBankAccountTransaction( $data );
+       }
+
+       echo "<pre>";
+       print_r($pay_rsl);
+       echo "</pre>";
+exit;
+
+       return $pay_rsl;
+       
     }
 
     public function process_subscription_payment( $data )
     {
+       if ( $data['pay_method'] == 'CC' )
+       {
+          $pay_rsl = $this->processCreditCardTransaction( $data );
+       }
+       else
+       {
+          $pay_rsl = $this->processBankAccountTransaction( $data );
+       }
+       return $pay_rsl;
+    }
+
+    protected function processBankAccountTransaction( $data )
+    {
+       $o_bat = new BankAccountTransaction();
+       $o_bat->setType( BankAccountTransaction::$XS_BAT_TYPE_DEBIT );
+       $o_bat->setMethod( BankAccountTransaction::$XS_BAT_METHOD_CCD );
+       $o_bat->setEffectiveDate( date('m-d-Y H:i:s') );
+       $o_bat->setToken( $data['payer_vault_id'] );
+       $o_bat->setAmount( $data['total_amt'] );
+       if ( isset($data['fee_amt']) && ! empty($data['fee_amt']) && isset($data['rsq_vault_id']) && ! empty($data['rsq_vault_id']) )
+       {
+          $o_bat->setCustomField10( $data['rsq_vault_id'], $data['fee_amt'] );
+       }
+       $o_bcpc = new BaseCommerceClient( RENTSQUARE_MERCH_USER, RENTSQUARE_MERCH_PASS, RENTSQUARE_MERCH_KEY );
+       $o_bcpc->setSandbox( BC_SANDBOXVALUE );
+       $o_bat = $o_bcpc->processBankAccountTransaction( $o_bat );
+       if( $o_bat->isStatus( BankAccountTransaction::$XS_BAT_STATUS_FAILED ) )
+       {
+          //Transaction Failed
+          return array( 'status' => '0', 'info' => $o_bat->getMessages() );
+       } 
+       else if( $o_bat->isStatus( BankAccountTransaction::$XS_BAT_STATUS_CREATED ) ) 
+       { 
+          //Transaction went through successfully
+          return array( 'status' => '1', 'info' => $o_bat->getBankAccountTransactionId() );
+       }
+    }
+
+    protected function processCreditCardTransaction( $data )
+    {
+       $o_bct = new BankCardTransaction();
+       $o_bct->setToken( $data['payer_vault_id'] );
+       $o_bct->setType(BankCardTransaction::$XS_BCT_TYPE_SALE);
+       $o_bct->setAmount( $data['total_amt'] );
+       if ( isset($data['fee_amt']) && ! empty($data['fee_amt']) && isset($data['rsq_vault_id']) && ! empty($data['rsq_vault_id']) )
+       {
+          $o_bct->setCustomField10( $data['rsq_vault_id'], $data['fee_amt'] );
+       }
+       $o_bcpc = new BaseCommerceClient( RENTSQUARE_MERCH_USER, RENTSQUARE_MERCH_PASS, RENTSQUARE_MERCH_KEY );
+       $o_bcpc->setSandbox( BC_SANDBOXVALUE );
+       $o_bct = $o_bcpc->processBankCardTransaction( $o_bct );
+       if( $o_bct->isStatus( BankCardTransaction::$XS_BCT_STATUS_FAILED ) ) 
+       {
+          //Transaction Failed
+          return array( 'status' => '0', 'info' => $o_bct->getMessages() );
+       } 
+       else if( $o_bct->isStatus( BankCardTransaction::$XS_BCT_STATUS_DECLINED ) ) 
+       { 
+          //Transaction Failed
+          return array( 'status' => '0', 'info' => $o_bct->getMessages() );
+       } 
+       else if( $o_bct->isStatus(BankCardTransaction::$XS_BCT_STATUS_CAPTURED) ) 
+       {
+          //Transaction went through successfully
+          return array( 'status' => '1', 'info' => $o_bct->getTransactionID() );
+       }
     }
     
 }

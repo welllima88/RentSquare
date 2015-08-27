@@ -1,0 +1,5 @@
+tmp/*
+tmp/logs/*
+error_log 
+webroot/error_log
+

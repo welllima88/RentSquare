@@ -3,7 +3,12 @@ App::uses('CakeEmail', 'Network/Email');
 App::uses('Router', 'Routing');
 config('routes');
 Configure::write('RentSquare.supportemail', 'support@rentsquare.co');
-
+App::import('Vendor', 'Paymethodutils', array('file' => 'Interfaces/PayMethods/PayMethodUtils.php'));
+/* 
+ * If processor ever changes, need to write a new class to the interface, and load it here
+ *  The only thing to change is in the instantion -- pass the new class as an arg to Paymethodutils
+ */
+App::import('Vendor', 'Paymethodbasecommerce', array('file' => 'Interfaces/PayMethods/PayMethodBasecommerce.php'));
 
 class MonthlyFeeShell extends AppShell {
 
@@ -22,10 +27,6 @@ class MonthlyFeeShell extends AppShell {
 
         //Loop through properties
         foreach($properties as $property):
-
-          //Charge Monthly Fee Based on Matrix
-          //Payment->processPayment($amount=null,$vault_id=null,$user=null,$password=null)
-          
           //Determine Cost base on number of units. If actual unit_count in system is greater
           //than num_units provided by user, charge actual number
           if($property['Property']['num_units'] > $property['Property']['unit_count']){
@@ -35,14 +36,29 @@ class MonthlyFeeShell extends AppShell {
           }
               
           //Process One Time Fee Payment to RentSquare
-          $result = $this->Payment->processPayment($amount,$property['Property']['vault_id'],RENTSQUARE_MERCH_USER,RENTSQUARE_MERCH_PASS);
+          // Data needed - payer_vault_id, total_amt .... rsq_valut_id & fee_amt not needed as those are for convenience fee only
+          // pay_method defaults to ach if not set to CC
+          $paydata = array();
+          $paydata['total_amt'] = $amount;
+          $paydata['payer_vault_id'] = $property['Property']['vault_id'];
+
+          if ($debug) { print_r($paydata); }
+
+          $this->payutil = new Paymethodutils(new Paymethodbasecommerce);
+          $jpayrsl = $this->payutil->subscriberPayment( $paydata );
+          $payrsl = json_decode($jpayrsl);
   		      
-          parse_str($result);
-          
-	  if(isset($response) && $response == 1)
+          if ($debug)
+          {
+             print_r($payrsl);
+             print_r($payrsl->status);
+          }
+
+	  if(isset($payrsl) && !empty($payrsl) && $payrsl->status == 1)
           {
              $this->out('Monthly Fee Successful Charged for Property #'.$property['Property']['id'].' - '.$property['Property']['name']);
              //Send Payment Success Email
+             $transactionid = $payrsl->info[0];
              $email_data['manager_name'] = $property['Manager']['first_name'] . ' ' . $property['Manager']['last_name'];
              $email_data['property_name']=$property['Property']['name'];
              $email_data['amount'] = $amount;
@@ -52,11 +68,11 @@ class MonthlyFeeShell extends AppShell {
                $this->out("Payment Received Email Sent To ".$property['Manager']['email']);
              }
              $monthly_fee = array();
-  	     $monthly_fee['Payment']['ppresponse'] = $response;
-  	     $monthly_fee['Payment']['ppresponsetext'] = $responsetext;
-             $monthly_fee['Payment']['ppauthcode'] = $authcode;
+  	     $monthly_fee['Payment']['ppresponse'] = '1';
+  	     $monthly_fee['Payment']['ppresponsetext'] = 'success';
+             $monthly_fee['Payment']['ppauthcode'] = '';
              $monthly_fee['Payment']['pptransactionid']	= $transactionid;
-             $monthly_fee['Payment']['ppresponse_code'] = $response_code;
+             $monthly_fee['Payment']['ppresponse_code'] = '';
              $monthly_fee['Payment']['status'] = 'Complete';
       	     $monthly_fee['Payment']['notes'] = 'Monthly Fee';
        	     $monthly_fee['Payment']['user_id'] = $property['Manager']['id'];
@@ -76,16 +92,18 @@ class MonthlyFeeShell extends AppShell {
           }
           else
           {
+             $responsetext = implode(",",$payrsl->info);
+             $transactionid = '';
              $failed=$property;
              $failed['FailedPayment']['billing_id'] = 0;
              $failed['FailedPayment']['unit_id'] = 0;
              $failed['FailedPayment']['user_id'] = $property['Property']['manager_id'];
              $failed['FailedPayment']['amount'] = $amount;
-             $failed['FailedPayment']['ppresponse'] = $response;
+             $failed['FailedPayment']['ppresponse'] = '0';
              $failed['FailedPayment']['ppresponsetext'] = $responsetext;
-             $failed['FailedPayment']['ppauthcode'] = $authcode;
-             $failed['FailedPayment']['pptransactionid']	= $transactionid;
-             $failed['FailedPayment']['ppresponse_code'] = $response_code;
+             $failed['FailedPayment']['ppauthcode'] = '';
+             $failed['FailedPayment']['pptransactionid'] = $transactionid;
+             $failed['FailedPayment']['ppresponse_code'] = '';
              $failed['FailedPayment']['notes'] = "Failed Monthly Fee Charge. Property id ".$property['Property']['id'];
              $this->FailedPayment->save($failed);
              $this->out('Failed Monthly Fee Charge. Property id '.$property['Property']['id'] . ' => '.$responsetext);                

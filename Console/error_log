@@ -11,3 +11,37 @@
 [13-Aug-2015 13:05:59 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
 [13-Aug-2015 13:29:57 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
 [13-Aug-2015 13:35:58 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[22-Aug-2015 10:24:43 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[22-Aug-2015 10:59:04 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[22-Aug-2015 10:59:20 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[22-Aug-2015 10:59:46 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[22-Aug-2015 11:00:23 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[22-Aug-2015 11:01:08 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[23-Aug-2015 15:04:41 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[23-Aug-2015 15:11:10 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[23-Aug-2015 15:12:01 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[23-Aug-2015 15:13:03 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[23-Aug-2015 15:13:42 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[23-Aug-2015 15:16:29 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[23-Aug-2015 15:17:28 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[23-Aug-2015 15:27:05 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[23-Aug-2015 15:27:48 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[23-Aug-2015 15:28:19 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[23-Aug-2015 15:32:56 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[23-Aug-2015 15:33:53 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[23-Aug-2015 21:33:54 UTC] PHP Fatal error:  Cannot use object of type stdClass as array in /home2/onepage3/public_html/app/Console/Command/MonthlyFeeShell.php on line 57
+[23-Aug-2015 15:34:35 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[23-Aug-2015 21:34:36 UTC] PHP Fatal error:  Cannot use object of type stdClass as array in /home2/onepage3/public_html/app/Console/Command/MonthlyFeeShell.php on line 58
+[23-Aug-2015 15:35:16 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[23-Aug-2015 15:36:13 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[23-Aug-2015 15:42:42 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[23-Aug-2015 21:42:42 UTC] PHP Parse error:  syntax error, unexpected '$failed' (T_VARIABLE) in /home2/onepage3/public_html/app/Console/Command/MonthlyFeeShell.php on line 106
+[23-Aug-2015 15:45:20 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[23-Aug-2015 21:45:20 UTC] PHP Parse error:  syntax error, unexpected '$failed' (T_VARIABLE) in /home2/onepage3/public_html/app/Console/Command/MonthlyFeeShell.php on line 106
+[23-Aug-2015 15:45:52 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[23-Aug-2015 21:45:52 UTC] PHP Parse error:  syntax error, unexpected '$failed' (T_VARIABLE) in /home2/onepage3/public_html/app/Console/Command/MonthlyFeeShell.php on line 107
+[23-Aug-2015 15:46:22 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[23-Aug-2015 18:08:43 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[24-Aug-2015 00:08:43 UTC] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home2/onepage3/public_html/app/Console/Command/UpdateBillingShell.php on line 346
+[23-Aug-2015 18:09:58 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[24-Aug-2015 00:09:58 UTC] PHP Parse error:  syntax error, unexpected '}' in /home2/onepage3/public_html/app/Console/Command/UpdateBillingShell.php on line 438

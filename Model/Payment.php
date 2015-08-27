@@ -10,6 +10,7 @@ class Payment extends AppModel {
 
     public $actsAs = array('Containable');
 
+/*
     public function processPayment($amount = null, $vault_id = null, $user = null, $password = null)
     {
 
@@ -59,6 +60,8 @@ class Payment extends AppModel {
 
 
     }
+*/
+
 }
 
 ;

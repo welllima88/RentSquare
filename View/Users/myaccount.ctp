@@ -4,7 +4,7 @@
     <ul id="my_account_links">
       <li <?php if($section == 'personal_info') echo 'class="current"'; ?> id="personal_info_li"><a id="personal_info" href="#personal_info" style="display: block;">Personal Information</a></li>
       <li <?php if($section == 'password') echo 'class="current"'; ?> id="password_content_li"><a id="password" href="#password" style="display: block;">Password</a></li>
-      <?php if ($user['type'] == USER_TYPE_TENANT ): ?>
+      <?php if ($user['type'] == USER_TYPE_TENANT || $user['type'] == USER_TYPE_ADMIN ): ?>
         <li <?php if($section == 'payment_methods') echo 'class="current"'; ?> id="payment_methods_li"><a id="payment_methods" href="#payment_methods" style="display: block;">Payment Methods</a></li>
       <?php endif; ?>
       <?php if ($user['type'] == USER_TYPE_MANAGER ): ?>
@@ -53,7 +53,7 @@
     		echo $this->Form->end();
     	 ?>
     </div><!-- .password_content -->
-    <?php if ($user['type'] == USER_TYPE_TENANT ): ?>
+    <?php if ($user['type'] == USER_TYPE_TENANT || $user['type'] == USER_TYPE_ADMIN ): ?>
     <div id="payment_methods_div" class="payment_methods_content  <?php if($section != 'payment_methods') echo 'hide '; ?> my_account_content">
     	<h1 class="ma_title">Payment Methods</h1>
     	<ol class="card-list group">
@@ -62,8 +62,11 @@
              <?php
 
             echo $this->Html->link('+ New Bank Account', array('controller' => 'PaymentMethods', 'action' => 'add_bank'), array('class' => 'main-nav-item confirm'));
-            echo '<br><br>';
-            echo $this->Html->link('+ New Credit Card', array('controller' => 'PaymentMethods', 'action' => 'add_cc'), array('class' => 'main-nav-item confirm'));
+            if ($user['type'] == USER_TYPE_TENANT )
+            {
+                echo '<br><br>';
+                echo $this->Html->link('+ New Credit Card', array('controller' => 'PaymentMethods', 'action' => 'add_cc'), array('class' => 'main-nav-item confirm'));
+            }
             ?>
           </label>
         </li>
@@ -209,26 +212,6 @@
     	
     </div><!-- .tenant_billing_content -->
 
-    <!-- Modal for confirming unsaved changes when clicking away from tenant_billing to another internal link -->
-    <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only"></span></button>
-            <br>
-            <h4 class="modal-title">You have unsaved changes.</h4>
-          </div>
-          <div class="modal-body">
-            <p>You have not saved your changes. Are you sure you want to continue without saving? Please remain on this page and click Save if you would like to keep your changes.</p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-confirmleave" id="myacctmodaldismiss">Discard Changes</button>
-            <button type="button" class="btn btn-success btn-confirmstay">Save Changes</button>
-          </div>
-        </div><!-- /.modal-content -->
-      </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
-
     <?php endif; ?>
       
     <div id="notifications_div" class="notifications_content  <?php if($section != 'notifications') echo 'hide '; ?> my_account_content">
@@ -237,7 +220,7 @@
      
     		echo $this->Form->create('User', array('controller' => 'Users', 'action' => 'update'));
     		
-    		if ($user['type'] == USER_TYPE_TENANT ):
+    		if ($user['type'] == USER_TYPE_TENANT || $user['type'] == USER_TYPE_ADMIN ):
     		//Resident
     		  echo '<h4>Directory Section</h4>';
     		  echo $this->Form->input('User.list_in_directory', array('type' => 'checkbox', 'label' => 'I would like my RentSquare e-mail to be added to the building directory.', 'checked' => $user['list_in_directory'], 'class' => 'confirm'));
@@ -275,7 +258,7 @@
       
     <div class="delete_content  <?php if($section != 'delete') echo 'hide '; ?> my_account_content">
        <h1 class="ma_title">Delete My Account</h1>
-                <?php if ($user['type'] == USER_TYPE_TENANT ) { ?>
+                <?php if ($user['type'] == USER_TYPE_TENANT || $user['type'] == USER_TYPE_ADMIN ) { ?>
                 <?php           
                   echo "<button id=\"delete_tenant\" class=\"btn btn-danger\"><i class=\"icon-trash icon-white\"></i>&nbsp;Delete My Account</button>";
                
@@ -290,6 +273,26 @@
     
 </div><!-- .myaccount_right -->
 <span id="whichlink" class="" style="display: none;"></span>
+    <!-- Modal for confirming unsaved changes when clicking away from tenant_billing to another internal link -->
+    <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only"></span></button>
+            <br>
+            <h4 class="modal-title">You have unsaved changes.</h4>
+          </div>
+          <div class="modal-body">
+            <p>You have not saved your changes. Are you sure you want to continue without saving? Please remain on this page and click Save if you would like to keep your changes.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-confirmleave" id="myacctmodaldismiss">Discard Changes</button>
+            <button type="button" class="btn btn-success btn-confirmstay">Save Changes</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
 <script>
 var shouldConfirm = false;
 var currclicked = '';
@@ -316,10 +319,20 @@ jQuery('.confirm').change(function(){
 });
 
 jQuery(document).ready( 
+
     function () { 
+        // If coming from page reload due to discarded changes ( to force reset of values to originals )
+        if(window.location.hash) {
+            var hash = window.location.hash.substring(1); 
+            $('#personal_info_li').removeClass('current');
+            $('#personal_info_div').hide();
+            $('#' + hash + '_li').addClass('current');
+            $('#' + hash + '_div').show();
+        }
+
         jQuery('#my_account_links').children().click(function() { 
-        //jQuery("a:not(#tenant_billing')").click(function(){
            currclicked = $(this).attr('id');
+alert('confirm = ' + shouldConfirm);
            if(shouldConfirm) {
                // Doesn't work as buttons end up with inverse functionality
                //window.location='http://rentsquaredev.com/Users/myaccount/tenant_billing';
@@ -340,11 +353,6 @@ jQuery(document).ready(
            }
         });
 
-    // When they do click save, we want it to work
-    $('.btn-success').click(function(){
-        shouldConfirm = false;
-    });
-
     // When they say its ok to ignore changes
     $('.btn-confirmleave').click(function(e){
         shouldConfirm = false;
@@ -354,16 +362,21 @@ jQuery(document).ready(
     });
 
     // When they don't want to leave changes unsaved after clicking on an internal link
+    // Got to change classes on the _li id, and change visibility on the _div id
     $('.btn-confirmstay').click(function(){
-        currclicked = $(this).attr('id');
+        var lastclicked_li = '';
         $('#confirmModal').modal('hide');
-        $('#my_account_links').children('.current').removeClass('current').siblings('#'+currclicked).addClass('current');
         if (! lastclicked) { 
            lastclicked = "personal_info_div"; 
+           lastclicked_li = "personal_info_li";
         } else {
+           lastclicked_li = lastclicked;
            lastclicked = lastclicked.replace("_li","_div");
+           currclicked = currclicked.replace("_li","_div");
         }
 
+        $('#my_account_links').children('.current').removeClass('current').siblings('#'+lastclicked_li).addClass('current');
+        $('#'+currclicked).hide();
         $('#'+lastclicked).show();
     });
 

@@ -193,6 +193,7 @@ class PaymentMethodsController extends AppController {
             $paymentmethod['bank_acct_type'] = $data['PaymentMethod']['bank_acct_type'];
             $paymentmethod['phone'] = $user['User']['phone'];
             $paymentmethod['email'] = $user['User']['email'];
+            $paymentmethod['usertype'] = $user['User']['type'];		// Use BC Partner creds if RentSquare admin user (type = 2)
             list($banksave_status, $banksave_token) = $this->payutil->addBankToVault($paymentmethod);
             $this->log("Success: Vault add bank for tenant status = $banksave_status - token = $banksave_token", 'debug' );
             if ( $banksave_status )

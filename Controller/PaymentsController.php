@@ -3,13 +3,18 @@ App::uses('CakeEmail', 'Network/Email');
 App::uses('Sanitize', 'Utility');
 App::uses('Security', 'Utility');
 Configure::write('RentSquare.supportemail', 'support@rentsquare.co');
+App::import('Vendor', 'Paymethodutils', array('file' => 'Interfaces/PayMethods/PayMethodUtils.php'));
+/* 
+ * If processor ever changes, need to write a new class to the interface, and load it here
+ *  The only thing to change is in the instantion -- pass the new class as an arg to Paymethodutils
+ */
+App::import('Vendor', 'Paymethodbasecommerce', array('file' => 'Interfaces/PayMethods/PayMethodBasecommerce.php'));
 
 class PaymentsController extends AppController {
 
     function index($success = null, $amount = null)
     {
         //Set Mobile View if mobile
-
         if ( $this->Session->check('mobile_user') && intval($this->Session->read('mobile_user')) )
         {
 
@@ -147,6 +152,11 @@ class PaymentsController extends AppController {
                 }
                 $i ++;
             endforeach;
+
+            $data_bc = array();
+            $data_bc['pay_method'] = $paymentType;
+            $data_bc['payer_vault_id'] = $data['Payment']['vault_id'];
+
             if ( $paymentType == 'CC' )
             {
                 //Payment is Credit Card
@@ -163,7 +173,8 @@ class PaymentsController extends AppController {
                     $amt_processed = floatval($amount);
                     $total_bill = floatval($amt_processed) + floatval($amt_fee);
                 }
-            } else
+            } 
+            else
             {
                 //Payment is ACH
                 if ( $user['Property']['prop_pays_ach_fee'] )
@@ -181,25 +192,55 @@ class PaymentsController extends AppController {
                 }
             }
 
-            $pp_password = Security::rijndael($user['Property']['pp_pass'], Configure::read('Security.salt2'), 'decrypt');
-            //Submit Payment
-            $result = $this->Payment->processPayment($amt_processed, $data['Payment']['vault_id'], $user['Property']['pp_user'], $pp_password);
+            $data_bc['total_amt'] = $total_bill;
+            $data_bc['fee_amt']   = $amt_fee;
 
-            parse_str($result);
-
-            if ( isset($response) && $response == 1 )
+            // Get Vault ID for RentSquare bank account
+            $this->loadModel('PaymentMethod');
+            $rsl = $this->PaymentMethod->getRsqVaultId();
+            if ( isset( $rsl['status'] ) && $rsl['status'] == 1 )
             {
+               $rentsquare_vault_id = $rsl['vault_id'];
+            }
+            else
+            {
+               // TODO log error - can't process payment without Rentsquare vault_id
+               $this->log('Error: cant process payment without RentSquare valut_id: ' . json_encode($rsl['vault_id']), 'payment' );
+               $this->Session->setFlash(__('The payment was not processed. Could not find RentSquare VaultID'), 'flash_bad');
+               $this->redirect(array('action' => 'index', 'failed', number_format($amount, 2)));
+            }
+            $data_bc['rsq_vault_id'] = $rentsquare_valut_id;
+
+            //Submit Payment
+            $this->payutil = new Paymethodutils(new Paymethodbasecommerce);
+            $payResult = $this->payutil->rentPayment( $data_bc );
+
+            if ( ! isset($payResult['status']) || empty($payResult['status']) )
+            {
+               // TODO log error - can't process payment
+               $this->log('Error: cant process payment - processor failure: ' . json_encode($rsl['info']), 'payment' );
+               $this->Session->setFlash(__('The payment was not processed. Error with payment processor'), 'flash_bad');
+               $this->redirect(array('action' => 'index', 'failed', number_format($amount, 2)));
+            }
+
+            //$pp_password = Security::rijndael($user['Property']['pp_pass'], Configure::read('Security.salt2'), 'decrypt');
+            //$result = $this->Payment->processPayment($amt_processed, $data['Payment']['vault_id'], $user['Property']['pp_user'], $pp_password);
+            //parse_str($result);
+
+            //if ( isset($response) && $response == 1 )
+            if ( isset($payResult['status']) && $payResult['status'] == 1 )
+            {
+                $transactionid = $payResult['info'];
                 $this->loadModel('Billing');
-                $amt_process_transid = $transactionid;
-                $data['Payment']['ppresponse'] = $response;
-                $data['Payment']['ppresponsetext'] = $responsetext;
-                $data['Payment']['ppauthcode'] = $authcode;
+                $data['Payment']['ppresponse'] = '1';
+                $data['Payment']['ppresponsetext'] = 'success';
+                $data['Payment']['ppauthcode'] = '';
                 $data['Payment']['pptransactionid'] = $transactionid;
-                $data['Payment']['ppresponse_code'] = $response_code;
+                $data['Payment']['ppresponse_code'] = '';
                 $data['Payment']['status'] = 'Complete';
                 $data['Payment']['user_id'] = $this->Auth->user('id');
                 $data['Payment']['type'] = $paymentType;
-                $data['Payment']['is_fee'] = 0;
+                $data['Payment']['amt_fee'] = $amt_fee;
                 $data['Payment']['amt_processed'] = floatval($amt_processed);
                 $data['Payment']['total_bill'] = floatval($total_bill);
 
@@ -270,65 +311,15 @@ class PaymentsController extends AppController {
                         $this->redirect(array('action' => 'index', 'failed', number_format($amount, 2)));
                     }
                 }
-                $this->loadModel('PaymentMethod');
-                $rs_vault = $this->PaymentMethod->find('first', array('conditions' => array('vault_id' => $data['Payment']['vault_id'])));
 
-                //Process Transaction Fee
-                $result = $this->Payment->processPayment($amt_fee, $rs_vault['PaymentMethod']['rs_vault_id'], RENTSQUARE_MERCH_USER, RENTSQUARE_MERCH_PASS);
-                parse_str($result);
-                if ( isset($response) && $response == 1 )
-                {
-                    $data['Payment']['ppresponse'] = $response;
-                    $data['Payment']['ppresponsetext'] = $responsetext;
-                    $data['Payment']['ppauthcode'] = $authcode;
-                    $data['Payment']['pptransactionid'] = $transactionid;
-                    $data['Payment']['ppresponse_code'] = $response_code;
-                    $data['Payment']['status'] = 'Complete';
-                    $data['Payment']['notes'] = 'Transaction Fee';
-                    $data['Payment']['amount'] = 0;
-                    $data['Payment']['is_fee'] = 1;
-                    $data['Payment']['amt_processed'] = floatval($amt_fee);
-                    $data['Payment']['total_bill'] = floatval($total_bill);
-
-                    //Add to Payments Table
-                    $this->Payment->Create();
-                    if ( $this->Payment->save($data) )
-                    {
-                        //Send Payment Email
-                        $email_data['name'] = $user['User']['first_name'];
-                        $email_data['unit_name'] = $user['Unit']['number'];
-                        $email_data['prop_name'] = $user['Property']['name'];
-                        $email_data['trans_id'] = $amt_process_transid;
-                        $email_data['amount'] = $total_bill;
-                        $this->__sendPaymentSuccess($user['User']['email'], $email_data);
-                        $this->redirect(array('action' => 'index', 'success', number_format($amount, 2)));
-                    }
-                } else
-                {
-                    $this->loadModel('FailedPayment');
-                    $failed = $data;
-                    $failed['FailedPayment']['billing_id'] = $data['Payment']['billing_id'];
-                    $failed['FailedPayment']['unit_id'] = $data['Payment']['unit_id'];
-                    $failed['FailedPayment']['user_id'] = $this->Auth->user('id');
-                    $failed['FailedPayment']['amount'] = $amt_fee;
-                    $failed['FailedPayment']['ppresponse'] = $response;
-                    $failed['FailedPayment']['ppresponsetext'] = $responsetext;
-                    $failed['FailedPayment']['ppauthcode'] = $authcode;
-                    $failed['FailedPayment']['pptransactionid'] = $transactionid;
-                    $failed['FailedPayment']['ppresponse_code'] = $response_code;
-                    $failed['FailedPayment']['type'] = $paymentType;
-                    if ( $this->FailedPayment->save($failed) )
-                    {
-                        $this->Session->setFlash(__('The rent payment has been processed however the transaction fee payment has failed with error ' . $responsetext . '. Please contact RentSquare Support'), 'flash_bad');
-                        $this->redirect(array('action' => 'index'));
-                    } else
-                    {
-                        $this->Session->setFlash(__('The rent payment has been processed however the transaction fee payment has failed with error ' . $responsetext . '. Please contact RentSquare Support'), 'flash_bad');
-                        $this->redirect(array('action' => 'index'));
-                    }
-                }
-
-// GSW - End -- comment out above code inside success of trnas fee payment 
+                //Send Payment Email
+                $email_data['name'] = $user['User']['first_name'];
+                $email_data['unit_name'] = $user['Unit']['number'];
+                $email_data['prop_name'] = $user['Property']['name'];
+                $email_data['trans_id'] = $transactionid;
+                $email_data['amount'] = $total_bill;
+                $this->__sendPaymentSuccess($user['User']['email'], $email_data);
+                $this->redirect(array('action' => 'index', 'success', number_format($amount, 2)));
 
             } else
             {
@@ -338,19 +329,20 @@ class PaymentsController extends AppController {
                 $failed['FailedPayment']['unit_id'] = $data['Payment']['unit_id'];
                 $failed['FailedPayment']['user_id'] = $this->Auth->user('id');
                 $failed['FailedPayment']['amount'] = $amt_processed;
-                $failed['FailedPayment']['ppresponse'] = $response;
-                $failed['FailedPayment']['ppresponsetext'] = $responsetext;
-                $failed['FailedPayment']['ppauthcode'] = $authcode;
+                $failed['FailedPayment']['amt_fee'] = $amt_fee;
+                $failed['FailedPayment']['ppresponse'] = '0';
+                $failed['FailedPayment']['ppresponsetext'] = json_encode($payResult['info']);
+                $failed['FailedPayment']['ppauthcode'] = '';
                 $failed['FailedPayment']['pptransactionid'] = $transactionid;
-                $failed['FailedPayment']['ppresponse_code'] = $response_code;
+                $failed['FailedPayment']['ppresponse_code'] = '';
                 $failed['FailedPayment']['type'] = $paymentType;
                 if ( $this->FailedPayment->save($failed) )
                 {
-                    $this->Session->setFlash(__('The payment has failed with error ' . $responsetext . '. Please contact RentSquare Support'), 'flash_bad');
+                    $this->Session->setFlash(__('The payment has failed. Please contact RentSquare Support'), 'flash_bad');
                     $this->redirect(array('action' => 'index'));
                 } else
                 {
-                    $this->Session->setFlash(__('The payment has failed with error ' . $responsetext . '. Please contact RentSquare Support.'), 'flash_bad');
+                    $this->Session->setFlash(__('The payment has failed with error. Please contact RentSquare Support.'), 'flash_bad');
                 }
             }
         }

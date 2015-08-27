@@ -3,13 +3,19 @@ App::uses('CakeEmail', 'Network/Email');
 App::uses('Sanitize', 'Utility');
 App::uses('Security', 'Utility');
 App::uses('Router', 'Routing');
+App::import('Vendor', 'Paymethodutils', array('file' => 'Interfaces/PayMethods/PayMethodUtils.php'));
+/* 
+ * If processor ever changes, need to write a new class to the interface, and load it here
+ *  The only thing to change is in the instantion -- pass the new class as an arg to Paymethodutils
+ */
+App::import('Vendor', 'Paymethodbasecommerce', array('file' => 'Interfaces/PayMethods/PayMethodBasecommerce.php'));
 Router::url('/', true);
 Configure::write('Security.salt2','R1ysi!84$093dw28vH0ehe82Lsvndeu2r#729(8378sbe');
 Configure::write('RentSquare.supportemail', 'support@rentsquare.co');
 
 class UpdateBillingShell extends AppShell {
 
-    public $uses = array('User','Payment','Billing','Unit','Property','FailedPayment');
+    public $uses = array('User','Payment','Billing','Unit','Property','FailedPayment','PaymentMethod');
 
     public function main(){
       
@@ -35,114 +41,121 @@ class UpdateBillingShell extends AppShell {
       		if has one time fee, create record
 */
 
-	    //Find All Units
-  		$units = $this->Billing->Unit->find('all',array('conditions'=>array('Unit.active'=>1)));
+      //Find All Units
+      $units = $this->Billing->Unit->find('all',array('conditions'=>array('Unit.active'=>1)));
   		
-  		//Loop through each Unit
-  		foreach($units as $unit):
+      //Loop through each Unit
+      foreach($units as $unit):
 
-  		  //if unit has residents
-  		  if($this->User->find('count', array('conditions' => array('User.unit_id' => $unit['Unit']['id']))) > 0):
+         //if unit has residents
+         if($this->User->find('count', array('conditions' => array('User.unit_id' => $unit['Unit']['id']))) > 0):
 
-      		//if Current Due Date <= Today and Current Due Date < End of Lease, then Create New Record
-          $current_due_date = strtotime ($unit['Unit']['current_due_date']);
-          if ($current_due_date <= time() &&  $current_due_date < strtotime ($unit['Unit']['lease_end'])){
-            $data = array();
-            $billing_end = $this->Billing->Unit->set_billing_end_date($unit['Unit']['billing_frequency'],$unit['Unit']['current_due_date'],$unit['Unit']['monthly_day']);
-            $rent_period = $this->Billing->Unit->set_billing_end_date($unit['Unit']['billing_frequency'],$billing_end,$unit['Unit']['monthly_day']);
-            $total_fees =  $this->Billing->Unit->getRentTotal($unit['Unit']['id'],date("Y-m-d H:i:s",strtotime($unit['Unit']['current_due_date'])),$billing_end);
-            $data["Billing"] = array(
-              'unit_id' => $unit['Unit']['id'],
-              'property_id' => $unit['Unit']['property_id'],
-              'rent_due'=> $total_fees['Rent']['Total'],
-              'balance'=> $total_fees['Rent']['Total'],
-              'status'=>'unpaid',
-              'billing_start'=>date("Y-m-d H:i:s",strtotime($unit['Unit']['current_due_date'])),
-              'billing_end'=>$billing_end,
-              'rent_period'=>$rent_period
-            );
-            $data['BillingFee'] = $total_fees['BillingFee'];
-            $this->Billing->create();
-            if($this->Billing->saveAll($data)){
-              $this->out('Billing #'.$this->Billing->id.' created for Unit'.$unit['Unit']['number']);
-              //Check for Unit Credit
-              if(floatval($unit['Unit']['rent_credit']) > 0){
-                //Determine amount of credit to use
-                $credit_amount = 0;
-                //if credit is greater than rent due, subtract rent due from credit
-                if(floatval($unit['Unit']['rent_credit']) > $total_fees['Rent']['Total']){
-                  $credit_amount = floatval($unit['Unit']['rent_credit']) - floatval($total_fees['Rent']['Total']);
-                } else {
-                  $credit_amount = floatval($unit['Unit']['rent_credit']);
-                }
-                $payment["Payment"] = array(
-                  'billing_id' => $this->Billing->id,
-                  'unit_id' => $unit['Unit']['id'],
-                  'user_id' => 1,
-                  'type'=>'Credit',
-                  'amount'=> $credit_amount,
-                  'status'=>'Complete',
-                  'notes'=>'Unit Credit'
-                );
-                //save payment
-                $this->Billing->Payment->create();
-                if($this->Billing->Payment->saveAll($payment)){
-                  //update credit 
-                  $this->Unit->id = $unit['Unit']['id'];
-                  $this->Unit->saveField('credit',$unit['Unit']['rent_credit'] - $credit_amount); 
-                }
-              }
-            }
+            //if Current Due Date <= Today and Current Due Date < End of Lease, then Create New Record
+            $current_due_date = strtotime ($unit['Unit']['current_due_date']);
+            if ($current_due_date <= time() &&  $current_due_date < strtotime ($unit['Unit']['lease_end']))
+            {
+               $data = array();
+               $billing_end = $this->Billing->Unit->set_billing_end_date($unit['Unit']['billing_frequency'],$unit['Unit']['current_due_date'],$unit['Unit']['monthly_day']);
+               $rent_period = $this->Billing->Unit->set_billing_end_date($unit['Unit']['billing_frequency'],$billing_end,$unit['Unit']['monthly_day']);
+               $total_fees =  $this->Billing->Unit->getRentTotal($unit['Unit']['id'],date("Y-m-d H:i:s",strtotime($unit['Unit']['current_due_date'])),$billing_end);
+               $data["Billing"] = array(
+                 'unit_id' => $unit['Unit']['id'],
+                 'property_id' => $unit['Unit']['property_id'],
+                 'rent_due'=> $total_fees['Rent']['Total'],
+                 'balance'=> $total_fees['Rent']['Total'],
+                 'status'=>'unpaid',
+                 'billing_start'=>date("Y-m-d H:i:s",strtotime($unit['Unit']['current_due_date'])),
+                 'billing_end'=>$billing_end,
+                 'rent_period'=>$rent_period
+               );
+               $data['BillingFee'] = $total_fees['BillingFee'];
+               $this->Billing->create();
+               if($this->Billing->saveAll($data))
+               {
+                  $this->out('Billing #'.$this->Billing->id.' created for Unit'.$unit['Unit']['number']);
+                  //Check for Unit Credit
+                  if(floatval($unit['Unit']['rent_credit']) > 0)
+                  {
+                     //Determine amount of credit to use
+                     $credit_amount = 0;
+                     //if credit is greater than rent due, subtract rent due from credit
+                     if(floatval($unit['Unit']['rent_credit']) > $total_fees['Rent']['Total'])
+                     {
+                        $credit_amount = floatval($unit['Unit']['rent_credit']) - floatval($total_fees['Rent']['Total']);
+                     } else {
+                        $credit_amount = floatval($unit['Unit']['rent_credit']);
+                     }
+                     $payment["Payment"] = array(
+                       'billing_id' => $this->Billing->id,
+                       'unit_id' => $unit['Unit']['id'],
+                       'user_id' => 1,
+                       'type'=>'Credit',
+                       'amount'=> $credit_amount,
+                       'status'=>'Complete',
+                       'notes'=>'Unit Credit'
+                     );
+                     //save payment
+                     $this->Billing->Payment->create();
+                     if($this->Billing->Payment->saveAll($payment))
+                     {
+                        //update credit 
+                        $this->Unit->id = $unit['Unit']['id'];
+                        $this->Unit->saveField('credit',$unit['Unit']['rent_credit'] - $credit_amount); 
+                     }
+                  }
+               }
             
-            //Update current due date
-            $this->Billing->Unit->id = $unit['Unit']['id'];
-            $this->Billing->Unit->saveField('current_due_date',$billing_end); 
-            if(strtotime($billing_end) < time()){
-              $this->out(date("Y-m-d H:i:s") . ' - Billing End Date is before Today for Unit '.$unit['Unit']['id']);
+               //Update current due date
+               $this->Billing->Unit->id = $unit['Unit']['id'];
+               $this->Billing->Unit->saveField('current_due_date',$billing_end); 
+               if(strtotime($billing_end) < time())
+               {
+                  $this->out(date("Y-m-d H:i:s") . ' - Billing End Date is before Today for Unit '.$unit['Unit']['id']);
+               }
+            } 
+            else{
+               //Do nothing
             }
-          } 
-          else{
-           //Do nothing
-          }
           
-          //if has one time fee, create record
-          foreach($unit['UnitFee'] as $unit_fee):
-            if($unit_fee['one_time'] && $unit_fee['one_time_status'] == 'P'): //P -> Pending
-              //Create Billing
-              $data = array();
-              $data["Billing"] = array(
-                'unit_id' => $unit['Unit']['id'],
-                'property_id' => $unit['Unit']['property_id'],
-                'rent_due'=> $unit_fee['amount'],
-                'balance'=> $unit_fee['amount'],
-                'status'=>'unpaid',
-                'billing_start'=>date("Y-m-d H:i:s"),
-                'billing_end'=>date("Y-m-d H:i:s",strtotime($unit_fee['one_time_date'])),
-                'type'=>'One Time Fee'
-              );
-              $data['BillingFee'][0]['name'] = 'One Time Fee - '.$unit_fee['name'];
-              $data['BillingFee'][0]['amount'] = floatval($unit_fee['amount']);
-              $this->Billing->create();
-              if($this->Billing->saveAll($data)){
-                $this->out('Billing Cycle #'.$this->Billing->id.' created for One Time Fee for Unit'.$unit['Unit']['number']);
-                $this->Billing->Unit->UnitFee->id = $unit_fee['id'];
-                $this->Billing->Unit->UnitFee->saveField('one_time_status','C');
-                //__sendOneTimeFeeMail
-              }
-            endif; // if Unit Fee is One Time Fee
-          endforeach; //foreach Unit Fee
+            //if has one time fee, create record
+            foreach($unit['UnitFee'] as $unit_fee):
+               if($unit_fee['one_time'] && $unit_fee['one_time_status'] == 'P'): //P -> Pending
+                  //Create Billing
+                  $data = array();
+                  $data["Billing"] = array(
+                    'unit_id' => $unit['Unit']['id'],
+                    'property_id' => $unit['Unit']['property_id'],
+                    'rent_due'=> $unit_fee['amount'],
+                    'balance'=> $unit_fee['amount'],
+                    'status'=>'unpaid',
+                    'billing_start'=>date("Y-m-d H:i:s"),
+                    'billing_end'=>date("Y-m-d H:i:s",strtotime($unit_fee['one_time_date'])),
+                    'type'=>'One Time Fee'
+                  );
+                  $data['BillingFee'][0]['name'] = 'One Time Fee - '.$unit_fee['name'];
+                  $data['BillingFee'][0]['amount'] = floatval($unit_fee['amount']);
+                  $this->Billing->create();
+                  if($this->Billing->saveAll($data))
+                  {
+                     $this->out('Billing Cycle #'.$this->Billing->id.' created for One Time Fee for Unit'.$unit['Unit']['number']);
+                     $this->Billing->Unit->UnitFee->id = $unit_fee['id'];
+                     $this->Billing->Unit->UnitFee->saveField('one_time_status','C');
+                     //__sendOneTimeFeeMail
+                  }
+               endif; // if Unit Fee is One Time Fee
+            endforeach; //foreach Unit Fee
           
-        endif; //if unit has resident
-  		endforeach; //foreach unit
-  		$this->out(date("Y-m-d H:i:s") . ' - All Unit Loop Complete');
+         endif; //if unit has resident
+      endforeach; //foreach unit
+      $this->out(date("Y-m-d H:i:s") . ' - All Unit Loop Complete');
   		
-  		/*
-  		Get all open Billing Cycles not paid (unpaid,due,late)
+      /*
+  	Get all open Billing Cycles not paid (unpaid,due,late)
            if unpaid
-                 check if paid
-      		mark as paid
-                 if no paid
-      		if due date = current date
+                check if paid
+                  mark as paid
+                if no paid
+                  if due date = current date
       			set status = due
       			check Reminder Email [email_for_rent]
       		else
@@ -156,32 +169,56 @@ class UpdateBillingShell extends AppShell {
       			mark as late
       if late
         assign late fee
-    */        
-    $this->Billing->Behaviors->load('Containable');
-    $billing_cycles = $this->Billing->find('all',array(
+
+
+       Data needed - payer_vault_id, total_amt .... rsq_valut_id & fee_amt  are for convenience fee only
+       pay_method defaults to ach if not set to CC
+
+      */        
+
+      //  Payment Interface object
+      $this->payutil = new Paymethodutils(new Paymethodbasecommerce);
+
+      // Get Vault ID for RentSquare bank account
+      $rsl = $this->PaymentMethod->getRsqVaultId();
+      if ( isset( $rsl['status'] ) && $rsl['status'] == 1 )
+      {
+         $rentsquare_vault_id = $rsl['vault_id'];
+      }
+      else
+      {
+         // TODO Create email notification template and send email
+         die ( "Can not find RentSquare valut id - so not processing auto-payments" );
+      }
+
+      $this->Billing->Behaviors->load('Containable');
+      $billing_cycles = $this->Billing->find('all',array(
         'conditions'=>array('status !=' => 'paid'),
         'contain' => array('Unit'=>array('Property'))
-    ));
+      ));
     
-    foreach($billing_cycles as $billing_cycle):
-      $this->Billing->id = $billing_cycle['Billing']['id'];
-      $total_payments = 0;
-      $total_payments = $this->Billing->Payment->find('all',array('fields'=>'sum(Payment.amount) as total_payment', 'conditions' => array('Payment.billing_id' => $billing_cycle['Billing']['id'])));
-      $total_paid =  $total_payments[0][0]['total_payment'];
-      if($total_paid > $billing_cycle['Billing']['rent_due']){
-        //Over Paid
-        //Mark as Paid
-        $this->Billing->saveField('status','paid');
-        //Add Credit [Add Code]
-      } else if($total_paid == $billing_cycle['Billing']['rent_due']){
-        //Paid In full
-        //Mark as Paid
-        $this->Billing->saveField('status','paid');
-      } else if(0 >= $billing_cycle['Billing']['rent_due']){ 
-        //If Rent is 0, Mark as Paid
-        $this->Billing->saveField('status','paid');
-      }
-      else{
+      foreach($billing_cycles as $billing_cycle):
+         $this->Billing->id = $billing_cycle['Billing']['id'];
+         $total_payments = 0;
+         $total_payments = $this->Billing->Payment->find('all',array('fields'=>'sum(Payment.amount) as total_payment', 'conditions' => array('Payment.billing_id' => $billing_cycle['Billing']['id'])));
+         $total_paid =  $total_payments[0][0]['total_payment'];
+         if($total_paid > $billing_cycle['Billing']['rent_due'])
+         {
+            //Over Paid
+            //Mark as Paid
+            $this->Billing->saveField('status','paid');
+            //Add Credit [Add Code]
+         } else if($total_paid == $billing_cycle['Billing']['rent_due'])
+         {
+            //Paid In full
+            //Mark as Paid
+            $this->Billing->saveField('status','paid');
+         } else if(0 >= $billing_cycle['Billing']['rent_due'])
+         { 
+            //If Rent is 0, Mark as Paid
+            $this->Billing->saveField('status','paid');
+         }
+         else{
         //Not Paid
         //if due date = current date
         if(date('Ymd',strtotime($billing_cycle['Billing']['billing_end'])) == date('Ymd')):
@@ -199,497 +236,224 @@ class UpdateBillingShell extends AppShell {
                     'PaymentMethod',
                     'Property'
                   )
-                  ));
+               ));
             foreach($tenants as $tenant):
-              //Check to see if tenant has auto pay on
-              if(isset($tenant['AutoPayment']) && count($tenant['AutoPayment']) > 0 && $billing_cycle['Billing']['type']=='Rent'){
-                //If active and in time frame
-                if($tenant['AutoPayment'][0]['active'] && (strtotime($tenant['AutoPayment'][0]['auto_start']) <= time() && time() <= strtotime($tenant['AutoPayment'][0]['auto_end']))){
-                  //$tenant['AutoPayment'][0]['vault_id']
-                  //$tenant['AutoPayment'][0]['amount']
-                  //Charge Fee based on ACH or CC
-                  //Determine Transaction Fees
+               //Check to see if tenant has auto pay on
+               if(isset($tenant['AutoPayment']) && count($tenant['AutoPayment']) > 0 && $billing_cycle['Billing']['type']=='Rent')
+               {
+                  //If active and in time frame
+                  if($tenant['AutoPayment'][0]['active'] && (strtotime($tenant['AutoPayment'][0]['auto_start']) <= time() && time() <= strtotime($tenant['AutoPayment'][0]['auto_end'])))
+                  {
+                     //$tenant['AutoPayment'][0]['vault_id']
+                     //$tenant['AutoPayment'][0]['amount']
+                     //Charge Fee based on ACH or CC
+                     //Determine Transaction Fees
                     $pay_amount = $tenant['AutoPayment'][0]['amount'];
                     $total_amount=0;
                     //Is selected payment CC or ACH
                     //ACH => Rent Total + recurring fee - free rent + fee $3.95 (fee only if tenant paying fees)
-        					  //CC/Debit - Rent Total + recurring fee - free rent + fee  2.75% (fee only if tenant percent)
-        					  //if ACH
-        					    //if tenant pays
-        					      //add $3.95
-        					  //else CC
-        					    //if tenant pays
-        					      //add2.75%
+                    //CC/Debit - Rent Total + recurring fee - free rent + fee  2.75% (fee only if tenant percent)
+                    //if ACH
+        	       //if tenant pays
+        		      //add $3.95
+                    //else CC
+        	       //if tenant pays
+        		      //add2.75%
                     $i=0;
                     foreach($tenant['PaymentMethod'] as $paymentMethod):
-                      if($paymentMethod['vault_id'] == $tenant['AutoPayment'][0]['vault_id']){
-                         $paymentType = $tenant['PaymentMethod'][$i]['type'];
-                         break;
-                      }
-                      $i++;
+                       if($paymentMethod['vault_id'] == $tenant['AutoPayment'][0]['vault_id'])
+                       {
+                          $paymentType = $tenant['PaymentMethod'][$i]['type'];
+                          break;
+                       }
+                       $i++;
                     endforeach;
-                    if($paymentType == 'CC'){
-                      //Payment is Credit Card
-                      if($tenant['Property']['prop_pays_cc_fee']){
-                        $pay_fee = (floatval($pay_amount) * floatval(CC_FEE));
-                        $total_amount = floatval($pay_amount) - floatval($pay_fee);
-                                  
-                                  $result = $this->Payment->processPayment($total_amount,$tenant['AutoPayment'][0]['vault_id'],$tenant['Property']['pp_user'],Security::rijndael($tenant['Property']['pp_pass'], Configure::read('Security.salt2'),'decrypt'));
-                                  parse_str($result);                                    
-                            			if (isset($response) && $response == 1) {	 
-                            			      $auto_payment = array();
-                            			      $auto_payment['Payment']['ppresponse'] = $response;
-                            			      $auto_payment['Payment']['ppresponsetext'] = $responsetext;
-                                        $auto_payment['Payment']['ppauthcode'] = $authcode;
-                                        $auto_payment['Payment']['pptransactionid']	= $transactionid;
-                                        $auto_payment['Payment']['ppresponse_code'] = $response_code;
-                                  			$auto_payment['Payment']['status'] = 'Complete';
-                                  			$auto_payment['Payment']['type'] = 'Auto CC';
-                                  			$auto_payment['Payment']['notes'] = 'Auto Payment';
-                                  			$auto_payment['Payment']['user_id'] = $tenant['User']['id'];
-                                  			$auto_payment['Payment']['billing_id'] = $billing_cycle['Billing']['id'];
-                                  			$auto_payment['Payment']['unit_id'] = $billing_cycle['Billing']['unit_id'];
-                                  			$auto_payment['Payment']['amount'] = $tenant['AutoPayment'][0]['amount'];
-                                  			$auto_payment['Payment']['is_fee'] = 0;
-                                  			$auto_payment['Payment']['amt_processed'] = floatval($total_amount);
-                                  			$auto_payment['Payment']['total_bill'] = floatval($pay_amount);
-                                        //Add to Payments Table
-                                        $this->Payment->create();
-                                        if ($this->Payment->save($auto_payment)) {
-                                          $this->Billing->updatebillingstatus($billing_cycle['Billing']['id']);
-                                          $this->out($billing_cycle['Billing']['id'] .' - Applied Auto Payment of '.$tenant['AutoPayment'][0]['amount']);
-                                          //Send Email Payment was processed
-                                          $email_data['name']=$tenant['User']['first_name'];
-                                          $email_data['amount'] = $total_amount;
-                                          $email_data['trans_id'] = $transactionid;
-                                          $email_data['unit_name'] = $billing_cycle['Unit']['number'];
-                                          $email_data['prop_name'] = $billing_cycle['Unit']['Property']['name'];
-                                          if($this->__sendAutoPaymentSuccess($tenant['User']['email'],$email_data)){
-                                            $this->out('Payment Received Email sent to '.$tenant['User']['email']);
-                                          }
-                                  			}
-                                  }else{
-                                        //$failed=$data;
-                                        $failed = array();
-                                        $failed['FailedPayment']['billing_id'] = $billing_cycle['Billing']['id'];
-                                        $failed['FailedPayment']['unit_id'] = $billing_cycle['Billing']['unit_id'];
-                                        $failed['FailedPayment']['user_id'] = $tenant['User']['id'];
-                                        $failed['FailedPayment']['amount'] = $tenant['AutoPayment'][0]['amount'];
-                                        $failed['FailedPayment']['type'] = 'Auto CC';
-                                        $failed['FailedPayment']['ppresponse'] = $response;
-                                        $failed['FailedPayment']['ppresponsetext'] = $responsetext;
-                                        $failed['FailedPayment']['ppauthcode'] = $authcode;
-                                        $failed['FailedPayment']['pptransactionid']	= $transactionid;
-                                        $failed['FailedPayment']['ppresponse_code'] = $response_code;
-                                        if($this->FailedPayment->save($failed)){
-                                          $this->out($billing_cycle['Billing']['id'] .' - Auto Payment FAILED');
-                                        }   
-                                  }
-                            			
-                            			$result = $this->Payment->processPayment($pay_fee,$tenant['AutoPayment'][0]['vault_id'],RENTSQUARE_MERCH_USER,RENTSQUARE_MERCH_PASS);
-                                  parse_str($result);                                    
-                            			if (isset($response) && $response == 1) {	 
-                            			      $auto_payment = array();
-                            			      $auto_payment['Payment']['ppresponse'] = $response;
-                            			      $auto_payment['Payment']['ppresponsetext'] = $responsetext;
-                                        $auto_payment['Payment']['ppauthcode'] = $authcode;
-                                        $auto_payment['Payment']['pptransactionid']	= $transactionid;
-                                        $auto_payment['Payment']['ppresponse_code'] = $response_code;
-                                  			$auto_payment['Payment']['status'] = 'Complete';
-                                  			$auto_payment['Payment']['type'] = 'Auto CC';
-                                  			$auto_payment['Payment']['notes'] = 'Auto Payment';
-                                  			$auto_payment['Payment']['user_id'] = $tenant['User']['id'];
-                                  			$auto_payment['Payment']['billing_id'] = $billing_cycle['Billing']['id'];
-                                  			$auto_payment['Payment']['unit_id'] = $billing_cycle['Billing']['unit_id'];
-                                  			$auto_payment['Payment']['amount'] = 0;
-                                  			$auto_payment['Payment']['is_fee'] = 1;
-                                  			$auto_payment['Payment']['amt_processed'] = floatval($pay_fee);
-                                  			$auto_payment['Payment']['total_bill'] = floatval($pay_amount);
-                                  			
-                                        //Add to Payments Table
-                                        $this->Payment->create();
-                                        if ($this->Payment->save($auto_payment)) {
-                                          $this->Billing->updatebillingstatus($billing_cycle['Billing']['id']);
-                                          $this->out($billing_cycle['Billing']['id'] .' - Applied Auto Payment of '.$tenant['AutoPayment'][0]['amount']);
-                                          //Send Email Payment was processed
-                                          $email_data['name']=$tenant['User']['first_name'];
-                                          $email_data['amount'] = $total_amount;
-                                          $email_data['trans_id'] = $transactionid;
-                                          $email_data['unit_name'] = $billing_cycle['Unit']['number'];
-                                          $email_data['prop_name'] = $billing_cycle['Unit']['Property']['name'];
-                                          if($this->__sendAutoPaymentSuccess($tenant['User']['email'],$email_data)){
-                                            $this->out('Payment Received Email sent to '.$tenant['User']['email']);
-                                          }
-                                  			}
-                                  }else{
-                                        //$failed=$data;
-                                        $failed = array();
-                                        $failed['FailedPayment']['billing_id'] = $billing_cycle['Billing']['id'];
-                                        $failed['FailedPayment']['unit_id'] = $billing_cycle['Billing']['unit_id'];
-                                        $failed['FailedPayment']['user_id'] = $tenant['User']['id'];
-                                        $failed['FailedPayment']['amount'] = $tenant['AutoPayment'][0]['amount'];
-                                        $failed['FailedPayment']['type'] = 'Auto CC';
-                                        $failed['FailedPayment']['ppresponse'] = $response;
-                                        $failed['FailedPayment']['ppresponsetext'] = $responsetext;
-                                        $failed['FailedPayment']['ppauthcode'] = $authcode;
-                                        $failed['FailedPayment']['pptransactionid']	= $transactionid;
-                                        $failed['FailedPayment']['ppresponse_code'] = $response_code;
-                                        if($this->FailedPayment->save($failed)){
-                                          $this->out($billing_cycle['Billing']['id'] .' - Auto Payment FAILED');
-                                        }   
-                                  }
-                      } else {
-                        $pay_fee = (floatval($pay_amount) * floatval(CC_FEE));
-                        $total_amount = floatval($pay_amount);
-                                $result = $this->Payment->processPayment($total_amount,$tenant['AutoPayment'][0]['vault_id'],$tenant['Property']['pp_user'],Security::rijndael($tenant['Property']['pp_pass'], Configure::read('Security.salt2'),'decrypt'));
-                                  parse_str($result);                                    
-                            			if (isset($response) && $response == 1) {	 
-                            			      $auto_payment = array();
-                            			      $auto_payment['Payment']['ppresponse'] = $response;
-                            			      $auto_payment['Payment']['ppresponsetext'] = $responsetext;
-                                        $auto_payment['Payment']['ppauthcode'] = $authcode;
-                                        $auto_payment['Payment']['pptransactionid']	= $transactionid;
-                                        $auto_payment['Payment']['ppresponse_code'] = $response_code;
-                                        $auto_payment['Payment']['type'] = 'Auto CC';
-                                  			$auto_payment['Payment']['status'] = 'Complete';
-                                  			$auto_payment['Payment']['notes'] = 'Auto Payment';
-                                  			$auto_payment['Payment']['user_id'] = $tenant['User']['id'];
-                                  			$auto_payment['Payment']['billing_id'] = $billing_cycle['Billing']['id'];
-                                  			$auto_payment['Payment']['unit_id'] = $billing_cycle['Billing']['unit_id'];
-                                  			$auto_payment['Payment']['amount'] = $tenant['AutoPayment'][0]['amount'];
-                                  			$auto_payment['Payment']['is_fee'] = 0;
-                                  			$auto_payment['Payment']['amt_processed'] = floatval($total_amount);
-                                  			$auto_payment['Payment']['total_bill'] = floatval($pay_amount) + floatval($pay_fee);
-                                  			
-                                        //Add to Payments Table
-                                        $this->Payment->create();
-                                        if ($this->Payment->save($auto_payment)) {
-                                          $this->Billing->updatebillingstatus($billing_cycle['Billing']['id']);
-                                          $this->out($billing_cycle['Billing']['id'] .' - Applied Auto Payment of '.$tenant['AutoPayment'][0]['amount']);
-                                          //Send Email Payment was processed
-                                          $email_data['name']=$tenant['User']['first_name'];
-                                          $email_data['amount'] = $total_amount;
-                                          $email_data['trans_id'] = $transactionid;
-                                          $email_data['unit_name'] = $billing_cycle['Unit']['number'];
-                                          $email_data['prop_name'] = $billing_cycle['Unit']['Property']['name'];
-                                          if($this->__sendAutoPaymentSuccess($tenant['User']['email'],$email_data)){
-                                            $this->out('Payment Received Email sent to '.$tenant['User']['email']);
-                                          }
-                                  			}
-                                  }else{
-                                        //$failed=$data;
-                                        $failed = array();
-                                        $failed['FailedPayment']['billing_id'] = $billing_cycle['Billing']['id'];
-                                        $failed['FailedPayment']['unit_id'] = $billing_cycle['Billing']['unit_id'];
-                                        $failed['FailedPayment']['user_id'] = $tenant['User']['id'];
-                                        $failed['FailedPayment']['amount'] = $tenant['AutoPayment'][0]['amount'];
-                                        $failed['FailedPayment']['type'] = 'Auto CC';
-                                        $failed['FailedPayment']['ppresponse'] = $response;
-                                        $failed['FailedPayment']['ppresponsetext'] = $responsetext;
-                                        $failed['FailedPayment']['ppauthcode'] = $authcode;
-                                        $failed['FailedPayment']['pptransactionid']	= $transactionid;
-                                        $failed['FailedPayment']['ppresponse_code'] = $response_code;
-                                        if($this->FailedPayment->save($failed)){
-                                          $this->out($billing_cycle['Billing']['id'] .' - Auto Payment FAILED');
-                                        }   
-                                  }
-                            			
-                            			$result = $this->Payment->processPayment($pay_fee,$tenant['AutoPayment'][0]['vault_id'],RENTSQUARE_MERCH_USER,RENTSQUARE_MERCH_PASS);
-                                  parse_str($result);                                    
-                            			if (isset($response) && $response == 1) {	 
-                            			      $auto_payment = array();
-                            			      $auto_payment['Payment']['ppresponse'] = $response;
-                            			      $auto_payment['Payment']['ppresponsetext'] = $responsetext;
-                                        $auto_payment['Payment']['ppauthcode'] = $authcode;
-                                        $auto_payment['Payment']['pptransactionid']	= $transactionid;
-                                        $auto_payment['Payment']['ppresponse_code'] = $response_code;
-                                        $auto_payment['Payment']['type'] = 'Auto CC';
-                                  			$auto_payment['Payment']['status'] = 'Complete';
-                                  			$auto_payment['Payment']['notes'] = 'Auto Payment';
-                                  			$auto_payment['Payment']['user_id'] = $tenant['User']['id'];
-                                  			$auto_payment['Payment']['billing_id'] = $billing_cycle['Billing']['id'];
-                                  			$auto_payment['Payment']['unit_id'] = $billing_cycle['Billing']['unit_id'];
-                                  			$auto_payment['Payment']['amount'] = 0;
-                                  			$auto_payment['Payment']['is_fee'] = 1;
-                                  			$auto_payment['Payment']['amt_processed'] = floatval($pay_fee);
-                                  			$auto_payment['Payment']['total_bill'] = floatval($pay_amount) + floatval($pay_fee);
-                                        //Add to Payments Table
-                                        $this->Payment->create();
-                                        if ($this->Payment->save($auto_payment)) {
-                                          $this->Billing->updatebillingstatus($billing_cycle['Billing']['id']);
-                                          $this->out($billing_cycle['Billing']['id'] .' - Applied Auto Payment of '.$tenant['AutoPayment'][0]['amount']);
-                                          //Send Email Payment was processed
-                                          $email_data['name']=$tenant['User']['first_name'];
-                                          $email_data['amount'] = $total_amount;
-                                          $email_data['trans_id'] = $transactionid;
-                                          $email_data['unit_name'] = $billing_cycle['Unit']['number'];
-                                          $email_data['prop_name'] = $billing_cycle['Unit']['Property']['name'];
-                                          if($this->__sendAutoPaymentSuccess($tenant['User']['email'],$email_data)){
-                                            $this->out('Payment Received Email sent to '.$tenant['User']['email']);
-                                          }
-                                  			}
-                                  }else{
-                                        //$failed=$data;
-                                        $failed = array();
-                                        $failed['FailedPayment']['billing_id'] = $billing_cycle['Billing']['id'];
-                                        $failed['FailedPayment']['unit_id'] = $billing_cycle['Billing']['unit_id'];
-                                        $failed['FailedPayment']['user_id'] = $tenant['User']['id'];
-                                        $failed['FailedPayment']['amount'] = $tenant['AutoPayment'][0]['amount'];
-                                        $failed['FailedPayment']['type'] = 'Auto CC';
-                                        $failed['FailedPayment']['ppresponse'] = $response;
-                                        $failed['FailedPayment']['ppresponsetext'] = $responsetext;
-                                        $failed['FailedPayment']['ppauthcode'] = $authcode;
-                                        $failed['FailedPayment']['pptransactionid']	= $transactionid;
-                                        $failed['FailedPayment']['ppresponse_code'] = $response_code;
-                                        if($this->FailedPayment->save($failed)){
-                                          $this->out($billing_cycle['Billing']['id'] .' - Auto Payment FAILED');
-                                        }   
-                                  }
-                      }
-                    } else {
-                      //Payment is ACH
-                      if($tenant['Property']['prop_pays_ach_fee']){
-                        $pay_fee = floatval(ACH_FEE);
-                        $total_amount = floatval($pay_amount) - $pay_fee;
-                                  $result = $this->Payment->processPayment($total_amount,$tenant['AutoPayment'][0]['vault_id'],$tenant['Property']['pp_user'],Security::rijndael($tenant['Property']['pp_pass'], Configure::read('Security.salt2'),'decrypt'));
-                                  parse_str($result);                                    
-                            			if (isset($response) && $response == 1) {	 
-                            			      $auto_payment = array();
-                            			      $auto_payment['Payment']['ppresponse'] = $response;
-                            			      $auto_payment['Payment']['ppresponsetext'] = $responsetext;
-                                        $auto_payment['Payment']['ppauthcode'] = $authcode;
-                                        $auto_payment['Payment']['pptransactionid']	= $transactionid;
-                                        $auto_payment['Payment']['ppresponse_code'] = $response_code;
-                                        $auto_payment['Payment']['type'] = 'Auto ACH';
-                                  			$auto_payment['Payment']['status'] = 'Complete';
-                                  			$auto_payment['Payment']['notes'] = 'Auto Payment';
-                                  			$auto_payment['Payment']['user_id'] = $tenant['User']['id'];
-                                  			$auto_payment['Payment']['billing_id'] = $billing_cycle['Billing']['id'];
-                                  			$auto_payment['Payment']['unit_id'] = $billing_cycle['Billing']['unit_id'];
-                                  			$auto_payment['Payment']['amount'] = $tenant['AutoPayment'][0]['amount'];
-                                  			$auto_payment['Payment']['is_fee'] = 0;
-                                  			$auto_payment['Payment']['amt_processed'] = floatval($total_amount);
-                                  			$auto_payment['Payment']['total_bill'] = floatval($pay_amount);
-                                  			
-                                        //Add to Payments Table
-                                        $this->Payment->create();
-                                        if ($this->Payment->save($auto_payment)) {
-                                          $this->Billing->updatebillingstatus($billing_cycle['Billing']['id']);
-                                          $this->out($billing_cycle['Billing']['id'] .' - Applied Auto Payment of '.$tenant['AutoPayment'][0]['amount']);
-                                          //Send Email Payment was processed
-                                          $email_data['name']=$tenant['User']['first_name'];
-                                          $email_data['amount'] = $total_amount;
-                                          $email_data['trans_id'] = $transactionid;
-                                          $email_data['unit_name'] = $billing_cycle['Unit']['number'];
-                                          $email_data['prop_name'] = $billing_cycle['Unit']['Property']['name'];
-                                          if($this->__sendAutoPaymentSuccess($tenant['User']['email'],$email_data)){
-                                            $this->out('Payment Received Email sent to '.$tenant['User']['email']);
-                                          }
-                                  			}
-                                  }else{
-                                        //$failed=$data;
-                                        $failed = array();
-                                        $failed['FailedPayment']['billing_id'] = $billing_cycle['Billing']['id'];
-                                        $failed['FailedPayment']['unit_id'] = $billing_cycle['Billing']['unit_id'];
-                                        $failed['FailedPayment']['user_id'] = $tenant['User']['id'];
-                                        $failed['FailedPayment']['amount'] = $tenant['AutoPayment'][0]['amount'];
-                                        $failed['FailedPayment']['type'] = 'Auto ACH';
-                                        $failed['FailedPayment']['ppresponse'] = $response;
-                                        $failed['FailedPayment']['ppresponsetext'] = $responsetext;
-                                        $failed['FailedPayment']['ppauthcode'] = $authcode;
-                                        $failed['FailedPayment']['pptransactionid']	= $transactionid;
-                                        $failed['FailedPayment']['ppresponse_code'] = $response_code;
-                                        if($this->FailedPayment->save($failed)){
-                                          $this->out($billing_cycle['Billing']['id'] .' - Auto Payment FAILED');
-                                        }   
-                                  }
-                            			
-                            			$result = $this->Payment->processPayment($pay_fee,$tenant['AutoPayment'][0]['vault_id'],RENTSQUARE_MERCH_USER,RENTSQUARE_MERCH_PASS);
-                                  parse_str($result);                                    
-                            			if (isset($response) && $response == 1) {	 
-                            			      $auto_payment = array();
-                            			      $auto_payment['Payment']['ppresponse'] = $response;
-                            			      $auto_payment['Payment']['ppresponsetext'] = $responsetext;
-                                        $auto_payment['Payment']['ppauthcode'] = $authcode;
-                                        $auto_payment['Payment']['pptransactionid']	= $transactionid;
-                                        $auto_payment['Payment']['ppresponse_code'] = $response_code;
-                                        $auto_payment['Payment']['type'] = 'Auto ACH';
-                                  			$auto_payment['Payment']['status'] = 'Complete';
-                                  			$auto_payment['Payment']['notes'] = 'Auto Payment';
-                                  			$auto_payment['Payment']['user_id'] = $tenant['User']['id'];
-                                  			$auto_payment['Payment']['billing_id'] = $billing_cycle['Billing']['id'];
-                                  			$auto_payment['Payment']['unit_id'] = $billing_cycle['Billing']['unit_id'];
-                                  			$auto_payment['Payment']['amount'] = 0;
-                                  			$auto_payment['Payment']['is_fee'] = 1;
-                                  			$auto_payment['Payment']['amt_processed'] = floatval($pay_fee);
-                                  			$auto_payment['Payment']['total_bill'] = floatval($pay_amount);
-                                  			
-                                        //Add to Payments Table
-                                        $this->Payment->create();
-                                        if ($this->Payment->save($auto_payment)) {
-                                          $this->Billing->updatebillingstatus($billing_cycle['Billing']['id']);
-                                          $this->out($billing_cycle['Billing']['id'] .' - Applied Auto Payment of '.$tenant['AutoPayment'][0]['amount']);
-                                          //Send Email Payment was processed
-                                          $email_data['name']=$tenant['User']['first_name'];
-                                          $email_data['amount'] = $total_amount;
-                                          $email_data['trans_id'] = $transactionid;
-                                          $email_data['unit_name'] = $billing_cycle['Unit']['number'];
-                                          $email_data['prop_name'] = $billing_cycle['Unit']['Property']['name'];
-                                          if($this->__sendAutoPaymentSuccess($tenant['User']['email'],$email_data)){
-                                            $this->out('Payment Received Email sent to '.$tenant['User']['email']);
-                                          }
-                                  			}
-                                  }else{
-                                        //$failed=$data;
-                                        $failed = array();
-                                        $failed['FailedPayment']['billing_id'] = $billing_cycle['Billing']['id'];
-                                        $failed['FailedPayment']['unit_id'] = $billing_cycle['Billing']['unit_id'];
-                                        $failed['FailedPayment']['user_id'] = $tenant['User']['id'];
-                                        $failed['FailedPayment']['amount'] = $tenant['AutoPayment'][0]['amount'];
-                                        $failed['FailedPayment']['type'] = 'Auto ACH';
-                                        $failed['FailedPayment']['ppresponse'] = $response;
-                                        $failed['FailedPayment']['ppresponsetext'] = $responsetext;
-                                        $failed['FailedPayment']['ppauthcode'] = $authcode;
-                                        $failed['FailedPayment']['pptransactionid']	= $transactionid;
-                                        $failed['FailedPayment']['ppresponse_code'] = $response_code;
-                                        if($this->FailedPayment->save($failed)){
-                                          $this->out($billing_cycle['Billing']['id'] .' - Auto Payment FAILED');
-                                        }   
-                                  }
-                      } else {
-                        $pay_fee = floatval(ACH_FEE);
-                        $total_amount = floatval($pay_amount);
-                                  $result = $this->Payment->processPayment($total_amount,$tenant['AutoPayment'][0]['vault_id'],$tenant['Property']['pp_user'],Security::rijndael($tenant['Property']['pp_pass'], Configure::read('Security.salt2'),'decrypt'));
-                                  parse_str($result);                                    
-                            			if (isset($response) && $response == 1) {	 
-                            			      $auto_payment = array();
-                            			      $auto_payment['Payment']['ppresponse'] = $response;
-                            			      $auto_payment['Payment']['ppresponsetext'] = $responsetext;
-                                        $auto_payment['Payment']['ppauthcode'] = $authcode;
-                                        $auto_payment['Payment']['pptransactionid']	= $transactionid;
-                                        $auto_payment['Payment']['ppresponse_code'] = $response_code;
-                                        $auto_payment['Payment']['type'] = 'Auto ACH';
-                                  			$auto_payment['Payment']['status'] = 'Complete';
-                                  			$auto_payment['Payment']['notes'] = 'Auto Payment';
-                                  			$auto_payment['Payment']['user_id'] = $tenant['User']['id'];
-                                  			$auto_payment['Payment']['billing_id'] = $billing_cycle['Billing']['id'];
-                                  			$auto_payment['Payment']['unit_id'] = $billing_cycle['Billing']['unit_id'];
-                                  			$auto_payment['Payment']['amount'] = $tenant['AutoPayment'][0]['amount'];
-                                  			$auto_payment['Payment']['is_fee'] = 0;
-                                  			$auto_payment['Payment']['amt_processed'] = floatval($total_amount);
-                                  			$auto_payment['Payment']['total_bill'] = floatval($pay_amount) + floatval($pay_fee);
-                                  			
-                                        //Add to Payments Table
-                                        $this->Payment->create();
-                                        if ($this->Payment->save($auto_payment)) {
-                                          $this->Billing->updatebillingstatus($billing_cycle['Billing']['id']);
-                                          $this->out($billing_cycle['Billing']['id'] .' - Applied Auto Payment of '.$tenant['AutoPayment'][0]['amount']);
-                                          //Send Email Payment was processed
-                                          $email_data['name']=$tenant['User']['first_name'];
-                                          $email_data['amount'] = $total_amount;
-                                          $email_data['trans_id'] = $transactionid;
-                                          $email_data['unit_name'] = $billing_cycle['Unit']['number'];
-                                          $email_data['prop_name'] = $billing_cycle['Unit']['Property']['name'];
-                                          if($this->__sendAutoPaymentSuccess($tenant['User']['email'],$email_data)){
-                                            $this->out('Payment Received Email sent to '.$tenant['User']['email']);
-                                          }
-                                  			}
-                                  }else{
-                                        //$failed=$data;
-                                        $failed = array();
-                                        $failed['FailedPayment']['billing_id'] = $billing_cycle['Billing']['id'];
-                                        $failed['FailedPayment']['unit_id'] = $billing_cycle['Billing']['unit_id'];
-                                        $failed['FailedPayment']['user_id'] = $tenant['User']['id'];
-                                        $failed['FailedPayment']['amount'] = $tenant['AutoPayment'][0]['amount'];
-                                        $failed['FailedPayment']['type'] = 'Auto ACH';
-                                        $failed['FailedPayment']['ppresponse'] = $response;
-                                        $failed['FailedPayment']['ppresponsetext'] = $responsetext;
-                                        $failed['FailedPayment']['ppauthcode'] = $authcode;
-                                        $failed['FailedPayment']['pptransactionid']	= $transactionid;
-                                        $failed['FailedPayment']['ppresponse_code'] = $response_code;
-                                        if($this->FailedPayment->save($failed)){
-                                          $this->out($billing_cycle['Billing']['id'] .' - Auto Payment FAILED');
-                                        }   
-                                  }
-                            			
-                            			$result = $this->Payment->processPayment($pay_fee,$tenant['AutoPayment'][0]['vault_id'],RENTSQUARE_MERCH_USER,RENTSQUARE_MERCH_PASS);
-                                  parse_str($result);                                    
-                            			if (isset($response) && $response == 1) {	 
-                            			      $auto_payment = array();
-                            			      $auto_payment['Payment']['ppresponse'] = $response;
-                            			      $auto_payment['Payment']['ppresponsetext'] = $responsetext;
-                                        $auto_payment['Payment']['ppauthcode'] = $authcode;
-                                        $auto_payment['Payment']['pptransactionid']	= $transactionid;
-                                        $auto_payment['Payment']['ppresponse_code'] = $response_code;
-                                        $auto_payment['Payment']['type'] = 'Auto ACH';
-                                  			$auto_payment['Payment']['status'] = 'Complete';
-                                  			$auto_payment['Payment']['notes'] = 'Auto Payment';
-                                  			$auto_payment['Payment']['user_id'] = $tenant['User']['id'];
-                                  			$auto_payment['Payment']['billing_id'] = $billing_cycle['Billing']['id'];
-                                  			$auto_payment['Payment']['unit_id'] = $billing_cycle['Billing']['unit_id'];
-                                  			$auto_payment['Payment']['amount'] = 0;
-                                  			$auto_payment['Payment']['is_fee'] = 1;
-                                  			$auto_payment['Payment']['amt_processed'] = floatval($pay_fee);
-                                  			$auto_payment['Payment']['total_bill'] = floatval($pay_amount) + floatval($pay_fee);
-                                  			
-                                        //Add to Payments Table
-                                        $this->Payment->create();
-                                        if ($this->Payment->save($auto_payment)) {
-                                          $this->Billing->updatebillingstatus($billing_cycle['Billing']['id']);
-                                          $this->out($billing_cycle['Billing']['id'] .' - Applied Auto Payment of '.$tenant['AutoPayment'][0]['amount']);
-                                          //Send Email Payment was processed
-                                          $email_data['name']=$tenant['User']['first_name'];
-                                          $email_data['amount'] = $total_amount;
-                                          $email_data['trans_id'] = $transactionid;
-                                          $email_data['unit_name'] = $billing_cycle['Unit']['number'];
-                                          $email_data['prop_name'] = $billing_cycle['Unit']['Property']['name'];
-                                          if($this->__sendAutoPaymentSuccess($tenant['User']['email'],$email_data)){
-                                            $this->out('Payment Received Email sent to '.$tenant['User']['email']);
-                                          }
-                                  			}
-                                  }else{
-                                        //$failed=$data;
-                                        $failed = array();
-                                        $failed['FailedPayment']['billing_id'] = $billing_cycle['Billing']['id'];
-                                        $failed['FailedPayment']['unit_id'] = $billing_cycle['Billing']['unit_id'];
-                                        $failed['FailedPayment']['user_id'] = $tenant['User']['id'];
-                                        $failed['FailedPayment']['amount'] = $tenant['AutoPayment'][0]['amount'];
-                                        $failed['FailedPayment']['type'] = 'Auto ACH';
-                                        $failed['FailedPayment']['ppresponse'] = $response;
-                                        $failed['FailedPayment']['ppresponsetext'] = $responsetext;
-                                        $failed['FailedPayment']['ppauthcode'] = $authcode;
-                                        $failed['FailedPayment']['pptransactionid']	= $transactionid;
-                                        $failed['FailedPayment']['ppresponse_code'] = $response_code;
-                                        if($this->FailedPayment->save($failed)){
-                                          $this->out($billing_cycle['Billing']['id'] .' - Auto Payment FAILED');
-                                        }   
-                                  }
-                      }
+
+/*
+CODE SEGS
+            if ( $paymentType == 'CC' )
+            {
+                //Payment is Credit Card
+                if ( $user['Property']['prop_pays_cc_fee'] )
+                {
+                    $amount = floatval($pay_amount);
+                    $amt_fee = $amount * floatval(CC_FEE);
+                    $amt_processed = floatval($amount) - $amt_fee;
+                    $total_bill = floatval($pay_amount);
+                } else
+                {
+                    $amount = floatval($pay_amount);
+                    $amt_fee = $amount * floatval(CC_FEE);
+                    $amt_processed = floatval($amount);
+                    $total_bill = floatval($amt_processed) + floatval($amt_fee);
+                }
+            } 
+            else
+            {
+                //Payment is ACH
+                if ( $user['Property']['prop_pays_ach_fee'] )
+                {
+                    $amount = floatval($pay_amount);
+                    $amt_fee = floatval(ACH_FEE);
+                    $amt_processed = floatval($amount) - $amt_fee;
+                    $total_bill = floatval($amount);
+                } else
+                {
+                    $amount = floatval($pay_amount);
+                    $amt_fee = floatval(ACH_FEE);
+                    $amt_processed = floatval($amount);
+                    $total_bill = floatval($amount) + floatval(ACH_FEE);
+                }
+            }
+
+             // Get Vault ID for RentSquare bank account
+            $this->loadModel('PaymentMethod');
+            $rsl = $this->PaymentMethod->getRsqVaultId();
+            if ( isset( $rsl['status'] ) && $rsl['status'] == 1 )
+            {
+               $rentsquare_vault_id = $rsl['vault_id'];
+            }
+
+
+          $paydata = array();
+          $paydata['total_amt'] = $amount;
+          $paydata['payer_vault_id'] = $property['Property']['vault_id'];
+          $paydata['pay_method'] = '';
+          $paydata['rsq_valut_id'] = '';
+          $paydata['fee_amt'] = '';
+
+          $jpayrsl = $this->payutil->rentPayment( $paydata );
+          $payrsl = json_decode($jpayrsl);
+
+          if(isset($payrsl) && !empty($payrsl) && $payrsl->status == 1)
+          {
+*/
+                    if($paymentType == 'CC')
+                    {
+                       $pay_method = 'CC';
+                       $pay_fee = (floatval($pay_amount) * floatval(CC_FEE));
+                       if($tenant['Property']['prop_pays_cc_fee'])
+                       {
+                          $total_amount = floatval($pay_amount) - floatval($pay_fee);
+                          $total_bill   = floatval($pay_amount);
+                       }
+                       else
+                       {
+                          $total_amount = floatval($pay_amount);
+                          $total_bill = floatval($pay_amount) + floatval($pay_fee);
+                       }
+                       $amt_processed = floatval($total_amount);
+                    }
+                    else
+                    {
+                       $pay_method = 'ACH';
+                       $pay_fee = floatval(ACH_FEE);
+                       if($tenant['Property']['prop_pays_ach_fee'])
+                       {
+                          $total_amount = floatval($pay_amount) - floatval($pay_fee);
+                          $total_bill = floatval($pay_amount);
+                       }
+                       else
+                       {
+                          $total_amount = floatval($pay_amount);
+                          $total_bill = floatval($pay_amount) + floatval($pay_fee);
+                       }
+                       $amt_processed = floatval($total_amount);
+                    }
+
+                    $paydata = array();
+                    $paydata['total_amt'] = $total_amount;
+                    $paydata['payer_vault_id'] = $tenant['AutoPayment'][0]['vault_id'];
+                    $paydata['pay_method'] = $pay_method;
+                    $paydata['rsq_valut_id'] = $rentsquare_valut_id;
+                    $paydata['fee_amt'] = $pay_fee;
+
+                    $jpayrsl = $this->payutil->rentPayment( $paydata );
+                    $payrsl = json_decode($jpayrsl);
+          
+                    if(isset($payrsl) && !empty($payrsl) && $payrsl->status == 1)
+                    {
+                       $transactionid = $payrsl->info;
+                       $auto_payment = array();
+                       $auto_payment['Payment']['ppresponse'] = '1';
+                       $auto_payment['Payment']['ppresponsetext'] = 'success';
+                       $auto_payment['Payment']['ppauthcode'] = '';
+                       $auto_payment['Payment']['pptransactionid'] = $transactionid;
+                       $auto_payment['Payment']['ppresponse_code'] = '';
+                       $auto_payment['Payment']['status'] = 'Complete';
+                       $auto_payment['Payment']['type'] = 'Auto ' . $pay_method;
+                       $auto_payment['Payment']['notes'] = 'Auto Payment';
+                       $auto_payment['Payment']['user_id'] = $tenant['User']['id'];
+                       $auto_payment['Payment']['billing_id'] = $billing_cycle['Billing']['id'];
+                       $auto_payment['Payment']['unit_id'] = $billing_cycle['Billing']['unit_id'];
+                       $auto_payment['Payment']['amount'] = $tenant['AutoPayment'][0]['amount'];
+                       $auto_payment['Payment']['amt_processed'] = $amt_processed;
+                       $auto_payment['Payment']['total_bill'] = $total_bill;
+
+                       //Add to Payments Table
+                       $this->Payment->create();
+                       if ($this->Payment->save($auto_payment)) 
+                       {
+                          $this->Billing->updatebillingstatus($billing_cycle['Billing']['id']);
+                          $this->out($billing_cycle['Billing']['id'] .' - Applied Auto Payment of '.$tenant['AutoPayment'][0]['amount']);
+                          //Send Email Payment was processed
+                          $email_data['name']=$tenant['User']['first_name'];
+                          $email_data['amount'] = $total_amount;
+                          $email_data['trans_id'] = $transactionid;
+                          $email_data['unit_name'] = $billing_cycle['Unit']['number'];
+                          $email_data['prop_name'] = $billing_cycle['Unit']['Property']['name'];
+                          if($this->__sendAutoPaymentSuccess($tenant['User']['email'],$email_data))
+                          {
+                             $this->out('Payment Received Email sent to '.$tenant['User']['email']);
+                          }
+                       }
+                    }
+                    else
+                    {
+                        //$failed=$data;
+                        $responsetext = implode(",",$payrsl->info);
+                        $failed = array();
+                        $failed['FailedPayment']['billing_id'] = $billing_cycle['Billing']['id'];
+                        $failed['FailedPayment']['unit_id'] = $billing_cycle['Billing']['unit_id'];
+                        $failed['FailedPayment']['user_id'] = $tenant['User']['id'];
+                        $failed['FailedPayment']['amount'] = $tenant['AutoPayment'][0]['amount'];
+                        $failed['FailedPayment']['type'] = 'Auto ' . $pay_method;
+                        $failed['FailedPayment']['ppresponse'] = '0';
+                        $failed['FailedPayment']['ppresponsetext'] = $responsetext;
+                        $failed['FailedPayment']['ppauthcode'] = $authcode;
+                        $failed['FailedPayment']['pptransactionid'] = '';
+                        $failed['FailedPayment']['ppresponse_code'] = '';
+                        if($this->FailedPayment->save($failed))
+                        {
+                           $this->out($billing_cycle['Billing']['id'] .' - Auto Payment FAILED');
+                        }   
                     }
                                       
-                }
-              }else{
-                //Else check to see if tenant wants an email reminder
-                if($tenant['User']['email_for_rent'] == "1"):
-                  //set data to pass
-                  $data = array(
-                    'unit_num'=>$billing_cycle['Unit']['number'],
-                    'rent_due'=>$billing_cycle['Billing']['rent_due'],
-                    'first_name'=>$tenant['User']['first_name'],
-                    'billing_start'=>$billing_cycle['Billing']['billing_start'],
-                    'billing_end'=>$billing_cycle['Billing']['billing_end'],
-                    'property_name'=>$tenant['Property']['name'],
-                    'rent_period'=>$billing_cycle['Billing']['rent_period']
-                  );
-                  if($this->__sendRentDueReminderMail($tenant['User']['email'],$data))
-                      $this->out($billing_cycle['Billing']['id'].' - Sent Rent Due Reminder To '.$tenant['User']['email']);
-                  else
-                      $this->out($billing_cycle['Billing']['id'].' - Error sending Rent Due Reminder To '.$tenant['User']['email']);
-                endif;
+                 }
               }
-            endforeach;
+              else
+              {
+                 //Else check to see if tenant wants an email reminder
+                 if($tenant['User']['email_for_rent'] == "1"):
+                    //set data to pass
+                    $data = array(
+                       'unit_num'=>$billing_cycle['Unit']['number'],
+                       'rent_due'=>$billing_cycle['Billing']['rent_due'],
+                       'first_name'=>$tenant['User']['first_name'],
+                       'billing_start'=>$billing_cycle['Billing']['billing_start'],
+                       'billing_end'=>$billing_cycle['Billing']['billing_end'],
+                       'property_name'=>$tenant['Property']['name'],
+                       'rent_period'=>$billing_cycle['Billing']['rent_period']
+                    );
+                    if($this->__sendRentDueReminderMail($tenant['User']['email'],$data))
+                         $this->out($billing_cycle['Billing']['id'].' - Sent Rent Due Reminder To '.$tenant['User']['email']);
+                    else
+                        $this->out($billing_cycle['Billing']['id'].' - Error sending Rent Due Reminder To '.$tenant['User']['email']);
+                 endif;
+              }
+           endforeach;
        
-      // check if late     
+        // check if late     
         elseif(strtotime($billing_cycle['Billing']['billing_end']) < time()):
             // set status = late
             $this->Billing->saveField('status','late');

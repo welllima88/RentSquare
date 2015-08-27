@@ -378,10 +378,11 @@ jQuery(function(){
           success: function(data){
              // Hide free rents we just deleted server side
              jQuery('[class^="free_rent_item"]').each(function(){
-                //console.log(jQuery(this).find('.free_rent_period').text());
+                console.log(jQuery(this).find('.free_rent_period').text());
                 $freeRentDate = new Date(jQuery(this).find('.free_rent_period').text()).getTime();
+                console.log( $freeRentDate );
                 $todaysDate = new Date().getTime();
-                if ($todaysDate < $freeRentDate)
+                if ($todaysDate < $freeRentDate)		//GSW Aug 27 -  if no freerentdate, hide as well??
                 {
                    jQuery(this).hide();
                 }

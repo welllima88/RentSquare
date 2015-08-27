@@ -1,0 +1,2 @@
+[23-Aug-2015 18:06:05 America/Denver] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home2/onepage3/public_html/app/Console/Command/UpdateBillingShell.php on line 346
+[23-Aug-2015 18:06:40 America/Denver] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home2/onepage3/public_html/app/Console/Command/UpdateBillingShell.php on line 346

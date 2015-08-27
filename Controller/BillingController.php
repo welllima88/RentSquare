@@ -53,7 +53,6 @@ class BillingController extends AppController {
             $conditions['Billing.billing_end >='] = date("Y-m-01 00:00:00");
             $conditions['Billing.billing_end <='] = date("Y-m-t 23:59:59");
         }
-//debug($conditions);
         $this->paginate = array(
             'conditions' => $conditions,
             'contain'    => array(

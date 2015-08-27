@@ -1,0 +1,57 @@
+Overview:
+Need to rewrite all BC code to use new API using SDK.
+1 - Prop mgr pays  ( 1 time set up and monnthly fee based on units )
+2 - Tenant pays	   ( montly rents/fees )
+3 - Split of Tenant pays so RSQ gets their piece
+
+Tech Notes:
+Setting up an 'interface' to abstract pay processor, although given unique way BC handles split on back end of rent pay so that RSQ gets its cut, a diff pay processor might require diff functionality.
+Setting up in Vendors/Interfaces to keep App::import happy
+
+ Interface components:
+   	PayMethodInterface	- Interface class defining methods that must exist - no logic
+        PayMethodUtils		- Class that implements interface
+        PayMethodBaseCommerce	- The actual code called in PayMethodUtils for Base Commerce
+
+	Places I found references to old API
+		Controller/UsersController.php			- DONE - added vault add stuff
+		Console/Command/MonthlyFeeShell.php		--> Calls Model Payment->processPayment
+		Console/Command/UpdateBillingShell.php		
+		Controller/PropertiesController.php		- added vault add stuff, need to test merch app submission
+		Controller/PaymentMethodsController.php		- DONE - added vault add stuff
+		Controller/PaymentsController.php		- processing payments - more testing
+		Controller/AdminController.php			- wont need to change since activate property is not used anymore
+		Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php --> new code to handle all transactions
+
+
+Property Manger pays:
+
+- users/propertymanager
+  - Payment data (checking/savings account) collected and sent to Vault
+  -  Vault id set to 1 in db if add to vault fails
+  - SubmitPPApplicaiton - this submits the merchant application, which gets sent to 3rd party for underwriting validation
+	- if approved, email sent to Sean, with Code, which he then enters using admin funtion to approve within RentSquare
+
+- Cron - MonthlyFeeShell.php calls Model method:  Payment->processPayment, using prop mgr vault info, to process the monthly payment for property managers
+
+NOTE:  CAKE 2.6 has a runaway error situation when debug mode is on, so use logging and don't waste time chasing it down --- its a memory exhaustion situation that manifests
+
+Tenant pays:
+
+- paymentmethods/add_cc
+
+- paymentmethods/add_bank
+
+- paymentmethds/delete
+   - calls Model delete_from_vault
+
+LEFT OFF:
+done - July 15 - Controllers/UsersController.php  -- Need to add code for submitting prop mgr data to BC
+
+July 19 - TO DO - Controller/UsersController -- after vault add - write record to paymentmethods table 
+                - add address info into ACH vault submission -- only needed for testing
+		- PaymentMethods Model - get rid of add_...to vault  - check properties controller as it livs there too
+
+ISSUES TO DISCUSS WITH SEAN & NICK
+
+- Jul 15 - Cert tests for adding bank account requires address data, so I need to add to form
