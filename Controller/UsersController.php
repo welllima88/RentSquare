@@ -301,17 +301,19 @@ class UsersController extends AppController {
                     $newUserId = $this->User->getLastInsertID();
                     $this->log('User Controller save succes: ' . $newUserId, 'debug' );
 
-                    // July 25, 2015 - Newest requirement is to submit merch app again
-                    //list($merchantapp_status,$merchantapp_result,$merchantapp_approval_id) = $this->payutil->submitMerchApp( $data );
-                    //$this->log('Merchant App Results: status ' . json_encode($merchantapp_status), 'debug' );
-                    //$this->log('Merchant App Results: result ' . json_encode($merchantapp_result), 'debug' );
-                    //$this->log('Merchant App Results: approval_id ' . json_encode($merchantapp_approval_id), 'debug' );
                     $bcrsl = $this->payutil->submitMerchApp( $data );
                     $this->log('Merchant App Results: ' . json_encode($bcrsl), 'debug' );
 
-                    $this->Auth->login($data['User']);		// not necessary - sending to login screen 
-                    $this->redirect(array('controller' => 'Users', 'action' => 'pendingactivation', $newUserId));
-                    //$this->redirect(array('controller' => 'Users', 'action' => 'propertymanagersuccess'));
+                    if ($bcrsl[0])
+                    {
+                       $this->Auth->login($data['User']);		// not necessary - sending to login screen 
+                       $this->redirect(array('controller' => 'Users', 'action' => 'pendingactivation', $newUserId));
+                    }
+                    else
+                    {
+                        $this->Session->setFlash('Error Signing Up. Please contact system admin.', 'flash_bad');
+                        $this->redirect(array('controller' => 'Users', 'action' => 'propertymanager'));
+                    }
                 } else
                 {
                     $this->Session->setFlash('Error Signing Up. Please contact system admin.', 'flash_bad');

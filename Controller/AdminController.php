@@ -60,13 +60,51 @@ class AdminController extends AppController {
     function payments($property_id = null, $prop_name = null)
     {
         $this->adminCheck();
+        if ( $this->request->is('post') && $this->request->data )
+        {
+            // Clear Payment Session Dates
+            $this->Session->delete('Payment');
+            if ( $this->request->data['Admin']['start_date'] != '' )
+            {
+                $conditions['Payment.created >='] = date("Y-m-d 00:00:00", strtotime($this->request->data['Admin']['start_date']));
+                $this->Session->write('Payment.start_date', $this->request->data['Admin']['start_date']);
+                $this->set('start_filter', $this->request->data['Admin']['start_date']);
+            }
+            if ( $this->request->data['Admin']['end_date'] != '' )
+            {
+                $conditions['Payment.created <='] = date("Y-m-d 23:59:59", strtotime($this->request->data['Admin']['end_date']));
+                $this->Session->write('Payment.end_date', $this->request->data['Admin']['end_date']);
+                $this->set('end_filter', $this->request->data['Admin']['end_date']);
+            }
+        }
+
+        // Set dates from session
+        $stdate = $this->Session->read('Payment.start_date');
+        $endate = $this->Session->read('Payment.end_date');
+        if ( !empty($stdate) && !empty($endate) )
+        {
+            $this->set('start_filter', $stdate);
+            $this->set('end_filter', $endate);
+            $conditions['Payment.created >='] = date("Y-m-d 00:00:00", strtotime($stdate));
+            $conditions['Payment.created <='] = date("Y-m-d 23:59:59", strtotime($endate));
+        } else
+        {
+            // We have no dates, so lets choose this month
+            $conditions['Payment.created >='] = date("Y-m-01 00:00:00");
+            $conditions['Payment.created <='] = date("Y-m-t 23:59:59");
+        }
+
         if ( $property_id != null )
         {
             $this->loadModel('Property');
             $this->set('manager', $this->Property->find('all', array('conditions' => array('Property.id' => $property_id), 'contain' => 'Manager')));
             $this->loadModel('Payment');
+            $conditions['Property.id'] = $property_id;
+            debug($conditions);
+
             $this->paginate = array(
-                'conditions' => array('Property.id' => $property_id),
+                //'conditions' => array('Property.id' => $property_id),
+                'conditions' => $conditions,
                 'joins'      => array(
                     array(
                         'alias'      => 'RSUnit',

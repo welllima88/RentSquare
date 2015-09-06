@@ -192,12 +192,19 @@ class UpdateBillingShell extends AppShell {
       }
 
       $this->Billing->Behaviors->load('Containable');
+/*
       $billing_cycles = $this->Billing->find('all',array(
         'conditions'=>array('status !=' => 'paid'),
         'contain' => array('Unit'=>array('Property'))
       ));
+*/
+// Use this for testing as above query doesn't seem to find data due to contain??
+      $billing_cycles = $this->Billing->find('all',array('conditions'=>array('status' => 'late'),'contain'=> array('Unit'=>array('Property')) ));
+Configure::write('debug',2);
     
       foreach($billing_cycles as $billing_cycle):
+debug($billing_cycle);
+exit;
          $this->Billing->id = $billing_cycle['Billing']['id'];
          $total_payments = 0;
          $total_payments = $this->Billing->Payment->find('all',array('fields'=>'sum(Payment.amount) as total_payment', 'conditions' => array('Payment.billing_id' => $billing_cycle['Billing']['id'])));

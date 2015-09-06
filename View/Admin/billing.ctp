@@ -1,3 +1,5 @@
+<?php
+?>
 <div class="Payments view">
 <div class="page_title">
   <h1>Payments Overview</h1>
@@ -10,59 +12,61 @@
 ?>
 
 <div class="payment_details">
-	<div class="pd_header">
+   <div class="pd_header">
 	
-		<div class="pdh_block unit_number">
-			<span>Unit Number</span>
-			<?php echo $this->Html->link($Billing['Unit']['number'], array('controller' => 'units', 'action' => 'edit', $Billing['Unit']['id'])); ?>
-		</div><!-- .pdh_block -->
-	
-		<div class="pdh_block">
-			<span>Amount Due</span>
-			<div class="red_rent"><?php echo $this->Number->currency( $Billing['Billing']['rent_due'] ,'USD');?></div><br>
-			 <div class="blance_small">
-  			 	Amount Paid: <div class="green_rent"><?php echo $this->Number->currency( $total_paid ,'USD'); ?></div><br>
-          Outstanding Balance: <div class="red_rent"><?php 
-          if(floatval($Billing['Billing']['rent_due'] - $total_paid < 0))
-            echo '$0.00';
-          else
-            echo $this->Number->currency( floatval($Billing['Billing']['rent_due'] - $total_paid) ,'USD' );
-       ?></div>
-
-			 </div><!-- .blance_small -->
-		</div><!-- .pdh_block -->
-	
-		<div class="pdh_block">
-			<span>Payment Status</span>
-			<?php if($Billing['Billing']['status'] == 'late'):
-        echo '<div class="red_rent">'.ucfirst($Billing['Billing']['status']) .'</div>'; 
-      else:
-        echo '<div class="green_rent">'.ucfirst($Billing['Billing']['status']) .'</div>'; 
-      endif;  
-        ?>
-		</div><!-- .pdh_block -->
+      <div class="pdh_block unit_number">
+         <span>Unit Number</span>
+	    <?php echo $this->Html->link($Billing['Unit']['number'], array('controller' => 'units', 'action' => 'edit', $Billing['Unit']['id'])); ?>
+      </div><!-- .pdh_block -->
+	  
+      <div class="pdh_block">
+         <span>Billing Period</span>
+         <?php if($Billing['Billing']['type'] == 'Rent'): ?>
+         <?php echo h($this->Time->format('M j, Y', $Billing['Billing']['billing_end'])); ?> - <br>
+         <?php echo h($this->Time->format('M j, Y', $Billing['Billing']['rent_period'])); ?>
+         <?php else: ?>
+         <?php echo h($this->Time->format('M j, Y', $Billing['Billing']['billing_end'])); ?>
+         <?php endif; ?>
+       </div><!-- .pdh_block -->
 		
-		<div class="pdh_block">
-			<span>Billing Id</span>
-			<?php echo h($Billing['Billing']['id']); ?>
-		</div><!-- .pdh_block -->
+       <div class="pdh_block">
+          <span>Amount Due</span>
+          <?php echo $this->Number->currency( $Billing['Billing']['rent_due'] ,'USD');?><br>
+          <div class="blance_small">
+             Amount Paid: <div class="green_rent"><?php echo $this->Number->currency( $total_paid ,'USD'); ?></div><br>
+             Outstanding Balance: <?php 
+             if(floatval($Billing['Billing']['rent_due'] - $total_paid < 0))
+                echo '<div class="green_rent">$0.00</div>';
+             else
+                echo '<div class="red_rent">'.$this->Number->currency( floatval($Billing['Billing']['rent_due'] - $total_paid) ,'USD').'</div>';
+          ?>
+          </div><!-- .blance_small -->
+       </div><!-- .pdh_block -->
+	
+       <div class="pdh_block">
+          <span>Payment Status</span>
+          <?php if($Billing['Billing']['status'] == 'late'):
+                   echo '<div class="red_rent">'.ucfirst($Billing['Billing']['status']) .'</div>'; 
+                else:
+                if($Billing['Billing']['status'] == 'due')
+                   echo '<div class="">'.ucfirst($Billing['Billing']['status']) .' Today</div>'; 
+                elseif ($Billing['Billing']['status'] == 'paid')
+                   echo '<div class="green_rent">'.ucfirst($Billing['Billing']['status']) .'</div>';
+                else
+                   echo '<div class="">'.ucfirst($Billing['Billing']['status']) .'</div>';
+                endif;  
+          ?>
+       </div><!-- .pdh_block -->
 		
-		<div class="pdh_block">
-			<span>Billing Period</span>
-			<?php echo h($this->Time->format('M j, Y', $Billing['Billing']['billing_start'])); ?> - <br>
-			<?php echo h($this->Time->format('M j, Y', $Billing['Billing']['billing_end'])); ?>
-		</div><!-- .pdh_block -->
-		
-		<div class="pdh_block last_block">
-			
-		</div><!-- .pdh_block -->
+       <div class="pdh_block last_block">
+          <span>Billing Id</span>
+          <?php echo h($Billing['Billing']['id']); ?>
+       </div><!-- .pdh_block -->
+    </div><!-- .pd_header -->
 	
-	</div><!-- .pd_header -->
-	
-	
-	<div class="ph_body">
-	<div class="pd_rent_bkd pd_section">
-		<h2>Rent Breakdown</h2>
+    <div class="ph_body">
+       <div class="pd_rent_bkd pd_section">
+          <h2>Rent Breakdown</h2>
     <table>
     	<tr>
     	  <th>Fee Name</th>
@@ -91,6 +95,7 @@
 
       ?>
   </table>
+  <div class="pd_section_border"></div><!-- .pd_section_border -->
 	</div><!-- .pd_rent_bkd -->
 	<div class="pd_payment_list pd_section">
 		<h2>Completed payments</h2>
@@ -98,6 +103,7 @@
 	    	<tr>
 	    	  <th>From</th>
 	    	  <th>Amount</th>
+	    	  <th>Type</th>
 	    	  <th>Date</th>
 	    	  <th>Status</th>
 	    	  <th>Payment Id</th>
@@ -106,7 +112,8 @@
   	    foreach($Billing['Payment'] as $payment):
   	    echo '<tr>';
   	      echo '<td>'. $payment['User']['first_name'] .' ' . $payment['User']['last_name'] . '</td>';
-  	      echo '<td class="good_payment">' . $this->Number->currency( $payment['amount'] ,'USD',array('after'=>false)) . '</td>';
+  	      echo '<td class="good_payment">' . $this->Number->currency( $payment['amount'] ,'USD') . '</td>';
+  	      echo '<td>'.$payment['type'].'</td>';
   	      echo '<td>' . $this->Time->format('M j, Y', $payment['created']) . '</td>';
   	      echo '<td>' . $payment['status'] . '</td>';
   	      echo '<td>#'.$payment['id'].'</td>';
@@ -114,18 +121,20 @@
   	    $total_paid = $total_paid + floatval($payment['amount']);
         endforeach; 
         if($total_paid == 0):
-          echo '<tr><td colspan="5" style="text-align:center; color:#aaa; background:#f4f4f4;"><br>No Payments<br><br><br></td></tr>';
+          echo '<tr><td colspan="6" style="text-align:center; color:#aaa; border-bottom: 1px solid #e1e1e1; border-top: 1px solid #e1e1e1;"><br><br>No Payments<br><br><br></td></tr>';
         else:	    
             echo '<tr class="totals">';
     	      echo '<td><strong>Total</strong></td>';
-    	      echo '<td><strong>$'. number_format($total_paid,2) .'</strong></td>';
+    	      echo '<td><strong>'. $this->Number->currency( $total_paid ,'USD') .'</strong></td>';
     	      echo '<td>&nbsp;</td>';
     	      echo '<td>&nbsp;</td>';
     	      echo '<td>&nbsp;</td>';
+    	       echo '<td>&nbsp;</td>';
     	    echo '</tr>';
         endif;
         ?>
 	  </table>
+  <div class="pd_section_border"></div><!-- .pd_section_border -->
 	</div><!-- .pd_payment_list -->
 	<div class="pd_resident_list pd_section">
 		<h2>Unit Residents</h2>
@@ -145,6 +154,7 @@
   	    endforeach;
         ?>
 	  </table>
+	  <div class="pd_section_border"></div><!-- .pd_section_border -->
 	</div><!-- .pd_resident_list -->
 	</div><!-- .ph_body -->
 </div><!-- .payment_details -->

@@ -11,3 +11,4 @@
 [19-Aug-2015 09:11:53 America/Denver] PHP Parse error:  syntax error, unexpected ':' in /home2/onepage3/public_html/app/Controller/PaymentsController.php on line 335
 [19-Aug-2015 09:12:56 America/Denver] PHP Parse error:  syntax error, unexpected ':' in /home2/onepage3/public_html/app/Controller/PaymentsController.php on line 335
 [23-Aug-2015 18:09:49 America/Denver] PHP Parse error:  syntax error, unexpected '}' in /home2/onepage3/public_html/app/Console/Command/UpdateBillingShell.php on line 438
+[06-Sep-2015 10:56:34 America/Denver] PHP Parse error:  syntax error, unexpected ')', expecting variable (T_VARIABLE) in /home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php on line 335

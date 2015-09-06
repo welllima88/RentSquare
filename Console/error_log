@@ -45,3 +45,13 @@
 [24-Aug-2015 00:08:43 UTC] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home2/onepage3/public_html/app/Console/Command/UpdateBillingShell.php on line 346
 [23-Aug-2015 18:09:58 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
 [24-Aug-2015 00:09:58 UTC] PHP Parse error:  syntax error, unexpected '}' in /home2/onepage3/public_html/app/Console/Command/UpdateBillingShell.php on line 438
+[28-Aug-2015 12:02:22 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[28-Aug-2015 12:17:44 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[28-Aug-2015 12:21:23 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[28-Aug-2015 12:28:16 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[28-Aug-2015 12:32:38 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[28-Aug-2015 12:33:33 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[28-Aug-2015 12:36:12 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[28-Aug-2015 12:36:55 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[28-Aug-2015 12:37:57 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[28-Aug-2015 12:38:13 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36

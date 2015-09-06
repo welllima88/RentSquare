@@ -5,6 +5,7 @@ require_once("PayMethodInterface.php");
 App::build(array('Vendor' => array(APP . 'Vendor' . DS . 'BaseCommerce' . DS)));
 App::uses('BaseCommerceClient', 'Vendor');
 App::uses('Account', 'Vendor');
+App::uses('ACHDetails', 'Vendor');
 App::uses('MerchantApplication', 'Vendor');
 App::uses('BankAccount', 'Vendor');
 App::uses('BankCard', 'Vendor');
@@ -220,6 +221,7 @@ exit;
 
           $o_merch_app->setAccount( $o_account );
 
+
           $o_dba_address = new Address( Address::$XS_ADDRESS_NAME_DBA );
           $o_dba_address->setLine1( $property['legal_street'] );
           $o_dba_address->setCity( $property['legal_city'] );
@@ -277,6 +279,24 @@ exit;
 
           $o_location->addPrincipalContact( $o_contact );
 
+          $o_ach_details = new ACHDetails();
+          $o_ach_details->setTransactionFee('3.95');
+          $o_ach_details->setAverageTicketAmount($property['average_rent']);
+          $o_ach_details->setMaxSingleTransactionAmount($property['average_rent'] * 3);
+          $o_ach_details->setAverageMonthlyAmount($property['num_units'] * floatval($property['average_rent']));
+          $o_ach_details->setMaxDailyAmount($property['num_units'] * floatval($property['average_rent']) * 3);
+          $o_ach_details->setAuthMethodOnlinePercentage('100');
+          $o_ach_details->setCompanyNameDescriptor('Same_As_legal');
+          $o_ach_details->setDescriptor('RentSquare');
+          $o_ach_details->addSubmissionMethod('Online');
+          $o_ach_details->addPaymentToFrom('');
+          $o_ach_details->setMerchantReports('true');
+          $o_ach_details->setPaymentUrl('http://rentsquare.com');
+          $o_ach_details->setIssueCredits('true');
+          $o_ach_details->setIssueDebits('true');
+
+          $o_location->setACHDetails( $o_ach_details );
+
           $o_bc_details = new BankCardDetails();
           $o_bc_details->setAcceptAmex( false );
           $o_bc_details->addDebitBrandsRequested( "Visa,MasterCard,Discover Network,Credit,Debit" );
@@ -298,6 +318,7 @@ exit;
           $o_bc_details->setTelephoneOrderPercentage( 0 ); 
           $o_bc_details->setDuplicates( false ); 
           $o_bc_details->setUnpaidItemFee( 30 ); 
+          $o_bc_details->setAuthorizationFee( .25 ); 
 
           $o_location->setBankCardDetails( $o_bc_details );
 
@@ -305,48 +326,24 @@ exit;
 
           $o_bc = $o_bcpc->submitApplication( $o_merch_app );
 
-//          try {
+          try {
               foreach( $o_bc as $merchAppObj) 
               {
                  $status   = $merchAppObj->getResponseCode();
                  $messages = $merchAppObj->getResponseMessages();
+                 if ($status != "200")
+                 {
+                     return array( $status, $messages);
+                 }
               }
-/*
-          } catch( e ) {
+          } catch( Exeption $e ) {
                  $status   = 0;
-                 $messages = e->getMessage(); 
+                 $messages = $e->getMessage(); 
+                 return array( $status, $messages);
           }
-*/
-
-echo "<pre>";
-echo "<br>Status = $status";
-echo "<br>Msgs = ";
-print_r($messages);
-print_r($o_bc);
-echo "</pre>";
-exit;
-
-/*
-       $status = $o_bc->getStatus();
-       if( $status ==  BankCard::$XS_BC_STATUS_FAILED )
-       {
-          // Fail
-          $status = 0;
-          $result = $o_bc->getMessages();
-       }
-       else if( $status ==  BankCard::$XS_BC_STATUS_ACTIVE ) 
-       {
-          // Success
-          $status = 1;
-          $result = $o_bc->getToken();
-       }
-
-       return array( $status, $result, $approval_id );
-*/
-          return $o_bc;
-            
        } // end foreach
 
+       return array(1,'');
     }
 
     /*
