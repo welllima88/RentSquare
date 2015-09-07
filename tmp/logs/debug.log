@@ -29161,3 +29161,1452 @@ Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
 include - CORE/Cake/bootstrap.php, line 175
 [main] - APP/webroot/index.php, line 77
 
+2015-09-06 18:48:29 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 18:48:30 Notice: Notice (8): Undefined index: Property in [/home2/onepage3/public_html/app/Controller/UsersController.php, line 580]
+Trace:
+UsersController::login() - APP/Controller/UsersController.php, line 580
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-09-06 18:48:30 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 18:48:36 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 18:48:37 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 18:50:03 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 18:50:07 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 18:50:15 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 18:50:26 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 18:50:27 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 18:50:42 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 18:50:47 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 18:50:47 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 18:51:13 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 18:51:27 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 18:51:51 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 18:52:09 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 18:52:10 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 18:52:10 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 18:52:18 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 19:15:02 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 19:15:35 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 19:15:35 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 19:16:14 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 19:16:18 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 19:16:21 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 19:16:31 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 19:16:32 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 19:16:42 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 19:16:43 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 19:16:47 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 19:16:54 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 19:16:56 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 19:16:56 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 19:17:03 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 19:17:03 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+Model::_doSave() - CORE/Cake/Model/Model.php, line 1829
+Model::save() - CORE/Cake/Model/Model.php, line 1751
+Model::saveField() - CORE/Cake/Model/Model.php, line 1703
+UsersController::selectunit() - APP/Controller/UsersController.php, line 511
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-09-06 19:17:07 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 19:17:13 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 19:17:13 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 19:17:17 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 19:17:18 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 19:17:30 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 19:17:31 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 19:17:31 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 19:17:35 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 19:17:42 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 19:18:17 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 19:18:20 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 19:19:04 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 19:19:04 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 19:19:16 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 19:19:20 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 19:19:20 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 19:19:32 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 19:19:32 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 19:20:28 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 19:20:29 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 19:20:45 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 19:20:46 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 19:20:46 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 19:20:55 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 19:21:31 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 19:21:57 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 19:21:57 Notice: Notice (8): Undefined index: billing_address1 in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 40]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 40
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PaymentMethodsController::add_bank() - APP/Controller/PaymentMethodsController.php, line 197
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-09-06 19:21:57 Notice: Notice (8): Undefined index: billing_city in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 42]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 42
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PaymentMethodsController::add_bank() - APP/Controller/PaymentMethodsController.php, line 197
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-09-06 19:21:57 Notice: Notice (8): Undefined variable: billing_state in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 49]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 49
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PaymentMethodsController::add_bank() - APP/Controller/PaymentMethodsController.php, line 197
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-09-06 19:21:57 Notice: Notice (8): Undefined variable: property in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 50]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 50
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PaymentMethodsController::add_bank() - APP/Controller/PaymentMethodsController.php, line 197
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-09-06 19:21:58 Debug: Success: Vault add bank for tenant status = 1 - token = 35f13807dcc0dd4ecbc2494b4177069d6ff7551e40b9efb8dcdd21e85c6b712f
+2015-09-06 19:21:58 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+Model::_doSave() - CORE/Cake/Model/Model.php, line 1829
+Model::save() - CORE/Cake/Model/Model.php, line 1751
+PaymentMethodsController::add_bank() - APP/Controller/PaymentMethodsController.php, line 206
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-09-06 19:21:58 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+Model::_doSave() - CORE/Cake/Model/Model.php, line 1829
+Model::save() - CORE/Cake/Model/Model.php, line 1751
+PaymentMethodsController::add_bank() - APP/Controller/PaymentMethodsController.php, line 206
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-09-06 19:21:58 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+Model::_doSave() - CORE/Cake/Model/Model.php, line 1829
+Model::save() - CORE/Cake/Model/Model.php, line 1751
+PaymentMethodsController::add_bank() - APP/Controller/PaymentMethodsController.php, line 206
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-09-06 19:21:58 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+Model::_doSave() - CORE/Cake/Model/Model.php, line 1829
+Model::save() - CORE/Cake/Model/Model.php, line 1751
+PaymentMethodsController::add_bank() - APP/Controller/PaymentMethodsController.php, line 206
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-09-06 19:21:58 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+Model::_doSave() - CORE/Cake/Model/Model.php, line 1829
+Model::save() - CORE/Cake/Model/Model.php, line 1751
+PaymentMethodsController::add_bank() - APP/Controller/PaymentMethodsController.php, line 206
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-09-06 19:21:58 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+Model::_doSave() - CORE/Cake/Model/Model.php, line 1829
+Model::save() - CORE/Cake/Model/Model.php, line 1751
+PaymentMethodsController::add_bank() - APP/Controller/PaymentMethodsController.php, line 206
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-09-06 19:21:58 Notice: Notice (8): Undefined variable: vault_id in [/home2/onepage3/public_html/app/Controller/PaymentMethodsController.php, line 219]
+Trace:
+PaymentMethodsController::add_bank() - APP/Controller/PaymentMethodsController.php, line 219
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-09-06 19:21:58 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 19:22:19 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 19:22:19 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 19:23:29 Notice: Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+2015-09-06 19:23:29 Notice: Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+2015-09-06 19:24:14 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 19:24:14 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 19:24:18 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 19:24:30 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 19:24:33 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 19:24:51 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 19:24:52 Notice: Notice (8): Undefined variable: responsetext in [/home2/onepage3/public_html/app/Controller/PaymentMethodsController.php, line 146]
+Trace:
+PaymentMethodsController::add_cc() - APP/Controller/PaymentMethodsController.php, line 146
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-09-06 19:24:59 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 19:25:00 Debug: Success: Vault add card for tenant - token = 3f67a213df1b1351f07521a267c2833a04a354e8f1fc5b440dc13790e6bbcf14
+2015-09-06 19:25:00 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+Model::_doSave() - CORE/Cake/Model/Model.php, line 1829
+Model::save() - CORE/Cake/Model/Model.php, line 1751
+PaymentMethodsController::add_cc() - APP/Controller/PaymentMethodsController.php, line 121
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-09-06 19:25:00 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+Model::_doSave() - CORE/Cake/Model/Model.php, line 1829
+Model::save() - CORE/Cake/Model/Model.php, line 1751
+PaymentMethodsController::add_cc() - APP/Controller/PaymentMethodsController.php, line 121
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-09-06 19:25:00 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+Model::_doSave() - CORE/Cake/Model/Model.php, line 1829
+Model::save() - CORE/Cake/Model/Model.php, line 1751
+PaymentMethodsController::add_cc() - APP/Controller/PaymentMethodsController.php, line 121
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-09-06 19:25:00 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+Model::_doSave() - CORE/Cake/Model/Model.php, line 1829
+Model::save() - CORE/Cake/Model/Model.php, line 1751
+PaymentMethodsController::add_cc() - APP/Controller/PaymentMethodsController.php, line 121
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-09-06 19:25:00 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+Model::_doSave() - CORE/Cake/Model/Model.php, line 1829
+Model::save() - CORE/Cake/Model/Model.php, line 1751
+PaymentMethodsController::add_cc() - APP/Controller/PaymentMethodsController.php, line 121
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-09-06 19:25:00 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+Model::_doSave() - CORE/Cake/Model/Model.php, line 1829
+Model::save() - CORE/Cake/Model/Model.php, line 1751
+PaymentMethodsController::add_cc() - APP/Controller/PaymentMethodsController.php, line 121
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-09-06 19:25:00 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+Model::_doSave() - CORE/Cake/Model/Model.php, line 1829
+Model::save() - CORE/Cake/Model/Model.php, line 1751
+PaymentMethodsController::add_cc() - APP/Controller/PaymentMethodsController.php, line 121
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-09-06 19:25:00 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+Model::_doSave() - CORE/Cake/Model/Model.php, line 1829
+Model::save() - CORE/Cake/Model/Model.php, line 1751
+PaymentMethodsController::add_cc() - APP/Controller/PaymentMethodsController.php, line 121
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-09-06 19:25:00 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+Model::_doSave() - CORE/Cake/Model/Model.php, line 1829
+Model::save() - CORE/Cake/Model/Model.php, line 1751
+PaymentMethodsController::add_cc() - APP/Controller/PaymentMethodsController.php, line 121
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-09-06 19:25:00 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+Model::_doSave() - CORE/Cake/Model/Model.php, line 1829
+Model::save() - CORE/Cake/Model/Model.php, line 1751
+PaymentMethodsController::add_cc() - APP/Controller/PaymentMethodsController.php, line 121
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-09-06 19:25:00 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+Model::_doSave() - CORE/Cake/Model/Model.php, line 1829
+Model::save() - CORE/Cake/Model/Model.php, line 1751
+PaymentMethodsController::add_cc() - APP/Controller/PaymentMethodsController.php, line 121
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-09-06 19:25:00 Notice: Notice (8): Undefined variable: vault_id in [/home2/onepage3/public_html/app/Controller/PaymentMethodsController.php, line 133]
+Trace:
+PaymentMethodsController::add_cc() - APP/Controller/PaymentMethodsController.php, line 133
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-09-06 19:25:01 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 19:25:05 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 19:25:30 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 19:25:31 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 19:37:46 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 20:44:04 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 21:19:03 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 21:19:04 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 21:19:17 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 21:19:17 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 21:19:18 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 21:19:22 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 21:19:36 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 21:19:42 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 21:23:21 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 21:24:46 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 21:25:23 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 21:29:59 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 21:30:08 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 21:30:11 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 21:30:14 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 21:30:23 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 21:30:52 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 21:30:56 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 21:34:24 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 21:34:35 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 21:34:36 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 21:34:36 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 21:34:56 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 21:34:56 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 21:34:59 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 21:35:15 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 21:35:15 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 21:35:28 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 21:35:28 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 21:35:46 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 21:35:47 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-06 23:33:31 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-07 06:25:57 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-07 13:28:20 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-07 15:12:14 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-07 15:13:21 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-07 15:29:14 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-07 17:26:22 Notice: Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+2015-09-07 17:26:22 Notice: Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+2015-09-07 18:05:09 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-07 19:23:35 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-07 19:23:36 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-07 19:23:46 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-07 19:23:56 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-07 19:24:05 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-07 19:24:06 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-07 19:24:06 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-07 19:24:21 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-07 19:24:27 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-07 19:24:32 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-07 19:24:35 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-07 19:26:23 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-07 19:26:24 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-07 19:26:34 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-07 19:26:43 Notice: Notice (8): Constant FULL_BASE_URL already defined in [/home2/onepage3/public_html/app/Config/bootstrap.php, line 92]
+Trace:
+define - [internal], line ??
+include - APP/Config/bootstrap.php, line 92
+Configure::bootstrap() - CORE/Cake/Core/Configure.php, line 92
+include - CORE/Cake/bootstrap.php, line 175
+[main] - APP/webroot/index.php, line 77
+
+2015-09-07 19:26:43 Notice: Notice (8): Array to string conversion in [/home2/onepage3/public_html/lib/Cake/Model/Datasource/DboSource.php, line 461]
+Trace:
+PDOStatement::execute() - [internal], line ??
+DboSource::_execute() - CORE/Cake/Model/Datasource/DboSource.php, line 461
+DboSource::execute() - CORE/Cake/Model/Datasource/DboSource.php, line 427
+DboSource::fetchAll() - CORE/Cake/Model/Datasource/DboSource.php, line 669
+DboSource::query() - CORE/Cake/Model/Datasource/DboSource.php, line 612
+Model::__call() - CORE/Cake/Model/Model.php, line 827
+PaymentMethod::delete_from_vault() - APP/Controller/PaymentMethodsController.php, line 311
+PaymentMethodsController::delete() - APP/Controller/PaymentMethodsController.php, line 311
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+

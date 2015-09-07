@@ -332,7 +332,7 @@ jQuery(document).ready(
 
         jQuery('#my_account_links').children().click(function() { 
            currclicked = $(this).attr('id');
-alert('confirm = ' + shouldConfirm);
+//alert('confirm = ' + shouldConfirm);
            if(shouldConfirm) {
                // Doesn't work as buttons end up with inverse functionality
                //window.location='http://rentsquaredev.com/Users/myaccount/tenant_billing';

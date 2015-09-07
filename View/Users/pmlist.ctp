@@ -9,6 +9,7 @@
 <div class='table messages'>
 	<table id="property_managers" class="main payment_tab table-striped  subheader" cellpadding="0" cellspacing="0">
 	<tr>
+		        <th><?php echo $this->Paginator->sort('company_name','Company Name');?></th>
 			<th><?php echo $this->Paginator->sort('last_name','Last Name');?></th>
 			<th><?php echo $this->Paginator->sort('first_name','First Name');?></th>
 			<th><?php echo $this->Paginator->sort('state_id','State');?></th>
@@ -20,8 +21,8 @@
 	</tr>
 	<?php if(isset($pms) && count($pms) > 0):
 	foreach ($pms as $pm): ?>
-
 	<tr data-link="/Admin/properties/<?php echo $pm['User']['id']; ?>">
+	  <td><?php echo $pm['User']['company_name']; ?>&nbsp;</td>
 	  <td><?php echo $pm['User']['last_name']; ?>&nbsp;</td>
 	  <td><?php echo $pm['User']['first_name']; ?>&nbsp;</td>
 	  <td><?php echo $pm['State']['full_name']; ?>&nbsp;</td>
