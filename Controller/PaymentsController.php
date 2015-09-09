@@ -164,14 +164,14 @@ class PaymentsController extends AppController {
                 {
                     $amount = floatval($pay_amount);
                     $amt_fee = $amount * floatval(CC_FEE);
-                    $amt_processed = floatval($amount) - $amt_fee;
-                    $total_bill = floatval($pay_amount);
+                    $amt_processed = floatval($amount);
+                    $total_bill = floatval($amount);
                 } else
                 {
                     $amount = floatval($pay_amount);
                     $amt_fee = $amount * floatval(CC_FEE);
-                    $amt_processed = floatval($amount);
-                    $total_bill = floatval($amt_processed) + floatval($amt_fee);
+                    $amt_processed = floatval($amount) + floatval($amt_fee);
+                    $total_bill = floatval($amount) + floatval($amt_fee);
                 }
             } 
             else
@@ -181,13 +181,13 @@ class PaymentsController extends AppController {
                 {
                     $amount = floatval($pay_amount);
                     $amt_fee = floatval(ACH_FEE);
-                    $amt_processed = floatval($amount) - $amt_fee;
+                    $amt_processed = floatval($amount);
                     $total_bill = floatval($amount);
                 } else
                 {
                     $amount = floatval($pay_amount);
                     $amt_fee = floatval(ACH_FEE);
-                    $amt_processed = floatval($amount);
+                    $amt_processed = floatval($amount) + floatval(ACH_FEE);
                     $total_bill = floatval($amount) + floatval(ACH_FEE);
                 }
             }
@@ -205,17 +205,18 @@ class PaymentsController extends AppController {
             else
             {
                // TODO log error - can't process payment without Rentsquare vault_id
-               $this->log('Error: cant process payment without RentSquare valut_id: ' . json_encode($rsl['vault_id']), 'payment' );
+               $this->log('Error: cant process payment without RentSquare vault_id: ' . json_encode($rsl['vault_id']), 'payment' );
                $this->Session->setFlash(__('The payment was not processed. Could not find RentSquare VaultID'), 'flash_bad');
                $this->redirect(array('action' => 'index', 'failed', number_format($amount, 2)));
             }
-            $data_bc['rsq_vault_id'] = $rentsquare_valut_id;
+            $data_bc['rsq_vault_id'] = $rentsquare_vault_id;
 
             //Submit Payment
             $this->payutil = new Paymethodutils(new Paymethodbasecommerce);
-            $payResult = $this->payutil->rentPayment( $data_bc );
+            $jpayResult = $this->payutil->rentPayment( $data_bc );
+            $payResult  = json_decode($jpayResult);
 
-            if ( ! isset($payResult['status']) || empty($payResult['status']) )
+            if ( ! isset($payResult) || empty($payResult->status) )
             {
                // TODO log error - can't process payment
                $this->log('Error: cant process payment - processor failure: ' . json_encode($rsl['info']), 'payment' );
@@ -223,14 +224,9 @@ class PaymentsController extends AppController {
                $this->redirect(array('action' => 'index', 'failed', number_format($amount, 2)));
             }
 
-            //$pp_password = Security::rijndael($user['Property']['pp_pass'], Configure::read('Security.salt2'), 'decrypt');
-            //$result = $this->Payment->processPayment($amt_processed, $data['Payment']['vault_id'], $user['Property']['pp_user'], $pp_password);
-            //parse_str($result);
-
-            //if ( isset($response) && $response == 1 )
-            if ( isset($payResult['status']) && $payResult['status'] == 1 )
+            if ( isset($payResult) && $payResult->status == 1 )
             {
-                $transactionid = $payResult['info'];
+                $transactionid = $payResult->info;
                 $this->loadModel('Billing');
                 $data['Payment']['ppresponse'] = '1';
                 $data['Payment']['ppresponsetext'] = 'success';
@@ -331,7 +327,7 @@ class PaymentsController extends AppController {
                 $failed['FailedPayment']['amount'] = $amt_processed;
                 $failed['FailedPayment']['amt_fee'] = $amt_fee;
                 $failed['FailedPayment']['ppresponse'] = '0';
-                $failed['FailedPayment']['ppresponsetext'] = json_encode($payResult['info']);
+                $failed['FailedPayment']['ppresponsetext'] = json_encode($payResult->info);
                 $failed['FailedPayment']['ppauthcode'] = '';
                 $failed['FailedPayment']['pptransactionid'] = $transactionid;
                 $failed['FailedPayment']['ppresponse_code'] = '';

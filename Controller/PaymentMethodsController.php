@@ -308,7 +308,7 @@ class PaymentMethodsController extends AppController {
             $paymentmethod['user_id'] = $id;
             $paymentmethod['pp_user'] = $prop['Property']['pp_user'];
             $paymentmethod['pp_password'] = $pp_password;
-            $this->PaymentMethod->delete_from_vault($paymentmethod);
+            //$this->PaymentMethod->delete_from_vault($paymentmethod);
 
             $this->Session->setFlash(__('Payment method deleted'), 'flash_good');
             $this->redirect(array('controller' => 'Users', 'action' => 'myaccount', 'payment_methods'));

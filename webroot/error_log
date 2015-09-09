@@ -360,3 +360,5 @@ error:14090086:SSL routines:SSL3_GET_SERVER_CERTIFICATE:certificate verify faile
 [06-Sep-2015 16:57:52 UTC] PHP Parse error:  syntax error, unexpected 'e' (T_STRING), expecting variable (T_VARIABLE) in /home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php on line 335
 [06-Sep-2015 16:58:26 UTC] PHP Parse error:  syntax error, unexpected 'e' (T_STRING), expecting variable (T_VARIABLE) in /home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php on line 335
 [06-Sep-2015 17:12:46 UTC] PHP Fatal error:  Call to a member function getStatus() on a non-object in /home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php on line 350
+[09-Sep-2015 16:34:05 UTC] PHP Fatal error:  Cannot use object of type stdClass as array in /home2/onepage3/public_html/app/Controller/PaymentsController.php on line 219
+[09-Sep-2015 16:37:26 UTC] PHP Fatal error:  Cannot use object of type stdClass as array in /home2/onepage3/public_html/app/Controller/PaymentsController.php on line 229

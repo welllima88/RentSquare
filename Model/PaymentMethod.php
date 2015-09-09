@@ -32,6 +32,7 @@ class PaymentMethod extends AppModel {
                 'rule' => array('notempty'),
             ),
         ),
+/*
         'first_name'       => array(
             'notempty' => array(
                 'rule' => array('notempty'),
@@ -42,6 +43,7 @@ class PaymentMethod extends AppModel {
                 'rule' => array('notempty'),
             ),
         ),
+*/
         'card_number'      => array(
             'cc'       => array(
                 'rule'    => array('cc'),

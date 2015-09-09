@@ -360,11 +360,6 @@ exit;
           $pay_rsl = $this->processBankAccountTransaction( $data );
        }
 
-       echo "<pre>";
-       print_r($pay_rsl);
-       echo "</pre>";
-exit;
-
        return $pay_rsl;
        
     }
@@ -382,7 +377,7 @@ exit;
        return $pay_rsl;
     }
 
-    protected function processBankAccountTransaction( $data )
+    protected function processBankAccountTransaction( $data, $as_partner = 0 )
     {
        $o_bat = new BankAccountTransaction();
        $o_bat->setType( BankAccountTransaction::$XS_BAT_TYPE_DEBIT );
@@ -394,7 +389,14 @@ exit;
        {
           $o_bat->setCustomField10( $data['rsq_vault_id'], $data['fee_amt'] );
        }
-       $o_bcpc = new BaseCommerceClient( RENTSQUARE_MERCH_USER, RENTSQUARE_MERCH_PASS, RENTSQUARE_MERCH_KEY );
+       if ( $as_partner == 0 )
+       {
+          $o_bcpc = new BaseCommerceClient( RENTSQUARE_MERCH_USER, RENTSQUARE_MERCH_PASS, RENTSQUARE_MERCH_KEY );
+       }
+       else
+       {
+          $o_bcpc = new BaseCommerceClient( RENTSQUARE_PARTNER_USER, RENTSQUARE_PARTNER_PASS, RENTSQUARE_PARTNER_KEY );
+       }
        $o_bcpc->setSandbox( BC_SANDBOXVALUE );
        $o_bat = $o_bcpc->processBankAccountTransaction( $o_bat );
        if( $o_bat->isStatus( BankAccountTransaction::$XS_BAT_STATUS_FAILED ) )
@@ -409,7 +411,7 @@ exit;
        }
     }
 
-    protected function processCreditCardTransaction( $data )
+    protected function processCreditCardTransaction( $data , $as_partner = 0)
     {
        $o_bct = new BankCardTransaction();
        $o_bct->setToken( $data['payer_vault_id'] );
@@ -419,7 +421,14 @@ exit;
        {
           $o_bct->setCustomField10( $data['rsq_vault_id'], $data['fee_amt'] );
        }
-       $o_bcpc = new BaseCommerceClient( RENTSQUARE_MERCH_USER, RENTSQUARE_MERCH_PASS, RENTSQUARE_MERCH_KEY );
+       if ( $as_partner == 0 )
+       {
+          $o_bcpc = new BaseCommerceClient( RENTSQUARE_MERCH_USER, RENTSQUARE_MERCH_PASS, RENTSQUARE_MERCH_KEY );
+       }
+       else
+       {
+          $o_bcpc = new BaseCommerceClient( RENTSQUARE_PARTNER_USER, RENTSQUARE_PARTNER_PASS, RENTSQUARE_PARTNER_KEY );
+       }
        $o_bcpc->setSandbox( BC_SANDBOXVALUE );
        $o_bct = $o_bcpc->processBankCardTransaction( $o_bct );
        if( $o_bct->isStatus( BankCardTransaction::$XS_BCT_STATUS_FAILED ) ) 

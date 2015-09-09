@@ -61,8 +61,14 @@ class Payment extends AppModel {
 
     }
 */
+    function delete_from_vault($paymentmethod){
+       // Just a placeholder for now - Don't see BC vault delete method, and really not important to do anyway, but
+       //  leaving the call there for now
 
+       //Set Vault Id
+       $vault_id = $paymentmethod['user_id'] . date('ymdHis',time());
+
+    }
 }
 
-;
 ?>

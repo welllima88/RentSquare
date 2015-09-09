@@ -44,7 +44,7 @@ class Paymethodutils {
 
     public function subscriberPayment( $merchantdata )
     {
-        $appResult  = $this->payer->process_subscription_payment( $data );      
+        $appResult  = $this->payer->process_subscription_payment( $merchantdata );      
 
         return json_encode($appResult);
     }

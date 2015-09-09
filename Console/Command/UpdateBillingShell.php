@@ -18,6 +18,7 @@ class UpdateBillingShell extends AppShell {
     public $uses = array('User','Payment','Billing','Unit','Property','FailedPayment','PaymentMethod');
 
     public function main(){
+Configure::write('debug',2);
       
       $this->out(date("Y-m-d H:i:s").' - Start');
       
@@ -171,7 +172,7 @@ class UpdateBillingShell extends AppShell {
         assign late fee
 
 
-       Data needed - payer_vault_id, total_amt .... rsq_valut_id & fee_amt  are for convenience fee only
+       Data needed - payer_vault_id, total_amt .... rsq_vault_id & fee_amt  are for convenience fee only
        pay_method defaults to ach if not set to CC
 
       */        
@@ -188,23 +189,21 @@ class UpdateBillingShell extends AppShell {
       else
       {
          // TODO Create email notification template and send email
-         die ( "Can not find RentSquare valut id - so not processing auto-payments" );
+         die ( "Can not find RentSquare vault id - so not processing auto-payments" );
       }
 
       $this->Billing->Behaviors->load('Containable');
-/*
       $billing_cycles = $this->Billing->find('all',array(
         'conditions'=>array('status !=' => 'paid'),
         'contain' => array('Unit'=>array('Property'))
       ));
-*/
 // Use this for testing as above query doesn't seem to find data due to contain??
-      $billing_cycles = $this->Billing->find('all',array('conditions'=>array('status' => 'late'),'contain'=> array('Unit'=>array('Property')) ));
-Configure::write('debug',2);
+      //$billing_cycles = $this->Billing->find('all',array('conditions'=>array('status' => 'late'),'contain'=> array('Unit'=>array('Property')) ));
+//Configure::write('debug',2);
     
       foreach($billing_cycles as $billing_cycle):
-debug($billing_cycle);
-exit;
+//debug($billing_cycle);
+//exit;
          $this->Billing->id = $billing_cycle['Billing']['id'];
          $total_payments = 0;
          $total_payments = $this->Billing->Payment->find('all',array('fields'=>'sum(Payment.amount) as total_payment', 'conditions' => array('Payment.billing_id' => $billing_cycle['Billing']['id'])));
@@ -276,77 +275,19 @@ exit;
                        $i++;
                     endforeach;
 
-/*
-CODE SEGS
-            if ( $paymentType == 'CC' )
-            {
-                //Payment is Credit Card
-                if ( $user['Property']['prop_pays_cc_fee'] )
-                {
-                    $amount = floatval($pay_amount);
-                    $amt_fee = $amount * floatval(CC_FEE);
-                    $amt_processed = floatval($amount) - $amt_fee;
-                    $total_bill = floatval($pay_amount);
-                } else
-                {
-                    $amount = floatval($pay_amount);
-                    $amt_fee = $amount * floatval(CC_FEE);
-                    $amt_processed = floatval($amount);
-                    $total_bill = floatval($amt_processed) + floatval($amt_fee);
-                }
-            } 
-            else
-            {
-                //Payment is ACH
-                if ( $user['Property']['prop_pays_ach_fee'] )
-                {
-                    $amount = floatval($pay_amount);
-                    $amt_fee = floatval(ACH_FEE);
-                    $amt_processed = floatval($amount) - $amt_fee;
-                    $total_bill = floatval($amount);
-                } else
-                {
-                    $amount = floatval($pay_amount);
-                    $amt_fee = floatval(ACH_FEE);
-                    $amt_processed = floatval($amount);
-                    $total_bill = floatval($amount) + floatval(ACH_FEE);
-                }
-            }
-
-             // Get Vault ID for RentSquare bank account
-            $this->loadModel('PaymentMethod');
-            $rsl = $this->PaymentMethod->getRsqVaultId();
-            if ( isset( $rsl['status'] ) && $rsl['status'] == 1 )
-            {
-               $rentsquare_vault_id = $rsl['vault_id'];
-            }
-
-
-          $paydata = array();
-          $paydata['total_amt'] = $amount;
-          $paydata['payer_vault_id'] = $property['Property']['vault_id'];
-          $paydata['pay_method'] = '';
-          $paydata['rsq_valut_id'] = '';
-          $paydata['fee_amt'] = '';
-
-          $jpayrsl = $this->payutil->rentPayment( $paydata );
-          $payrsl = json_decode($jpayrsl);
-
-          if(isset($payrsl) && !empty($payrsl) && $payrsl->status == 1)
-          {
-*/
+                    // NOTE: ttl amt and ttl bill are the same now due to 1 transaction thru BC, but keeping separate vars anyway
                     if($paymentType == 'CC')
                     {
                        $pay_method = 'CC';
                        $pay_fee = (floatval($pay_amount) * floatval(CC_FEE));
                        if($tenant['Property']['prop_pays_cc_fee'])
                        {
-                          $total_amount = floatval($pay_amount) - floatval($pay_fee);
+                          $total_amount = floatval($pay_amount);
                           $total_bill   = floatval($pay_amount);
                        }
                        else
                        {
-                          $total_amount = floatval($pay_amount);
+                          $total_amount = floatval($pay_amount) + floatval($pay_fee);
                           $total_bill = floatval($pay_amount) + floatval($pay_fee);
                        }
                        $amt_processed = floatval($total_amount);
@@ -357,12 +298,12 @@ CODE SEGS
                        $pay_fee = floatval(ACH_FEE);
                        if($tenant['Property']['prop_pays_ach_fee'])
                        {
-                          $total_amount = floatval($pay_amount) - floatval($pay_fee);
+                          $total_amount = floatval($pay_amount);
                           $total_bill = floatval($pay_amount);
                        }
                        else
                        {
-                          $total_amount = floatval($pay_amount);
+                          $total_amount = floatval($pay_amount) + floatval($pay_fee);
                           $total_bill = floatval($pay_amount) + floatval($pay_fee);
                        }
                        $amt_processed = floatval($total_amount);
@@ -372,11 +313,15 @@ CODE SEGS
                     $paydata['total_amt'] = $total_amount;
                     $paydata['payer_vault_id'] = $tenant['AutoPayment'][0]['vault_id'];
                     $paydata['pay_method'] = $pay_method;
-                    $paydata['rsq_valut_id'] = $rentsquare_valut_id;
+                    $paydata['rsq_vault_id'] = $rentsquare_vault_id;
                     $paydata['fee_amt'] = $pay_fee;
+
+                    Debugger::log( $paydata );
 
                     $jpayrsl = $this->payutil->rentPayment( $paydata );
                     $payrsl = json_decode($jpayrsl);
+
+                    Debugger::log( $payrsl );
           
                     if(isset($payrsl) && !empty($payrsl) && $payrsl->status == 1)
                     {
@@ -394,6 +339,7 @@ CODE SEGS
                        $auto_payment['Payment']['billing_id'] = $billing_cycle['Billing']['id'];
                        $auto_payment['Payment']['unit_id'] = $billing_cycle['Billing']['unit_id'];
                        $auto_payment['Payment']['amount'] = $tenant['AutoPayment'][0]['amount'];
+                       $auto_payment['Payment']['amt_fee'] = $pay_fee;
                        $auto_payment['Payment']['amt_processed'] = $amt_processed;
                        $auto_payment['Payment']['total_bill'] = $total_bill;
 

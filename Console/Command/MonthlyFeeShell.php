@@ -42,23 +42,19 @@ class MonthlyFeeShell extends AppShell {
           $paydata['total_amt'] = $amount;
           $paydata['payer_vault_id'] = $property['Property']['vault_id'];
 
-          if ($debug) { print_r($paydata); }
+          Debugger::log( $paydata );
 
           $this->payutil = new Paymethodutils(new Paymethodbasecommerce);
           $jpayrsl = $this->payutil->subscriberPayment( $paydata );
           $payrsl = json_decode($jpayrsl);
   		      
-          if ($debug)
-          {
-             print_r($payrsl);
-             print_r($payrsl->status);
-          }
+          Debugger::log( $payrsl );
 
 	  if(isset($payrsl) && !empty($payrsl) && $payrsl->status == 1)
           {
              $this->out('Monthly Fee Successful Charged for Property #'.$property['Property']['id'].' - '.$property['Property']['name']);
              //Send Payment Success Email
-             $transactionid = $payrsl->info[0];
+             $transactionid = $payrsl->info;
              $email_data['manager_name'] = $property['Manager']['first_name'] . ' ' . $property['Manager']['last_name'];
              $email_data['property_name']=$property['Property']['name'];
              $email_data['amount'] = $amount;
@@ -80,6 +76,7 @@ class MonthlyFeeShell extends AppShell {
        	     $monthly_fee['Payment']['unit_id'] = 0;
        	     $monthly_fee['Payment']['amount'] = $amount;
        	     $monthly_fee['Payment']['is_fee'] = 0;
+       	     $monthly_fee['Payment']['amt_fee'] = 0;
        	     $monthly_fee['Payment']['amt_processed'] = floatval($amount);
        	     $monthly_fee['Payment']['total_bill'] = floatval($amount);
         			

@@ -43,7 +43,7 @@ foreach($numbers as $number)
             <th><?php echo $this->Paginator->sort('User.first_name','Resident');?></th>
             <th><?php echo $this->Paginator->sort('Payment.amt_processed','Total');?></th>
             <th><?php echo $this->Paginator->sort('Payment.amount','Toward Rent');?></th>
-            <th><?php echo $this->Paginator->sort('Payment.is_fee','Fee');?></th>
+            <th><?php echo $this->Paginator->sort('Payment.amt_fee','Fee Amt');?></th>
             <th><?php echo $this->Paginator->sort('Payment.created','Date');?></th>
             <th><?php echo $this->Paginator->sort('Payment.status','Status');?></th>
             <th><?php echo $this->Paginator->sort('Payment.type','Type');?></th>
@@ -57,7 +57,7 @@ foreach($numbers as $number)
             <td><?php echo $payment['User']['first_name'] . ' ' . $payment['User']['last_name']; ?>&nbsp;</td>
             <td><?php echo $this->Number->currency( $payment['Payment']['amt_processed'] ,'USD'); ?>&nbsp;</td>
             <td><?php echo $this->Number->currency( $payment['Payment']['amount'],'USD'); ?>&nbsp;</td>
-            <td><?php if($payment['Payment']['is_fee']) echo 'Yes'; else echo 'No'; ?>&nbsp;</td>
+            <td><?php echo $this->Number->currency( $payment['Payment']['amt_fee'],'USD'); ?>&nbsp;</td>
             <td><?php echo date('m/d/Y',strtotime($payment['Payment']['created'])); ?>&nbsp;</td>
             <td><?php echo $payment['Payment']['status']; ?>&nbsp;</td>
             <td><?php echo $payment['Payment']['type']; ?>&nbsp;</td>
