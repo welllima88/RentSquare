@@ -186,6 +186,10 @@ class UsersController extends AppController {
                 // If Copy Property Ownership is checked, copy values
                 foreach ( $data['Property'] as $key => $prop )
                 {
+                    //Default a couple options
+                    $data['Property'][$key]['before_due_reminder'] = '1';
+                    $data['Property'][$key]['before_due_days'] = '0';
+
                     //Set fee_due_day
                     $data['Property'][ $key ]['fee_due_day'] = date('j');
                     $data['Property'][ $key ]['active'] = '1';
@@ -249,6 +253,17 @@ class UsersController extends AppController {
                         $paymentmethod['email'] = $data['User']['email'];
                         $paymentmethod['user_id'] = '874'; //Random - only used to gen vault id
                         list($banksave_status, $banksave_result) = $this->payutil->addBankToVault($paymentmethod);
+
+                        // Log bc results
+                        $bcr = array();
+                        $bcr['users_id'] = $paymentmethod['user_id'];
+                        $bcr['result_code'] = $banksave_status;
+                        $bcr['result_string'] = json_encode($banksave_result);
+                        $bcr['transtype'] = "add Bank Acct";
+                        $this->loadModel('Bcresult');
+                        $this->Bcresult->create();
+                        $this->Bcresult->save($bcr);
+
                         if ( $banksave_status == 1 )
                         {
                             $data['Property'][ $key ]['vault_id'] = $banksave_result;
@@ -303,6 +318,16 @@ class UsersController extends AppController {
 
                     $bcrsl = $this->payutil->submitMerchApp( $data );
                     $this->log('Merchant App Results: ' . json_encode($bcrsl), 'debug' );
+
+                    // Log bc results
+                    $bcr = array();
+                    $bcr['users_id'] = $newUserId;
+                    $bcr['result_code'] = $bcrsl[0];
+                    $bcr['result_string'] = json_encode($bcrsl);
+                    $bcr['transtype'] = "add Merch App";
+                    $this->loadModel('Bcresult');
+                    $this->Bcresult->create();
+                    $this->Bcresult->save($bcr);
 
                     if ($bcrsl[0])
                     {

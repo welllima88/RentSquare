@@ -75,3 +75,14 @@
 [09-Sep-2015 11:29:27 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
 [09-Sep-2015 11:35:57 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
 [09-Sep-2015 11:38:50 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[11-Sep-2015 10:25:43 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[11-Sep-2015 11:01:58 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[11-Sep-2015 12:01:56 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[11-Sep-2015 22:16:31 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[11-Sep-2015 22:23:03 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[12-Sep-2015 06:39:13 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[12-Sep-2015 06:48:10 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[12-Sep-2015 06:51:52 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[17-Sep-2015 12:31:56 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[17-Sep-2015 12:32:25 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[22-Sep-2015 17:34:22 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36

@@ -90,6 +90,12 @@
 <?php
   //Start Property Manager Sign Up Form
 	echo $this->Form->create('User', array('action' => 'propertymanager'));
+/*
+                                               'inputDefaults' => array( 'error' => array(
+                                                       'attributes' => array( 
+                                                           'wrap' => 'div', 'class' => 'formError formErrorContent'
+                                )))));
+*/
 ?>
 	
 	<!-- *****************************************************************
@@ -134,7 +140,7 @@
         	echo $this->Form->input('User.zip', array('label' => 'Zip<br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'div'=>array('class'=>'span4'),'class'=>'validate[required,custom[integer],minSize[5]]','data-errormessage-custom-error'=>"* Zip Code can only be numbers"));
         	echo '</div><!-- .row -->';
         	echo '<div class="row-fluid">';
-        	echo $this->Form->input('User.phone', array('label' => 'Phone<br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'div'=>array('class'=>'span4'),'class'=>'validate[required,minSize[10]]'));
+        	echo $this->Form->input('User.phone', array('label' => 'Phone<br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'div'=>array('class'=>'span4'),'class'=>'validate[required,custom[phone],custom[phone2],minSize[10]]'));
         	echo $this->Form->input('User.ssn', array('label' => 'SSN <a class="pm_tooltip" href="#" data-toggle="tooltip" title="RentSquare requires your social security number to verify your identity in order to accept electronic payments. It will remain private and secure."><i class="icon-question-sign">  </i></a><br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'div'=>array('class'=>'span4'),'class'=>'validate[required,minSize[9]]'));
         	echo $this->Form->input('User.dob', array('label' => 'DOB (MM/DD/YYYY)<br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'div'=>array('class'=>'span4'),'class'=>'validate[required,custom[usadate]]'));
 /*

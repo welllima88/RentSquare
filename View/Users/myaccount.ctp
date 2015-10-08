@@ -12,7 +12,7 @@
         <li <?php if($section == 'tenant_billing  ') echo 'class="current"'; ?> id="tenant_billing_li"><a id="tenant_billing" href="#tenant_billing" style="display: block;">Tenant Billing Settings</a></li>
       <?php endif; ?>
       <li <?php if($section == 'notifications') echo 'class="current"'; ?> id="notifications_li"><a id="notifications" href="#notifications" style="display: block;">Notifications</a></li>
-      <li><a id="delete" href="#delete" style="display: block;">Delete My Account</a></li>
+      <li id="delete_li"><a id="delete" href="#delete" style="display: block;">Delete My Account</a></li>
     </ul>
 </div><!-- .myaccount_left -->
 <div class="myaccount_right">
@@ -256,7 +256,7 @@
     	?>
     </div><!-- .notifications_content -->
       
-    <div class="delete_content  <?php if($section != 'delete') echo 'hide '; ?> my_account_content">
+    <div id="delete_div" class="delete_content  <?php if($section != 'delete') echo 'hide '; ?> my_account_content">
        <h1 class="ma_title">Delete My Account</h1>
                 <?php if ($user['type'] == USER_TYPE_TENANT || $user['type'] == USER_TYPE_ADMIN ) { ?>
                 <?php           
@@ -283,7 +283,9 @@
             <h4 class="modal-title">You have unsaved changes.</h4>
           </div>
           <div class="modal-body">
-            <p>You have not saved your changes. Are you sure you want to continue without saving? Please remain on this page and click Save if you would like to keep your changes.</p>
+            <p>
+               You have not saved your changes. To continue without saving click Discard Changes. To save and continue click Save Changes.
+            </p>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-confirmleave" id="myacctmodaldismiss">Discard Changes</button>
@@ -318,6 +320,25 @@ jQuery('.confirm').change(function(){
   shouldConfirm = true;
 });
 
+//jQuery('#header').find('span:first').on('click', function(e) {   // Use this in new func to include hdr stuff, but not worth effort?
+
+jQuery('.menu_item').children().on('click', function(e) {
+
+   if(shouldConfirm) {
+      currclicked =  $(this).attr('id');
+      e.preventDefault();
+      $('#confirmModal').modal('show');
+   }
+
+});
+
+window.onbeforeunload = function() {
+   if(shouldConfirm) {
+       //$('#confirmModal').modal('show');
+       return "You have not saved your changes. To save your changes, click 'Stay on this Page'.  Then to save and continue, click 'Save'.";
+   }
+}
+
 jQuery(document).ready( 
 
     function () { 
@@ -332,15 +353,7 @@ jQuery(document).ready(
 
         jQuery('#my_account_links').children().click(function() { 
            currclicked = $(this).attr('id');
-//alert('confirm = ' + shouldConfirm);
            if(shouldConfirm) {
-               // Doesn't work as buttons end up with inverse functionality
-               //window.location='http://rentsquaredev.com/Users/myaccount/tenant_billing';
-
-               // Doesn't work as bind doesn't initiate window right away (on click)
-               //$(window).bind('beforeunload', function() {
-               //    return "You have not saved your changes. Are you sure you want to continue without saving? Please remain on this page and click Save if you would like to keep your changes.";
-               //});
                // Set which link was clicked as we need info later
                var intlinkclick = $(this).attr('id');
                $('#whichlink').removeClass();
@@ -353,12 +366,26 @@ jQuery(document).ready(
            }
         });
 
+    // since we do onbeforeunload as well, need to unset shouldconfirm when modal 'save' button hit
+    $('.btn-success').on('click', function() {
+       shouldConfirm = false;
+    });
+
     // When they say its ok to ignore changes
     $('.btn-confirmleave').click(function(e){
         shouldConfirm = false;
         $('#confirmModal').modal('hide');
-        var anchor = currclicked.substr(0,currclicked.length-3);
-        window.location.href='http://rentsquaredev.com/Users/bounce/' + anchor;
+        // If clicked on menu icon, let them go there, else bounace back to myaccount with proper anchor
+        if (currclicked.substr(0,4) != 'hdr_') {
+           var anchor = currclicked.substr(0,currclicked.length-3);
+           window.location.href='http://rentsquaredev.com/Users/bounce/' + anchor;
+        }
+        else
+        {
+           var thislink = currclicked.substr(4);
+           if ( thislink == 'Conversations' ) { thislink += '/inbox'; }
+           window.location.href='http://rentsquaredev.com/' + thislink;
+        }
     });
 
     // When they don't want to leave changes unsaved after clicking on an internal link
@@ -376,8 +403,26 @@ jQuery(document).ready(
         }
 
         $('#my_account_links').children('.current').removeClass('current').siblings('#'+lastclicked_li).addClass('current');
-        $('#'+currclicked).hide();
-        $('#'+lastclicked).show();
+
+        if (currclicked.substr(0,4) == 'hdr_') {
+           var hashloc = lastclicked.replace("_li","");
+           hashloc = hashloc.replace("_div","");
+        }
+        else
+        {
+           // Instead of going back to prev tab, we auto submit that tab's form and reload to new tab they clicked
+           var hashloc = currclicked.replace("_li","");
+           hashloc = hashloc.replace("_div","");
+        }
+        //$('#' + lastclicked).children('form').attr('action', function( i, val) { return val + '#' + currclicked.substr(0,currclicked.length-4); });
+        $('#' + lastclicked).children('form').attr('action', function( i, val) { return val + '#' + hashloc; });
+
+        //console.log( $('#' + lastclicked).children('form').attr('action') );
+        var formtosubmit = $('#' + lastclicked).children('form').attr('id');
+        // override shouldconfirm var so the onbeforeunload event will be bypassed as we already are dealing with it here
+        //  wiht a detected click
+        shouldConfirm = false;
+        $('#' + formtosubmit).submit();
     });
 
     // Deactivate user and logoff

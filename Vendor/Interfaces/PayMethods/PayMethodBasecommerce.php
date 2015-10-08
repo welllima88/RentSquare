@@ -38,7 +38,14 @@ class Paymethodbasecommerce implements Paymethodinterface {
 
        $o_billing_address = new Address( Address::$XS_ADDRESS_NAME_BILLING );
        $o_billing_address->setLine1( $paydata['billing_address1'] );
-       if( ! empty( $paydata['billing_address2'] ) ) { $o_billing_address->setLine2( $paydata['billing_address2'] ); }
+       if( ! empty( $paydata['billing_address2'] ) ) 
+       { 
+          $o_billing_address->setLine2( $paydata['billing_address2'] ); 
+       }
+       else
+       { 
+          $o_billing_address->setLine2( " " ); 
+       }
        $o_billing_address->setCity( $paydata['billing_city'] );
        if( ! empty( $paydata['billing_state_id'] ) )
        {
@@ -95,7 +102,15 @@ class Paymethodbasecommerce implements Paymethodinterface {
 
        $o_billing_address = new Address( Address::$XS_ADDRESS_NAME_BILLING );
        $o_billing_address->setLine1( $paydata['billing_address1'] );
-       if( ! empty( $paydata['billing_address2'] ) ) { $o_billing_address->setLine1( $paydata['billing_address2'] ); }
+       if( ! empty( $paydata['billing_address2'] ) )
+       { 
+          $o_billing_address->setLine2( $paydata['billing_address2'] ); 
+       }
+       else
+       { 
+          $o_billing_address->setLine2( " " ); 
+       }
+
        $o_billing_address->setCity( $paydata['billing_city'] );
        if( ! empty( $paydata['billing_state_id'] ) )
        {
@@ -387,7 +402,8 @@ exit;
        $o_bat->setAmount( $data['total_amt'] );
        if ( isset($data['fee_amt']) && ! empty($data['fee_amt']) && isset($data['rsq_vault_id']) && ! empty($data['rsq_vault_id']) )
        {
-          $o_bat->setCustomField10( $data['rsq_vault_id'], $data['fee_amt'] );
+          $cf10val = $data['rsq_vault_id'] . "," . $data['fee_amt'];
+          $o_bat->setCustomField10( $cf10val );
        }
        if ( $as_partner == 0 )
        {
@@ -413,13 +429,15 @@ exit;
 
     protected function processCreditCardTransaction( $data , $as_partner = 0)
     {
+       Debugger::log($data);
        $o_bct = new BankCardTransaction();
        $o_bct->setToken( $data['payer_vault_id'] );
        $o_bct->setType(BankCardTransaction::$XS_BCT_TYPE_SALE);
        $o_bct->setAmount( $data['total_amt'] );
        if ( isset($data['fee_amt']) && ! empty($data['fee_amt']) && isset($data['rsq_vault_id']) && ! empty($data['rsq_vault_id']) )
        {
-          $o_bct->setCustomField10( $data['rsq_vault_id'], $data['fee_amt'] );
+          $cf10val = $data['rsq_vault_id'] . "," . $data['fee_amt'];
+          $o_bct->setCustomField10( $cf10val );
        }
        if ( $as_partner == 0 )
        {
@@ -430,6 +448,10 @@ exit;
           $o_bcpc = new BaseCommerceClient( RENTSQUARE_PARTNER_USER, RENTSQUARE_PARTNER_PASS, RENTSQUARE_PARTNER_KEY );
        }
        $o_bcpc->setSandbox( BC_SANDBOXVALUE );
+
+       Debugger::log($o_bct);
+       Debugger::log($o_bcpc);
+
        $o_bct = $o_bcpc->processBankCardTransaction( $o_bct );
        if( $o_bct->isStatus( BankCardTransaction::$XS_BCT_STATUS_FAILED ) ) 
        {

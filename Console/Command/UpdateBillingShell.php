@@ -149,7 +149,7 @@ Configure::write('debug',2);
          endif; //if unit has resident
       endforeach; //foreach unit
       $this->out(date("Y-m-d H:i:s") . ' - All Unit Loop Complete');
-  		
+
       /*
   	Get all open Billing Cycles not paid (unpaid,due,late)
            if unpaid

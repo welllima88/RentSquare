@@ -154,7 +154,7 @@
           	echo '</div><!-- #freq_weekly -->';
         ?>
     </div><!-- .form_input -->
-    <div class="form_input">
+    <div class="form_input" id="add_free_rent_div">
       <label class="free_rent_label">Free Rent</label>
       <div id="free_rent_section">
          
@@ -237,6 +237,28 @@
 
 
 </div><!-- .edit_unit -->
+
+    <!-- Modal for confirming unsaved changes-->
+    <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only"></span></button>
+            <br>
+            <h4 class="modal-title">You have unsaved changes.</h4>
+          </div>
+          <div class="modal-body">
+            <p>
+               You have not saved your changes. To continue without saving click Discard Changes. To save and continue click Save Changes.
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-confirmleave" id="myacctmodaldismiss">Discard Changes</button>
+            <button type="button" class="btn btn-success btn-confirmstay">Save Changes</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 
 
 <script>
@@ -366,6 +388,9 @@ jQuery(function(){
          default:
          break;
        }
+
+       // Any un-added free-rents sitting there when a change occurs need to be removed as data select is wrong dates now
+       $('.add_free_rent_item').hide();
    
        var unitId = '<?php echo $unit["Unit"]["id"]; ?>';
       
@@ -396,6 +421,7 @@ jQuery(function(){
     {
        return false;
     }
+
   });
   
   //Free Rent
@@ -628,7 +654,8 @@ switch(jQuery('#UnitBillingFrequency').val()){
 
 window.onbeforeunload = function() {
    if(shouldConfirm) {
-       return "You have not saved your changes. Are you sure you want to continue without saving? Please remain on this page and click Save if you would like to keep your changes.";
+       //$('#confirmModal').modal('show');
+       return "You have not saved your changes. To save your changes, click 'Stay on this Page'.  Then to save and continue, click 'Save'.";
    }
 }
 jQuery('#UnitRent,#UnitLeaseStart,#UnitLeaseEnd,#UnitBillingFrequency,#UnitWeeklyDay,#UnitWeeklyDay,#UnitYearlyDate,.fee_name,.dollar_input,.UnitFreeRent,.free_rent_amount').change(function(){

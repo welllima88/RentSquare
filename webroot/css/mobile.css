@@ -224,3 +224,10 @@ input[type="submit"].submit_payment_button{
   font-size: 30px;
   margin: 10px 0;
 }
+
+/*
+ * fix for payment select zoom
+ * */
+.ui-select .ui-btn select{
+   font-size: 50px;
+}

@@ -66,8 +66,9 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	       ?>
 	<div id="container">
 		<div id='header'>
-			<div class='center'>
+			<div class='center'><span id="hdr_Users">
 				<?php echo $this->Html->link($this->Html->image('rslogo.png', array('id' => 'logo')), array('controller' => 'Users'), array('escape' => false)); ?>
+                                </span>
 				<div id='main-nav'>
 			 		<?php 
 			 		if($user['type'] == USER_TYPE_MANAGER):

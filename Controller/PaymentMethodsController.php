@@ -111,6 +111,17 @@ class PaymentMethodsController extends AppController {
             $paymentmethod['phone'] = $user['User']['phone'];
             $paymentmethod['email'] = $user['User']['email'];
             list($cardsave_status, $cardsave_result) = $this->payutil->addCardToVault($paymentmethod);
+
+            // Log bc results
+            $bcr = array();
+            $bcr['users_id'] = $this->Auth->user('id');
+            $bcr['result_code'] = $cardsave_status;
+            $bcr['result_string'] = json_encode($cardsave_result);
+            $bcr['transtype'] = "paymeth add Card to Vault";
+            $this->loadModel('Bcresult');
+            $this->Bcresult->create();
+            $this->Bcresult->save($bcr);
+
             if ( $cardsave_status == 1 )
             {
                 $this->log('Success: Vault add card for tenant - token = ' . $cardsave_result, 'debug' );
@@ -196,6 +207,17 @@ class PaymentMethodsController extends AppController {
             $paymentmethod['usertype'] = $user['User']['type'];		// Use BC Partner creds if RentSquare admin user (type = 2)
             list($banksave_status, $banksave_token) = $this->payutil->addBankToVault($paymentmethod);
             $this->log("Success: Vault add bank for tenant status = $banksave_status - token = $banksave_token", 'debug' );
+
+            // Log bc results
+            $bcr = array();
+            $bcr['users_id'] = $this->Auth->user('id');
+            $bcr['result_code'] = $banksave_status;
+            $bcr['result_string'] = json_encode($banksave_token);
+            $bcr['transtype'] = "paymeth add Bank to Vault";
+            $this->loadModel('Bcresult');
+            $this->Bcresult->create();
+            $this->Bcresult->save($bcr);
+
             if ( $banksave_status )
             {
                 $data['PaymentMethod']['vault_id'] = $banksave_token;

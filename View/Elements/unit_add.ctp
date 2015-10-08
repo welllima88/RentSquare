@@ -201,6 +201,7 @@ jQuery('#add_unit_modal').on('show', function () {
 });
 
 //Billing Frequency Additional Information
+/*
 jQuery('#UnitBillingFrequency').change(function(){
   jQuery('.freq_input').hide();
   switch(jQuery(this).val()){
@@ -222,6 +223,70 @@ jQuery('#UnitBillingFrequency').change(function(){
     break;
   }
 });
+*/
+
+  //Billing Frequency Additional Information
+  jQuery('#UnitBillingFrequency').change(function(){
+    var retVal = confirm("This will delete all Free Rents.  You will need to re-add them based on new billing periods");
+    if (retVal == true)
+    {
+       jQuery('.freq_input').hide();
+       switch(jQuery(this).val()){
+         case '2':
+           jQuery('#freq_weekly').fadeIn();
+         break;
+         case '3':
+           jQuery('#freq_twice_month').fadeIn();
+         break;
+         case '4':
+           jQuery('#freq_monthly').fadeIn();
+         break;
+         case '5':
+         case '6':
+         case '7':
+          jQuery('#freq_yearly').fadeIn();
+         break;
+         default:
+         break;
+       }
+
+       // Any un-added free-rents sitting there when a change occurs need to be removed as data select is wrong dates now
+       $('.add_free_rent_item').hide();
+   
+       var unitId = '<?php echo $unit["Unit"]["id"]; ?>';
+      
+       // Delete free_rent items
+       jQuery.ajax({
+          url: '/Units/deleteUnitFreeRents/' + unitId,
+          failure: function(data) {
+              alert('Delete Free Rent failed. Please contact site admin.');
+          },
+          success: function(data){
+             // Hide free rents we just deleted server side
+             jQuery('[class^="free_rent_item"]').each(function(){
+                console.log(jQuery(this).find('.free_rent_period').text());
+                $freeRentDate = new Date(jQuery(this).find('.free_rent_period').text()).getTime();
+                console.log( $freeRentDate );
+                $todaysDate = new Date().getTime();
+                if ($todaysDate < $freeRentDate)		//GSW Aug 27 -  if no freerentdate, hide as well??
+                {
+                   jQuery(this).hide();
+                }
+             });
+          }
+       });
+
+       return true;
+    }
+    else
+    {
+       return false;
+    }
+
+  });
+
+  
+  //Free Rent
 
 
 function free_rent(){

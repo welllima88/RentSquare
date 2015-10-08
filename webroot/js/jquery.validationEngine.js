@@ -146,6 +146,17 @@
                     "regex": /^([\+][0-9]{1,3}[\ \.\-])?([\(]{1}[0-9]{2,6}[\)])?([0-9\ \.\-\/]{3,20})((x|ext|extension)[\ ]?[0-9]{1,4})?$/,
                     "alertText": "* Invalid phone number"
                 },
+                "phone2": {
+                    "func": function(field){
+                        var phonenbr = field.val();
+                        if (phonenbr.substr(0,1) == "0" || phonenbr.substr(0,1) == "1")
+                        {
+                           return false;
+                        }
+                        return true;
+                    },
+                    "alertText": "* Invalid phone number"
+                },
                 "email": {
                     // HTML5 compatible email regex ( http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#    e-mail-state-%28type=email%29 )
                     "regex": /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,

@@ -3,7 +3,7 @@
   $mainCount = $openMaint + $pendingMaint;
   if($mainCount > 0){ $mainCount = ' <span class="unread_count maintenance_count">'. $mainCount . '</span>'; } else { $mainCount = ''; }
 ?>
-	<div class="menu_item">
+	<div class="menu_item"><span id="hdr_Users">
       <?php echo $this->ExHtml->link('
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"  x="0px" y="0px" width="100px" height="100px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
         <path class="svg_initial" d="M50.287,97.464c-26.44,0-47.951-21.512-47.951-47.95c0-26.439,21.511-47.952,47.951-47.952  c26.44,0,47.95,21.512,47.95,47.952C98.237,75.952,76.728,97.464,50.287,97.464z M50.287,9.011  c-22.332,0-40.501,18.169-40.501,40.502c0,22.332,18.169,40.501,40.501,40.501c22.333,0,40.501-18.17,40.501-40.501  C90.788,27.18,72.62,9.011,50.287,9.011z"/>
@@ -21,15 +21,17 @@
         <path class="svg_initial" d="M62.621,28.305c-0.896-0.518-1.205-1.665-0.688-2.562l2.541-4.401c0.516-0.896,1.664-1.2,2.561-0.683l0,0  c0.898,0.513,1.206,1.664,0.688,2.561l-2.54,4.397C64.666,28.514,63.521,28.822,62.621,28.305L62.621,28.305z"/>
       </svg>
       Dashboard', array('controller' => 'Users'),array('escape'=>false)); ?>
+   </span>
   </div><!-- .menu_item -->
-  <div class="menu_item">
+  <div class="menu_item"><span id="hdr_Payments">
       <?php echo $this->ExHtml->link('
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Camada_1" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
         <path class="svg_initial" d="M100,23.375C100,19.854,97.146,17,93.625,17H6.375C2.854,17,0,19.854,0,23.375v52.25C0,79.146,2.854,82,6.375,82h87.25  c3.521,0,6.375-2.854,6.375-6.375V23.375z M6.438,21h87.187C94.769,21,96,22.231,96,23.375V29H4v-5.625C4,22.231,5.295,21,6.438,21z   M93.625,77H6.438C5.295,77,4,76.284,4,75.141V44h92v31.141C96,76.284,94.769,77,93.625,77z"/>
       </svg>
       Payments', array('controller' => 'Payments', 'action' => 'index'),array('escape'=>false)); ?>
+  </span>
   </div><!-- .menu_item -->
-  <div class="menu_item">
+  <div class="menu_item"><span id="hdr_MaintenanceTickets">
 	    <?php echo $this->ExHtml->link($mainCount.'
 	     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
         <g>
@@ -38,8 +40,9 @@
         </g>
         </svg>
         Maintenance', array('controller' => 'MaintenanceTickets', 'action' => 'index'),array('escape'=>false));?>
+        </span>
 	</div><!-- .menu_item -->
-  <div class="menu_item">
+  <div class="menu_item"><span id="hdr_Conversations">
 	    <?php echo $this->ExHtml->link($msgCount.'
 	    <svg class="mail" version="1.0"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
       	 width="100px" height="75.422px" viewBox="0 0 100 75.422" enable-background="new 0 0 100 75.422" xml:space="preserve">
@@ -50,4 +53,5 @@
       	c1.24,0,2.421-0.438,3.161-1.182L88.722,6.979H11.849L11.849,6.979z"/>
       </svg>
       Messages', array('controller' => 'Conversations', 'action' => 'inbox'), array('escape' => false));?>
+  </span>
   </div><!-- .menu_item -->

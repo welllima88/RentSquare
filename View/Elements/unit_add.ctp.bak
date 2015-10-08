@@ -69,7 +69,7 @@ echo '<div class="form_input">';
         echo '<div class="unit_charges_title"><span class="fee_title_name">Name</span><span class="fee_title_amount">Amount</span><span class="fee_title_frequency">Frequency</span><span>One Time Fee Date</span></div><!-- .unit_charges_title -->';
         echo '<div class="form_input">';
           	echo '<label for="UnitRent">Base Rent</label><div class="input-prepend"><span class="add-on"><i class="icon">$</i></span>';
-          	echo $this->Form->input('Unit.rent', array('placeholder' => 'Rent','class'=>'dollar_input'));
+          	echo $this->Form->input('Unit.rent', array('placeholder' => 'Rent','class'=>'dollar_input','type'=>'text','pattern'=>'[0-9]+([\,|\.][0-9]+)?','step'=>'0.01'));
           	echo $this->Form->input('Unit.rent_freq', array('type'=>'select','disabled'=>true,'options'=>array(0=>'Recurring',1=>'One Time')));
           	echo '</div>';
         echo '</div><!-- .form_input -->';
@@ -97,6 +97,10 @@ echo '<div class="form_input">';
 </div>
 
 <script>
+
+$( document ).ready(function() {
+});
+
 var $strNum = 0;
 var $free_rent_num = 0;
 // Add Fee Button Click adds new row for Unit Fee
@@ -152,10 +156,21 @@ jQuery(function() {
     jQuery('#UnitLeaseStart,#UnitLeaseEnd').change(function(){
       jQuery('#free_rent_block').find('.add_free_rent_item').remove();
     });
+
 });
 
 // Set datepicker jQuery UI plugin on add unit form
 jQuery('#add_unit_modal').on('show', function () {
+    //gw Modify fields to remove unwanted chars after user leaves focus
+   jQuery('#UnitSquareFeet').on('change',function(e0){
+            jQuery(this).val(jQuery(this).val().replace(/\D/g,''));
+            return true;
+   });
+   jQuery('#UnitRent').on('change',function(e1){
+            jQuery(this).val(jQuery(this).val().replace(/,/g,''));
+            return true;
+   });
+
   jQuery('.datepicker').datepicker({
       changeMonth: true,
       changeYear: true
@@ -182,6 +197,7 @@ jQuery('#add_unit_modal').on('show', function () {
     	   }
     
     });
+
 });
 
 //Billing Frequency Additional Information
@@ -360,18 +376,25 @@ function free_rent(){
   
   for(var i=0; i < $rent_range_options.length; i++){
     $only_end_dt = $rent_range_options[i].split("-");
-    $select_statement = $select_statement + '<option value="' + $rent_range_options[i] + '">' + $only_end_dt[1].trim() + '</option>';
+    $select_statement = $select_statement + '<option value="' + $rent_range_options[i] + '">' + $only_end_dt[0].trim() + '</option>';
   }
   $select_statement = $select_statement + '</select>';
   
-  $select_statement = $select_statement + '<?php  echo '<div class="input-prepend"><span class="add-on"><i class="icon">$</i></span>' . trim($this->Form->input('FreeRent.99.amount', array('placeholder' => 'Amount', 'class' => 'free_rent_amount' ))).'</div>'; echo trim($this->Form->hidden('FreeRent.99.billing_start',array('class' => 'free_rent_start','value'=>''))); echo trim($this->Form->hidden('FreeRent.99.billing_end',array('class' => 'free_rent_end','value'=>''))); ?></div>';
-  
+  $select_statement = $select_statement + '<?php  echo '<div class="input-prepend"><span class="add-on"><i class="icon">$</i></span>' . trim($this->Form->input('FreeRent.99.amount', array('type'=>'text','pattern'=>'[0-9]+([\,|\.][0-9]+)?','step'=>'0.01','placeholder' => 'Amount', 'class' => 'free_rent_amount' ))).'</div>'; echo trim($this->Form->hidden('FreeRent.99.billing_start',array('class' => 'free_rent_start','value'=>''))); echo trim($this->Form->hidden('FreeRent.99.billing_end',array('class' => 'free_rent_end','value'=>''))); ?></div>';
+
   $select_statement = $select_statement.replace(/\[99\]/g,'['+ $num + ']');
   $select_statement = $select_statement.replace(/FreeRent99/g,'Fee'+$num); 
   
   jQuery('#free_rent_block').fadeIn().append($select_statement);
   //jQuery('#Fee'+$num+'BillingStart').val($start_end_array[0]);
   //jQuery('#Fee'+$num+'BillingEnd').val($start_end_array[1]);
+
+  // gw 2014-11-12  - get rid of commas in free rent field
+  // Had to modify field to be type text with proper 'step', and I set a pattern as well
+  jQuery('#Fee'+$num+'Amount').on('change',function(){
+           jQuery(this).val(jQuery(this).val().replace(/,/g,''));
+           return true;
+  });
   
   jQuery('.UnitFreeRent').change(function(){
       //console.log(jQuery(this).val());

@@ -87,6 +87,17 @@ class PropertiesController extends AppController {
                 $paymentmethod['phone'] = $data['User']['phone'];
                 $paymentmethod['email'] = $data['User']['email'];
                 list($banksave_status, $banksave_result) = $this->payutil->addBankToVault($paymentmethod);
+
+                // Log bc results
+                $bcr = array();
+                $bcr['users_id'] = $this->Auth->user('id');
+                $bcr['result_code'] = $banksave_status;
+                $bcr['result_string'] = json_encode($banksave_result);
+                $bcr['transtype'] = "property add Bank Acct";
+                $this->loadModel('Bcresult');
+                $this->Bcresult->create();
+                $this->Bcresult->save($bcr);
+
                 if ( $banksave_status == 1 )
                 {
                     $data['Property']['vault_id'] = $banksave_result;
@@ -167,7 +178,8 @@ class PropertiesController extends AppController {
             if ( $this->Property->save($data, true, array('before_due_days', 'before_due_reminder', 'invoice_day', 'day_rent_late', 'auto_late_fee', 'auto_late_fee_amt')) )
             {
                 $this->Session->setFlash('Tenant Billing Settings updated successfully!', 'flash_good');
-                $this->redirect(array('controller' => 'Users', 'action' => 'myaccount', 'tenant_billing'));
+                //$this->redirect(array('controller' => 'Users', 'action' => 'myaccount', 'tenant_billing'));
+                $this->redirect(array('controller' => 'Users', 'action' => 'myaccount'));
             }
         }
     }
@@ -181,7 +193,8 @@ class PropertiesController extends AppController {
             if ( $this->Property->save($data, true, array('prop_pays_ach_fee', 'prop_pays_cc_fee')) )
             {
                 $this->Session->setFlash('Transaction Fees Settings updated successfully!', 'flash_good');
-                $this->redirect(array('controller' => 'Users', 'action' => 'myaccount', 'transaction_fees'));
+                //$this->redirect(array('controller' => 'Users', 'action' => 'myaccount', 'transaction_fees'));
+                $this->redirect(array('controller' => 'Users', 'action' => 'myaccount'));
             }
         }
     }

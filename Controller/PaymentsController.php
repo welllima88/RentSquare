@@ -224,6 +224,16 @@ class PaymentsController extends AppController {
                $this->redirect(array('action' => 'index', 'failed', number_format($amount, 2)));
             }
 
+            // Log bc results
+            $bcr = array();
+            $bcr['users_id'] = $this->Auth->user('id');
+            $bcr['result_code'] = $payResult->status;
+            $bcr['result_string'] = $jpayResult;
+            $bcr['transtype'] = "paycont Rent Payment";
+            $this->loadModel('Bcresult');
+            $this->Bcresult->create();
+            $this->Bcresult->save($bcr);
+
             if ( isset($payResult) && $payResult->status == 1 )
             {
                 $transactionid = $payResult->info;

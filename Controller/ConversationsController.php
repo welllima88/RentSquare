@@ -77,7 +77,8 @@ class ConversationsController extends AppController {
         $this->Paginator->settings = array(
             'Message' => array(
                 'limit'   => Configure::read('RS.MsgsPerPage'),
-                'order'   => array('Message.created' => 'DESC'),
+                //'order'   => array('Message.created' => 'DESC'),
+                'order'   => array('Conversation.last_msg_time' => 'DESC'),
                 'group'   => array('Message.conversation_id'),
                 'contain' => array(
                     'Conversation' => array(

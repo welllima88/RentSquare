@@ -46,37 +46,29 @@ class User extends AppModel {
                 'message' => 'Sorry, this email already exists',
                 'on'      => 'create'
             ),
-            'notEmpty' => array(
-                'rule'       => 'notEmpty',
+            'notBlank' => array(
+                'rule'       => 'notBlank',
                 'required'   => true,
                 'allowEmpty' => false,
                 'message'    => 'Please enter a valid email address'
             )
         ),
-        //'confirm_email' => array(
-        //	'rule' => 'confirmEmail',
-        //	'message' => 'Your email addresses do not match'
-        //	),
         'password_orig'  => array(
             'length' => array(
                 'rule'    => array('minLength', 7),
                 'message' => 'Must be at least 7 characters long'
-            )//,
-            //'confirm_check' => array(
-            //	'rule' => 'confirmPassword',
-            //	'message' => 'Your passwords do not match'
-            //	)
+            )
         ),
         'street'         => array(
-            'rule'    => 'notEmpty',
+            'rule'    => 'notBlank',
             'message' => 'Please enter a Home Address'
         ),
         'city'           => array(
-            'rule'    => 'notEmpty',
+            'rule'    => 'notBlank',
             'message' => 'Please enter a City'
         ),
         'state'          => array(
-            'rule'    => 'notEmpty',
+            'rule'    => 'notBlank',
             'message' => 'Please enter a State'
         ),
         'zip'            => array(
@@ -91,7 +83,7 @@ class User extends AppModel {
         ),
         'company_name'   => array(
             'noEmpty' => array(
-                'rule'    => 'notEmpty',
+                'rule'    => 'notBlank',
                 'message' => 'Please enter your Company Name'
             ),
             'length'  => array(
@@ -101,7 +93,7 @@ class User extends AppModel {
         ),
         'phone'          => array(
             'noEmpty' => array(
-                'rule'    => 'notEmpty',
+                'rule'    => 'notBlank',
                 'message' => 'Please enter a Phone Number'
             ),
             'length'  => array(
@@ -115,7 +107,7 @@ class User extends AppModel {
         ),
         'requested_unit' => array(
             'noEmpty' => array(
-                'rule'    => 'notEmpty',
+                'rule'    => 'notBlank',
                 'message' => ''
             )
         )

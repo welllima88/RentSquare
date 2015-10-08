@@ -137,6 +137,8 @@ class UnitsController extends AppController {
         $this->managerCheck();
         $this->activePropertyCheck();
 
+        $this->log("DEL UNIT FREE RENT: unit_id = $unit_id", 'debug');
+
         if ( !empty($unit_id) )
         {
             $today = date('Y-m-d 00:00:00');
@@ -312,7 +314,18 @@ class UnitsController extends AppController {
                 $data['Unit']['rent_start'] = $data['Unit']['current_due_date'];
             }
 
-            debug($data);
+            // If freeRents being added, we need to grab dates from Unit data
+            if ( !empty($data['FreeRent']) )
+            {
+               foreach( $data['FreeRent'] as $idx => $frdata )
+               {
+                  $frdates = explode( '-', $data['Unit'][$idx]['free_rent'] );
+
+                  $data['FreeRent'][$idx]['billing_start'] = preg_replace('/\s+/','',$frdates['0']);
+                  $data['FreeRent'][$idx]['billing_end']   = preg_replace('/\s+/','',$frdates['1']);
+               }
+            }
+
             if ( $this->Unit->saveAll($data) )
             {
                 $this->Session->setFlash('Saved.', 'flash_good');

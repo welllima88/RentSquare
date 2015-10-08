@@ -72,7 +72,7 @@ class Conversation extends AppModel {
         if ( ClassRegistry::init('ConversationsUser')->userHasAccess($uid, $id) )
         {
             $this->contain(array(
-                    'Message'           => array('order' => array('Message.created ASC'), 'Sender' => array('Unit' => array('fields' => 'number'))),
+                    'Message'           => array('order' => array('Message.created DESC'), 'Sender' => array('Unit' => array('fields' => 'number'))),
                     'ConversationsUser' => array('User' => array('Unit' => array('fields' => 'number')))
                 )
             );
