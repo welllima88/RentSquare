@@ -59,9 +59,9 @@
                     echo '</li></ul><div class="clear"></div><br>';
                     echo '<div class="row-fluid legal_name_div">';
                     //Company Legal Name
-                    echo $this->Form->input('Property.legal_name', array('label' => 'Company Legal Name<br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'div' => array('class'=>'span6'),'class'=>'comp_legal_name validate[required]'));
+                    echo $this->Form->input('Property.legal_name', array('label' => 'Company Legal Name <span style="font-size: 11px;">(If you are a sole proprietor you may enter your legal name here.)</span><br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'div' => array('class'=>'span8'),'class'=>'comp_legal_name validate[required]'));
                     //State Inc
-                    echo $this->Form->input('Property.state_inc', array('label' => 'State Incorporated<br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'div'=>array('class'=>'span6'),'type'=>'select','options'=>$states,'empty'=>'Select State','class'=>'validate[required]'));
+                    echo $this->Form->input('Property.state_inc', array('label' => 'State Incorporated<br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'div'=>array('class'=>'span4'),'type'=>'select','options'=>$states,'empty'=>'Select State','class'=>'validate[required]'));
                     //DBA
                     //echo $this->Form->input('Property.legal_dba', array('label' => 'Doing Business As (DBA)<br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'div' => array('class'=>'span6'),'class'=>'validate[required]'));
                     echo '</div><!-- .row -->';	

@@ -128,8 +128,9 @@ class PropertiesController extends AppController {
                     //Save Property Manager in Database
                     if ( $this->Property->save($data) )
                     {
-                        $this->Session->setFlash('Property Saved.', 'flash_success');
-                        $this->redirect(array('controller' => 'Billing', 'action' => 'index'));
+                        $this->Session->setFlash('Property Saved.', 'flash_good');
+                        //$this->redirect(array('controller' => 'Billing', 'action' => 'index'));
+                        $this->redirect(array('controller' => 'Properties', 'action' => 'select', $this->Property->getLastInsertID()));
 
                     } else
                     {

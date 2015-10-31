@@ -47392,3 +47392,1285 @@ Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
 2015-10-08 00:55:33 Debug: User Controller pre save assoc: 
 2015-10-08 00:55:33 Debug: User Controller save succes: 284
 2015-10-08 00:55:41 Debug: Merchant App Results: "[1,\"\"]"
+2015-10-08 01:19:34 Notice: Notice (8): Undefined variable: debug in [/home2/onepage3/public_html/app/View/Conversations/inbox.ctp, line 31]
+Trace:
+include - APP/View/Conversations/inbox.ctp, line 31
+View::_evaluate() - CORE/Cake/View/View.php, line 971
+View::_render() - CORE/Cake/View/View.php, line 933
+View::render() - CORE/Cake/View/View.php, line 473
+Controller::render() - CORE/Cake/Controller/Controller.php, line 960
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 200
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 01:19:34 Notice: Notice (8): Undefined variable: debug in [/home2/onepage3/public_html/app/View/Conversations/inbox.ctp, line 31]
+Trace:
+include - APP/View/Conversations/inbox.ctp, line 31
+View::_evaluate() - CORE/Cake/View/View.php, line 971
+View::_render() - CORE/Cake/View/View.php, line 933
+View::render() - CORE/Cake/View/View.php, line 473
+Controller::render() - CORE/Cake/Controller/Controller.php, line 960
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 200
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 01:27:15 Debug: Success: Vault add card for tenant - token = 974079c5e18fd39276567d04186602694d0ee652c1daf3e2e0f81b50c4df6599
+2015-10-08 01:27:15 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+Model::_doSave() - CORE/Cake/Model/Model.php, line 1829
+Model::save() - CORE/Cake/Model/Model.php, line 1751
+PaymentMethodsController::add_cc() - APP/Controller/PaymentMethodsController.php, line 132
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 01:27:15 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+Model::_doSave() - CORE/Cake/Model/Model.php, line 1829
+Model::save() - CORE/Cake/Model/Model.php, line 1751
+PaymentMethodsController::add_cc() - APP/Controller/PaymentMethodsController.php, line 132
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 01:27:15 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+Model::_doSave() - CORE/Cake/Model/Model.php, line 1829
+Model::save() - CORE/Cake/Model/Model.php, line 1751
+PaymentMethodsController::add_cc() - APP/Controller/PaymentMethodsController.php, line 132
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 01:27:15 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+Model::_doSave() - CORE/Cake/Model/Model.php, line 1829
+Model::save() - CORE/Cake/Model/Model.php, line 1751
+PaymentMethodsController::add_cc() - APP/Controller/PaymentMethodsController.php, line 132
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 01:27:15 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+Model::_doSave() - CORE/Cake/Model/Model.php, line 1829
+Model::save() - CORE/Cake/Model/Model.php, line 1751
+PaymentMethodsController::add_cc() - APP/Controller/PaymentMethodsController.php, line 132
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 01:27:15 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+Model::_doSave() - CORE/Cake/Model/Model.php, line 1829
+Model::save() - CORE/Cake/Model/Model.php, line 1751
+PaymentMethodsController::add_cc() - APP/Controller/PaymentMethodsController.php, line 132
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 01:27:15 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+Model::_doSave() - CORE/Cake/Model/Model.php, line 1829
+Model::save() - CORE/Cake/Model/Model.php, line 1751
+PaymentMethodsController::add_cc() - APP/Controller/PaymentMethodsController.php, line 132
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 01:27:15 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+Model::_doSave() - CORE/Cake/Model/Model.php, line 1829
+Model::save() - CORE/Cake/Model/Model.php, line 1751
+PaymentMethodsController::add_cc() - APP/Controller/PaymentMethodsController.php, line 132
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 01:27:15 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+Model::_doSave() - CORE/Cake/Model/Model.php, line 1829
+Model::save() - CORE/Cake/Model/Model.php, line 1751
+PaymentMethodsController::add_cc() - APP/Controller/PaymentMethodsController.php, line 132
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 01:33:29 Notice: Notice (8): Undefined variable: responsetext in [/home2/onepage3/public_html/app/Controller/PaymentMethodsController.php, line 157]
+Trace:
+PaymentMethodsController::add_cc() - APP/Controller/PaymentMethodsController.php, line 157
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 01:38:08 Debug: Success: Vault add card for tenant - token = 366b140527ec62cbb8512a3b37e1e081c58593f57988ae3d9b0afa6fa223b9fd
+2015-10-08 01:38:08 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+Model::_doSave() - CORE/Cake/Model/Model.php, line 1829
+Model::save() - CORE/Cake/Model/Model.php, line 1751
+PaymentMethodsController::add_cc() - APP/Controller/PaymentMethodsController.php, line 132
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 01:38:08 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+Model::_doSave() - CORE/Cake/Model/Model.php, line 1829
+Model::save() - CORE/Cake/Model/Model.php, line 1751
+PaymentMethodsController::add_cc() - APP/Controller/PaymentMethodsController.php, line 132
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 01:38:08 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+Model::_doSave() - CORE/Cake/Model/Model.php, line 1829
+Model::save() - CORE/Cake/Model/Model.php, line 1751
+PaymentMethodsController::add_cc() - APP/Controller/PaymentMethodsController.php, line 132
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 01:38:08 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+Model::_doSave() - CORE/Cake/Model/Model.php, line 1829
+Model::save() - CORE/Cake/Model/Model.php, line 1751
+PaymentMethodsController::add_cc() - APP/Controller/PaymentMethodsController.php, line 132
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 01:38:08 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+Model::_doSave() - CORE/Cake/Model/Model.php, line 1829
+Model::save() - CORE/Cake/Model/Model.php, line 1751
+PaymentMethodsController::add_cc() - APP/Controller/PaymentMethodsController.php, line 132
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 01:38:08 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+Model::_doSave() - CORE/Cake/Model/Model.php, line 1829
+Model::save() - CORE/Cake/Model/Model.php, line 1751
+PaymentMethodsController::add_cc() - APP/Controller/PaymentMethodsController.php, line 132
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 01:38:08 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+Model::_doSave() - CORE/Cake/Model/Model.php, line 1829
+Model::save() - CORE/Cake/Model/Model.php, line 1751
+PaymentMethodsController::add_cc() - APP/Controller/PaymentMethodsController.php, line 132
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 01:38:08 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+Model::_doSave() - CORE/Cake/Model/Model.php, line 1829
+Model::save() - CORE/Cake/Model/Model.php, line 1751
+PaymentMethodsController::add_cc() - APP/Controller/PaymentMethodsController.php, line 132
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 01:38:08 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+Model::_doSave() - CORE/Cake/Model/Model.php, line 1829
+Model::save() - CORE/Cake/Model/Model.php, line 1751
+PaymentMethodsController::add_cc() - APP/Controller/PaymentMethodsController.php, line 132
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 01:48:02 Debug: 
+MonthlyFeeShell::main() - APP/Console/Command/MonthlyFeeShell.php, line 45
+Shell::runCommand() - CORE/Cake/Console/Shell.php, line 447
+ShellDispatcher::dispatch() - CORE/Cake/Console/ShellDispatcher.php, line 212
+ShellDispatcher::run() - CORE/Cake/Console/ShellDispatcher.php, line 66
+[main] - APP/Console/cake.php, line 40
+array(
+	'total_amt' => (int) 50,
+	'payer_vault_id' => '2619089fe5842582c9c6bef1651bcd830e50172813c9c1f6ad33f8c9147ba90c'
+)
+2015-10-08 01:48:02 Notice: Undefined index: pay_method in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 384]
+2015-10-08 01:48:04 Debug: 
+MonthlyFeeShell::main() - APP/Console/Command/MonthlyFeeShell.php, line 51
+Shell::runCommand() - CORE/Cake/Console/Shell.php, line 447
+ShellDispatcher::dispatch() - CORE/Cake/Console/ShellDispatcher.php, line 212
+ShellDispatcher::run() - CORE/Cake/Console/ShellDispatcher.php, line 66
+[main] - APP/Console/cake.php, line 40
+object(stdClass) {
+	status => '1'
+	info => (int) 136503
+}
+2015-10-08 01:57:55 Debug: 
+Paymethodbasecommerce::processCreditCardTransaction() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 432
+Paymethodbasecommerce::process_rent_payment() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 371
+Paymethodutils::rentPayment() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 40
+PaymentsController::payrent() - APP/Controller/PaymentsController.php, line 216
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+array(
+	'pay_method' => 'CC',
+	'payer_vault_id' => '68eedcdeb693c3913483eae27d110aea407915777e68793c353880b58aad8700',
+	'total_amt' => (float) 232.215,
+	'fee_amt' => (float) 6.215,
+	'rsq_vault_id' => '35f13807dcc0dd4ecbc2494b4177069d6ff7551e40b9efb8dcdd21e85c6b712f'
+)
+2015-10-08 01:57:55 Debug: 
+Paymethodbasecommerce::processCreditCardTransaction() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 452
+Paymethodbasecommerce::process_rent_payment() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 371
+Paymethodutils::rentPayment() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 40
+PaymentsController::payrent() - APP/Controller/PaymentsController.php, line 216
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+object(BankCardTransaction) {
+	[private] io_billing_address => object(Address) {}
+	[private] is_type => 'SALE'
+	[private] is_card_number => null
+	[private] is_card_name => null
+	[private] is_card_exp_month => null
+	[private] is_card_exp_year => null
+	[private] is_card_cvv2 => null
+	[private] is_card_track1_data => null
+	[private] is_card_track2_data => null
+	[private] is_ip_address => null
+	[private] is_po_number => null
+	[private] is_authorization_code => null
+	[private] is_response_code => null
+	[private] is_status => null
+	[private] is_response_message => null
+	[private] is_cvv_response_code => null
+	[private] is_avs_response_code => null
+	[private] is_encrypted_track_data => null
+	[private] is_merchant_transaction_id => null
+	[private] is_bank_card_transaction_verify_complete_url => null
+	[private] is_bank_card_transaction_verify_url => null
+	[private] id_amount => (float) 232.215
+	[private] id_tax_amount => null
+	[private] id_tip_amount => null
+	[private] in_transaction_id => null
+	[private] in_bank_card_transaction_settlement_batch_id => null
+	[private] ib_check_secure_code => null
+	[private] ib_bank_card_transaction_recurring_indicator => null
+	[private] is_token => '68eedcdeb693c3913483eae27d110aea407915777e68793c353880b58aad8700'
+	[private] is_custom_field1 => null
+	[private] is_custom_field2 => null
+	[private] is_custom_field3 => null
+	[private] is_custom_field4 => null
+	[private] is_custom_field5 => null
+	[private] is_custom_field6 => null
+	[private] is_custom_field7 => null
+	[private] is_custom_field8 => null
+	[private] is_custom_field9 => null
+	[private] is_custom_field10 => '35f13807dcc0dd4ecbc2494b4177069d6ff7551e40b9efb8dcdd21e85c6b712f,6.215'
+	[private] io_messages => array()
+	[private] io_bank_card_transaction_settlement_date => null
+	[private] io_bank_card_transaction_creation_date => null
+	[private] is_cipher_pay_uuid => null
+}
+2015-10-08 01:57:55 Debug: 
+Paymethodbasecommerce::processCreditCardTransaction() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 453
+Paymethodbasecommerce::process_rent_payment() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 371
+Paymethodutils::rentPayment() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 40
+PaymentsController::payrent() - APP/Controller/PaymentsController.php, line 216
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+object(BaseCommerceClient) {
+	[private] is_url => 'https://gateway.basecommerce.com'
+	[private] is_sandbox_url => 'https://gateway.basecommercesandbox.com'
+	[private] is_gateway_username => 'freedomfflowcrop1'
+	[private] is_gateway_password => 'irdX845VD53ALfcRPoJa'
+	[private] is_key => 'C4D0B07FD602D62351D5ECCD8F13A8389DDCC880432A4683'
+	[private] is_last_session_id => null
+	[private] ib_sandbox => true
+}
+2015-10-08 02:13:41 Notice: Notice (8): Undefined index: billing_address1 in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 40]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 40
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 89
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 02:13:41 Notice: Notice (8): Undefined index: billing_city in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 49]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 49
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 89
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 02:13:41 Notice: Notice (8): Undefined variable: billing_state in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 56]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 56
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 89
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 02:13:41 Notice: Notice (8): Undefined variable: property in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 57]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 57
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 89
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 02:13:41 Notice: Notice (8): Undefined index: usertype in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 61]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 61
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 89
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 02:13:41 Debug: Success: Vault add prop mgr - token = e397a8db85ced0c30b38f4319a07b3e37958dbde90b2547fa54073879b3a9905
+2015-10-08 02:13:41 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+Model::_doSave() - CORE/Cake/Model/Model.php, line 1829
+Model::save() - CORE/Cake/Model/Model.php, line 1751
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 118
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 02:13:41 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+Model::_doSave() - CORE/Cake/Model/Model.php, line 1829
+Model::save() - CORE/Cake/Model/Model.php, line 1751
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 118
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 02:13:41 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+Model::_doSave() - CORE/Cake/Model/Model.php, line 1829
+Model::save() - CORE/Cake/Model/Model.php, line 1751
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 118
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 02:13:42 Notice: Notice (1024): Element Not Found: Elements/flash_success.ctp in [/home2/onepage3/public_html/lib/Cake/View/View.php, line 425]
+Trace:
+View::element() - CORE/Cake/View/View.php, line 425
+SessionHelper::flash() - CORE/Cake/View/Helper/SessionHelper.php, line 159
+include - APP/View/Layouts/back.ctp, line 102
+View::_evaluate() - CORE/Cake/View/View.php, line 971
+View::_render() - CORE/Cake/View/View.php, line 933
+View::renderLayout() - CORE/Cake/View/View.php, line 546
+View::render() - CORE/Cake/View/View.php, line 481
+Controller::render() - CORE/Cake/Controller/Controller.php, line 960
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 200
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 02:18:03 Notice: Notice (8): Undefined index: billing_address1 in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 40]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 40
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 89
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 02:18:03 Notice: Notice (8): Undefined index: billing_city in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 49]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 49
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 89
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 02:18:03 Notice: Notice (8): Undefined variable: billing_state in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 56]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 56
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 89
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 02:18:03 Notice: Notice (8): Undefined variable: property in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 57]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 57
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 89
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 02:18:03 Notice: Notice (8): Undefined index: usertype in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 61]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 61
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 89
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 02:18:03 Debug: Success: Vault add prop mgr - token = af5d6534ad3bec47a1ffd9f7b205f99b5d2aa56e08f74fa88ab7314cfa601358
+2015-10-08 02:18:03 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+Model::_doSave() - CORE/Cake/Model/Model.php, line 1829
+Model::save() - CORE/Cake/Model/Model.php, line 1751
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 118
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 02:18:03 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+Model::_doSave() - CORE/Cake/Model/Model.php, line 1829
+Model::save() - CORE/Cake/Model/Model.php, line 1751
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 118
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 02:18:03 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+Model::_doSave() - CORE/Cake/Model/Model.php, line 1829
+Model::save() - CORE/Cake/Model/Model.php, line 1751
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 118
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 02:18:04 Notice: Notice (1024): Element Not Found: Elements/flash_success.ctp in [/home2/onepage3/public_html/lib/Cake/View/View.php, line 425]
+Trace:
+View::element() - CORE/Cake/View/View.php, line 425
+SessionHelper::flash() - CORE/Cake/View/Helper/SessionHelper.php, line 159
+include - APP/View/Layouts/back.ctp, line 102
+View::_evaluate() - CORE/Cake/View/View.php, line 971
+View::_render() - CORE/Cake/View/View.php, line 933
+View::renderLayout() - CORE/Cake/View/View.php, line 546
+View::render() - CORE/Cake/View/View.php, line 481
+Controller::render() - CORE/Cake/Controller/Controller.php, line 960
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 200
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 02:23:54 Notice: Notice (8): Undefined index: billing_address1 in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 40]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 40
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 89
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 02:23:54 Notice: Notice (8): Undefined index: billing_city in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 49]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 49
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 89
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 02:23:54 Notice: Notice (8): Undefined variable: billing_state in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 56]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 56
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 89
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 02:23:54 Notice: Notice (8): Undefined variable: property in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 57]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 57
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 89
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 02:23:54 Notice: Notice (8): Undefined index: usertype in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 61]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 61
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 89
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 02:23:54 Debug: Success: Vault add prop mgr - token = bd872051f334f3d66da275d7909589bbda30d100f810be805e4fa0f9cf414e2b
+2015-10-08 02:23:54 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+Model::_doSave() - CORE/Cake/Model/Model.php, line 1829
+Model::save() - CORE/Cake/Model/Model.php, line 1751
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 118
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 02:23:54 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+Model::_doSave() - CORE/Cake/Model/Model.php, line 1829
+Model::save() - CORE/Cake/Model/Model.php, line 1751
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 118
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 02:23:54 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+Model::_doSave() - CORE/Cake/Model/Model.php, line 1829
+Model::save() - CORE/Cake/Model/Model.php, line 1751
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 118
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 02:23:55 Notice: Notice (1024): Element Not Found: Elements/flash_success.ctp in [/home2/onepage3/public_html/lib/Cake/View/View.php, line 425]
+Trace:
+View::element() - CORE/Cake/View/View.php, line 425
+SessionHelper::flash() - CORE/Cake/View/Helper/SessionHelper.php, line 159
+include - APP/View/Billing/index.ctp.orig, line 24
+View::_evaluate() - CORE/Cake/View/View.php, line 971
+View::_render() - CORE/Cake/View/View.php, line 933
+View::render() - CORE/Cake/View/View.php, line 473
+Controller::render() - CORE/Cake/Controller/Controller.php, line 960
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 200
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 02:29:47 Notice: Notice (8): Undefined index: billing_address1 in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 40]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 40
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 89
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 02:29:47 Notice: Notice (8): Undefined index: billing_city in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 49]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 49
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 89
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 02:29:47 Notice: Notice (8): Undefined variable: billing_state in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 56]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 56
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 89
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 02:29:47 Notice: Notice (8): Undefined variable: property in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 57]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 57
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 89
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 02:29:47 Notice: Notice (8): Undefined index: usertype in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 61]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 61
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 89
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 02:29:47 Debug: Success: Vault add prop mgr - token = 16bb272dc2f4df86f4ad34e1341b11fc52f10ab8f56de62690a28d98db02ff90
+2015-10-08 02:29:47 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+Model::_doSave() - CORE/Cake/Model/Model.php, line 1829
+Model::save() - CORE/Cake/Model/Model.php, line 1751
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 118
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 02:29:47 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+Model::_doSave() - CORE/Cake/Model/Model.php, line 1829
+Model::save() - CORE/Cake/Model/Model.php, line 1751
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 118
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 02:29:47 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+Model::_doSave() - CORE/Cake/Model/Model.php, line 1829
+Model::save() - CORE/Cake/Model/Model.php, line 1751
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 118
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 02:29:49 Notice: Notice (1024): Element Not Found: Elements/flash_success.ctp in [/home2/onepage3/public_html/lib/Cake/View/View.php, line 425]
+Trace:
+View::element() - CORE/Cake/View/View.php, line 425
+SessionHelper::flash() - CORE/Cake/View/Helper/SessionHelper.php, line 159
+include - APP/View/Billing/index.ctp.orig, line 24
+View::_evaluate() - CORE/Cake/View/View.php, line 971
+View::_render() - CORE/Cake/View/View.php, line 933
+View::render() - CORE/Cake/View/View.php, line 473
+Controller::render() - CORE/Cake/Controller/Controller.php, line 960
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 200
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 02:51:45 Notice: Notice (8): Undefined index: billing_address1 in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 40]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 40
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 89
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 02:51:45 Notice: Notice (8): Undefined index: billing_city in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 49]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 49
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 89
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 02:51:45 Notice: Notice (8): Undefined variable: billing_state in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 56]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 56
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 89
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 02:51:45 Notice: Notice (8): Undefined variable: property in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 57]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 57
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 89
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 02:51:45 Notice: Notice (8): Undefined index: usertype in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 61]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 61
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 89
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 02:51:45 Debug: Success: Vault add prop mgr - token = 849624e4b662739ddb42c81789b31393bb3893778721292eeed7db5c484b8ffc
+2015-10-08 02:51:45 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+Model::_doSave() - CORE/Cake/Model/Model.php, line 1829
+Model::save() - CORE/Cake/Model/Model.php, line 1751
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 118
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 02:51:45 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+Model::_doSave() - CORE/Cake/Model/Model.php, line 1829
+Model::save() - CORE/Cake/Model/Model.php, line 1751
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 118
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-08 02:51:45 Notice: Deprecated (16384): Validation::notEmpty() is deprecated. Use Validation::notBlank() instead. in [/home2/onepage3/public_html/lib/Cake/Utility/Validation.php, line 60]
+Trace:
+Validation::notEmpty() - CORE/Cake/Utility/Validation.php, line 60
+CakeValidationRule::process() - CORE/Cake/Model/Validator/CakeValidationRule.php, line 277
+CakeValidationSet::validate() - CORE/Cake/Model/Validator/CakeValidationSet.php, line 135
+ModelValidator::errors() - CORE/Cake/Model/ModelValidator.php, line 268
+ModelValidator::validates() - CORE/Cake/Model/ModelValidator.php, line 99
+Model::validates() - CORE/Cake/Model/Model.php, line 3460
+Model::_doSave() - CORE/Cake/Model/Model.php, line 1829
+Model::save() - CORE/Cake/Model/Model.php, line 1751
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 118
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-13 05:11:34 Notice: Notice (8): Undefined index: billing_address1 in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 40]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 40
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 89
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-13 05:11:35 Notice: Notice (8): Undefined index: billing_city in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 49]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 49
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 89
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-13 05:11:35 Notice: Notice (8): Undefined variable: billing_state in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 56]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 56
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 89
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-13 05:11:35 Notice: Notice (8): Undefined variable: property in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 57]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 57
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 89
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-13 05:11:35 Notice: Notice (8): Undefined index: usertype in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 61]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 61
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 89
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-13 05:11:41 Notice: Notice (8): Undefined index: billing_address1 in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 40]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 40
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 89
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-13 05:11:41 Notice: Notice (8): Undefined index: billing_city in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 49]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 49
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 89
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-13 05:11:41 Notice: Notice (8): Undefined variable: billing_state in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 56]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 56
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 89
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-13 05:11:41 Notice: Notice (8): Undefined variable: property in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 57]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 57
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 89
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-13 05:11:41 Notice: Notice (8): Undefined index: usertype in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 61]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 61
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 89
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-13 05:11:49 Notice: Notice (8): Undefined index: billing_address1 in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 40]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 40
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 89
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-13 05:11:49 Notice: Notice (8): Undefined index: billing_city in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 49]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 49
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 89
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-13 05:11:49 Notice: Notice (8): Undefined variable: billing_state in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 56]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 56
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 89
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-13 05:11:49 Notice: Notice (8): Undefined variable: property in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 57]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 57
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 89
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-13 05:11:49 Notice: Notice (8): Undefined index: usertype in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 61]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 61
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 89
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-13 05:11:59 Notice: Notice (8): Undefined index: billing_address1 in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 40]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 40
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 89
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-13 05:11:59 Notice: Notice (8): Undefined index: billing_city in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 49]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 49
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 89
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-13 05:11:59 Notice: Notice (8): Undefined variable: billing_state in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 56]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 56
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 89
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-13 05:11:59 Notice: Notice (8): Undefined variable: property in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 57]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 57
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 89
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-13 05:11:59 Notice: Notice (8): Undefined index: usertype in [/home2/onepage3/public_html/app/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 61]
+Trace:
+Paymethodbasecommerce::vault_add_bank_account() - APP/Vendor/Interfaces/PayMethods/PayMethodBasecommerce.php, line 61
+Paymethodutils::addBankToVault() - APP/Vendor/Interfaces/PayMethods/PayMethodUtils.php, line 26
+PropertiesController::add() - APP/Controller/PropertiesController.php, line 89
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-31 21:45:30 Notice: Notice (8): Undefined variable: debug in [/home2/onepage3/public_html/app/View/Conversations/inbox.ctp, line 31]
+Trace:
+include - APP/View/Conversations/inbox.ctp, line 31
+View::_evaluate() - CORE/Cake/View/View.php, line 971
+View::_render() - CORE/Cake/View/View.php, line 933
+View::render() - CORE/Cake/View/View.php, line 473
+Controller::render() - CORE/Cake/Controller/Controller.php, line 960
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 200
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+
+2015-10-31 21:45:30 Notice: Notice (8): Undefined variable: debug in [/home2/onepage3/public_html/app/View/Conversations/inbox.ctp, line 31]
+Trace:
+include - APP/View/Conversations/inbox.ctp, line 31
+View::_evaluate() - CORE/Cake/View/View.php, line 971
+View::_render() - CORE/Cake/View/View.php, line 933
+View::render() - CORE/Cake/View/View.php, line 473
+Controller::render() - CORE/Cake/Controller/Controller.php, line 960
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 200
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 96
+

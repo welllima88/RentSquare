@@ -21,6 +21,7 @@
 			echo $this->Form->end();
 		?>
 		</div><!-- .date_filter -->
+        <div id='flash-container' style="width: 500px;"><?php echo $this->Session->flash(); ?></div>
 	<div class="page_title">
 		<h1><?php echo __('Payments Overview');?></h1>
 	</div>

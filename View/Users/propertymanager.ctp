@@ -217,7 +217,7 @@
                     echo '</li></ul><div class="clear"></div><br>';
                     echo '<div class="row-fluid legal_name_div">';
                     //Company Legal Name
-                    echo $this->Form->input('Property.0.legal_name', array('label' => 'Company Legal Name <a class="pm_tooltip" href="#" data-toggle="tooltip" title="If the property is owned by a sole proprietor and does not have an official company name, you may enter your full legal name in this field."><i class="icon-question-sign"></i></a><br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'div' => array('class'=>'span6'),'class'=>'comp_legal_name validate[required]'));
+                    echo $this->Form->input('Property.0.legal_name', array('label' => 'Company Legal Name <a class="pm_tooltip" href="#" data-toggle="tooltip" title="If you are a sole proprietor you may enter your legal name here."><i class="icon-question-sign"></i></a><br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'div' => array('class'=>'span6'),'class'=>'comp_legal_name validate[required]'));
                     	 echo $this->Form->input('Property.0.state_inc', array('label' => 'State Incorporated<br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'div'=>array('class'=>'span6'),'type'=>'select','options'=>$states,'empty'=>'Select State','class'=>'validate[required]'));
                       //DBA
                     	//echo $this->Form->input('Property.0.legal_dba', array('label' => 'Doing Business As (DBA)<br>','format'=>array('before', 'label', 'error', 'between', 'input', 'after'),'div' => array('class'=>'span6'),'class'=>'validate[required]'));
