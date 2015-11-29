@@ -118,6 +118,7 @@ class PaymentMethodsController extends AppController {
             $bcr['result_code'] = $cardsave_status;
             $bcr['result_string'] = json_encode($cardsave_result);
             $bcr['transtype'] = "paymeth add Card to Vault";
+            $bcr['request'] = json_encode($paymentmethod);
             $this->loadModel('Bcresult');
             $this->Bcresult->create();
             $this->Bcresult->save($bcr);
@@ -214,6 +215,7 @@ class PaymentMethodsController extends AppController {
             $bcr['result_code'] = $banksave_status;
             $bcr['result_string'] = json_encode($banksave_token);
             $bcr['transtype'] = "paymeth add Bank to Vault";
+            $bcr['request'] = json_encode($paymentmethod);
             $this->loadModel('Bcresult');
             $this->Bcresult->create();
             $this->Bcresult->save($bcr);

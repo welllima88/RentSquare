@@ -50,6 +50,15 @@ class MonthlyFeeShell extends AppShell {
   		      
           Debugger::log( $payrsl );
 
+          // Log bc results
+          $bcr = array();
+          $bcr['result_string'] = ($jpayrsl);
+          $bcr['transtype'] = "Cron-Monthly Fee";
+          $bcr['request'] = json_encode($paydata);
+          $this->loadModel('Bcresult');
+          $this->Bcresult->create();
+          $this->Bcresult->save($bcr);
+
 	  if(isset($payrsl) && !empty($payrsl) && $payrsl->status == 1)
           {
              $this->out('Monthly Fee Successful Charged for Property #'.$property['Property']['id'].' - '.$property['Property']['name']);

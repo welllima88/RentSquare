@@ -37,7 +37,7 @@ To:
 			}
 			?>
 
-			<li class='widget msg-box <?php echo $idx == $nMsgs - 1 ? 'uncollapsed' : 'collapsed'; ?>'>
+			<li class='widget msg-box <?php echo $idx == 0 ? 'uncollapsed' : 'collapsed'; ?>'>
 				<h4>
 					<span class='msg-from <?php echo array_search($msg["Sender"]["username"], $userList);?>'>From: <strong><?php echo $msg['Sender']['first_name'] . ' ' . $msg['Sender']['last_name'] . ' ' . $unit . '</strong>'; ?></span>
 					<span class='msg-date'>

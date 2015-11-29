@@ -322,6 +322,15 @@ Configure::write('debug',2);
                     $payrsl = json_decode($jpayrsl);
 
                     Debugger::log( $payrsl );
+
+                    // Log bc results
+                    $bcr = array();
+                    $bcr['result_string'] = ($jpayrsl);
+                    $bcr['transtype'] = "Cron-Update Billing";
+                    $bcr['request'] = json_encode($paydata);
+                    $this->loadModel('Bcresult');
+                    $this->Bcresult->create();
+                    $this->Bcresult->save($bcr);
           
                     if(isset($payrsl) && !empty($payrsl) && $payrsl->status == 1)
                     {

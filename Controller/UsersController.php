@@ -260,6 +260,7 @@ class UsersController extends AppController {
                         $bcr['result_code'] = $banksave_status;
                         $bcr['result_string'] = json_encode($banksave_result);
                         $bcr['transtype'] = "add Bank Acct";
+                        $bcr['request'] = json_encode($paymentmethod);
                         $this->loadModel('Bcresult');
                         $this->Bcresult->create();
                         $this->Bcresult->save($bcr);
@@ -325,6 +326,7 @@ class UsersController extends AppController {
                     $bcr['result_code'] = $bcrsl[0];
                     $bcr['result_string'] = json_encode($bcrsl);
                     $bcr['transtype'] = "add Merch App";
+                    $bcr['request'] = json_encode($data);
                     $this->loadModel('Bcresult');
                     $this->Bcresult->create();
                     $this->Bcresult->save($bcr);

@@ -366,7 +366,7 @@ jQuery(function(){
 
   //Billing Frequency Additional Information
   jQuery('#UnitBillingFrequency').change(function(){
-    var retVal = confirm("This will delete all Free Rents.  You will need to re-add them based on new billing periods");
+    var retVal = confirm("Changing the billing schedule will clear any free rents that have been previously entered. You will need to re-enter any free rents based on the new billing periods.");
     if (retVal == true)
     {
        jQuery('.freq_input').hide();
@@ -388,7 +388,31 @@ jQuery(function(){
          default:
          break;
        }
+       manageFreeRents();
+       return true;
+    }
+    else
+    {
+       return false;
+    }
+   });
 
+  //Rent due date changes
+  jQuery('#freq_weekly,#freq_monthly,#freq_yearly').change(function(){
+    var retVal = confirm("Changing the billing schedule will clear any free rents that have been previously entered. You will need to re-enter any free rents based on the new billing periods.");
+    if (retVal == true)
+    {
+
+       manageFreeRents();
+       return true;
+    }
+    else
+    {
+       return false;
+    }
+   });
+
+   function manageFreeRents() {
        // Any un-added free-rents sitting there when a change occurs need to be removed as data select is wrong dates now
        $('.add_free_rent_item').hide();
    
@@ -414,15 +438,7 @@ jQuery(function(){
              });
           }
        });
-
-       return true;
-    }
-    else
-    {
-       return false;
-    }
-
-  });
+  }
   
   //Free Rent
   jQuery('#add_free_rent').click(function (){

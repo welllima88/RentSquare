@@ -26,12 +26,18 @@ class PropertiesController extends AppController {
         $MONTHLY_301_TO_400 = MONTHLY_301_TO_400;
         $MONTHLY_OVER_400 = MONTHLY_OVER_400;
         $this->set(compact('MONTHLY_25_OR_LESS', 'MONTHLY_26_TO_50', 'MONTHLY_51_TO_100', 'MONTHLY_101_TO_200', 'MONTHLY_201_TO_300', 'MONTHLY_301_TO_400', 'MONTHLY_OVER_400'));
+
+echo "<br> chkpt 1";
+
         if ( !empty($this->request->data) )
         {
+echo "<br> chkpt 2";
             $this->Property->set($this->request->data);
             if ( $this->Property->validates() )
             {
                 $data = $this->request->data;
+
+echo "<br> chkpt 3";
 
                 //Set Empty values
                 if ( !isset($data['Property']['state_inc']) || $data['Property']['state_inc'] == '' || is_null($data['Property']['state_inc']) ) $data['Property']['state_inc'] = 1;
@@ -61,11 +67,13 @@ class PropertiesController extends AppController {
                 $user = $this->User->findById($this->Auth->user('id'));
                 $data['User'] = $user['User'];
 
+echo "<br> chkpt 4";
                 /*  
                  * PaymentProcessor API
                  */
                 $this->payutil = new Paymethodutils(new Paymethodbasecommerce);
 
+echo "<br> chkpt 5";
                 /*  
 	         * Submit merch app info for new property
                  */
@@ -86,7 +94,9 @@ class PropertiesController extends AppController {
                 $paymentmethod['bank_acct_type'] = $data['Property']['bank_account_type'];
                 $paymentmethod['phone'] = $data['User']['phone'];
                 $paymentmethod['email'] = $data['User']['email'];
+echo "<br> chkpt 6";
                 list($banksave_status, $banksave_result) = $this->payutil->addBankToVault($paymentmethod);
+echo "<br> chkpt 7";
 
                 // Log bc results
                 $bcr = array();
@@ -94,12 +104,15 @@ class PropertiesController extends AppController {
                 $bcr['result_code'] = $banksave_status;
                 $bcr['result_string'] = json_encode($banksave_result);
                 $bcr['transtype'] = "property add Bank Acct";
+                $bcr['request'] = json_encode($paymentmethod);
                 $this->loadModel('Bcresult');
                 $this->Bcresult->create();
                 $this->Bcresult->save($bcr);
 
+echo "<br> chkpt 8";
                 if ( $banksave_status == 1 )
                 {
+echo "<br> chkpt 9";
                     $data['Property']['vault_id'] = $banksave_result;
                     $this->log('Success: Vault add prop mgr - token = ' . $banksave_result, 'debug' );
 
@@ -117,6 +130,7 @@ class PropertiesController extends AppController {
                     $this->PaymentMethod->create();
                     if ( $this->PaymentMethod->save($pmdata) )
                     {
+echo "<br> chkpt 10";
                     }
                     else
                     {
@@ -125,15 +139,18 @@ class PropertiesController extends AppController {
 
                     $data['Property']['vault_id'] = $banksave_result;
 
+echo "<br> chkpt 11";
                     //Save Property Manager in Database
                     if ( $this->Property->save($data) )
                     {
+echo "<br> chkpt 12";
                         $this->Session->setFlash('Property Saved.', 'flash_good');
                         //$this->redirect(array('controller' => 'Billing', 'action' => 'index'));
                         $this->redirect(array('controller' => 'Properties', 'action' => 'select', $this->Property->getLastInsertID()));
 
                     } else
                     {
+echo "<br> chkpt 13";
                         $this->Session->setFlash('Error saving new property. Please contact RentSquare Support.', 'flash_bad');
                     }
 
@@ -141,11 +158,14 @@ class PropertiesController extends AppController {
 
             } else
             {
+echo "<br> chkpt 14";
                 //$errors = $this->User->invalidFields();
                 $this->Session->setFlash('Please enter all required fields', 'flash_bad');
             }
+echo "<br> chkpt 15";
         }
 
+echo "<br> chkpt 16";
     }
 
     function select($id = null)

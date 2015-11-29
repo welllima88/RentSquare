@@ -230,6 +230,7 @@ class PaymentsController extends AppController {
             $bcr['result_code'] = $payResult->status;
             $bcr['result_string'] = $jpayResult;
             $bcr['transtype'] = "paycont Rent Payment";
+            $bcr['request'] = json_encode($data_bc);
             $this->loadModel('Bcresult');
             $this->Bcresult->create();
             $this->Bcresult->save($bcr);

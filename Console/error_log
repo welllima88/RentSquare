@@ -90,3 +90,4 @@
 [07-Oct-2015 19:48:02 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
 [31-Oct-2015 15:42:54 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
 [31-Oct-2015 15:43:25 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
+[07-Nov-2015 17:47:26 America/Denver] PHP Notice:  Undefined index: REMOTE_ADDR in /home2/onepage3/public_html/app/Config/core.php on line 36
